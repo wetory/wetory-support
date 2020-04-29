@@ -108,11 +108,13 @@ class Wetory_Support_Updater {
 
         // We need the access token for private repos
         if (!empty($this->access_token)) {
-            $url = add_query_arg(array("access_token" => $this->access_token), $url);
+            $response = wp_remote_get($url, array('headers' => array('Authorization' => 'token ' . $this->access_token)));
+        } else {
+            $response = wp_remote_get($url);
         }
 
         // Get the results
-        $this->github_API_result = wp_remote_retrieve_body(wp_remote_get($url));
+        $this->github_API_result = wp_remote_retrieve_body($response);
         if (!empty($this->github_API_result)) {
             wetory_write_log("Plugin releases downloaded for " . $this->repo, 'info');
             $this->github_API_result = @json_decode($this->github_API_result);
