@@ -1,0 +1,36 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+/* Widgets */
+.wetory-support-widget.posts-widget ul .post-title {
+    font-size: 1rem !important;
+}
+.wetory-support-widget.posts-widget ul.posts-listing,
+.wetory-support-widget.posts-widget ul.posts-tiles {
+    list-style: none;
+    margin-left: 0;
+}
+.wetory-support-widget.posts-widget ul.posts-listing li .post-thumbnail {
+    float: left;
+    margin-right: 10px;
+}
+.wetory-support-widget.posts-widget ul.posts-tiles li,
+.wetory-support-widget.posts-widget ul.posts-tiles li .post-thumbnail {
+    margin-bottom: 15px;
+}
+.wetory-support-widget.posts-widget .posts-tiles li .post-thumbnail,
+.wetory-support-widget.posts-widget .posts-tiles li .post-title,
+.wetory-support-widget.posts-widget .posts-tiles li .post-date {
+    text-align: center;
+    display: block;
+}
+.wetory-support-widget.posts-widget ul li .post-thumbnail a:hover {
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+}
+.wetory-support-widget.posts-widget .link-wrapper {
+    width: 100%;
+    margin-top: 30px;
+}

@@ -1,0 +1,132 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+/* Tables */
+table.groupped-values td.group {
+    background: #f1f1f1;
+    color: #CCC;
+}
+table.groupped-values tr.group td {
+    border-top: 1px solid #ccd0d4;
+}
+table.wetory-settings-table {
+    margin: 20px 0px;
+}
+table.wetory-settings-table tbody {
+    background: #f1f1f1;
+}
+table.wetory-settings-table tbody tr {
+    border-top: 1px solid #ccd0d4;
+}
+table.wetory-settings-table tbody tr:hover {
+    background: #fff;
+}
+table.wetory-settings-table td,
+table.wetory-settings-table th {
+    padding: 5px 5px;
+} 
+table.wetory-settings-table td.compact,
+table.wetory-settings-table th.compact {
+    width: 1%;
+}
+table.wetory-settings-table td:first-child {
+    font-weight: bold;
+}
+table.wetory-settings-table .col-checkbox,
+table.wetory-settings-table .col-select {
+    text-align: center;
+}
+table.wetory-settings-table td.col-select select {
+    min-width: 50%;
+    max-width: 50%;
+}
+
+/* Tab Navigation */
+.wetory-tabs {
+
+}
+.wetory-tab-link {
+    cursor: pointer;
+}
+.wetory-tab-content {
+    display: none;
+}
+
+/* Links */
+.link-button {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+.link-button .button {
+    padding: 3px 6px;
+    min-height: 20px;
+    line-height: inherit;
+}
+
+/* Tooltips */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.tooltip .tooltip-icon {
+    background: #000;
+    border-radius: 50%;
+    width: 16px;
+    display: inline-block;
+    height: 16px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    line-height: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 3px;
+    position: absolute;
+    z-index: 999;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -110px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Select2 */
+.select2-container {
+    width: 100% !important;
+}
+
+/* Widget */
+.widgets-holder-wrap .widget .widget-link-options {
+    padding: 5px 10px 1px 10px;
+    background: #EEE;
+    margin: -20px 0px 10px;
+}

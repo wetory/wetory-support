@@ -1,0 +1,69 @@
+<?php
+/**
+ * Maintenance page content from Wetory Support plugin
+ *
+ * This file is shown instead of website when maintenance is running.
+ *
+ * @link       https://www.wetory.eu/
+ * @since      1.0.0
+ *
+ * @package    wetory_support
+ * @subpackage wetory_support/public/partials
+ */
+
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>        
+        <title><?php _e('Maintenance Mode', 'wetory-support'); ?></title>
+        <!-- Meta information -->
+        <meta charset="utf-8">
+        <meta name="description" content="<?php _e('Maintenance ongoing on this website.', 'wetory-support'); ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name='robots' content='noindex,nofollow' />
+        <!-- Favicon -->
+        <link href="https://drive.google.com/uc?export=view&id=1UndDrEdDzz262_HUoFngn-n07BBrj6dA" rel="shortcut icon" type="image/x-icon" />
+        <!-- Styles -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://drive.google.com/uc?export=view&id=13aOOPxzib6SEX-pzM0vfBpEMRTUImGEG">
+    </head>
+    <body>
+        <div class="container maintenance-page">                                 
+            <img class="maintenance-logo" src="https://drive.google.com/uc?export=view&id=1QjPby1Pkxq2qFrkEsEcVNnHExwNYoL1u">
+            <h1 class="maintenance-title">
+                <?php _e('Sorry for inconvenience', 'wetory-support'); ?>
+            </h1>  
+            <h4 class="maintenance-text">
+                <?php _e('We are working to give you a better website right now.', 'wetory-support'); ?>
+            </h4> 
+            <p class="maintenance-info">
+                <?php _e('If you are facing problems for long time, let me know via <a href="mailto:admin@wetory.eu">admin@wetory.eu</a>', 'wetory-support'); ?>
+            </p>
+            <img class="maintenance-img" src="https://drive.google.com/uc?export=view&id=1gl7fGGhw20JensxA2ffA6DlcUybsmqCF"/>   
+            <p class="maintenance-counter">
+                <?php _e('Page will refresh in', 'wetory-support') ?> <span id="autorefresh-counter"></span> <?php _e('seconds', 'wetory-support'); ?>
+            </p>
+            <p><?php _e('Wetory Support', 'wetory-support'); ?> &copy; <?php echo date("Y"); ?> | <?php echo wetory_get_created_by_link(); ?></p>
+        </div>
+    </body>
+    <!-- JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script type="text/javascript">
+        var countDown = 30;
+
+        // Lets run page refresh interval countdown
+        function countdown() {
+            setInterval(function () {
+                if (countDown === 0) {
+                    return;
+                }
+                countDown--;
+                document.getElementById('autorefresh-counter').innerHTML = countDown;
+                return countDown;
+            }, 1000);
+        }
+        countdown();
+    </script>
+</html>
