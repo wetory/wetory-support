@@ -101,7 +101,7 @@ if (!function_exists('wetory_maintenance_page')) {
         $maintenance_template = WETORY_SUPPORT_PATH . 'public/partials/wetory-support-maintenance.php';
 
         if ($action == 'create' && !file_exists(WP_CONTENT_DIR . '/maintenance.php')) {
-            wetory_write_log("Creating custom maintenance page " . $maintenance_page);
+            wetory_write_log("Creating custom maintenance page " . $maintenance_page, 'info');
 
             // Modify headers via PHP
             $maintenance_page_php = '<?php ' . PHP_EOL
@@ -121,7 +121,7 @@ if (!function_exists('wetory_maintenance_page')) {
             file_put_contents($maintenance_page, '<?php die();', FILE_APPEND);
         }
         if ($action == 'delete' && file_exists($maintenance_page)) {
-            wetory_write_log("Deleting custom maintenance page " . $maintenance_page);
+            wetory_write_log("Deleting custom maintenance page " . $maintenance_page, 'info');
             unlink($maintenance_page);
         }
     }
