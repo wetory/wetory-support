@@ -64,6 +64,15 @@ table.wetory-settings-table td.col-select select {
     min-height: 20px;
     line-height: inherit;
 }
+/* Content */
+.mp-operations-wrapper {
+    margin: 15px 0 30px;
+}
+.mp-operation-outcome {
+    display: block;
+    margin-top: 10px;
+    color: green;
+}
 
 /* Tooltips */
 .tooltip {

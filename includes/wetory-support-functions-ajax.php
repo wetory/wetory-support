@@ -53,3 +53,41 @@ if (!function_exists('wetory_search_posts_for_options')) {
 
     add_action('wp_ajax_wetory_search_posts_for_options', 'wetory_search_posts_for_options'); // wp_ajax_{action}
 }
+
+if (!function_exists('wetory_create_maintenance_page')) {
+
+    /**
+     * Ajax callback for creating maintenance page
+     * 
+     * Call to another wetory_ function with proper parameter only
+     * 
+     * @since      1.0.4
+     */
+    function wetory_create_maintenance_page() {
+
+        wetory_maintenance_page('create');
+        printf(__('File <strong>maintenance.php</strong> created in <strong>%s</strong>', 'wetory-support'), WP_CONTENT_DIR);
+        die;
+    }
+
+    add_action('wp_ajax_wetory_create_maintenance_page', 'wetory_create_maintenance_page'); // wp_ajax_{action}
+}
+
+if (!function_exists('wetory_delete_maintenance_page')) {
+
+    /**
+     * Ajax callback for deleting maintenance page
+     * 
+     * Call to another wetory_ function with proper parameter only
+     * 
+     * @since      1.0.4
+     */
+    function wetory_delete_maintenance_page() {
+
+        wetory_maintenance_page('delete');
+        printf(__('File <strong>maintenance.php</strong> deleted from <strong>%s</strong>', 'wetory-support'), WP_CONTENT_DIR);
+        die;
+    }
+
+    add_action('wp_ajax_wetory_delete_maintenance_page', 'wetory_delete_maintenance_page'); // wp_ajax_{action}
+}

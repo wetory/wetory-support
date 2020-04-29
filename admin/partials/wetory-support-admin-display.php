@@ -34,21 +34,23 @@
             <?php
             foreach ($plugin_options as $option):
                 $option_out = true;
-                foreach (get_option($option) as $key => $value):
-                    $key_out = true;
-                    foreach ($value as $subkey => $subvalue):
-                        ?>
-                        <tr class="<?php echo ($key_out || $option_out) ? 'group' : ''; ?>">
-                            <td class="<?php echo $option_out ? '' : 'group'; ?>"><?php echo $option; ?></td>
-                            <td class="<?php echo $key_out ? '' : 'group'; ?>"><?php echo $key; ?></td>       
-                            <td><?php echo $subkey; ?></td>                            
-                            <td><?php echo $subvalue; ?></td>
-                        </tr>
-                        <?php
-                        $option_out = false;
-                        $key_out = false;
+                if (get_option($option)) :
+                    foreach (get_option($option) as $key => $value):
+                        $key_out = true;
+                        foreach ($value as $subkey => $subvalue):
+                            ?>
+                            <tr class="<?php echo ($key_out || $option_out) ? 'group' : ''; ?>">
+                                <td class="<?php echo $option_out ? '' : 'group'; ?>"><?php echo $option; ?></td>
+                                <td class="<?php echo $key_out ? '' : 'group'; ?>"><?php echo $key; ?></td>       
+                                <td><?php echo $subkey; ?></td>                            
+                                <td><?php echo $subvalue; ?></td>
+                            </tr>
+                            <?php
+                            $option_out = false;
+                            $key_out = false;
+                        endforeach;
                     endforeach;
-                endforeach;
+                endif;
             endforeach;
             ?>
         </tbody>

@@ -41,6 +41,28 @@
                 $(this).parent().next('div.widget-link-options').css("display", "block");
             }
         });
+        
+        $('input.mp-operation').click(function () {  
+            button = $(this);
+            original_value = button.val();
+            $.ajax({
+                url: ajaxurl, 
+                type: 'post',
+                data: 'action=wetory_' + button.attr('name') + '_maintenance_page',
+                beforeSend: function () {
+                    button.val(button.attr('data-working-text'));
+                },
+                success: function (response) {
+                    $(".mp-operation-outcome").html(response);
+                },
+                error: function () {
+                    // TODO
+                },
+                complete: function () {
+                    button.val(original_value);
+                },
+            });
+        });           
     });
 
 })(jQuery);

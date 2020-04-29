@@ -142,15 +142,7 @@ class Wetory_Support_Settings {
      * all the time when working with website
      */
     private function register_option_actions() {
-        // Handle custom maintenance page use
-        add_action('update_option_wetory-support-general', function($old_value, $value) {
-            $use_cmp = $value['maintenance']['custom-page'];
-            if($use_cmp && $use_cmp == 'on') {
-                wetory_maintenance_page('create');
-            } else {
-                wetory_maintenance_page('delete');
-            }    
-        }, 10, 3);
+        // Code here
     }
 
     /**
@@ -256,24 +248,24 @@ class Wetory_Support_Settings {
                 $settings_page
         );
 
-        unset($args);
-        $args = array(
-            'type' => 'checkbox',
-            'option_name' => $option_name,
-            'option_key' => 'maintenance',
-            'id' => 'maintenance-custom-page',
-            'name' => 'custom-page',
-            'link' => 'https://developer.wordpress.org/reference/functions/wp_maintenance/',
-            'help' => __('Custom maintenance.php file will be generated in wp_content folder.'),
-        );
-        add_settings_field(
-                'maintenance-custom-page',
-                __('Custom maintenance page', 'wetory-support'),
-                array(Callbacks::class, 'render_settings_field'),
-                $settings_page,
-                $settings_section,
-                $args,
-        );
+//        unset($args);
+//        $args = array(
+//            'type' => 'checkbox',
+//            'option_name' => $option_name,
+//            'option_key' => 'maintenance',
+//            'id' => 'maintenance-custom-page',
+//            'name' => 'custom-page',
+//            'link' => 'https://developer.wordpress.org/reference/functions/wp_maintenance/',
+//            'help' => __('Custom maintenance.php file will be generated in wp_content folder.'),
+//        );
+//        add_settings_field(
+//                'maintenance-custom-page',
+//                __('Custom maintenance page', 'wetory-support'),
+//                array(Callbacks::class, 'render_settings_field'),
+//                $settings_page,
+//                $settings_section,
+//                $args,
+//        );
     }
 
     /**
@@ -541,7 +533,16 @@ class Wetory_Support_Settings {
      * @since    1.0.0
      */
     public function print_maintenance_section_info() {
-        _e('Customize maintenance mode behaviour', 'wetory-support');
+        _e('Customize maintenance mode behaviour.', 'wetory-support');
+        ?>
+        <h4><?php _e('Maintenance mode page', 'wetory-support'); ?></h4>
+        <div class="mp-operations-wrapper">          
+            <p><?php _e('Plugin provides template for maintenance page which is shown instead of default maintenance notification panel.', 'wetory-support'); ?></p>
+            <input type="button" name="create" class="mp-operation button" value="<?php _e('Create maintenance page', 'wetory-support'); ?>" data-working-text="<?php _e('Creating page...', 'wetory-support'); ?>"> 
+            <input type="button" name="delete" class="mp-operation button" value="<?php _e('Delete maintenance page', 'wetory-support'); ?>" data-working-text="<?php _e('Deleting page...', 'wetory-support'); ?>">     
+            <span class="mp-operation-outcome"></span>
+        </div>
+        <?php
     }
 
     /**
