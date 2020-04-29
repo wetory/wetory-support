@@ -8,7 +8,13 @@ Download repository [ZIP file](https://github.com/wetory/wetory-support/archive/
 
 ## Usage
 
-New menu **Wetory** is added to the admin sidebar navigation. Go to **Wetory -> Settings** to configure what you want to use from this plugin. Visit **Wetory -> Dashboard** to review all configuraiton in use via sumary table.
+New menu **Wetory** is added to the admin sidebar navigation. Go to **Wetory -> Settings** to configure what you want to use from this plugin. 
+
+![Plugin settings screen](https://github.com/wetory/wetory-support/blob/master/public/images/settings-screen.png)
+
+Visit **Wetory -> Dashboard** to review all configuraiton in use via sumary table.
+
+![Plugin dashboard screen](https://github.com/wetory/wetory-support/blob/master/public/images/dashboard-screen.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
