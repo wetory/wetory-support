@@ -61,6 +61,12 @@ class Wetory_Support_Updater {
     private $access_token;
 
     /**
+     * Flag if plugin is activated
+     * @var type 
+     */
+    private $plugin_activated;
+
+    /**
      * Create new instance
      * 
      * @param string $plugin_file This should have the value __FILE__. Will be getting details about plugin from this later on.
@@ -71,6 +77,7 @@ class Wetory_Support_Updater {
     function __construct($plugin_file, $github_username, $github_repo, $access_token = '') {
         add_filter("pre_set_site_transient_update_plugins", array($this, "set_transitent"));
         add_filter("plugins_api", array($this, "set_plugin_info"), 10, 3);
+        add_filter("upgrader_pre_install", array($this, "pre_install"), 10, 3);
         add_filter("upgrader_post_install", array($this, "post_install"), 10, 3);
 
         $this->plugin_file = $plugin_file;
@@ -190,13 +197,13 @@ class Wetory_Support_Updater {
 
         // If nothing is found, do nothing
         if (empty($response->slug) || $response->slug != $this->slug) {
-            return false;
+            return $false;
         }
 
         // Add our plugin information
         $response->last_updated = $this->github_API_result->published_at;
         $response->slug = $this->slug;
-        $response->plugin_name = $this->plugin_data["Name"];
+        $response->name = $this->plugin_data["Name"];
         $response->version = $this->github_API_result->tag_name;
         $response->author = $this->plugin_data["AuthorName"];
         $response->homepage = $this->plugin_data["PluginURI"];
@@ -245,6 +252,23 @@ class Wetory_Support_Updater {
     }
 
     /**
+     * Perform check before installation starts.
+     *
+     * @since      1.0.3
+     * 
+     * @param  boolean $true
+     * @param  array   $args
+     * @return null
+     */
+    public function pre_install($true, $args) {
+        // Get plugin information
+        $this->initPluginData();
+
+        // Check if the plugin was installed before...
+        $this->plugin_activated = is_plugin_active($this->slug);
+    }
+
+    /**
      * Perform additional actions to successfully install our plugin
      * 
      * @since      1.0.1
@@ -258,9 +282,6 @@ class Wetory_Support_Updater {
         // Get plugin information
         $this->init_plugin_data();
 
-        // Remember if our plugin was previously activated
-        $was_activated = is_plugin_active($this->slug);
-
         /**
          * Since we are hosted in GitHub, our plugin folder would have a dirname of
          * reponame-tagname change it to our original one:
@@ -271,7 +292,7 @@ class Wetory_Support_Updater {
         $result['destination'] = $plugin_folder;
 
         // Re-activate plugin if needed
-        if ($was_activated) {
+        if ($this->plugin_activated) {
             $activate = activate_plugin($this->slug);
         }
 
