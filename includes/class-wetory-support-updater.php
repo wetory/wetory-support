@@ -37,6 +37,12 @@ class Wetory_Support_Updater {
     private $username;
 
     /**
+     * GitHub repository
+     * @var type 
+     */
+    private $repo;
+
+    /**
      * __FILE__ of plugin
      * @var type 
      */
@@ -59,16 +65,19 @@ class Wetory_Support_Updater {
      * 
      * @param string $plugin_file This should have the value __FILE__. Will be getting details about plugin from this later on.
      * @param string $github_username GitHub username
+     * @param string $github_repo GitHub repository
      * @param string $access_token An access token that will allow us to view the details of a private GitHub repo. If your project is hosted in a public GitHub repo, just leave this blank.
      */
-    function __construct($plugin_file, $github_username, $access_token = '') {
+    function __construct($plugin_file, $github_username, $github_repo, $access_token = '') {
         add_filter("pre_set_site_transient_update_plugins", array($this, "set_transitent"));
         add_filter("plugins_api", array($this, "set_plugin_info"), 10, 3);
         add_filter("upgrader_post_install", array($this, "post_install"), 10, 3);
 
         $this->plugin_file = $plugin_file;
         $this->username = $github_username;
-        $this->accessToken = $access_token;
+        $this->repo = $github_repo;
+        $this->access_token = $access_token;
+        wetory_write_log("Register new updater for " . $github_repo, 'info');
     }
 
     /**
@@ -77,7 +86,8 @@ class Wetory_Support_Updater {
      * @since      1.0.1
      */
     private function init_plugin_data() {
-        $this->slug = plugin_basename($this->plugin_file);  
+        wetory_write_log("Initializing updater plugin data for " . $this->repo, 'info');
+        $this->slug = plugin_basename($this->plugin_file);
         $this->plugin_data = get_plugin_data($this->plugin_file);
     }
 
@@ -91,8 +101,10 @@ class Wetory_Support_Updater {
             return;
         }
 
-        // Query the GitHub API. Repository with name same as plugin slug must exist
-        $url = "https://api.github.com/repos/{$this->username}/{$this->slug}/releases";
+        // Query the GitHub API. 
+        $url = "https://api.github.com/repos/{$this->username}/{$this->repo}/releases";
+
+        wetory_write_log("Going to download plugin " . $this->repo . " releases from " . $url, 'info');
 
         // We need the access token for private repos
         if (!empty($this->access_token)) {
@@ -102,6 +114,7 @@ class Wetory_Support_Updater {
         // Get the results
         $this->github_API_result = wp_remote_retrieve_body(wp_remote_get($url));
         if (!empty($this->github_API_result)) {
+            wetory_write_log("Plugin releases downloaded for " . $this->repo, 'info');
             $this->github_API_result = @json_decode($this->github_API_result);
         }
 
@@ -109,6 +122,9 @@ class Wetory_Support_Updater {
         if (is_array($this->github_API_result)) {
             $this->github_API_result = $this->github_API_result[0];
         }
+
+        // Uncomment this to get detailed JSON with all data retrievede from GitHub API
+        //wetory_write_log($this->github_API_result, 'info');
     }
 
     /**
@@ -128,6 +144,9 @@ class Wetory_Support_Updater {
         // Get plugin & GitHub release information
         $this->init_plugin_data();
         $this->get_repo_release_info();
+
+        wetory_write_log("Latest release version - " . $this->repo . ": " . $this->github_API_result->tag_name, 'info');
+        wetory_write_log("Installed version - " . $this->repo . ": " . $transient->checked[$this->slug], 'info');
 
         // Check the versions if we need to do an update
         $do_update = version_compare($this->github_API_result->tag_name, $transient->checked[$this->slug]);
@@ -194,7 +213,7 @@ class Wetory_Support_Updater {
 
         // Create tabs in the lightbox
         $response->sections = array(
-            'description' => $this->pluginData["Description"],
+            'description' => $this->plugin_data["Description"],
             'changelog' => class_exists("Parsedown") ? Parsedown::instance()->parse($this->github_API_result->body) : $this->github_API_result->body
         );
 

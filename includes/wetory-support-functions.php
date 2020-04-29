@@ -53,13 +53,15 @@ if (!function_exists('wetory_write_log')) {
      * 
      * @since      1.0.0
      * @param mixed $log What you want o write to log
+     * @param string $severity You can write to log with severity. It is show at the beginning on log message. By default "issue".
      */
-    function wetory_write_log($log) {
+    function wetory_write_log($log, $severity = 'issue') {
+        $prepend = 'Wetory ' . ucwords($severity) . ": ";
         if (is_array($log) || is_object($log)) {
-            error_log("Wetory Issue: ");
+            error_log($prepend);
             error_log(print_r($log, true));
         } else {
-            error_log("Wetory Issue: " . $log);
+            error_log($prepend . $log);
         }
     }
 
@@ -97,7 +99,7 @@ if (!function_exists('wetory_maintenance_page')) {
     function wetory_maintenance_page(string $action = 'create') {
         $maintenance_page = WP_CONTENT_DIR . '/maintenance.php';
         $maintenance_template = WETORY_SUPPORT_PATH . 'public/partials/wetory-support-maintenance.php';
-        
+
         if ($action == 'create' && !file_exists(WP_CONTENT_DIR . '/maintenance.php')) {
             wetory_write_log("Creating custom maintenance page " . $maintenance_page);
 
