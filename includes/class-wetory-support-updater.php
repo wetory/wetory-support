@@ -89,7 +89,7 @@ class Wetory_Support_Updater {
         $this->username = $github_username;
         $this->repo = $github_repo;
         $this->access_token = $access_token;
-        
+
         //wetory_write_log("Register new updater for " . $github_repo, 'info');
     }
 
@@ -99,9 +99,9 @@ class Wetory_Support_Updater {
      * @since      1.0.1
      */
     private function init_plugin_data() {
-        
+
         //wetory_write_log("Initializing updater plugin data for " . $this->repo, 'info');
-        
+
         $this->slug = plugin_basename($this->plugin_file);
         $this->plugin_data = get_plugin_data($this->plugin_file);
     }
@@ -110,8 +110,10 @@ class Wetory_Support_Updater {
      * Get information regarding our plugin from GitHub
      * 
      * @since      1.0.1
+     * 
+     * @param boolean $all If set to true all releases are loaded instead of latest one
      */
-    private function get_repo_release_info() {
+    private function get_repo_release_info($all = false) {
         if (!empty($this->github_API_result)) {
             return;
         }
@@ -120,7 +122,6 @@ class Wetory_Support_Updater {
         $url = "https://api.github.com/repos/{$this->username}/{$this->repo}/releases";
 
         // wetory_write_log("Going to download plugin " . $this->repo . " releases from " . $url, 'info');
-
         // We need the access token for private repos
         if (!empty($this->access_token)) {
             $response = wp_remote_get($url, array('headers' => array('Authorization' => 'token ' . $this->access_token)));
@@ -131,14 +132,14 @@ class Wetory_Support_Updater {
         // Get the results
         $this->github_API_result = wp_remote_retrieve_body($response);
         if (!empty($this->github_API_result)) {
-            
+
             // wetory_write_log("Plugin releases downloaded for " . $this->repo, 'info');
-            
+
             $this->github_API_result = @json_decode($this->github_API_result);
         }
 
-        // Use only the latest release
-        if (is_array($this->github_API_result)) {
+        // Use only the latest release if $all set to false
+        if (is_array($this->github_API_result) && !$all) {
             $this->github_API_result = $this->github_API_result[0];
         }
 
@@ -166,7 +167,6 @@ class Wetory_Support_Updater {
 
         // wetory_write_log("Latest release version - " . $this->repo . ": " . $this->github_API_result->tag_name, 'info');
         // wetory_write_log("Installed version - " . $this->repo . ": " . $transient->checked[$this->slug], 'info');
-
         // Check the versions if we need to do an update
         $do_update = version_compare($this->github_API_result->tag_name, $transient->checked[$this->slug]);
 
@@ -203,7 +203,9 @@ class Wetory_Support_Updater {
     public function set_plugin_info($false, $action, $response) {
         // Get plugin & GitHub release information
         $this->init_plugin_data();
-        $this->get_repo_release_info();
+        $this->get_repo_release_info($all = true);
+
+        wetory_write_log($this->github_API_result, 'info');
 
         // If nothing is found, do nothing
         if (empty($response->slug) || $response->slug != $this->slug) {
@@ -211,15 +213,15 @@ class Wetory_Support_Updater {
         }
 
         // Add our plugin information
-        $response->last_updated = $this->github_API_result->published_at;
+        $response->last_updated = $this->github_API_result[0]->published_at;
         $response->slug = $this->slug;
         $response->name = $this->plugin_data["Name"];
-        $response->version = $this->github_API_result->tag_name;
+        $response->version = $this->github_API_result[0]->tag_name;
         $response->author = $this->plugin_data["AuthorName"];
         $response->homepage = $this->plugin_data["PluginURI"];
 
         // This is our release download zip file
-        $download_link = $this->github_API_result->zipball_url;
+        $download_link = $this->github_API_result[0]->zipball_url;
 
         // Include the access token for private GitHub repos
         if (!empty($this->access_token)) {
@@ -233,12 +235,12 @@ class Wetory_Support_Updater {
         // Create tabs in the lightbox
         $response->sections = array(
             'description' => $this->plugin_data["Description"],
-            'changelog' => class_exists("Parsedown") ? Parsedown::instance()->parse($this->github_API_result->body) : $this->github_API_result->body
+            'changelog' => $this->parse_changelog(),
         );
 
         // Gets the required version of WP if available
         $matches = null;
-        preg_match("/requires:\s([\d\.]+)/i", $this->github_API_result->body, $matches);
+        preg_match("/requires:\s([\d\.]+)/i", $this->github_API_result[0]->body, $matches);
         if (!empty($matches)) {
             if (is_array($matches)) {
                 if (count($matches) > 1) {
@@ -249,7 +251,7 @@ class Wetory_Support_Updater {
 
         // Gets the tested version of WP if available
         $matches = null;
-        preg_match("/tested:\s([\d\.]+)/i", $this->github_API_result->body, $matches);
+        preg_match("/tested:\s([\d\.]+)/i", $this->github_API_result[0]->body, $matches);
         if (!empty($matches)) {
             if (is_array($matches)) {
                 if (count($matches) > 1) {
@@ -259,6 +261,26 @@ class Wetory_Support_Updater {
         }
 
         return $response;
+    }
+
+    private function parse_changelog() {
+        $changelog = '';
+        if (is_array($this->github_API_result)) {
+            foreach ($this->github_API_result as $release) {
+                $changelog .= $this->get_release_info($release);
+            }
+        } else {
+            $release = $this->github_API_result;
+            $changelog .= $this->get_release_info($release);
+        }
+        return $changelog;
+    }
+    
+    private function get_release_info($release) {
+        $release_info = '';
+        $release_info .= '<h4>' . $release->tag_name . '</h4>';
+        $release_info .= class_exists("Parsedown") ? Parsedown::instance()->parse($release->body) : $release->body;
+        return $release_info;
     }
 
     /**

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2020-04-28 14:42+0200\n"
-"PO-Revision-Date: 2020-04-28 14:43+0200\n"
+"POT-Creation-Date: 2020-04-29 17:49+0200\n"
+"PO-Revision-Date: 2020-04-29 17:50+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -26,9 +26,9 @@ msgid "Dashboard"
 msgstr "Nástěnka"
 
 #: admin/class-wetory-support-admin.php:112
-#: admin/class-wetory-support-settings.php:157
+#: admin/class-wetory-support-settings.php:169
 #: admin/partials/wetory-support-admin-display.php:19
-#: admin/partials/wetory-support-admin-display.php:57
+#: admin/partials/wetory-support-admin-display.php:59
 msgid "Settings"
 msgstr "Nastavení"
 
@@ -45,19 +45,19 @@ msgstr ""
 msgid "More info"
 msgstr "Více informací"
 
-#: admin/class-wetory-support-settings.php:144
+#: admin/class-wetory-support-settings.php:156
 msgid "Dashboard - Wetory"
 msgstr "Nástěnka - Wetory"
 
-#: admin/class-wetory-support-settings.php:145
+#: admin/class-wetory-support-settings.php:157
 msgid "Wetory"
 msgstr "Wetory"
 
-#: admin/class-wetory-support-settings.php:156
+#: admin/class-wetory-support-settings.php:168
 msgid "Settings - Wetory"
 msgstr "Nastavení - Wetory"
 
-#: admin/class-wetory-support-settings.php:173
+#: admin/class-wetory-support-settings.php:185
 msgid ""
 "There was an error adding this setting. Please try again or contact plugin "
 "author."
@@ -65,7 +65,7 @@ msgstr ""
 "Při ukládání  tohoto nastavení došlo k chybě. Zkuste to prosím znovu nebo "
 "kontaktujte autora pluginu."
 
-#: admin/class-wetory-support-settings.php:178
+#: admin/class-wetory-support-settings.php:190
 msgid ""
 "Nonce verification failed for this form. Please try again or contact plugin "
 "author."
@@ -73,60 +73,94 @@ msgstr ""
 "Ověření nonce se u tohoto formuláře nezdařilo. Zkuste to prosím znovu nebo "
 "kontaktujte autora pluginu."
 
-#: admin/class-wetory-support-settings.php:231
+#: admin/class-wetory-support-settings.php:246
+msgid "Maintenance"
+msgstr "Údržba"
+
+#: admin/class-wetory-support-settings.php:290
 msgid "Widgets"
 msgstr "Widgety"
 
-#: admin/class-wetory-support-settings.php:287
+#: admin/class-wetory-support-settings.php:346
 msgid "Shortcodes"
 msgstr "Shortcodes"
 
-#: admin/class-wetory-support-settings.php:406
+#: admin/class-wetory-support-settings.php:465
 msgid "Library"
 msgstr "Knihovna"
 
-#: admin/class-wetory-support-settings.php:410
+#: admin/class-wetory-support-settings.php:469
 msgid "Use in frontend"
 msgstr "Použít na webu"
 
-#: admin/class-wetory-support-settings.php:414
+#: admin/class-wetory-support-settings.php:473
 msgid "Use in admin"
 msgstr "Použít v administraci"
 
-#: admin/class-wetory-support-settings.php:418
+#: admin/class-wetory-support-settings.php:477
 msgid "Version"
 msgstr "Verze"
 
-#: admin/class-wetory-support-settings.php:423
+#: admin/class-wetory-support-settings.php:482
 msgid "CDN"
 msgstr "CDN"
 
-#: admin/class-wetory-support-settings.php:464
+#: admin/class-wetory-support-settings.php:523
 msgid "Settings saved."
 msgstr "Nastavení byla uložena."
 
-#: admin/class-wetory-support-settings.php:477
+#: admin/class-wetory-support-settings.php:536
+msgid "Customize maintenance mode behaviour."
+msgstr ""
+
+#: admin/class-wetory-support-settings.php:538
+msgid "Maintenance mode page"
+msgstr "Stránka režimu údržby"
+
+#: admin/class-wetory-support-settings.php:540
+msgid ""
+"Plugin provides template for maintenance page which is shown instead of "
+"default maintenance notification panel."
+msgstr ""
+
+#: admin/class-wetory-support-settings.php:541
+msgid "Create maintenance page"
+msgstr "Vytvořit stránku údržby"
+
+#: admin/class-wetory-support-settings.php:541
+msgid "Creating page..."
+msgstr "Vytváření stránky..."
+
+#: admin/class-wetory-support-settings.php:542
+msgid "Delete maintenance page"
+msgstr "Odstranit stránku údržby"
+
+#: admin/class-wetory-support-settings.php:542
+msgid "Deleting page..."
+msgstr "Odstraňování stránky..."
+
+#: admin/class-wetory-support-settings.php:554
 msgid "Select widgets you want to use in your website"
 msgstr "Vyberte widgety, které chcete na svých webových stránkách používat"
 
-#: admin/class-wetory-support-settings.php:486
+#: admin/class-wetory-support-settings.php:563
 msgid "Select shortcodes you want to use in your website"
 msgstr "Vyberte shortcodes, které chcete použít na svém webu"
 
-#: admin/class-wetory-support-settings.php:495
+#: admin/class-wetory-support-settings.php:572
 msgid "Configure API keys for APIs you want to use in your website"
 msgstr ""
 "Konfigurace klíčů rozhraní API pro rozhraní API, která chcete použít na webu"
 
-#: admin/class-wetory-support-settings.php:546
+#: admin/class-wetory-support-settings.php:623
 msgid "General"
 msgstr "Obecné"
 
-#: admin/class-wetory-support-settings.php:547
+#: admin/class-wetory-support-settings.php:624
 msgid "Libraries"
 msgstr "Knihovny"
 
-#: admin/class-wetory-support-settings.php:548
+#: admin/class-wetory-support-settings.php:625
 msgid "API keys"
 msgstr "Klíče rozhraní API"
 
@@ -182,6 +216,18 @@ msgstr "Podklíč"
 #: admin/partials/wetory-support-admin-display.php:30
 msgid "Value"
 msgstr "Hodnota"
+
+#: includes/wetory-support-functions-ajax.php:69
+#, php-format
+msgid "File <strong>maintenance.php</strong> created in <strong>%s</strong>"
+msgstr ""
+"Soubor <strong>maintenance.php</strong> vytvořený v <strong>%s</strong>"
+
+#: includes/wetory-support-functions-ajax.php:88
+#, php-format
+msgid "File <strong>maintenance.php</strong> deleted from <strong>%s</strong>"
+msgstr ""
+"Soubor <strong>maintenance.php</strong> byl odstraněn z <strong>%s.</strong>"
 
 #: includes/widgets/widget-wetory-support-favourite-posts.php:25
 msgid "Favourite Posts"
@@ -353,6 +399,7 @@ msgid "seconds"
 msgstr "sekund"
 
 #. Plugin Name of the plugin/theme
+#: public/partials/wetory-support-maintenance.php:47
 msgid "Wetory Support"
 msgstr "Wetory Support"
 
