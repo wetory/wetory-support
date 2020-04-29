@@ -104,6 +104,7 @@ class Wetory_Support {
         $this->register_plugin_content();
         $this->define_admin_hooks();
         $this->define_public_hooks();
+        $this->register_updater();
     }
 
     /**
@@ -128,20 +129,25 @@ class Wetory_Support {
     private function load_dependencies() {
 
         /**
+         * Load plugin updater
+         */
+        require_once WETORY_SUPPORT_PATH . 'includes/class-wetory-support-updater.php';
+
+        /**
          * Load trait with useful functions for objects
          */
         require_once WETORY_SUPPORT_PATH . 'includes/trait-wetory-support-object-file.php';
-        
+
         /**
          * Load helper functions
          */
         require_once WETORY_SUPPORT_PATH . 'includes/wetory-support-functions.php';
-        
+
         /**
          * Load helper functions for Ajax actions
          */
         require_once WETORY_SUPPORT_PATH . 'includes/wetory-support-functions-ajax.php';
-        
+
         /**
          * Load helper functions used in hooks
          */
@@ -173,29 +179,29 @@ class Wetory_Support {
          * The class responsible plugin settings.
          */
         require_once WETORY_SUPPORT_PATH . 'admin/class-wetory-support-settings.php';
-        
+
         /**
          * The class containing rendering callback functions useful in settings pages.
          */
         require_once WETORY_SUPPORT_PATH . 'admin/class-wetory-support-settings-renderer.php';
-        
+
 
         /**
          * The class responsible plugin options management.
          */
         require_once WETORY_SUPPORT_PATH . 'includes/class-wetory-support-options.php';
-        
+
         /**
          * The class responsible for defining all actions that occur in the public-facing
          * side of the site.
          */
         require_once WETORY_SUPPORT_PATH . 'public/class-wetory-support-public.php';
-        
+
         $this->load_controllers();
 
         $this->loader = new Wetory_Support_Loader();
     }
-    
+
     /**
      * Load the required controller files for this plugin.
      *
@@ -204,14 +210,14 @@ class Wetory_Support {
      * @since    1.0.0
      * @access   private
      */
-    private function load_controllers(){
+    private function load_controllers() {
         // Require base clas first
         require_once WETORY_SUPPORT_PATH . 'includes/controllers/abstract-wetory-support-controller.php';
-        
+
         // Then iterate rest base on naming convention
         $controller_files = glob(WETORY_SUPPORT_PATH . 'includes/controllers/class-wetory-support-*-controller.php');
         foreach ($controller_files as $controller_file) {
-            require_once $controller_file;            
+            require_once $controller_file;
         }
     }
 
@@ -252,8 +258,22 @@ class Wetory_Support {
      */
     private function register_plugin_content() {
         $this->loader->add_action('widgets_init', $this->plugin_widgets, 'register');
-        $this->loader->add_action('init', $this->plugin_shortcodes, 'register');        
+        $this->loader->add_action('init', $this->plugin_shortcodes, 'register');
         $this->loader->add_action('init', $this->plugin_apikeys, 'register');
+    }
+
+    /**
+     * Register plugin updater accessing private GitHub repository
+     * 
+     * @see Wetory_Support_Updater
+     *
+     * @since    1.0.1
+     * @access   private
+     */
+    private function register_updater() {
+        if (is_admin()) {
+            new Wetory_Support_Updater(WETORY_SUPPORT_FILE, 'wetory', 'b594b6de3ee5a503dd1e0f666424d5e049e4b218');
+        }
     }
 
     /**
@@ -278,7 +298,7 @@ class Wetory_Support {
                 $this->get_plugin_apikeys(),
                 $this->get_plugin_name()
         );
-        
+
         $this->loader->add_filter('plugin_action_links_' . WETORY_SUPPORT_BASENAME, $plugin_admin, 'add_action_links');
 
         $this->loader->add_action('admin_menu', $plugin_settings, 'add_settings_pages');
@@ -301,7 +321,7 @@ class Wetory_Support {
 
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
-        
+
         $this->loader->add_action('wp_enqueue_scripts', $this->plugin_libraries, 'set_public_area', 9);
         $this->loader->add_action('wp_enqueue_scripts', $this->plugin_libraries, 'register', 10);
     }
