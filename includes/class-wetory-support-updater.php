@@ -262,7 +262,7 @@ class Wetory_Support_Updater {
      */
     public function pre_install($true, $args) {
         // Get plugin information
-        $this->initPluginData();
+        $this->init_plugin_data();
 
         // Check if the plugin was installed before...
         $this->plugin_activated = is_plugin_active($this->slug);
