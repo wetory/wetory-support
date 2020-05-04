@@ -272,7 +272,7 @@ class Wetory_Support {
      */
     private function register_updater() {
         if (is_admin()) {
-            new Wetory_Support_Updater(WETORY_SUPPORT_FILE, 'wetory', 'wetory-support', 'b594b6de3ee5a503dd1e0f666424d5e049e4b218'); 
+            new Wetory_Support_Updater(WETORY_SUPPORT_FILE, 'wetory', 'wetory-support'); 
         }
     }
 
