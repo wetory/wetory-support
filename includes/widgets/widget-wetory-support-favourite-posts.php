@@ -87,9 +87,10 @@ class Widget_Wetory_Support_Favourite_Posts extends Wetory_Support_Widget {
         $list_style = !empty($instance['list_style']) ? $instance['list_style'] : 'ol';
         $show_date = !empty($instance['show_date']) ? (bool) $instance['show_date'] : false;
         $show_thumb = !empty($instance['show_thumb']) ? (bool) $instance['show_thumb'] : false;
-
+        
         // query posts
         $r = new WP_Query(array(
+            'post_type' => 'any',
             'post__in' => $selected_posts,
             'no_found_rows' => true,
             'post_status' => 'publish',
@@ -301,7 +302,7 @@ class Widget_Wetory_Support_Favourite_Posts extends Wetory_Support_Widget {
         echo '</select></p>';
         ?>
 
-        <div class="widget-link-options" style="<?php echo $link_style === 'none' ? 'display: none;' : '';?>">
+        <div class="widget-link-options" style="<?php echo $link_style === 'none' ? 'display: none;' : ''; ?>">
 
             <p>
                 <label for="<?php echo $this->get_field_id('link_title'); ?>"><?php esc_html_e('Link title:', 'wetory-support'); ?></label>
