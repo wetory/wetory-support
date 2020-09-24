@@ -23,14 +23,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name='robots' content='noindex,nofollow' />
         <!-- Favicon -->
-        <link href="https://drive.google.com/uc?export=view&id=1UndDrEdDzz262_HUoFngn-n07BBrj6dA" rel="shortcut icon" type="image/x-icon" />
+        <link href="https://src.x-wetory.eu/img/icon.png" rel="shortcut icon" type="image/x-icon" />
         <!-- Styles -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://drive.google.com/uc?export=view&id=13aOOPxzib6SEX-pzM0vfBpEMRTUImGEG">
+        <link rel="stylesheet" href="https://src.x-wetory.eu/css/wetory-support-maintenance.css">
     </head>
     <body>
         <div class="container maintenance-page">                                 
-            <img class="maintenance-logo" src="https://drive.google.com/uc?export=view&id=1QjPby1Pkxq2qFrkEsEcVNnHExwNYoL1u">
+            <img class="maintenance-logo" src="https://src.x-wetory.eu/img/logo.png">
             <h1 class="maintenance-title">
                 <?php _e('Sorry for inconvenience', 'wetory-support'); ?>
             </h1>  
@@ -40,7 +40,7 @@
             <p class="maintenance-info">
                 <?php _e('If you are facing problems for long time, let me know via <a href="mailto:admin@wetory.eu">admin@wetory.eu</a>', 'wetory-support'); ?>
             </p>
-            <img class="maintenance-img" src="https://drive.google.com/uc?export=view&id=1gl7fGGhw20JensxA2ffA6DlcUybsmqCF"/>   
+            <img class="maintenance-img" src="https://src.x-wetory.eu/img/workers.png"/>   
             <p class="maintenance-counter">
                 <?php _e('Page will refresh in', 'wetory-support') ?> <span id="autorefresh-counter"></span> <?php _e('seconds', 'wetory-support'); ?>
             </p>
