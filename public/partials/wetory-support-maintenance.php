@@ -30,7 +30,7 @@
     </head>
     <body>
         <div class="container maintenance-page">                                 
-            <img class="maintenance-logo" src="https://src.x-wetory.eu/img/logo.png">
+            <img class="maintenance-logo" src="https://src.x-wetory.eu/img/chart.png">
             <h1 class="maintenance-title">
                 <?php _e('Sorry for inconvenience', 'wetory-support'); ?>
             </h1>  
