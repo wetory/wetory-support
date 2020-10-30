@@ -24,6 +24,7 @@ class Wetory_Support_Settings {
     const SHORTCODES_OPTION = 'wetory-support-shortcodes';
     const LIBRARIES_OPTION = 'wetory-support-libraries';
     const APIKEYS_OPTION = 'wetory-support-apikeys';
+    const CPTS_OPTION = 'wetory-support-cpts';
 
     /**
      * Libraries controller that is responsible for all external libraries offered in this plugin.
@@ -60,6 +61,15 @@ class Wetory_Support_Settings {
      * @var      Wetory_Support_Apikeys_Controller  $plugin_apikeys  Maintains all API keys from the plugin.
      */
     private $plugin_apikeys;
+    
+    /**
+     * Custom post types controller that is responsible for all custom post type objects from this plugin.
+     *
+     * @since    1.1.0
+     * @access   protected
+     * @var      Wetory_Support_Cpt_Controller  $plugin_cpts  Maintains all custom post type from the plugin.
+     */
+    private $plugin_cpts;
 
     /**
      * The unique identifier of this plugin.
@@ -88,18 +98,20 @@ class Wetory_Support_Settings {
      * Initialize the class and set its properties.
      *
      * @since    1.0.0
-     * @param      Wetory_Support_Libraries_Controller     $plugin_libraries     The reference to the class that manages the libraries in the plugin.
-     * @param      Wetory_Support_Widgets_Controller       $plugin_widgets       The reference to the class that manages the widgets in the plugin.
-     * @param      Wetory_Support_Shortcodes_Controller    $plugin_shortcodes    The reference to the class that manages the shortcodes in the plugin.
-     * @param      Wetory_Support_Apikeys_Controller      $plugin_apikeys       The reference to the class that manages the API keys in the plugin.
-     * @param      string                       $plugin_name          The name of this plugin.
+     * @param      Wetory_Support_Libraries_Controller      $plugin_libraries   The reference to the class that manages the libraries in the plugin.
+     * @param      Wetory_Support_Widgets_Controller        $plugin_widgets     The reference to the class that manages the widgets in the plugin.
+     * @param      Wetory_Support_Shortcodes_Controller     $plugin_shortcodes  The reference to the class that manages the shortcodes in the plugin.
+     * @param      Wetory_Support_Apikeys_Controller        $plugin_apikeys     The reference to the class that manages the API keys in the plugin.
+     * @param      Wetory_Support_Cpt_Controller            $plugin_cpts        The reference to the class that manages the custom post types in the plugin.
+     * @param      string                                   $plugin_name        The name of this plugin.
      */
-    public function __construct($plugin_libraries, $plugin_widgets, $plugin_shortcodes, $plugin_apikeys, $plugin_name) {
+    public function __construct($plugin_libraries, $plugin_widgets, $plugin_shortcodes, $plugin_apikeys, $plugin_cpts, $plugin_name) {
 
         $this->plugin_libraries = $plugin_libraries;
         $this->plugin_widgets = $plugin_widgets;
         $this->plugin_shortcodes = $plugin_shortcodes;
         $this->plugin_apikeys = $plugin_apikeys;
+        $this->plugin_cpts = $plugin_cpts;
         $this->plugin_name = $plugin_name;
 
         $this->build_links();

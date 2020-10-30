@@ -62,6 +62,15 @@ class Wetory_Support {
      * @var      Wetory_Support_Apikeys_Controller  $plugin_apikeys  Maintains and uses API keys from the plugin.
      */
     protected $plugin_apikeys;
+    
+    /**
+     * Custom post types controller that is responsible for all custom post type objects from this plugin.
+     *
+     * @since    1.1.0
+     * @access   protected
+     * @var      Wetory_Support_Cpt_Controller  $plugin_cpts  Maintains and uses custom post types from the plugin.
+     */
+    protected $plugin_cpts;
 
     /**
      * The unique identifier of this plugin.
@@ -232,6 +241,7 @@ class Wetory_Support {
         $this->plugin_shortcodes = new Wetory_Support_Shortcodes_Controller();
         $this->plugin_libraries = new Wetory_Support_Libraries_Controller();
         $this->plugin_apikeys = new Wetory_Support_Apikeys_Controller();
+        $this->plugin_cpts = new Wetory_Support_Cpt_Controller();
     }
 
     /**
@@ -260,6 +270,7 @@ class Wetory_Support {
         $this->loader->add_action('widgets_init', $this->plugin_widgets, 'register');
         $this->loader->add_action('init', $this->plugin_shortcodes, 'register');
         $this->loader->add_action('init', $this->plugin_apikeys, 'register');
+        $this->loader->add_action('init', $this->plugin_cpts, 'register');
     }
 
     /**
@@ -296,6 +307,7 @@ class Wetory_Support {
                 $this->get_plugin_widgets(),
                 $this->get_plugin_shortcodes(),
                 $this->get_plugin_apikeys(),
+                $this->get_plugin_cpts(),
                 $this->get_plugin_name()
         );
 
@@ -374,6 +386,17 @@ class Wetory_Support {
     public function get_plugin_apikeys() {
         return $this->plugin_apikeys;
     }
+    
+    /**
+     * The reference to the class that manages the custom post types in the plugin.
+     *
+     * @since     1.1.0
+     * @return    Wetory_Support_Cpt_Controller    Manages the custom post types in the plugin.
+     */
+    public function get_plugin_cpts() {
+        return $this->plugin_cpts;
+    }
+
 
     /**
      * The name of the plugin used to uniquely identify it within the context of

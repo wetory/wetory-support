@@ -23,6 +23,7 @@ class Wetory_Support_Options {
     const KEY_WIDGETS = 'wetory-support-widgets';
     const KEY_LIBRARIES = 'wetory-support-libraries';
     const KEY_APIKEYS = 'wetory-support-apikeys';
+    const KEY_CPTS = 'wetory-support-cpts';
 
     /**
      * Helper function to check if  plugin settings allow usage of given library. 
@@ -63,6 +64,18 @@ class Wetory_Support_Options {
     public static function use_shortcode($shortcode) {
         $option_shotcodes = get_option(self::KEY_SHORTCODES);
         return isset($option_shotcodes[strtolower($shortcode)]['use']) && $option_shotcodes[strtolower($shortcode)]['use'] == 'on';
+    }
+    
+    /**
+     * Helper function to check if  plugin settings allow usage of given custom post type
+     * @param string $cpt Custom post type class name
+     * @return boolean
+     * 
+     * @since    1.1.0
+     */
+    public static function use_cpt($cpt) {
+        $option_cpts = get_option(self::KEY_CPTS);
+        return isset($option_cpts[strtolower($cpt)]['use']) && $option_cpts[strtolower($cpt)]['use'] == 'on';
     }
 
     /**
@@ -133,6 +146,20 @@ class Wetory_Support_Options {
      */
     public static function get_widget_options($widget) {
         $options = isset(get_option(self::KEY_WIDGETS)[$widget]) ? get_option(self::KEY_WIDGETS)[$widget] : false;
+        return $options;
+    }
+    
+    /**
+     * Get options for given custom post type object 
+     * 
+     * @param string $cpt Custom post type object name
+     * 
+     * @return array Array with custom post type options in key => value structure
+     * 
+     * @since    1.1.0
+     */
+    public static function get_cpt_options($cpt) {
+        $options = isset(get_option(self::KEY_CPTS)[$cpt]) ? get_option(self::KEY_CPTS)[$cpt] : false;
         return $options;
     }
 
