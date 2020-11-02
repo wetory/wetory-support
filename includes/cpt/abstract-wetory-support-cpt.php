@@ -93,10 +93,10 @@ abstract class Wetory_Support_Cpt {
     }
 
     /**
-     * Default labels can be changed - need to be overridden with calling parent
+     * Default labels can be changed
      * 
-     * Just optional function which can be overridden in subclass to change default labels
-     * 
+     * Specify changed values for array keys in function override_labels.
+     * d
      * @since    1.1.0
      * @return array An array of labels for this post type. 
      */
