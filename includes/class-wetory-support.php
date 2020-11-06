@@ -194,11 +194,25 @@ class Wetory_Support {
          */
         require_once WETORY_SUPPORT_PATH . 'admin/class-wetory-support-settings-renderer.php';
 
+        /**
+         * The class manages metaboxes in this plugin.
+         */
+        require_once WETORY_SUPPORT_PATH . 'admin/class-wetory-support-metabox.php';
+
+        /**
+         * The class containing rendering callback functions useful in metaboxes.
+         */
+        require_once WETORY_SUPPORT_PATH . 'admin/class-wetory-support-metabox-renderer.php';
 
         /**
          * The class responsible plugin options management.
          */
         require_once WETORY_SUPPORT_PATH . 'includes/class-wetory-support-options.php';
+        
+        /**
+         * Validator service
+         */
+        require_once WETORY_SUPPORT_PATH . 'includes/class-wetory-support-validator.php';
 
         /**
          * The class responsible for defining all actions that occur in the public-facing
@@ -318,6 +332,8 @@ class Wetory_Support {
 
         $this->loader->add_action('admin_enqueue_scripts', $this->plugin_libraries, 'set_admin_area', 9);
         $this->loader->add_action('admin_enqueue_scripts', $this->plugin_libraries, 'register', 10);
+        
+        $this->loader->add_action('admin_notices', Wetory_Support_Admin_Notices::class, 'display_notice');
     }
 
     /**

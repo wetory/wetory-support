@@ -12,7 +12,7 @@
  * @subpackage wetory_support/admin
  * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
  */
-use Wetory_Support_Settings_Renderer as Callbacks;
+use Wetory_Support_Settings_Renderer as Settings_Renderer;
 
 class Wetory_Support_Settings {
 
@@ -327,7 +327,7 @@ class Wetory_Support_Settings {
                 add_settings_field(
                         $widget_id . '-use',
                         $widget_meta['name'],
-                        array(Callbacks::class, 'render_settings_field'),
+                        array(Settings_Renderer::class, 'render_settings_field'),
                         $settings_page,
                         $settings_section,
                         $args,
@@ -384,7 +384,7 @@ class Wetory_Support_Settings {
                 add_settings_field(
                         $shortcode_id . '-use',
                         $shortcode_meta['name'] . ' ' . $shortcode_markup,
-                        array(Callbacks::class, 'render_settings_field'),
+                        array(Settings_Renderer::class, 'render_settings_field'),
                         $settings_page,
                         $settings_section,
                         $args,
@@ -441,7 +441,7 @@ class Wetory_Support_Settings {
                     add_settings_field(
                             $apikey_id . '-' . $key,
                             $label,
-                            array(Callbacks::class, 'render_settings_field'),
+                            array(Settings_Renderer::class, 'render_settings_field'),
                             $settings_page,
                             $settings_section,
                             $args,
@@ -508,7 +508,7 @@ class Wetory_Support_Settings {
                 )
             ),
         );
-        Callbacks::render_horizontal_form_table($args, $libraries);
+        Settings_Renderer::render_horizontal_form_table($args, $libraries);
     }
 
     /**
