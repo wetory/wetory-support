@@ -162,7 +162,7 @@ abstract class Wetory_Support_Cpt {
             $this->validation_errors = array();
 
             $this->validate_data($post_id, $data);
-
+            
             if (sizeof($this->validation_errors) > 0) {
                 foreach ($this->validation_errors as $error) {
                     Notices::error($error);

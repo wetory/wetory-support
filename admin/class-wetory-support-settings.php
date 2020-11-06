@@ -61,7 +61,7 @@ class Wetory_Support_Settings {
      * @var      Wetory_Support_Apikeys_Controller  $plugin_apikeys  Maintains all API keys from the plugin.
      */
     private $plugin_apikeys;
-    
+
     /**
      * Custom post types controller that is responsible for all custom post type objects from this plugin.
      *
@@ -187,16 +187,18 @@ class Wetory_Support_Settings {
 
     /**
      * Handle admin notices from settings page
+     * 
      * @param array $error_message
+     * @param string $type Message type, controls HTML class. Possible values include 'error', 'success', 'warning', 'info'. Default value: 'error'
      * 
      * @since    1.0.0
      */
-    public function plugin_settings_messages($error_message) {
+    public function add_settings_message($error_message, $type = 'error') {
         switch ($error_message) {
             case '1':
                 $message = __('There was an error adding this setting. Please try again or contact plugin author.', 'wetory-support');
-                $err_code = esc_attr('plugin_name_example_setting');
-                $setting_field = 'plugin_name_example_setting';
+                $err_code = esc_attr('wetory_support_settings');
+                $setting_field = 'wetory_support_settings';
                 break;
             case 'nonce_verification_failed':
                 $message = __('Nonce verification failed for this form. Please try again or contact plugin author.', 'wetory-support');
@@ -204,13 +206,7 @@ class Wetory_Support_Settings {
                 $setting_field = 'wetory_support_settings';
                 break;
         }
-        $type = 'error';
-        add_settings_error(
-                $setting_field,
-                $err_code,
-                $message,
-                $type
-        );
+        add_settings_error($setting_field, $err_code, $message, $type);
     }
 
     /**
@@ -521,15 +517,13 @@ class Wetory_Support_Settings {
      */
     private function update_libraries_settings() {
         // Check nonce first
-        if (
-                !isset($_POST['wetory_support_settings_libraries_form']) ||
-                !wp_verify_nonce($_POST['wetory_support_settings_libraries_form'], 'wetory_support_settings_libraries_update')
-        ) {
-            $this->plugin_settings_messages('nonce_verification_failed');
+        if (!isset($_POST['wetory_support_settings_libraries_form']) || !wp_verify_nonce($_POST['wetory_support_settings_libraries_form'], 'wetory_support_settings_libraries_update')) {
+            $this->add_settings_message('nonce_verification_failed');
         } else {
             // Handle request data and store them in options table
             if (isset($_POST['wetory-support-libraries'])) {
                 update_option('wetory-support-libraries', $_POST['wetory-support-libraries']);
+                
                 ?>
                 <div class="notice notice-success is-dismissible">
                     <p><?php _e('Settings saved.'); ?></p>

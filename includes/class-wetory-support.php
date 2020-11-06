@@ -333,7 +333,7 @@ class Wetory_Support {
         $this->loader->add_action('admin_enqueue_scripts', $this->plugin_libraries, 'set_admin_area', 9);
         $this->loader->add_action('admin_enqueue_scripts', $this->plugin_libraries, 'register', 10);
         
-        $this->loader->add_action('admin_notices', Wetory_Support_Admin_Notices::class, 'display_notice');
+        $this->loader->add_action('admin_notices', Wetory_Support_Admin_Notices::class, 'display_notices');
     }
 
     /**
