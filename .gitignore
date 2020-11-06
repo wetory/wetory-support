@@ -23,7 +23,6 @@ node_modules/
 *.sqlite
 
 ### NetBeans ###
-nbproject/
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
 **/nbproject/Package-*.bash

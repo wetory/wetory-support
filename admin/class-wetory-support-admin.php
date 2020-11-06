@@ -84,6 +84,14 @@ class Wetory_Support_Admin {
          * class.
          */
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wetory-support-admin.js', array('jquery'), $this->version, false);
+
+        // Pass some parameters to JavaScript
+//        wp_localize_script($this->plugin_name, 'wp_configuration',
+//                array(
+//                    'date_format' => get_option('date_format'),
+//                    'time_format' => get_option('time_format'),
+//                )
+//        );
     }
 
     /**

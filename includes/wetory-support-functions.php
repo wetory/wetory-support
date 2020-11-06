@@ -45,6 +45,35 @@ if (!function_exists('wetory_get_created_by_link')) {
     }
 
 }
+if (!function_exists('wetory_strtotime')) {
+
+    /**
+     * Superstructure to builtin function strtotime.
+     * 
+     * This is needed to be bale to work with Czech months 
+     * @since 1.1.0
+     * @param string $date A date/time string. Valid formats are explained in Date and Time Formats.
+     * @param string $target_lang Target language, by default 'en' - english
+     * @return int Returns a timestamp on success, false otherwise
+     */
+    function wetory_date_translate($date, $target_lang = 'en') {
+        $vocabulary = array(
+            'months' => array(
+                'cz' => array("Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"),
+                'cz_alt' => array("ledna", "února", "března", "dubna", "května", "června", "července", "srpna", "září", "října", "listopadu", "prosince"),
+                'en' => array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+            ),
+        );
+        if (get_locale() == 'cs_CZ') {
+            if (isset($vocabulary['months'][$target_lang])) {
+                $date = str_replace($vocabulary['months']['cz'], $vocabulary['months'][$target_lang], $date);
+                $date = str_replace($vocabulary['months']['cz_alt'], $vocabulary['months'][$target_lang], $date);
+            }
+        }
+        return $date;
+    }
+
+}
 
 if (!function_exists('wetory_write_log')) {
 

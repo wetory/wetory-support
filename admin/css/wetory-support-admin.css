@@ -139,3 +139,22 @@ table.wetory-settings-table td.col-select select {
     background: #EEE;
     margin: -20px 0px 10px;
 }
+
+/* Metaboxes */
+.wetory_support_metabox_field {
+    margin-bottom: 10px;
+}
+.wetory_support_metabox_field .wetory_support_metabox_label label {
+    font-weight: bold;
+    margin: 0 0 3px;
+}
+.wetory_support_metabox_field span.wetory-support-required {
+    color: #F00;
+}
+.wetory_support_metabox_field .description {
+    font-size: 13px;
+    font-style: italic;
+}
+.wetory_support_metabox_field .wetory_support_metabox_input input{
+    width: 100%;
+}
