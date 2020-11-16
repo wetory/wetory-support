@@ -45,7 +45,7 @@ if (!function_exists('wetory_get_created_by_link')) {
     }
 
 }
-if (!function_exists('wetory_strtotime')) {
+if (!function_exists('wetory_date_translate')) {
 
     /**
      * Superstructure to builtin function strtotime.

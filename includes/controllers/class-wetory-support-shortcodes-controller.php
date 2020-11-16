@@ -32,12 +32,6 @@ class Wetory_Support_Shortcodes_Controller extends Wetory_Controller{
         parent::get_instance($file);
         return Wetory_Support_Shortcode::create_instance($this->get_class($file));
     }
-    
-    public function register() {
-        foreach ($this->objects as $shortcode) {
-            $shortcode->register();
-        }
-    }
 
     protected function base_class(): string {
         return self::BASE_CLASS;

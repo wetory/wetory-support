@@ -327,6 +327,13 @@ abstract class Wetory_Support_Cpt {
      * @return boolean Defaults to true, using $post_type as slug
      */
     protected function rewrite() {
+        $options = $this->get_options();
+        if(!empty($options['rewrite-slug'])){
+            return array(
+                'slug' => $options['rewrite-slug'],
+                'with_front' => false
+            );
+        }
         return true;
     }
 
@@ -361,6 +368,16 @@ abstract class Wetory_Support_Cpt {
      */
     public function get_id(): string {
         return $this->id;
+    }
+    
+    /**
+     * Returns count number of posts published of a post type
+     * 
+     * @see https://developer.wordpress.org/reference/functions/wp_count_posts/
+     * @return type
+     */
+    public function get_published_posts_count(){
+        return wp_count_posts($this->id)->publish;
     }
 
     /**
@@ -407,6 +424,21 @@ abstract class Wetory_Support_Cpt {
      */
     public function use_cpt() {
         return Plugin_Options::use_cpt($this->id);
+    }
+    
+    /**
+     * Returns this object as associative array
+     * 
+     * @since    1.1.0
+     * @return array Object presentation as associative array
+     */
+    public function to_array(){
+        $result = array(
+            'id' => $this->id,
+            'published-posts' => $this->get_published_posts_count(),
+            'meta' => $this->get_meta()
+        );
+        return $result;
     }
 
 }

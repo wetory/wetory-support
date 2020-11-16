@@ -42,7 +42,7 @@ class Wetory_Support_Admin_Notices {
                 $severity = !empty($notice['severity']) ? $notice['severity'] : 'error';
 
                 if ($message) {
-                    echo "<div class='notice notice-{$severity} is-dismissible'><p>{$message}</p></div>";
+                    self::display_notice($message, $severity);
                 }
 
                 unset($notices[$current_user][$key]);
@@ -79,35 +79,75 @@ class Wetory_Support_Admin_Notices {
     }
 
     /**
-     * Add notice with severity = 'error'
+     * Display new notice with given message and severity. 
+     * 
+     * @since 1.1.0
+     * 
      * @param string $message Message to appear in notice.
+     * @param string $severity Notice severity, can be one of 'error', 'warning',  'info', 'success'. Default value is 'info'
      */
-    public static function error($message) {
-        self::add_notice($message, 'error');
+    private static function display_notice($message, $severity = 'info') {
+        echo "<div class='notice notice-{$severity} is-dismissible'><p>{$message}</p></div>";
+    }
+
+    /**
+     * Add notice with severity = 'error'
+     * 
+     * @since 1.1.0
+     * @param string $message Message to appear in notice.
+     * @param bool $display Immediately display notice without persisting it, by default false.
+     */
+    public static function error($message, $display = false) {
+        if ($display) {
+            self::display_notice($message, 'error');
+        } else {
+            self::add_notice($message, 'error');
+        }
     }
 
     /**
      * Add notice with severity = 'warning'
+     * 
+     * @since 1.1.0
      * @param string $message Message to appear in notice.
+     * @param bool $display Immediately display notice without persisting it, by default false.
      */
-    public static function warning($message) {
-        self::add_notice($message, 'warning');
+    public static function warning($message, $display = false) {
+        if ($display) {
+            self::display_notice($message, 'warning');
+        } else {
+            self::add_notice($message, 'warning');
+        }
     }
 
     /**
      * Add notice with severity = 'info'
+     * 
+     * @since 1.1.0
      * @param string $message Message to appear in notice.
+     * @param bool $display Immediately display notice without persisting it, by default false.
      */
-    public static function info($message) {
-        self::add_notice($message, 'info');
+    public static function info($message, $display = false) {
+        if ($display) {
+            self::display_notice($message, 'info');
+        } else {
+            self::add_notice($message, 'info');
+        }
     }
 
     /**
      * Add notice with severity = 'success'
+     * 
+     * @since 1.1.0
      * @param string $message Message to appear in notice.
+     * @param bool $display Immediately display notice without persisting it, by default false.
      */
-    public static function success($message) {
-        self::add_notice($message, 'success');
+    public static function success($message, $display = false) {
+        if ($display) {
+            self::display_notice($message, 'success');
+        } else {
+            self::add_notice($message, 'success');
+        }
     }
 
 }

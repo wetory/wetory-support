@@ -184,7 +184,12 @@ class Wetory_Support_Settings_Renderer {
         foreach ($args['columns'] as $column_id => $column_options) {
             $column_class = 'col-' . $column_options['type'];
             $column_class .= isset($column_options['class']) ? ' ' . $column_options['class'] : '';
-            echo '<th class="' . $column_class . '">' . $column_options['label'] . '</td>';
+            if(isset($column_options['help'])){
+                $column_text = self::render_tooltip($column_options['help'], false, $column_options['label']);
+            } else {
+                $column_text = $column_options['label'];
+            }           
+            echo '<th class="' . $column_class . '">' . $column_text . '</td>';
         }
         echo '</tr></thead>';
 
@@ -195,6 +200,7 @@ class Wetory_Support_Settings_Renderer {
             echo '<tr>';
 
             foreach ($args['columns'] as $column_id => $column_options) {
+                
                 $column_data = (isset($column_options['source'])) ? $item[$column_options['source']] : $item;
                 $column_class = 'col-' . $column_options['type'];
                 $column_class .= isset($column_options['class']) ? ' ' . $column_options['class'] : '';
@@ -237,6 +243,15 @@ class Wetory_Support_Settings_Renderer {
         echo '</table>';
     }
 
+    /**
+     * Render information tool tip 
+     * 
+     * @since 1.0.0
+     * @param string $tooltip_text Information to be shown
+     * @param bool $echo Immediately render or just return HTML markup, by default true
+     * @param string $content Content elements to be wrapped by tool tip
+     * @return string Tool tip HTML markup
+     */
     public static function render_tooltip($tooltip_text, $echo = true, $content = ' ? ') {
         $html = '<div class="tooltip">' . $content . '<span class="tooltip-text">' . $tooltip_text . '</span></div>';
         if ($echo) {
@@ -246,6 +261,16 @@ class Wetory_Support_Settings_Renderer {
         }
     }
 
+    /**
+     * Render button with link
+     * 
+     * @since 1.0.0
+     * @param string $link Link location used in href attribute
+     * @param string $content Content to be wrapped by button
+     * @param bool $echo Immediately render or just return HTML markup, by default true
+     * @param string $class Optional CSS class to be applied to button element
+     * @return string Button HTML markup
+     */
     public static function render_link_button($link, $content, $echo = true, $class = 'button button-primary') {
         $html = '<div class="link-button"><a class="' . $class . '" href="' . $link . '" target="_blank">' . $content . '</a></div>';
         if ($echo) {
