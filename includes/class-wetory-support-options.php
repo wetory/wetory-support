@@ -23,7 +23,7 @@ class Wetory_Support_Options {
     const KEY_WIDGETS = 'wetory-support-widgets';
     const KEY_LIBRARIES = 'wetory-support-libraries';
     const KEY_APIKEYS = 'wetory-support-apikeys';
-    const KEY_CPTS = 'wetory-support-cpts';
+    const KEY_CPT = 'wetory-support-cpt';
 
     /**
      * Helper function to check if  plugin settings allow usage of given library. 
@@ -74,8 +74,8 @@ class Wetory_Support_Options {
      * @since    1.1.0
      */
     public static function use_cpt($cpt) {
-        $option_cpts = get_option(self::KEY_CPTS);
-        return isset($option_cpts[strtolower($cpt)]['use']) && $option_cpts[strtolower($cpt)]['use'] == 'on';
+        $option_cpt = get_option(self::KEY_CPT);
+        return isset($option_cpt[strtolower($cpt)]['use']) && $option_cpt[strtolower($cpt)]['use'] == 'on';
     }
 
     /**
@@ -159,7 +159,7 @@ class Wetory_Support_Options {
      * @since    1.1.0
      */
     public static function get_cpt_options($cpt) {
-        $options = isset(get_option(self::KEY_CPTS)[$cpt]) ? get_option(self::KEY_CPTS)[$cpt] : false;
+        $options = isset(get_option(self::KEY_CPT)[$cpt]) ? get_option(self::KEY_CPT)[$cpt] : false;
         return $options;
     }
 

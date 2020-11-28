@@ -36,7 +36,7 @@ class Cpt_Wetory_Support_Notice_Board extends Wetory_Support_Cpt {
             'menu_icon'             => 'dashicons-clipboard',
             'show_in_admin_bar'     => false,
             'show_in_nav_menus'     => true,
-            'can_export'            => false,
+            'can_export'            => true,
             'has_archive'           => false,
             'exclude_from_search'   => false,
             'publicly_queryable'    => true,
@@ -110,26 +110,26 @@ class Cpt_Wetory_Support_Notice_Board extends Wetory_Support_Cpt {
     public function validate_data($post_id, $data) {
         
         if(!isset($_POST['post_title']) || $_POST['post_title'] == ''){
-            $this->add_validation_error(sprintf(__('"%s" - Mandatory field!', 'wetory-support'), __('Post title', 'wetory-support')));
+            $this->add_validation_error(sprintf(__('"%s" is mandatory field!', 'wetory-support'), __('Post title', 'wetory-support')));
         }
         
         if(isset($_POST['valid_from']) && $_POST['valid_from'] !== ''){
             if(!Validator::is_date($_POST['valid_from'])){
-                $this->add_validation_error(sprintf(__('"%s" - Value is not valid date!', 'wetory-support'), __('Valid from', 'wetory-support')));
+                $this->add_validation_error(sprintf(__('"%s" value is not valid date!', 'wetory-support'), __('Valid from', 'wetory-support')));
             }
         } else {
-            $this->add_validation_error(sprintf(__('"%s" - Value is required!', 'wetory-support'), __('Valid from', 'wetory-support')));
+            $this->add_validation_error(sprintf(__('"%s" value is required!', 'wetory-support'), __('Valid from', 'wetory-support')));
         }
         
         if(isset($_POST['valid_to']) && $_POST['valid_to'] !== ''){
             if(!Validator::is_date($_POST['valid_to'])){
-                $this->add_validation_error(sprintf(__('"%s" - Value is not valid date!', 'wetory-support'), __('Valid to', 'wetory-support')));
+                $this->add_validation_error(sprintf(__('"%s" value is not valid date!', 'wetory-support'), __('Valid to', 'wetory-support')));
             }
         }
         
         if(isset($_POST['valid_to']) && $_POST['valid_to'] !== '' && isset($_POST['valid_from']) && $_POST['valid_from'] !== '') {
             if($_POST['valid_to'] < $_POST['valid_from']) {
-                $this->add_validation_error(sprintf(__('"%s" - Value must be higher or equal to "%s"!', 'wetory-support'), __('Valid to', 'wetory-support'), __('Valid from', 'wetory-support')));
+                $this->add_validation_error(sprintf(__('"%s" value must be higher or equal to "%s"!', 'wetory-support'), __('Valid to', 'wetory-support'), __('Valid from', 'wetory-support')));
             }
         }
     }

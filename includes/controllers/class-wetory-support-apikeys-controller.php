@@ -31,12 +31,6 @@ class Wetory_Support_Apikeys_Controller extends Wetory_Controller {
         return Wetory_Support_Apikey::create_instance($this->get_class($file));
     }
 
-    public function register() {
-        foreach ($this->objects as $apikey) {
-            $apikey->register();
-        }
-    }
-
     protected function base_class(): string {
         return self::BASE_CLASS;
     }
