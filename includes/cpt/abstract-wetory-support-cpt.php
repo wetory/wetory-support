@@ -62,10 +62,10 @@ abstract class Wetory_Support_Cpt {
      * @since    1.1.0
      */
     public function register() {
-        //if ($this->use_cpt()) {
-        register_post_type($this->id, $this->get_post_type_args());
-        $this->initialize();
-        //}
+        if ($this->use_cpt()) {
+            register_post_type($this->id, $this->get_post_type_args());
+            $this->initialize();
+        }
     }
 
     /**
@@ -150,19 +150,19 @@ abstract class Wetory_Support_Cpt {
      * @return bool|string 
      */
     public function validation($post_id, $data) {
-        
+
         // Run this validation only for this custom post type
-        if($data['post_type'] !== $this->id){
+        if ($data['post_type'] !== $this->id) {
             return;
         }
 
         // Run validation only when publishing post
         if (isset($_POST['post_status']) && $_POST['post_status'] == 'publish') {
-            
+
             $this->validation_errors = array();
 
             $this->validate_data($post_id, $data);
-            
+
             if (sizeof($this->validation_errors) > 0) {
                 foreach ($this->validation_errors as $error) {
                     Notices::error($error);
@@ -328,13 +328,41 @@ abstract class Wetory_Support_Cpt {
      */
     protected function rewrite() {
         $options = $this->get_options();
-        if(!empty($options['rewrite-slug'])){
+        if (!empty($options['rewrite-slug'])) {
             return array(
                 'slug' => $options['rewrite-slug'],
                 'with_front' => false
             );
         }
         return true;
+    }
+
+    /**
+     * Specify core feature(s) the post type supports.
+     * 
+     * Combine statically given supports from subclass with post type settings
+     * from options.
+     * 
+     * Serves as an alias for calling add_post_type_support() directly. 
+     * Core features include 'title', 'editor', 'comments', 'revisions', 'trackbacks', 
+     * 'author', 'excerpt', 'page-attributes', 'thumbnail', 'custom-fields', and 'post-formats'.
+     * 
+     * https://developer.wordpress.org/reference/functions/register_post_type/#parameters
+     * 
+     * @since 1.1.0
+     * 
+     * @param array $supports Specify supported features except 'comments', 'revisions' and 'excerpt' which are specified in plugin configuration.
+     * @return array Core feature(s) the post type supports.
+     */
+    protected function supports($supports = array()) {
+        $options = $this->get_options();
+        $features = array('comments', 'excerpt', 'revisions');
+        foreach ($features as $feature) {
+            if (!empty($options[$feature]) && $options[$feature] == 'on') {
+                array_push($supports, $feature);
+            }
+        }
+        return $supports;
     }
 
     /**
@@ -369,14 +397,14 @@ abstract class Wetory_Support_Cpt {
     public function get_id(): string {
         return $this->id;
     }
-    
+
     /**
      * Returns count number of posts published of a post type
      * 
      * @see https://developer.wordpress.org/reference/functions/wp_count_posts/
      * @return type
      */
-    public function get_published_posts_count(){
+    public function get_published_posts_count() {
         return wp_count_posts($this->id)->publish;
     }
 
@@ -425,14 +453,14 @@ abstract class Wetory_Support_Cpt {
     public function use_cpt() {
         return Plugin_Options::use_cpt($this->id);
     }
-    
+
     /**
      * Returns this object as associative array
      * 
      * @since    1.1.0
      * @return array Object presentation as associative array
      */
-    public function to_array(){
+    public function to_array() {
         $result = array(
             'id' => $this->id,
             'published-posts' => $this->get_published_posts_count(),
