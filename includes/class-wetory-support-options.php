@@ -21,25 +21,8 @@ class Wetory_Support_Options {
      */
     const KEY_SHORTCODES = 'wetory-support-shortcodes';
     const KEY_WIDGETS = 'wetory-support-widgets';
-    const KEY_LIBRARIES = 'wetory-support-libraries';
     const KEY_APIKEYS = 'wetory-support-apikeys';
     const KEY_CPT = 'wetory-support-cpt';
-
-    /**
-     * Helper function to check if  plugin settings allow usage of given library. 
-     * Every library can be used in front end or admin area. 
-     * 
-     * @param string $library Library name
-     * @param string $area Website area where library is set to use in. Can be 'admin' or 'public'. Default value is 'public'
-     * @return boolean
-     * 
-     * @since    1.0.0
-     */
-    public static function use_library($library, $area = 'public') {
-
-        $option_libraries = get_option(self::KEY_LIBRARIES);
-        return isset($option_libraries[strtolower($library)]['use-' . $area]) && $option_libraries[strtolower($library)]['use-' . $area] == 'on';
-    }
 
     /**
      * Helper function to check if  plugin settings allow usage of given widget
@@ -76,35 +59,6 @@ class Wetory_Support_Options {
     public static function use_cpt($cpt) {
         $option_cpt = get_option(self::KEY_CPT);
         return isset($option_cpt[strtolower($cpt)]['use']) && $option_cpt[strtolower($cpt)]['use'] == 'on';
-    }
-
-    /**
-     * Get options for given library 
-     * 
-     * @param string $library Library name
-     * 
-     * @return array  Array with library options in key => value structure
-     * 
-     * @since    1.0.0
-     */
-    public static function get_library_options($library) {
-        $options = get_option(self::KEY_LIBRARIES)[$library];
-        return $options;
-    }
-    
-    /**
-     * Update options stored in database for given library
-     * @param string $library Library name
-     * @param array $library_options Library options associative array key => value
-     */
-    public static function update_library_options(string $library, array $library_options) {
-        $options = get_option(self::KEY_LIBRARIES);
-        foreach ($library_options as $key => $value) {
-            if($options && isset($options[$library])) {
-                $options[$library][$key] = $value;
-            }            
-        }
-        update_option(self::KEY_LIBRARIES, $options);
     }
 
     /**
