@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2020-11-29 17:59+0100\n"
-"PO-Revision-Date: 2020-11-29 18:02+0100\n"
+"POT-Creation-Date: 2020-11-29 18:29+0100\n"
+"PO-Revision-Date: 2020-11-29 18:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -240,9 +240,8 @@ msgid "Wetory Dashboard"
 msgstr "Wetory Nástěnka"
 
 #: admin/partials/wetory-support-admin-display.php:22
-msgid "Brief overview of plugin usage. Maybe will be extended to the future."
-msgstr ""
-"Stručný přehled o používání pluginů. Možná bude rozšířena do budoucnosti."
+msgid "Brief overview of actual usage of this plugin."
+msgstr "Stručný přehled aktuálního využití tohoto pluginu."
 
 #: admin/partials/wetory-support-admin-display.php:27
 msgid "Option"
@@ -707,6 +706,11 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Tomáš Rybnický"
 msgstr "Tomáš Rybnický"
+
+#~ msgid ""
+#~ "Brief overview of plugin usage. Maybe will be extended to the future."
+#~ msgstr ""
+#~ "Stručný přehled o používání pluginů. Možná bude rozšířena do budoucnosti."
 
 #~ msgid "Library"
 #~ msgstr "Knihovna"
