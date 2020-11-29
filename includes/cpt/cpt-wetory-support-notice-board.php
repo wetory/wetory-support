@@ -26,7 +26,7 @@ class Cpt_Wetory_Support_Notice_Board extends Wetory_Support_Cpt {
             'label'                 => __('Notice board', 'text_domain'),
             'description'           => __('Custom post type notice board is used for official records which is mandatory for city/village websites.', 'text_domain' ),
             'labels'                => $this->labels(),
-            'supports'              => array('title', 'editor', 'revisions', 'custom-fields'),
+            'supports'              => $this->supports(array('title', 'editor', 'author', 'custom-fields')),
             'taxonomies'            => array('category', 'post_tag'),
             'hierarchical'          => false,
             'public'                => true,
