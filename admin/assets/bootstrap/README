@@ -1,0 +1,10 @@
+This file can provide some metadata information about library. Use it for passing 
+some useful information to the users. Can include links, description etc.
+
+IMPORTANT! - Meta value has to be on one line.
+
+# Link to documentation/official pages
+Link: https://getbootstrap.com/
+
+# Brief library description
+Description: Bootstrap is an open source toolkit for developing with HTML, CSS, and JS.
