@@ -46,15 +46,6 @@ class Wetory_Support {
     protected $plugin_shortcodes;
 
     /**
-     * Libraries controller that is responsible for all libraries objects from this plugin.
-     *
-     * @since    1.0.0
-     * @access   protected
-     * @var      Wetory_Support_Libraries_Controller  $plugin_libraries  Maintains and import libraries from the plugin.
-     */
-    protected $plugin_libraries;
-
-    /**
      * API keys controller that is responsible for all API key objects from this plugin.
      *
      * @since    1.0.0
@@ -253,7 +244,6 @@ class Wetory_Support {
 
         $this->plugin_widgets = new Wetory_Support_Widgets_Controller();
         $this->plugin_shortcodes = new Wetory_Support_Shortcodes_Controller();
-        $this->plugin_libraries = new Wetory_Support_Libraries_Controller();
         $this->plugin_apikeys = new Wetory_Support_Apikeys_Controller();
         $this->plugin_cpts = new Wetory_Support_Cpt_Controller();
     }
@@ -317,7 +307,6 @@ class Wetory_Support {
 
         // This is required for building settings page according to loaded content
         $plugin_settings = new Wetory_Support_Settings(
-                $this->get_plugin_libraries(),
                 $this->get_plugin_widgets(),
                 $this->get_plugin_shortcodes(),
                 $this->get_plugin_apikeys(),
@@ -329,9 +318,6 @@ class Wetory_Support {
 
         $this->loader->add_action('admin_menu', $plugin_settings, 'add_settings_pages');
         $this->loader->add_action('admin_init', $plugin_settings, 'register_and_build_fields');
-
-        $this->loader->add_action('admin_enqueue_scripts', $this->plugin_libraries, 'set_admin_area', 9);
-        $this->loader->add_action('admin_enqueue_scripts', $this->plugin_libraries, 'register', 10);
         
         $this->loader->add_action('admin_notices', Wetory_Support_Admin_Notices::class, 'display_notices');
     }
@@ -349,9 +335,6 @@ class Wetory_Support {
 
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
-
-        $this->loader->add_action('wp_enqueue_scripts', $this->plugin_libraries, 'set_public_area', 9);
-        $this->loader->add_action('wp_enqueue_scripts', $this->plugin_libraries, 'register', 10);
     }
 
     /**
@@ -362,17 +345,7 @@ class Wetory_Support {
     public function run() {
         $this->loader->run();
     }
-
-    /**
-     * The reference to the class that manages external libraries in the plugin.
-     *
-     * @since     1.0.0
-     * @return    Wetory_Support_Widgets_Controller    Manages the widgets in the plugin.
-     */
-    public function get_plugin_libraries() {
-        return $this->plugin_libraries;
-    }
-
+    
     /**
      * The reference to the class that manages the widgets in the plugin.
      *

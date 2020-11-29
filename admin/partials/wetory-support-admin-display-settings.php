@@ -16,7 +16,7 @@
 <div class="wrap">
     <h1 class="wp-heading-inline"><?php _e('Wetory Settings', 'wetory-support') ?></h1>  
     <!--NEED THE settings_errors below so that the errors/success messages are shown after submission - wasn't working once we started using add_menu_page and stopped using add_options_page so needed this-->
-    <?php // settings_errors(); ?>      
+    <?php settings_errors(); ?>      
     <p>
         <?php _e('Here you can modify plugin behavior. You can select what parts you want to use. Everything is disabled by default to prevent unnecesary loads.', 'wetory-support'); ?>
         <?php printf(__('Overview of all plugin settings can be found on <a href="%s">dashboard</a>.', 'wetory-support'), $this->links['dashboard']['url']); ?>
@@ -31,7 +31,6 @@
         ?>
     </h2>
 
-
     <?php if ($active_tab == 'general'): ?>
         <form method="POST" action="options.php">
             <?php
@@ -39,18 +38,6 @@
             do_settings_sections('wetory-support-settings-general');
             submit_button();
             ?>
-        </form> 
-    <?php elseif ($active_tab == 'libraries'): ?>
-        <form method="POST">
-            <input type="hidden" name="libraries_updated" value="true" />
-            <?php
-            wp_nonce_field('wetory_support_settings_libraries_update', 'wetory_support_settings_libraries_form');
-            $this->render_libraries_form_table();
-            ?>
-            <p>
-                <?php _e('Configure external libraries usage. You can easily load popular external libraries to your website.', 'wetory-support'); ?>
-            </p>        
-            <?php submit_button(); ?>
         </form> 
     <?php elseif ($active_tab == 'cpt'): ?>
         <form method="POST">

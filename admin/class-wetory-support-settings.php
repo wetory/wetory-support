@@ -23,18 +23,8 @@ class Wetory_Support_Settings {
     const GENERAL_OPTION = 'wetory-support-general';
     const WIDGETS_OPTION = 'wetory-support-widgets';
     const SHORTCODES_OPTION = 'wetory-support-shortcodes';
-    const LIBRARIES_OPTION = 'wetory-support-libraries';
     const APIKEYS_OPTION = 'wetory-support-apikeys';
     const CPT_OPTION = 'wetory-support-cpt';
-
-    /**
-     * Libraries controller that is responsible for all external libraries offered in this plugin.
-     *
-     * @since    1.0.0
-     * @access   protected
-     * @var      Wetory_Support_Libraries_Controller  $plugin_libraries    Maintains and enqueue all libraries from the plugin.
-     */
-    private $plugin_libraries;
 
     /**
      * Widgets controller that is responsible for all Widget objects from this plugin.
@@ -99,16 +89,14 @@ class Wetory_Support_Settings {
      * Initialize the class and set its properties.
      *
      * @since    1.0.0
-     * @param      Wetory_Support_Libraries_Controller      $plugin_libraries   The reference to the class that manages the libraries in the plugin.
      * @param      Wetory_Support_Widgets_Controller        $plugin_widgets     The reference to the class that manages the widgets in the plugin.
      * @param      Wetory_Support_Shortcodes_Controller     $plugin_shortcodes  The reference to the class that manages the shortcodes in the plugin.
      * @param      Wetory_Support_Apikeys_Controller        $plugin_apikeys     The reference to the class that manages the API keys in the plugin.
      * @param      Wetory_Support_Cpt_Controller            $plugin_cpt         The reference to the class that manages the custom post types in the plugin.
      * @param      string                                   $plugin_name        The name of this plugin.
      */
-    public function __construct($plugin_libraries, $plugin_widgets, $plugin_shortcodes, $plugin_apikeys, $plugin_cpt, $plugin_name) {
-
-        $this->plugin_libraries = $plugin_libraries;
+    public function __construct($plugin_widgets, $plugin_shortcodes, $plugin_apikeys, $plugin_cpt, $plugin_name) {
+        
         $this->plugin_widgets = $plugin_widgets;
         $this->plugin_shortcodes = $plugin_shortcodes;
         $this->plugin_apikeys = $plugin_apikeys;
@@ -228,9 +216,6 @@ class Wetory_Support_Settings {
 
         // add API keys section
         $this->add_apikeys_options($this->plugin_name . '-settings-apikeys');
-
-        // add libraries option to private member
-        array_push($this->options, self::LIBRARIES_OPTION);
 
         // add custom posts type option to private member
         array_push($this->options, self::CPT_OPTION);
@@ -501,70 +486,6 @@ class Wetory_Support_Settings {
     }
 
     /**
-     * Render custom settings form.
-     * 
-     * Function rendering custom settings form in form of table where rows are plugin libraries
-     * and columns are library options. This is nicely feasible as all libraries enqueueing funcitons
-     * are same. Using special render function
-     * 
-     * @see Wetory_Support_Settings_Renderer::render_horizontal_form_table($args, $data) 
-     * 
-     * @since    1.0.0
-     */
-    private function render_libraries_form_table() {
-
-        $option_name = self::LIBRARIES_OPTION;
-
-        // Loop through all plugin's loaded libraries
-        $libraries = $this->plugin_libraries->get_objects();
-
-        unset($args);
-        $args = array(
-            'option_name' => $option_name,
-            'columns' => array(
-                'title' => array(
-                    'label' => __('Library', 'wetory-support'),
-                    'type' => 'raw',
-                ),
-                'use-public' => array(
-                    'label' => __('Use in frontend', 'wetory-support'),
-                    'type' => 'checkbox',
-                    'help' => __('Check if you want to start using library in frontend.', 'wetory-support'),
-                ),
-                'use-admin' => array(
-                    'label' => __('Use in admin', 'wetory-support'),
-                    'type' => 'checkbox',
-                    'help' => __('Check if you want to start using library in administration.', 'wetory-support'),
-                ),
-                'version' => array(
-                    'label' => __('Version', 'wetory-support'),
-                    'type' => 'select',
-                    'options' => 'versions',
-                    'help' => __('You can pick from more versions where available.', 'wetory-support'),
-                ),
-                'cdn' => array(
-                    'label' => __('CDN', 'wetory-support'),
-                    'type' => 'checkbox',
-                    'help' => __('When checked library is loaded from CDN not locally.', 'wetory-support'),
-                ),
-                'description' => array(
-                    'label' => '',
-                    'type' => 'tooltip',
-                    'source' => 'meta',
-                    'class' => 'compact',
-                ),
-                'link' => array(
-                    'label' => '',
-                    'type' => 'link',
-                    'source' => 'meta',
-                    'class' => 'compact',
-                )
-            ),
-        );
-        Settings_Renderer::render_horizontal_form_table($args, $libraries);
-    }
-
-    /**
      * Print the maintenance section text
      * 
      * @since    1.0.0
@@ -650,27 +571,6 @@ class Wetory_Support_Settings {
     }
 
     /**
-     * Handle custom form submit.
-     * 
-     * This function is called when custom form for plugin libraries settings is submitted.
-     * Simple checking of valid nonce and updating option in database.
-     * 
-     * @since    1.0.0
-     */
-    private function update_libraries_settings() {
-        // Check nonce first
-        if (!isset($_POST['wetory_support_settings_libraries_form']) || !wp_verify_nonce($_POST['wetory_support_settings_libraries_form'], 'wetory_support_settings_libraries_update')) {
-            $this->add_settings_message('nonce_verification_failed');
-        } else {
-            // Handle request data and store them in options table
-            if (isset($_POST[self::LIBRARIES_OPTION])) {
-                update_option(self::LIBRARIES_OPTION, $_POST[self::LIBRARIES_OPTION]);
-                Notices::success(__('Settings saved.', 'wetory-support'), true);
-            }
-        }
-    }
-
-    /**
      * Callback function to display plugin settings page
      * @return type
      * 
@@ -678,11 +578,6 @@ class Wetory_Support_Settings {
      */
     public function display_plugin_admin_settings_cb() {
 
-        // Custom form submitted - libraries
-        if (isset($_POST['libraries_updated']) && $_POST['libraries_updated'] === 'true') {
-            $this->update_libraries_settings();
-        }
-        
         // Custom form submitted - CPT
         if (isset($_POST['cpt_updated']) && $_POST['cpt_updated'] === 'true') {
             $this->update_cpt_settings();
@@ -690,7 +585,6 @@ class Wetory_Support_Settings {
 
         $tabs = array(
             'general' => __('General', 'wetory-support'),
-            'libraries' => __('Libraries', 'wetory-support'),
             'cpt' => __('Custom post types', 'wetory-support'),
             'apikeys' => __('API keys', 'wetory-support'),
         );

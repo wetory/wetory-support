@@ -353,6 +353,7 @@ class Wetory_Support_Updater {
         switch ($this->update_version) {
             case '1.1.0':
                 delete_option('wetory-support-admin_notice_message');
+                delete_option('wetory-support-libraries');
                 break;
 
             default:
