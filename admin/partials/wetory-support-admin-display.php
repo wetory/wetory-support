@@ -19,7 +19,7 @@
     <a class="page-title-action" href="<?php echo $this->links['settings']['url']; ?>"><?php _e('Settings', 'wetory-support'); ?></a>
 
     <p>
-        <?php _e('Brief overview of plugin usage. Maybe will be extended to the future.', 'wetory-support'); ?>        
+        <?php _e('Brief overview of actual usage of this plugin.', 'wetory-support'); ?>        
     </p>
     <table class="widefat groupped-values">
         <thead>

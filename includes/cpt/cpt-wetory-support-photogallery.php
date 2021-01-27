@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Name: Photo gallery
+ * Name: Photo Gallery
  * Description: Custom post type photo gallery is used for creating photo galleries on website.
  *
  * Link: https://www.wetory.eu/ideas/
@@ -22,8 +22,8 @@ class Cpt_Wetory_Support_Photogallery extends Wetory_Support_Cpt {
 
     protected function get_post_type_args() {
         $args = array(
-            'label'                 => __('Photo gallery', 'text_domain'),
-            'description'           => __('Custom post type photogallery is used for creating photo galleries on website.', 'text_domain' ),
+            'label'                 => __('Photo gallery', 'wetory-support'),
+            'description'           => __('Custom post type photogallery is used for creating photo galleries on website.', 'wetory-support' ),
             'labels'                => $this->labels(),
             'supports'              => $this->supports(array('title', 'editor', 'thumbnail', 'author')),
             'taxonomies'            => array('category', 'post_tag'),
@@ -53,6 +53,8 @@ class Cpt_Wetory_Support_Photogallery extends Wetory_Support_Cpt {
             'singular_name'         => _x( 'Photo gallery post', 'Post Type Singular Name', 'wetory-support' ),
             'menu_name'             => __( 'Photo galleries', 'wetory-support' ),
             'name_admin_bar'        => __( 'Photo galleries', 'wetory-support' ),
+            'add_new_item'          => __('Create new photogallery', 'wetory-support'),
+            'add_new'               => __('Create photogallery', 'wetory-support'),
         );
         return $overriden_labels;
     }
