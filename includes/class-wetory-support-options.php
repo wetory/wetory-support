@@ -71,7 +71,7 @@ class Wetory_Support_Options {
      * @since    1.0.0
      */
     public static function get_apikey_options($apikey) {
-        $options = get_option(self::KEY_APIKEYS)[$apikey];
+        $options = isset(get_option(self::KEY_APIKEYS)[$apikey]) ? get_option(self::KEY_APIKEYS)[$apikey] : false;
         return $options;
     }
 
