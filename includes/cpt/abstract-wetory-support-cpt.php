@@ -402,10 +402,11 @@ abstract class Wetory_Support_Cpt {
      * Returns count number of posts published of a post type
      * 
      * @see https://developer.wordpress.org/reference/functions/wp_count_posts/
-     * @return type
+     * @since    1.1.0
+     * @return int
      */
     public function get_published_posts_count() {
-        return wp_count_posts($this->id)->publish;
+        return isset(wp_count_posts($this->id)->publish) ? wp_count_posts($this->id)->publish : 0;
     }
 
     /**
