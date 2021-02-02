@@ -66,6 +66,7 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
             $number = 5;
         }
         $list_style = !empty($instance['list_style']) ? $instance['list_style'] : 'ol';
+        $list_item_title_element = !empty($instance['list_item_title_element']) ? $instance['list_item_title_element'] : 'h3';
         $show_date = !empty($instance['show_date']) ? (bool) $instance['show_date'] : false;
         $show_thumb = !empty($instance['show_thumb']) ? (bool) $instance['show_thumb'] : false;
 
@@ -128,9 +129,9 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
                             </a>
                         </span>
                     <?php endif; ?>
-                    <h3 class="post-title">
-                        <a href="<?php the_permalink($recent_post->ID); ?>"><?php echo $title; ?></a>
-                    </h3>
+                    <?php echo '<' . $list_item_title_element . ' class="post-title">'; ?> 
+                    <a href="<?php the_permalink($recent_post->ID); ?>"><?php echo $title; ?></a>
+                    <?php echo '</' . $list_item_title_element . '>'; ?>
                     <?php if ($show_date) : ?>
                         <span class="post-date"><?php echo get_the_date('', $recent_post->ID); ?></span>
                     <?php endif; ?>
@@ -160,6 +161,7 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
         $instance['posttype'] = wp_strip_all_tags($new_instance['posttype']);
         $instance['number'] = absint($new_instance['number']);
         $instance['list_style'] = wp_strip_all_tags($new_instance['list_style']);
+        $instance['list_item_title_element'] = wp_strip_all_tags($new_instance['list_item_title_element']);
         $instance['show_date'] = !empty($new_instance['show_date']) ? (bool) $new_instance['show_date'] : false;
         $instance['show_thumb'] = !empty($new_instance['show_thumb']) ? (bool) $new_instance['show_thumb'] : false;
         $instance['link_style'] = wp_strip_all_tags($new_instance['link_style']);
@@ -179,6 +181,7 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
         $posttype = isset($instance['posttype']) ? $instance['posttype'] : 'post';
         $number = isset($instance['number']) ? absint($instance['number']) : 5;
         $list_style = isset($instance['list_style']) ? $instance['list_style'] : 'ol';
+        $list_item_title_element = isset($instance['list_item_title_element']) ? $instance['list_item_title_element'] : 'h3';
         $show_date = !empty($instance['show_date']) ? (bool) $instance['show_date'] : false;
         $show_thumb = !empty($instance['show_thumb']) ? (bool) $instance['show_thumb'] : false;
         $link_style = isset($instance['link_style']) ? $instance['link_style'] : 'none';
@@ -238,8 +241,6 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
                 $this->get_field_name('list_style')
         );
 
-
-
         $list_styles = array(
             'ol' => __('Ordered list', 'wetory-support'),
             'ul' => __('Unordered list', 'wetory-support'),
@@ -252,6 +253,35 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
                     '<option value="%s"%s>%s</option>',
                     esc_attr($value),
                     selected($value, $list_style, false),
+                    __($label, 'wetory-support')
+            );
+        }
+        echo '</select></p>';
+        ?>
+
+        <?php
+        printf(
+                '<p><label for="%1$s">%2$s</label>' .
+                '<select class="widefat" id="%1$s" name="%3$s">',
+                $this->get_field_id('list_item_title_element'),
+                __('List item title element:', 'wetory-support'),
+                $this->get_field_name('list_item_title_element')
+        );
+
+        $list_item_title_elements = array(
+            'h2' => __('H2', 'wetory-support'),
+            'h3' => __('H3', 'wetory-support'),
+            'h4' => __('H4', 'wetory-support'),
+            'h5' => __('H5', 'wetory-support'),
+            'h6' => __('H6', 'wetory-support'),
+            'p' => __('Paragraph', 'wetory-support'),
+        );
+
+        foreach ($list_item_title_elements as $value => $label) {
+            printf(
+                    '<option value="%s"%s>%s</option>',
+                    esc_attr($value),
+                    selected($value, $list_item_title_element, false),
                     __($label, 'wetory-support')
             );
         }
@@ -297,7 +327,7 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
         echo '</select></p>';
         ?>
 
-        <div class="widget-link-options" style="<?php echo $link_style === 'none' ? 'display: none;' : '';?>">
+        <div class="widget-link-options" style="<?php echo $link_style === 'none' ? 'display: none;' : ''; ?>">
             <p>
                 <label for="<?php echo $this->get_field_id('link_title'); ?>"><?php esc_html_e('Link title:', 'wetory-support'); ?></label>
                 <input class="widefat" id="<?php echo $this->get_field_id('link_title'); ?>" name="<?php echo $this->get_field_name('link_title'); ?>" type="text" value="<?php echo esc_attr($link_title); ?>" />
