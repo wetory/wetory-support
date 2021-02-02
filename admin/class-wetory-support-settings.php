@@ -10,7 +10,7 @@
  *
  * @package    wetory_support
  * @subpackage wetory_support/admin
- * @author     TomÃ¡Å¡ RybnickÃ½ <tomas.rybnicky@wetory.eu>
+ * @author     Tomáš Rybnickı <tomas.rybnicky@wetory.eu> 
  */
 use Wetory_Support_Settings_Renderer as Settings_Renderer;
 use Wetory_Support_Admin_Notices as Notices;
@@ -446,7 +446,6 @@ class Wetory_Support_Settings {
                 'columns' => array(
                     'name' => array(
                         'label' => __('Post type', 'wetory-support'),
-                        'source' => 'meta',
                         'type' => 'raw',
                     ),
                     'id' => array(
@@ -485,7 +484,6 @@ class Wetory_Support_Settings {
                     'description' => array(
                         'label' => '',
                         'type' => 'tooltip',
-                        'source' => 'meta',
                         'class' => 'compact',
                     ),
                     'link' => array(

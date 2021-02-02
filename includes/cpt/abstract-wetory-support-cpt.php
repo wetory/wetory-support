@@ -11,7 +11,7 @@
  *
  * @package    wetory_support
  * @subpackage wetory_support/includes/cpt
- * @author     TomÃ¡Å¡ RybnickÃ½ <tomas.rybnicky@wetory.eu>
+ * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
  */
 use Wetory_Support_Options as Plugin_Options;
 use Wetory_Support_Admin_Notices as Notices;
@@ -464,6 +464,8 @@ abstract class Wetory_Support_Cpt {
     public function to_array() {
         $result = array(
             'id' => $this->id,
+            'name' => $this->get_post_type_args()['label'],
+            'description' => $this->get_post_type_args()['description'],
             'published-posts' => $this->get_published_posts_count(),
             'meta' => $this->get_meta()
         );

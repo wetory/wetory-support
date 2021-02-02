@@ -99,8 +99,8 @@ class Wetory_Support {
         $this->plugin_name = 'wetory-support';
 
         $this->load_dependencies();
-        $this->initialize_objects();
         $this->set_locale();
+        $this->initialize_objects();
         $this->register_plugin_content();
         $this->define_admin_hooks();
         $this->define_public_hooks();
