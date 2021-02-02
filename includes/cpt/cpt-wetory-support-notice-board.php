@@ -130,7 +130,7 @@ class Cpt_Wetory_Support_Notice_Board extends Wetory_Support_Cpt {
         }
         
         if(isset($_POST['valid_to']) && $_POST['valid_to'] !== '' && isset($_POST['valid_from']) && $_POST['valid_from'] !== '') {
-            if($_POST['valid_to'] < $_POST['valid_from']) {
+            if(strtotime($_POST['valid_to']) < strtotime($_POST['valid_from'])) {
                 $this->add_validation_error(sprintf(__('"%s" value must be higher or equal to "%s"!', 'wetory-support'), __('Valid to', 'wetory-support'), __('Valid from', 'wetory-support')));
             }
         }

@@ -11,7 +11,7 @@
  *
  * @package    wetory_support
  * @subpackage wetory_support/includes/cpt
- * @author     TomÃ¡Å¡ RybnickÃ½ <tomas.rybnicky@wetory.eu>
+ * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
  */
 use Wetory_Support_Options as Plugin_Options;
 use Wetory_Support_Admin_Notices as Notices;
@@ -402,10 +402,11 @@ abstract class Wetory_Support_Cpt {
      * Returns count number of posts published of a post type
      * 
      * @see https://developer.wordpress.org/reference/functions/wp_count_posts/
-     * @return type
+     * @since    1.1.0
+     * @return int
      */
     public function get_published_posts_count() {
-        return wp_count_posts($this->id)->publish;
+        return isset(wp_count_posts($this->id)->publish) ? wp_count_posts($this->id)->publish : 0;
     }
 
     /**
@@ -463,6 +464,8 @@ abstract class Wetory_Support_Cpt {
     public function to_array() {
         $result = array(
             'id' => $this->id,
+            'name' => $this->get_post_type_args()['label'],
+            'description' => $this->get_post_type_args()['description'],
             'published-posts' => $this->get_published_posts_count(),
             'meta' => $this->get_meta()
         );

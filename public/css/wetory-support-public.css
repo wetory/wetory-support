@@ -11,6 +11,7 @@
 .wetory-support-widget.posts-widget ul.posts-tiles {
     list-style: none;
     margin-left: 0;
+    padding-left: 0;
 }
 .wetory-support-widget.posts-widget ul.posts-listing li .post-thumbnail {
     float: left;
