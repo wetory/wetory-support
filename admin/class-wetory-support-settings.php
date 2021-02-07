@@ -10,7 +10,7 @@
  *
  * @package    wetory_support
  * @subpackage wetory_support/admin
- * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu> 
+ * @author     TomÃ¡Å¡ RybnickÃ½ <tomas.rybnicky@wetory.eu> 
  */
 use Wetory_Support_Settings_Renderer as Settings_Renderer;
 use Wetory_Support_Admin_Notices as Notices;
@@ -522,7 +522,7 @@ class Wetory_Support_Settings {
      * @since    1.0.0
      */
     public function print_widgets_section_info() {
-        _e('Select widgets you want to use in your website', 'wetory-support');
+        _e('Select <a href="https://wordpress.org/support/article/wordpress-widgets/" target="_blank">widgets</a> you want to use in your website', 'wetory-support');
     }
 
     /**
@@ -531,7 +531,7 @@ class Wetory_Support_Settings {
      * @since    1.0.0
      */
     public function print_shortcodes_section_info() {
-        _e('Select shortcodes you want to use in your website', 'wetory-support');
+        _e('Select <a href="https://codex.wordpress.org/Shortcode/" target="_blank">shortcodes</a> you want to use in your website', 'wetory-support');
     }
 
     /**

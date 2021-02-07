@@ -16,7 +16,7 @@ use Wetory_Support_Options as Plugin_Options;
 
 abstract class Wetory_Support_Apikey {
     
-    use Wetory_Support_Object_File;
+    use Wetory_Support_Object_File_Trait;
 
     /**
      * API key ID.

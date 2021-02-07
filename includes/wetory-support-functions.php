@@ -156,3 +156,53 @@ if (!function_exists('wetory_maintenance_page')) {
     }
 
 }
+
+if (!function_exists('wetory_get_wp_query')) {
+
+    /**
+     * Construct query object based on parameters
+     * 
+     * @see https://developer.wordpress.org/reference/classes/wp_query/
+     * 
+     * @since      1.1.0
+     * @param array $args Parameters for WP_Query object
+     * @return \WP_Query
+     */
+    function wetory_get_wp_query(array $args): WP_Query {
+
+        /**
+         * Specify some default query parameters
+         * @see https://developer.wordpress.org/reference/classes/wp_query/#parameters
+         */
+        $defaults = array(
+            'post_type' => 'any',
+            'post_status' => 'publish',
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'posts_per_page' => -1,
+        );
+
+        $args = wp_parse_args($args, $defaults);
+
+        return new WP_Query($args);
+    }
+
+}
+
+if (!function_exists('wetory_get_formatted_date')) {
+
+    /**
+     * Simple function to get date time in given format or in format from WordPress settings.
+     * 
+     * @param string|DateTime $datetime Date to be formatted
+     * @param string $format Format to display the date
+     * @return string Formatted date time string
+     */
+    function wetory_get_formatted_date($datetime, $format = null): string {
+
+        $_format = !empty($format) ? $format : get_option('date_format');
+
+        return date_i18n($_format, $datetime);
+    }
+
+}

@@ -2,6 +2,11 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+/* Settings */
+.wrap.wetory-support-settings .form-table th {
+    width: 300px;
+}
+
 /* Tables */
 table.groupped-values td.group {
     background: #f1f1f1;

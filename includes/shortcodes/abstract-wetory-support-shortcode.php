@@ -16,8 +16,8 @@
 use Wetory_Support_Options as Plugin_Options;
 
 abstract class Wetory_Support_Shortcode {
-    
-    use Wetory_Support_Object_File;
+
+    use Wetory_Support_Object_File_Trait;
 
     /**
      * Shortcode ID.
@@ -29,31 +29,88 @@ abstract class Wetory_Support_Shortcode {
     private $id;
 
     /**
+     * Supported settings for shortcode.
+     * 
+     * It is used by unpacking passed attributes and applying defaults in shortcode_atts
+     * @see https://developer.wordpress.org/reference/functions/shortcode_atts/
+     * @access private
+     * @var array $supported_atts Array with pairs
+     */
+    private $shortcode_settings;
+
+    /**
+     * String to be added at the beginning of rendered content.
+     * 
+     * Can be useful to wrap content into sections/containers etc.
+     *
+     * @since    1.1.0
+     * @access   protected
+     * @var      string $before_content Content beginning 
+     */
+    protected $before_content = '';
+    
+    /**
+     * String to be added at the end of rendered content.
+     * 
+     * Can be useful to wrap content into sections/containers etc.
+     *
+     * @since    1.1.0
+     * @access   protected
+     * @var      string $before_content Content ending 
+     */
+    protected $after_content = '';
+
+    /**
      * Create new instance
      * 
      * @since    1.0.0
      */
-    public function __construct(string $id) {
+    public function __construct(string $id, array $settings = array()) {
         $this->id = $id;
+        $this->shortcode_settings = $settings;
+    }
+    
+    /**
+     * Registers shortcode object
+     * 
+     * Basically only calling add_shortcode function with member functions callbacks.
+     * https://developer.wordpress.org/reference/functions/add_shortcode/
+     * 
+     * @since    1.0.0
+     */
+    public function register() {
+        if ($this->use_shortcode()) {
+            add_shortcode($this->id, array($this, 'render_shortcode'));
+        }
     }
 
     /**
-     * Echoes the shortcode content.
-     *
-     * Sub-classes has to override this function to generate their shortcode code.
-     *
+     * Construct shortcode content
+     * 
+     * Implementation is always sub-class specific.
+     * 
      * @since 1.1.0
      *
      * @param array $atts     Array of attributes
      * @param array $content  Shortcode content or null if not set.
      */
-    public abstract function render_shortcode($atts, $content = "");
+    public abstract function get_content($atts, $content = "");
 
     /**
-     * Registers shortcode objects. Implementation is always sub-class specific.
-     * @since    1.0.0
+     * Render shortcode based on sub-class implementation
+     * 
+     * @since 1.1.0
+     *
+     * @param array $atts     Array of attributes
+     * @param array $content  Shortcode content or null if not set.
      */
-    public abstract function register();
+    public function render_shortcode($atts, $content = ""){
+        $_atts = $this->parse_attributes($atts);
+        $shortcode = $this->before_content;
+        $shortcode.= $this->get_content($_atts, $content);
+        $shortcode.= $this->after_content;
+        return $shortcode;
+    }
 
     /**
      * Instantiate subclass extending this abstract class.
@@ -99,10 +156,10 @@ abstract class Wetory_Support_Shortcode {
      */
     public function get_options() {
         $options = Plugin_Options::get_shortcode_options($this->id);
-        
+
         return $options;
     }
-    
+
     /**
      * Check if shortcode is configured for use. 
      * 
@@ -110,8 +167,18 @@ abstract class Wetory_Support_Shortcode {
      * @see Plugin_Options::use_shortcode($shortcode)
      * @return boolean
      */
-    public function use_shortcode(){
+    public function use_shortcode() {
         return Plugin_Options::use_shortcode($this->id);
+    }
+
+    /**
+     * Combine user attributes with known attributes and fill in defaults when needed.
+     * 
+     * @param array|string $atts User defined attributes in shortcode tag
+     * @return array Combined and filtered attribute list.
+     */
+    protected function parse_attributes($atts): array {
+        return shortcode_atts($this->shortcode_settings, $atts, $this->id);
     }
 
 }

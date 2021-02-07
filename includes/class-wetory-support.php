@@ -136,7 +136,12 @@ class Wetory_Support {
         /**
          * Load trait with useful functions for objects
          */
-        require_once WETORY_SUPPORT_PATH . 'includes/trait-wetory-support-object-file.php';
+        require_once WETORY_SUPPORT_PATH . 'includes/traits/trait-wetory-support-object-file.php';
+        
+        /**
+         * Load template loader class
+         */
+        require_once WETORY_SUPPORT_PATH . 'includes/class-wetory-support-template-loader.php';
 
         /**
          * Load helper functions

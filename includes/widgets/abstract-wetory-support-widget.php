@@ -17,7 +17,7 @@ use Wetory_Support_Options as Plugin_Options;
 
 abstract class Wetory_Support_Widget extends WP_Widget {
 
-    use Wetory_Support_Object_File;
+    use Wetory_Support_Object_File_Trait;
 
     /**
      * Widget ID.

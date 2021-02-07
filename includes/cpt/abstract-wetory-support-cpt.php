@@ -11,14 +11,14 @@
  *
  * @package    wetory_support
  * @subpackage wetory_support/includes/cpt
- * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
+ * @author     Tomï¿½ Rybnickï¿½ <tomas.rybnicky@wetory.eu>
  */
 use Wetory_Support_Options as Plugin_Options;
 use Wetory_Support_Admin_Notices as Notices;
 
 abstract class Wetory_Support_Cpt {
 
-    use Wetory_Support_Object_File;
+    use Wetory_Support_Object_File_Trait;
 
     /**
      * Custom post type ID.
