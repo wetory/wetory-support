@@ -80,6 +80,7 @@ abstract class Wetory_Support_Shortcode {
      */
     public function register() {
         if ($this->use_shortcode()) {
+            $this->load_sources();
             add_shortcode($this->id, array($this, 'render_shortcode'));
         }
     }
@@ -110,6 +111,18 @@ abstract class Wetory_Support_Shortcode {
         $shortcode.= $this->get_content($_atts, $content);
         $shortcode.= $this->after_content;
         return $shortcode;
+    }
+    
+    /**
+     * Load some additional sources - need to be overridden
+     * 
+     * Just optional function which can be overridden in subclass to load some
+     * JavaScript or other stuff if needed for widget functionality. 
+     * 
+     * @since    1.1.0
+     */
+    protected function load_sources(){
+        return;
     }
 
     /**

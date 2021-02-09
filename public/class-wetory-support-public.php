@@ -66,7 +66,7 @@ class Wetory_Support_Public {
          * between the defined hooks and the functions defined in this
          * class.
          */
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/wetory-support-public.css', array(), $this->version, 'all');
+        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/wetory-support-public.min.css', array(), $this->version, 'all');
     }
 
     /**
@@ -87,6 +87,6 @@ class Wetory_Support_Public {
          * between the defined hooks and the functions defined in this
          * class.
          */
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wetory-support-public.js', array('jquery'), $this->version, false);
+        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wetory-support-public.min.js', array('jquery'), $this->version, false);
     }
 }

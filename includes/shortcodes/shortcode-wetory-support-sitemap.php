@@ -51,11 +51,10 @@ class Shortcode_Wetory_Support_Sitemap extends Wetory_Support_Shortcode {
      * @since 1.1.0
      *
      * @param array $atts     Array of attributes
-     * @param array $content  Shortcode content or null if not set.
      * 
      * @return string HTML sitemap
      */
-    private function generate_sitemap($atts, $content = null) {
+    private function generate_sitemap($atts) {
 
         $html = '';
         

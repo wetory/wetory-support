@@ -61,14 +61,18 @@ class Cpt_Wetory_Support_Notice_Board extends Wetory_Support_Cpt {
     }
     
     protected function load_sources() {
-        add_action('admin_enqueue_scripts', array($this, 'load_scripts'));
+        add_action('admin_enqueue_scripts', array($this, 'load_admin_scripts'));
     }
     
     /**
      * Callback function for hook admin_enqueue_scripts
      * https://developer.wordpress.org/reference/hooks/admin_enqueue_scripts/
      */
-    public function load_scripts($hook) {
+    public function load_admin_scripts($hook) {
+        if (!is_admin()) {
+            return;
+        }
+        
         // Load only for current post edit post page
         if (in_array($hook, array('post.php', 'post-new.php'))) {
             $screen = get_current_screen();

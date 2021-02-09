@@ -32,7 +32,7 @@ if (!function_exists('wetory_get_prefixed_label')) {
 
 }
 
-if (!function_exists('wetory_get_created_by_link')) {
+if (!function_exists('wetory_created_by_link')) {
 
     /**
      * Created by Wetory link
@@ -40,11 +40,25 @@ if (!function_exists('wetory_get_created_by_link')) {
      * @since      1.0.0
      * @return string
      */
-    function wetory_get_created_by_link() {
-        return 'by <a href="https://www.wetory.eu/" target="_blank">wetory</a>';
+    function wetory_created_by_link() {
+        echo 'by <a href="https://www.wetory.eu/" target="_blank">wetory</a>';
     }
 
 }
+
+if (!function_exists('wetory_copyright_info')) { 
+    /**
+     * Copyright info about website
+     * 
+     * @since      1.1.0
+     * @return string
+     */
+    function wetory_copyright_info() {
+        echo '<a href="' . home_url() . '" title="' . get_bloginfo('description') . '">' . get_bloginfo('name') . '</a> &copy; ' . date("Y");
+    }
+
+}
+
 if (!function_exists('wetory_date_translate')) {
 
     /**

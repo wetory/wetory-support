@@ -17,7 +17,7 @@ if (!class_exists('Wetory_Support_Template_Loader')) {
      * @subpackage wetory_support/includes
      * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
      */
-    class Wetory_Support_Template_Loader extends Wetory_Support_Singleton {
+    class Wetory_Support_Template_Loader {
 
         /**
          * Prefix for filter names.
