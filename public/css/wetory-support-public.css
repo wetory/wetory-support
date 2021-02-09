@@ -3,7 +3,7 @@
  * included in this file.
  */
 
-/* Widgets */
+/* Widget - Posts */
 .wetory-support-widget.posts-widget ul .post-title {
     font-size: 1rem !important;
 }
@@ -34,4 +34,17 @@
 .wetory-support-widget.posts-widget .link-wrapper {
     width: 100%;
     margin-top: 30px;
+}
+
+/* Widget - Icon Box */
+.wetory-support-widget.wetory-icon-box .icon-wrapper {
+    text-align: center;
+}
+.wetory-support-widget.wetory-icon-box .icon-wrapper .icon {
+    font-size: 70px;
+    display: inline;
+}
+.wetory-support-widget.wetory-icon-box .title,
+.wetory-support-widget.wetory-icon-box .text-wrapper {
+    text-align: center;
 }
