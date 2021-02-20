@@ -53,7 +53,7 @@ if (!function_exists('wetory_wpseo_breadcrumb_links')) {
         if (is_single()) {
             $cpt_object = get_post_type_object(get_post_type());
             if (!$cpt_object->_builtin) {
-                
+
                 // Get landing page based on slug
                 $landing_page = get_page_by_path($cpt_object->rewrite['slug']);
 

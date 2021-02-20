@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2021-02-07 02:20+0100\n"
-"PO-Revision-Date: 2021-02-07 02:21+0100\n"
+"POT-Creation-Date: 2021-02-20 12:35+0100\n"
+"PO-Revision-Date: 2021-02-20 12:37+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -418,63 +418,77 @@ msgstr "Vytvořit nový příspěvek na úřední desce"
 msgid "Create post"
 msgstr "Vytvořit příspěvek"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:86
+#: includes/cpt/cpt-wetory-support-notice-board.php:90
 msgid "Post validity"
 msgstr "Platnost příspěvku"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:87
+#: includes/cpt/cpt-wetory-support-notice-board.php:91
 msgid "This post supports limited validity in time. Select limiting dates."
 msgstr ""
 "Tento příspěvek podporuje omezenou platnost v čase. Vyberte omezující datumy."
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:95
-#: includes/cpt/cpt-wetory-support-notice-board.php:120
-#: includes/cpt/cpt-wetory-support-notice-board.php:123
-#: includes/cpt/cpt-wetory-support-notice-board.php:134
-#: templates/posts-table-wcpt-notice-board.php:19
+#: includes/cpt/cpt-wetory-support-notice-board.php:99
+#: includes/cpt/cpt-wetory-support-notice-board.php:142
+#: includes/cpt/cpt-wetory-support-notice-board.php:145
+#: includes/cpt/cpt-wetory-support-notice-board.php:156
 #: templates/posts-table/header-wcpt-notice-board.php:16
 msgid "Valid from"
 msgstr "Platné od"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:98
+#: includes/cpt/cpt-wetory-support-notice-board.php:102
 msgid "Specify start date of post validity"
 msgstr "Zadejte počáteční datum platnosti příspěvku"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:104
-#: includes/cpt/cpt-wetory-support-notice-board.php:128
-#: includes/cpt/cpt-wetory-support-notice-board.php:134
-#: templates/posts-table-wcpt-notice-board.php:20
+#: includes/cpt/cpt-wetory-support-notice-board.php:108
+#: includes/cpt/cpt-wetory-support-notice-board.php:150
+#: includes/cpt/cpt-wetory-support-notice-board.php:156
 #: templates/posts-table/header-wcpt-notice-board.php:17
 msgid "Valid to"
 msgstr "Platné do"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:106
+#: includes/cpt/cpt-wetory-support-notice-board.php:110
 msgid "Specify end date of post validity"
 msgstr "Zadejte koncové datum platnosti příspěvku"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:115
+#: includes/cpt/cpt-wetory-support-notice-board.php:117
+msgid "Post identity"
+msgstr "Identifikace příspěvku"
+
+#: includes/cpt/cpt-wetory-support-notice-board.php:118
+msgid "Additional post identification data."
+msgstr "Další údaje o identifikaci příspěvku."
+
+#: includes/cpt/cpt-wetory-support-notice-board.php:126
+msgid "Reg. number"
+msgstr "Reg. číslo"
+
+#: includes/cpt/cpt-wetory-support-notice-board.php:128
+msgid "Can help identify post accross multiple systems"
+msgstr "Může pomoci identifikovat příspěvek ve více systémech"
+
+#: includes/cpt/cpt-wetory-support-notice-board.php:137
 #: includes/cpt/cpt-wetory-support-photogallery.php:83
 #, php-format
 msgid "\"%s\" is mandatory field!"
 msgstr "\"%s\" je povinné pole!"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:115
+#: includes/cpt/cpt-wetory-support-notice-board.php:137
 #: includes/cpt/cpt-wetory-support-photogallery.php:83
 msgid "Post title"
 msgstr "Nadpis příspěvku"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:120
-#: includes/cpt/cpt-wetory-support-notice-board.php:128
+#: includes/cpt/cpt-wetory-support-notice-board.php:142
+#: includes/cpt/cpt-wetory-support-notice-board.php:150
 #, php-format
 msgid "\"%s\" value is not valid date!"
 msgstr "Hodnota \"%s\" není platné datum!"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:123
+#: includes/cpt/cpt-wetory-support-notice-board.php:145
 #, php-format
 msgid "\"%s\" value is required!"
 msgstr "Je vyžadována hodnota \"%s\"!"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:134
+#: includes/cpt/cpt-wetory-support-notice-board.php:156
 #, php-format
 msgid "\"%s\" value must be higher or equal to \"%s\"!"
 msgstr "Hodnota \"%s\" musí být vyšší nebo rovna hodnotě \"%s\"!"
@@ -736,27 +750,24 @@ msgstr "Není co zobrazovat"
 msgid "It seems that no data exists for requested content."
 msgstr "Zdá se, že pro požadovaný obsah neexistují žádná data."
 
-#: templates/posts-table-wcpt-notice-board.php:18 templates/posts-table.php:16
 #: templates/posts-table/header-wcpt-notice-board.php:15
 #: templates/posts-table/header.php:16
 msgid "Title"
 msgstr "Název"
 
-#: templates/posts-table-wcpt-notice-board.php:21 templates/posts-table.php:17
 #: templates/posts-table/header-wcpt-notice-board.php:18
 #: templates/posts-table/header.php:17
 msgid "Author"
 msgstr "Autor"
 
-#: templates/posts-table-wcpt-notice-board.php:32 templates/posts-table.php:31
+#: templates/posts-table/header.php:15
+msgid "Published"
+msgstr "Zveřejněno"
+
 #: templates/posts-table/row-wcpt-notice-board.php:18
 #: templates/posts-table/row.php:21
 msgid "Go to detail"
 msgstr "Přejít k podrobnostem"
-
-#: templates/posts-table.php:15 templates/posts-table/header.php:15
-msgid "Published"
-msgstr "Zveřejněno"
 
 #. Plugin URI of the plugin/theme
 #. Author URI of the plugin/theme
