@@ -82,6 +82,7 @@ $categories = get_categories($args);
                 </div>
                 <div class="col-sm-4">
                     <button type="submit" class="float-right"><?php _e('Filter', 'wetory-support'); ?></button>
+                    <button type="reset" class="float-right"><?php _e('Reset', 'wetory-support'); ?></button>
                 </div>
             </div>
         </div>

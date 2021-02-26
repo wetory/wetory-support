@@ -162,10 +162,11 @@ class Cpt_Wetory_Support_Notice_Board extends Wetory_Support_Cpt {
      * Overriding parent method to include notice board meta in conditions
      */
     public function prepare_filter_query(array $query, array $form_data): array {
-        wetory_write_log($form_data, 'prepare_filter_query');
         if (isset($query['post_type']) && sizeof($query['post_type']) == 1 && $query['post_type'][0] == $this->id) {
             if (isset($form_data['category']) && $form_data['category'] !== "") {
                 $query['category_name'] = wetory_get_quoted_string($form_data['category']);
+            } else {
+                unset($query['category_name']);
             }
             if (isset($form_data['archive']) && $form_data['archive'] !== "") {
                 switch ($form_data['archive']) {
@@ -200,6 +201,9 @@ class Cpt_Wetory_Support_Notice_Board extends Wetory_Support_Cpt {
                                 ),
                             ),
                         );
+                        break;                   
+                    case 'all':
+                        unset($query['meta_query']);
                         break;
                     default:
                         break;
@@ -207,9 +211,13 @@ class Cpt_Wetory_Support_Notice_Board extends Wetory_Support_Cpt {
             }
             if (isset($form_data['published_from']) && $form_data['published_from'] !== "") {
                 $query['date_query']['after'] = $form_data['published_from'];
+            } else {
+                unset($query['date_query']['after']);
             }
             if (isset($form_data['published_to']) && $form_data['published_to'] !== "") {
                 $query['date_query']['before'] = $form_data['published_to'];
+            } else {
+                unset($query['date_query']['before']);
             }
         }
         return parent::prepare_filter_query($query, $form_data);

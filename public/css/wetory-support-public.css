@@ -83,6 +83,9 @@ table.wetory-table th {
 table.wetory-table th {
     background: #dadada;
 }
+table.wetory-table .no-results {
+    padding-top: 10px;
+}
 
 /* Loadmore */
 .wetory-posts-pagination-loadmore {
@@ -116,7 +119,13 @@ form.wetory-ajax-filter .form-control,
 form.wetory-ajax-filter .input-group-text {
     font-size: 16px;
 }
-form.wetory-ajax-filter button[type="submit"] {
+form.wetory-ajax-filter button[type="submit"],
+form.wetory-ajax-filter button[type="reset"] {
     padding: 5px 10px;
     text-transform: none;
+}
+form.wetory-ajax-filter button[type="reset"] {
+    margin-right: 10px;
+    background: #dadada;
+    color: #000;
 }

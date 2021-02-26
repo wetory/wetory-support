@@ -98,7 +98,7 @@
             displayed_posts_count.text(posts_count);
         }
         if (total_posts_count) {
-            total_posts_count.text(wp_query.found_posts)
+            total_posts_count.text(wp_query.found_posts);
         }
     }
 
@@ -108,6 +108,16 @@
     $('form.wetory-ajax-filter button[type="submit"]').click(function (e) {
         e.preventDefault();
         $('form.wetory-ajax-filter').submit();
+        return false;
+    });
+    
+    /**
+     * Handle click for filter form reset button
+     */
+    $('form.wetory-ajax-filter button[type="reset"]').click(function (e) {
+        this.form.reset();
+        $('form.wetory-ajax-filter').submit();
+        return false;
     });
 
     /**
@@ -156,7 +166,7 @@
                 filter_status.show();
 
                 // Check if loadmore button is needed
-                if (wp_query.current_page === wp_query.max_num_pages) {
+                if (wp_query.current_page >= wp_query.max_num_pages) {
                     loadmore.hide();
                 } else {
                     loadmore.show();
@@ -201,7 +211,7 @@
                     update_posts_sumaries();
 
                     // Hide button if no more pages available
-                    if (wp_query.current_page === wp_query.max_num_pages) {
+                    if (wp_query.current_page >= wp_query.max_num_pages) {
                         loadmore.hide();
                     }
 

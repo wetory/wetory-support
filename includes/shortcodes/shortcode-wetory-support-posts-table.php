@@ -93,21 +93,27 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
             'post_type' => $post_type,
             'loadmore_template' => 'posts-table/row-'.$post_type,
         );
-
-        // Construct table from template parts
+        
         ob_start();
         if (have_posts()) {
+            
+            // Filter template
             if($this->is_filter_enabled()) {
                 $template_loader->get_template_part('posts-filter/filter', $post_type);
             }
+            
+            // Table header
             $template_loader
                     ->set_template_data($data)
                     ->get_template_part('posts-table/header', $post_type);
+            
+            // Rows
             while (have_posts()) : the_post();
                 $template_loader->get_template_part('posts-table/row', $post_type);
             endwhile;
             wp_reset_postdata();
 
+            // Footer with pagination
             $template_loader->get_template_part('posts-table/footer', $post_type);
             $template_loader->get_template_part('pagination', 'loadmore');
         } else {

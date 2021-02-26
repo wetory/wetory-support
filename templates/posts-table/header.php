@@ -14,7 +14,7 @@ $loadmore_template = isset($data->loadmore_template) ? $data->loadmore_template 
 
 ?>
 <table class="wetory-table table table-hover wetory-ajax-post-list <?php echo $post_type; ?>" data-loadmore-template="<?php echo $loadmore_template;?>">
-    <thead class="thead-dark">
+    <thead>
         <tr>
             <th><?php _e('Published', 'wetory-support'); ?></th>
             <th><?php _e('Title', 'wetory-support'); ?></th>

@@ -35,7 +35,7 @@ if (!class_exists('Wetory_Support_Template_Loader')) {
          *
          * @var string
          */
-        protected $theme_template_directory = 'wetory-support-templates';
+        protected $theme_template_directory = 'wetory-templates';
 
         /**
          * Reference to the root directory path of this plugin.

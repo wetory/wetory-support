@@ -16,7 +16,7 @@ if (!class_exists('Wetory_Support_Ajax')) {
      * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
      */
     class Wetory_Support_Ajax {
-        
+
         public function __construct() {
             add_filter('wetory_ajax_filter_query', array($this, 'default_ajax_filter_query'), 10, 2);
         }
@@ -83,24 +83,26 @@ if (!class_exists('Wetory_Support_Ajax')) {
                 die();
             }
 
+            // Template loader is needed
+            $template_loader = new Wetory_Support_Template_Loader();
+
             // Prepare WP_Query         
             $query = json_decode(stripslashes($_POST['query']), true);
             $query = apply_filters('wetory_ajax_filter_query', $query, $_POST['form']);
-            
-            wetory_write_log($query, 'wetory_ajax_filter');
 
             $wp_query = new WP_Query($query);
 
-            // Iterate posts and send templated data        
-            if (have_posts()) :
-                $template_loader = new Wetory_Support_Template_Loader();
+            // Iterate posts and send templated data       
+            ob_start();
+            if (have_posts()) {
                 $template = isset($_POST['template']) ? $_POST['template'] : 'content-' . get_post_type();
-                ob_start();
                 while (have_posts()): the_post();
                     $template_loader->get_template_part($template);
                 endwhile;
-                $html = ob_get_clean();
-            endif;
+            } else {
+                $template_loader->get_template_part('content', 'none');
+            }
+            $html = ob_get_clean();
 
             echo json_encode(array(
                 'query' => json_encode($wp_query->query),
@@ -126,6 +128,8 @@ if (!class_exists('Wetory_Support_Ajax')) {
         public function default_ajax_filter_query(array $query, array $form_data): array {
             if (isset($form_data['search']) && $form_data['search'] !== "") {
                 $query['s'] = wetory_get_quoted_string($form_data['search']);
+            } else {
+                unset($query['s']);
             }
             return $query;
         }

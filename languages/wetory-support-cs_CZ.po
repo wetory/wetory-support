@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
 "POT-Creation-Date: 2021-02-26 02:07+0100\n"
-"PO-Revision-Date: 2021-02-26 02:08+0100\n"
+"PO-Revision-Date: 2021-02-26 03:36+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -800,7 +800,7 @@ msgstr "Wetory Support"
 
 #: templates/content-none.php:14
 msgid "Nothing to display"
-msgstr "Není co zobrazovat"
+msgstr "Nic k zobrazení"
 
 #: templates/content-none.php:17
 msgid "It seems that no data exists for requested content."
