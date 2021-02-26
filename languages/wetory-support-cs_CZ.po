@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2021-02-20 12:35+0100\n"
-"PO-Revision-Date: 2021-02-20 12:37+0100\n"
+"POT-Creation-Date: 2021-02-26 02:07+0100\n"
+"PO-Revision-Date: 2021-02-26 02:08+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -268,121 +268,121 @@ msgstr "Podklíč"
 msgid "Value"
 msgstr "Hodnota"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:193
+#: includes/cpt/abstract-wetory-support-cpt.php:194
 msgid "You are not allowed to modify this post!"
 msgstr "Nejste oprávněni upravit tento příspěvek!"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:193
+#: includes/cpt/abstract-wetory-support-cpt.php:194
 msgid "Unauthorized action"
 msgstr "Neoprávněná akce"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:274
+#: includes/cpt/abstract-wetory-support-cpt.php:275
 msgctxt "Post Type General Name"
 msgid "Post Types"
 msgstr "Typy příspěvků"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:275
+#: includes/cpt/abstract-wetory-support-cpt.php:276
 msgctxt "Post Type Singular Name"
 msgid "Post Type"
 msgstr "Typ příspěvku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:276
+#: includes/cpt/abstract-wetory-support-cpt.php:277
 msgid "Post Types"
 msgstr "Typy příspěvků"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:277
+#: includes/cpt/abstract-wetory-support-cpt.php:278
 msgid "Post Type"
 msgstr "Typ příspěvku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:278
+#: includes/cpt/abstract-wetory-support-cpt.php:279
 msgid "Item Archives"
 msgstr "Archivy položek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:279
+#: includes/cpt/abstract-wetory-support-cpt.php:280
 msgid "Item Attributes"
 msgstr "Atributy položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:280
+#: includes/cpt/abstract-wetory-support-cpt.php:281
 msgid "Parent Item:"
 msgstr "Nadřazená položka:"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:281
+#: includes/cpt/abstract-wetory-support-cpt.php:282
 msgid "All Items"
 msgstr "Všechny položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:282
+#: includes/cpt/abstract-wetory-support-cpt.php:283
 msgid "Add New Item"
 msgstr "Přidat novou položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:283
+#: includes/cpt/abstract-wetory-support-cpt.php:284
 msgid "Add New"
 msgstr "Přidat položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:284
+#: includes/cpt/abstract-wetory-support-cpt.php:285
 msgid "New Item"
 msgstr "Nová položka"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:285
+#: includes/cpt/abstract-wetory-support-cpt.php:286
 msgid "Edit Item"
 msgstr "Upravit položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:286
+#: includes/cpt/abstract-wetory-support-cpt.php:287
 msgid "Update Item"
 msgstr "Aktualizovat položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:287
+#: includes/cpt/abstract-wetory-support-cpt.php:288
 msgid "View Item"
 msgstr "Zobrazit položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:288
+#: includes/cpt/abstract-wetory-support-cpt.php:289
 msgid "View Items"
 msgstr "Zobrazit položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:289
+#: includes/cpt/abstract-wetory-support-cpt.php:290
 msgid "Search Item"
 msgstr "Hledat položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:290
+#: includes/cpt/abstract-wetory-support-cpt.php:291
 msgid "Not found"
 msgstr "Nenalezeno"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:291
+#: includes/cpt/abstract-wetory-support-cpt.php:292
 msgid "Not found in Trash"
 msgstr "V koši nebylo nic nalezeno"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:292
+#: includes/cpt/abstract-wetory-support-cpt.php:293
 msgid "Featured Image"
 msgstr "Náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:293
+#: includes/cpt/abstract-wetory-support-cpt.php:294
 msgid "Set featured image"
 msgstr "Zvolit náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:294
+#: includes/cpt/abstract-wetory-support-cpt.php:295
 msgid "Remove featured image"
 msgstr "Odstranit náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:295
+#: includes/cpt/abstract-wetory-support-cpt.php:296
 msgid "Use as featured image"
 msgstr "Použít jako náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:296
+#: includes/cpt/abstract-wetory-support-cpt.php:297
 msgid "Insert into item"
 msgstr "Vložit do položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:297
+#: includes/cpt/abstract-wetory-support-cpt.php:298
 msgid "Uploaded to this item"
 msgstr "Nahrány do této položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:298
+#: includes/cpt/abstract-wetory-support-cpt.php:299
 msgid "Items list"
 msgstr "Seznam položek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:299
+#: includes/cpt/abstract-wetory-support-cpt.php:300
 msgid "Items list navigation"
 msgstr "Navigace pro seznam položek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:300
+#: includes/cpt/abstract-wetory-support-cpt.php:301
 msgid "Filter items list"
 msgstr "Seznam položek filtru"
 
@@ -431,7 +431,7 @@ msgstr ""
 #: includes/cpt/cpt-wetory-support-notice-board.php:142
 #: includes/cpt/cpt-wetory-support-notice-board.php:145
 #: includes/cpt/cpt-wetory-support-notice-board.php:156
-#: templates/posts-table/header-wcpt-notice-board.php:16
+#: templates/posts-table/header-wcpt-notice-board.php:21
 msgid "Valid from"
 msgstr "Platné od"
 
@@ -442,7 +442,7 @@ msgstr "Zadejte počáteční datum platnosti příspěvku"
 #: includes/cpt/cpt-wetory-support-notice-board.php:108
 #: includes/cpt/cpt-wetory-support-notice-board.php:150
 #: includes/cpt/cpt-wetory-support-notice-board.php:156
-#: templates/posts-table/header-wcpt-notice-board.php:17
+#: templates/posts-table/header-wcpt-notice-board.php:22
 msgid "Valid to"
 msgstr "Platné do"
 
@@ -540,6 +540,10 @@ msgid "File <strong>maintenance.php</strong> deleted from <strong>%s</strong>"
 msgstr ""
 "Soubor <strong>maintenance.php</strong> byl odstraněn z <strong>%s.</strong>"
 
+#: includes/wetory-support-functions.php:254
+msgid "Load more"
+msgstr "Načíst další"
+
 #: includes/widgets/widget-wetory-support-favourite-posts.php:25
 msgid "Favourite Posts"
 msgstr "Oblíbené příspěvky"
@@ -559,6 +563,7 @@ msgid "(no title)"
 msgstr "(bez názvu)"
 
 #: includes/widgets/widget-wetory-support-favourite-posts.php:220
+#: includes/widgets/widget-wetory-support-icon-box.php:130
 #: includes/widgets/widget-wetory-support-latest-posts.php:193
 msgid "Title:"
 msgstr "Název:"
@@ -603,26 +608,31 @@ msgid "Display post thumbnail?"
 msgstr "Zobrazit náhledy příspěvků?"
 
 #: includes/widgets/widget-wetory-support-favourite-posts.php:299
+#: includes/widgets/widget-wetory-support-icon-box.php:174
 #: includes/widgets/widget-wetory-support-latest-posts.php:306
 msgid "Link style:"
 msgstr "Styl odkazu:"
 
 #: includes/widgets/widget-wetory-support-favourite-posts.php:306
+#: includes/widgets/widget-wetory-support-icon-box.php:179
 #: includes/widgets/widget-wetory-support-latest-posts.php:313
 msgid "None"
 msgstr "Žádný"
 
 #: includes/widgets/widget-wetory-support-favourite-posts.php:307
+#: includes/widgets/widget-wetory-support-icon-box.php:182
 #: includes/widgets/widget-wetory-support-latest-posts.php:314
 msgid "Text link"
 msgstr "Textový odkaz"
 
 #: includes/widgets/widget-wetory-support-favourite-posts.php:308
+#: includes/widgets/widget-wetory-support-icon-box.php:180
 #: includes/widgets/widget-wetory-support-latest-posts.php:315
 msgid "Button"
 msgstr "Tlačítko"
 
 #: includes/widgets/widget-wetory-support-favourite-posts.php:309
+#: includes/widgets/widget-wetory-support-icon-box.php:183
 #: includes/widgets/widget-wetory-support-latest-posts.php:316
 msgid "Widget title"
 msgstr "Nadpis widgetu"
@@ -633,29 +643,74 @@ msgid "Link title:"
 msgstr "Název odkazu:"
 
 #: includes/widgets/widget-wetory-support-favourite-posts.php:331
+#: includes/widgets/widget-wetory-support-icon-box.php:204
 #: includes/widgets/widget-wetory-support-latest-posts.php:337
 msgid "Link URL:"
 msgstr "Adresa URL odkazu:"
 
 #: includes/widgets/widget-wetory-support-favourite-posts.php:340
+#: includes/widgets/widget-wetory-support-icon-box.php:213
 #: includes/widgets/widget-wetory-support-latest-posts.php:346
 msgid "Link align:"
 msgstr "Zarovnání odkazu:"
 
 #: includes/widgets/widget-wetory-support-favourite-posts.php:347
+#: includes/widgets/widget-wetory-support-icon-box.php:220
 #: includes/widgets/widget-wetory-support-latest-posts.php:353
 msgid "Left"
 msgstr "Doleva"
 
 #: includes/widgets/widget-wetory-support-favourite-posts.php:348
+#: includes/widgets/widget-wetory-support-icon-box.php:221
 #: includes/widgets/widget-wetory-support-latest-posts.php:354
 msgid "Center"
 msgstr "Na střed"
 
 #: includes/widgets/widget-wetory-support-favourite-posts.php:349
+#: includes/widgets/widget-wetory-support-icon-box.php:222
 #: includes/widgets/widget-wetory-support-latest-posts.php:355
 msgid "Right"
 msgstr "Napravo"
+
+#: includes/widgets/widget-wetory-support-icon-box.php:23
+msgid "Icon Box"
+msgstr "Icon Box"
+
+#: includes/widgets/widget-wetory-support-icon-box.php:25
+msgid "Add icon box widget"
+msgstr "Přidat icon box widget"
+
+#: includes/widgets/widget-wetory-support-icon-box.php:48
+msgid "Read more"
+msgstr "Číst dále"
+
+#: includes/widgets/widget-wetory-support-icon-box.php:139
+msgid "Icon type:"
+msgstr "Typ ikony:"
+
+#: includes/widgets/widget-wetory-support-icon-box.php:144
+msgid "Dashicons"
+msgstr "Dashicons"
+
+#: includes/widgets/widget-wetory-support-icon-box.php:145
+msgid "Favicons"
+msgstr "Favicons"
+
+#: includes/widgets/widget-wetory-support-icon-box.php:160
+msgid "Icon:"
+msgstr "Ikona:"
+
+#: includes/widgets/widget-wetory-support-icon-box.php:165
+msgid "Text:"
+msgstr "Text:"
+
+#: includes/widgets/widget-wetory-support-icon-box.php:181
+msgid "Icon"
+msgstr "Ikona"
+
+#: includes/widgets/widget-wetory-support-icon-box.php:199
+msgid "Link text:"
+msgstr "Text odkazu:"
 
 #: includes/widgets/widget-wetory-support-latest-posts.php:23
 msgid "Latest Posts"
@@ -670,6 +725,7 @@ msgid "Post Type:"
 msgstr "Typy příspěvků:"
 
 #: includes/widgets/widget-wetory-support-latest-posts.php:210
+#: templates/posts-filter/filter-wcpt-notice-board.php:45
 msgid "All"
 msgstr "Vše"
 
@@ -750,21 +806,83 @@ msgstr "Není co zobrazovat"
 msgid "It seems that no data exists for requested content."
 msgstr "Zdá se, že pro požadovaný obsah neexistují žádná data."
 
-#: templates/posts-table/header-wcpt-notice-board.php:15
-#: templates/posts-table/header.php:16
+#: templates/pagination-loadmore.php:19
+#, php-format
+msgid ""
+"Showing <span class=\"displayed-posts-count bold-text\">%s</span> of <span "
+"class=\"total-posts-count bold-text\">%s</span> posts"
+msgstr ""
+"Zobrazeno <span class=\"displayed-posts-count bold-text\">%s</span> z <span "
+"class=\"total-posts-count bold-text\">%s</span> příspěvků"
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:27
+msgid "Filter posts"
+msgstr "Filtrovat příspěvky"
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:35
+msgid "Search by keywords"
+msgstr "Hledání podle klíčových slov"
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:40
+msgid "Display archive"
+msgstr "Zobrazit archiv"
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:42
+#: templates/posts-filter/filter-wcpt-notice-board.php:51
+msgid "Select option"
+msgstr "Vyberte možnost"
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:43
+msgid "Actual"
+msgstr "Aktuální"
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:44
+msgid "Archive"
+msgstr "Archiv"
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:49
+msgid "Category"
+msgstr "Kategorie"
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:60
+msgid "Published date"
+msgstr "Datum zveřejnění"
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:64
+msgid "From"
+msgstr "Od"
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:70
+msgid "To"
+msgstr "Do"
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:80
+msgid ""
+"Found <span class=\"total-posts-count bold-text\"></span> posts matching "
+"your criteria"
+msgstr ""
+"Nalezeno <span class=\"total-posts-count bold-text\"></span> příspěvků "
+"odpovídajících vašim kritériím"
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:84
+msgid "Filter"
+msgstr "Filtrovat"
+
+#: templates/posts-table/header-wcpt-notice-board.php:20
+#: templates/posts-table/header.php:20
 msgid "Title"
 msgstr "Název"
 
-#: templates/posts-table/header-wcpt-notice-board.php:18
-#: templates/posts-table/header.php:17
+#: templates/posts-table/header-wcpt-notice-board.php:23
+#: templates/posts-table/header.php:21
 msgid "Author"
 msgstr "Autor"
 
-#: templates/posts-table/header.php:15
+#: templates/posts-table/header.php:19
 msgid "Published"
 msgstr "Zveřejněno"
 
-#: templates/posts-table/row-wcpt-notice-board.php:18
+#: templates/posts-table/row-wcpt-notice-board.php:17
 #: templates/posts-table/row.php:21
 msgid "Go to detail"
 msgstr "Přejít k podrobnostem"
@@ -831,9 +949,6 @@ msgstr "Tomáš Rybnický"
 #~ msgstr ""
 #~ "Omlouváme se za nepříjemnosti, pracujeme na aktualizacích, abychom vám "
 #~ "poskytli lepší web."
-
-#~ msgid "Select version"
-#~ msgstr "Vyberte verzi"
 
 #~ msgid "Bootstrap"
 #~ msgstr "Bootstrap"

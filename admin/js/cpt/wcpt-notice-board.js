@@ -1,8 +1,8 @@
 (function ($) {
 
     // Initialize admin datepickers
-    if (0 < $('.wetory-support-datepicker').length) {
-        $('.wetory-support-datepicker').datepicker({
+    if (0 < $('.wetory-datepicker').length) {
+        $('.wetory-datepicker').datepicker({
             dateFormat: "dd.mm.yy"
         });
     }

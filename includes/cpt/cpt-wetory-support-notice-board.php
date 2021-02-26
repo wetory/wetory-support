@@ -158,4 +158,61 @@ class Cpt_Wetory_Support_Notice_Board extends Wetory_Support_Cpt {
         }
     }
 
+    /**
+     * Overriding parent method to include notice board meta in conditions
+     */
+    public function prepare_filter_query(array $query, array $form_data): array {
+        wetory_write_log($form_data, 'prepare_filter_query');
+        if (isset($query['post_type']) && sizeof($query['post_type']) == 1 && $query['post_type'][0] == $this->id) {
+            if (isset($form_data['category']) && $form_data['category'] !== "") {
+                $query['category_name'] = wetory_get_quoted_string($form_data['category']);
+            }
+            if (isset($form_data['archive']) && $form_data['archive'] !== "") {
+                switch ($form_data['archive']) {
+                    case 'archive':
+                        $query['meta_query'] = array(
+                            array(
+                                'key' => 'valid_to',
+                                'compare' => '<',
+                                'value' => date("Y-m-d") . '',
+                            ),
+                        );
+                        break;
+                    case 'actual':
+                        $query['meta_query'] = array(
+                            'relation' => 'OR',
+                            array(
+                                'key' => 'valid_to',
+                                'value' => false,
+                                'type' => 'BOOLEAN'
+                            ),
+                            array(
+                                'relation' => 'AND',
+                                array(
+                                    'key' => 'valid_to',
+                                    'compare' => '>=',
+                                    'value' => date("Y-m-d") . '',
+                                ),
+                                array(
+                                    'key' => 'valid_from',
+                                    'compare' => '<=',
+                                    'value' => date("Y-m-d") . '',
+                                ),
+                            ),
+                        );
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (isset($form_data['published_from']) && $form_data['published_from'] !== "") {
+                $query['date_query']['after'] = $form_data['published_from'];
+            }
+            if (isset($form_data['published_to']) && $form_data['published_to'] !== "") {
+                $query['date_query']['before'] = $form_data['published_to'];
+            }
+        }
+        return parent::prepare_filter_query($query, $form_data);
+    }
+
 }

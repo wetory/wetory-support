@@ -8,9 +8,14 @@
  * @subpackage wetory_support/templates/posts-table
  * @author     Tomas Rybnicky <tomas.rybnicky@wetory.eu>
  */
+
+$post_type = isset($data->post_type) ? $data->post_type : 'post';
+$loadmore_template = isset($data->loadmore_template) ? $data->loadmore_template : 'row-post';
+
+
 ?>
-<table class="table table-hover">
-    <thead class="thead-dark">
+<table class="wetory-table table table-hover wetory-ajax-post-list <?php echo $post_type; ?>" data-loadmore-template="<?php echo $loadmore_template;?>">
+    <thead>
         <tr>
             <th><?php _e('Title', 'wetory-support'); ?></th>
             <th><?php _e('Valid from', 'wetory-support'); ?></th>

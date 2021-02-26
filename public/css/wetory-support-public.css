@@ -3,48 +3,120 @@
  * included in this file.
  */
 
+/* General */
+.bold-text {
+    font-weight: bold;
+}
+
+/* Buttons */
+button.loading {
+    background-image: url("./../images/ajax-loader.gif") !important;
+    background-color: transparent !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    color: transparent !important;
+}
+
 /* Widget - Posts */
-.wetory-support-widget.posts-widget ul .post-title {
+.wetory-widget.posts-widget ul .post-title {
     font-size: 1rem !important;
 }
-.wetory-support-widget.posts-widget ul.posts-listing,
-.wetory-support-widget.posts-widget ul.posts-tiles {
+.wetory-widget.posts-widget ul.posts-listing,
+.wetory-widget.posts-widget ul.posts-tiles {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
 }
-.wetory-support-widget.posts-widget ul.posts-listing li .post-thumbnail {
+.wetory-widget.posts-widget ul.posts-listing li .post-thumbnail {
     float: left;
     margin-right: 10px;
 }
-.wetory-support-widget.posts-widget ul.posts-tiles li,
-.wetory-support-widget.posts-widget ul.posts-tiles li .post-thumbnail {
+.wetory-widget.posts-widget ul.posts-tiles li,
+.wetory-widget.posts-widget ul.posts-tiles li .post-thumbnail {
     margin-bottom: 15px;
 }
-.wetory-support-widget.posts-widget .posts-tiles li .post-thumbnail,
-.wetory-support-widget.posts-widget .posts-tiles li .post-title,
-.wetory-support-widget.posts-widget .posts-tiles li .post-date {
+.wetory-widget.posts-widget .posts-tiles li .post-thumbnail,
+.wetory-widget.posts-widget .posts-tiles li .post-title,
+.wetory-widget.posts-widget .posts-tiles li .post-date {
     text-align: center;
     display: block;
 }
-.wetory-support-widget.posts-widget ul li .post-thumbnail a:hover {
+.wetory-widget.posts-widget ul li .post-thumbnail a:hover {
     -webkit-transform: translateY(0);
     transform: translateY(0)
 }
-.wetory-support-widget.posts-widget .link-wrapper {
+.wetory-widget.posts-widget .link-wrapper {
     width: 100%;
     margin-top: 30px;
 }
 
 /* Widget - Icon Box */
-.wetory-support-widget.wetory-icon-box .icon-wrapper {
+.wetory-widget.wetory-icon-box .icon-wrapper {
     text-align: center;
 }
-.wetory-support-widget.wetory-icon-box .icon-wrapper .icon {
+.wetory-widget.wetory-icon-box .icon-wrapper .icon {
     font-size: 70px;
     display: inline;
 }
-.wetory-support-widget.wetory-icon-box .title,
-.wetory-support-widget.wetory-icon-box .text-wrapper {
+.wetory-widget.wetory-icon-box .title,
+.wetory-widget.wetory-icon-box .text-wrapper {
     text-align: center;
+}
+
+/* Templates - Posts table */
+table.wetory-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 14px;
+    line-height: 2;
+    margin: 0 0 20px;
+    width: 100%;
+}
+table.wetory-table td,
+table.wetory-table th {
+    padding: 5px 10px;
+    border: 1px solid #dadada;
+    white-space: nowrap;
+    text-align: left;
+    vertical-align: top;
+}
+table.wetory-table th {
+    background: #dadada;
+}
+
+/* Loadmore */
+.wetory-posts-pagination-loadmore {
+    width: 100%;
+    text-align: center;
+}
+.wetory-ajax-loadmore-wrapper {
+    margin-top: 15px;
+}
+
+/* Posts filters */
+form.wetory-ajax-filter {
+}
+form.wetory-ajax-filter .filter-inputs {
+    padding: 25px 20px 15px 20px;
+    background: #f3f3f3;
+    border: 1px solid #e1e2e1;    
+    margin-bottom: 10px;
+}
+form.wetory-ajax-filter .filter-heading,
+form.wetory-ajax-filter .filter-footer {
+    padding-bottom: 10px;
+}
+form.wetory-ajax-filter .filter-title,
+form.wetory-ajax-filter .filter-title i.dashicons {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+}
+form.wetory-ajax-filter .form-control,
+form.wetory-ajax-filter .input-group-text {
+    font-size: 16px;
+}
+form.wetory-ajax-filter button[type="submit"] {
+    padding: 5px 10px;
+    text-transform: none;
 }

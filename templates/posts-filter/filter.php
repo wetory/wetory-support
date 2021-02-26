@@ -1,6 +1,6 @@
 <?php
 /**
- * Template to render general posts table footer.
+ * Template to render general posts filter.
  *
  * @since      1.1.0
  * 
@@ -9,5 +9,3 @@
  * @author     Tomas Rybnicky <tomas.rybnicky@wetory.eu>
  */
 ?>
-</tbody>
-</table>

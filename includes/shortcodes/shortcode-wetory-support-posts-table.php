@@ -47,29 +47,9 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
             'taxonomy' => 'category',
             'terms' => ''
         );
-        $this->before_content = '<section class="wetory-support-template posts-table-wrapper">';
+        $this->before_content = '<section class="wetory-template wetory-posts-table-wrapper">';
         $this->after_content = '</section>';
         parent::__construct($id, $atts);
-    }
-    
-    /**
-     * Load required sources for this shortcode.
-     */
-    protected function load_sources() {
-        add_action('wp_enqueue_scripts', array($this, 'load_public_scripts'));
-    }
-    
-    /**
-     * Loading scripts for front end
-     * 
-     * https://developer.wordpress.org/reference/functions/wp_enqueue_script/     * 
-     * @since 1.0.0
-     */
-    public function load_public_scripts() {
-        if (is_admin()) {
-            return;
-        }
-        wp_enqueue_script('wetory-support-ajax', WETORY_SUPPORT_URL . 'public/js/wetory-support-ajax.min.js', array('jquery'), WETORY_SUPPORT_VERSION, true);
     }
 
     /**
@@ -82,15 +62,16 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
      * 
      * @return string HTML markup of shortcode output
      */
-    public function get_content($atts, $content = null) {
+    public function get_content($content = null) {
 
         // Query posts
-        $query_vars = $this->prepare_query_vars($atts);
-        $posts = new WP_Query($query_vars);
-
+        $this->query_posts();
+        
         // Generate content
-        $template_variation = $this->get_template_variation($atts);
-        $content = $this->generate_table($posts, $template_variation);
+        $content = $this->generate_table();
+
+        // Reset $wp_query
+        wp_reset_query();
 
         return $content;
     }
@@ -99,25 +80,36 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
      * Generate table for given posts
      * 
      * @since 1.1.0
-     *
-     * @param WP_Query $posts Instance of WP_Query holding posts etc.
-     * @param string $template_variation Variation is used to load correct template based on post type.
      * 
      * @return string HTML markup of table
      */
-    private function generate_table(WP_Query $posts, string $template_variation = '') {
+    private function generate_table() {
+        
+        $post_type = $this->get_post_type();
 
         $template_loader = new Wetory_Support_Template_Loader();
+        
+        $data = array(
+            'post_type' => $post_type,
+            'loadmore_template' => 'posts-table/row-'.$post_type,
+        );
 
         // Construct table from template parts
         ob_start();
-        if ($posts->have_posts()) {
-            $template_loader->get_template_part('posts-table/header', $template_variation);
-            while ($posts->have_posts()) : $posts->the_post();
-                $template_loader->get_template_part('posts-table/row', $template_variation);
+        if (have_posts()) {
+            if($this->is_filter_enabled()) {
+                $template_loader->get_template_part('posts-filter/filter', $post_type);
+            }
+            $template_loader
+                    ->set_template_data($data)
+                    ->get_template_part('posts-table/header', $post_type);
+            while (have_posts()) : the_post();
+                $template_loader->get_template_part('posts-table/row', $post_type);
             endwhile;
-            $template_loader->get_template_part('posts-table/footer', $template_variation);
             wp_reset_postdata();
+
+            $template_loader->get_template_part('posts-table/footer', $post_type);
+            $template_loader->get_template_part('pagination', 'loadmore');
         } else {
             $template_loader->get_template_part('content', 'none');
         }
@@ -133,28 +125,52 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
      * be used in templates. 
      * 
      * @since 1.1.0
-     * @param array|string $atts Array of shortcode attributes
+     * 
      * @return string Template variation based on post type
      */
-    private function get_template_variation($atts) {
+    private function get_post_type() {
+        $atts = $this->shortcode_attributes;
+        
         $post_types = explode(',', str_replace(' ', '', $atts['types']));
-        $variation = sizeof($post_types) == 1 ? $post_types[0] : '';
+        $post_type = sizeof($post_types) == 1 ? $post_types[0] : '';
 
-        return $variation;
+        return $post_type;
+    }
+    
+    /**
+     * Evaluating shortcode attribute for posts filter
+     * 
+     * @since 1.1.0
+     * 
+     * @return bool
+     */
+    private function is_filter_enabled():bool {
+        $enabled = false;
+        if (isset($this->shortcode_attributes['filter'])) {
+            $enabled = $this->shortcode_attributes['filter'];
+        }
+        return $enabled;
     }
 
     /**
-     * Transform attributes array to WP_Query $query_vars array
+     * Set global $wp_query based on given attributes
      * 
-     * @since 1.1.0
-     * @param array $atts Array of attributes
+     * Transform attributes array to WP_Query $query_vars array and create new 
+     * WP_Query object which replaces global $wp_query.
      * 
-     * @return array An array of the query variables and their respective values.
+     * Do not forget to call wp_reset_query when custom query is not needed anymore.
+     * 
+     * @see https://developer.wordpress.org/reference/functions/wp_reset_query/
+     * 
+     * @since 1.1.0     * 
      */
-    private function prepare_query_vars(array $atts): array {
-
+    private function query_posts() {
+        global $wp_query;
+        
+        $atts = $this->shortcode_attributes;
+        
         // Get current page
-        $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
         // Construct WP_Query parameters array
         $query_vars = array(
@@ -163,7 +179,7 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
             'orderby' => $atts['order_by'],
             'order' => $atts['order'],
             'posts_per_page' => $atts['paging'] ? $atts['count'] : -1,
-            'paged' => $paged,
+            'paged' => $atts['paging'],
             'update_post_term_cache' => false,
             'update_post_meta_cache' => false,
             'no_found_rows' => !$atts['paging'],
@@ -180,8 +196,17 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
             );
             $query_vars['update_post_term_cache'] = true;
         }
-
-        return $query_vars;
+        
+        $wp_query = new WP_Query($query_vars);
+        
+        // Pass query data to JavaScript for further procesing 
+        wp_localize_script('wetory-support-ajax', 'wp_query', array(
+            'query' => json_encode($wp_query->query),
+            'current_page' => get_query_var('paged') ? get_query_var('paged') : 1,
+            'found_posts' => $wp_query->found_posts,
+            'max_num_pages' => $wp_query->max_num_pages,
+            'posts_per_page' => get_query_var('posts_per_page'),
+        ));
     }
 
 }

@@ -81,6 +81,7 @@ abstract class Wetory_Support_Cpt {
         add_action('load-post-new.php', array($this, 'meta_boxes'));
         add_action('save_post_' . $this->id, array($this, 'save_post'), 10, 2);
         add_action('pre_post_update', array($this, 'validation'), 10, 2);
+        add_filter('wetory_ajax_filter_query', array($this, 'prepare_filter_query'), 10, 2);
     }
 
     /**
@@ -470,6 +471,22 @@ abstract class Wetory_Support_Cpt {
             'meta' => $this->get_meta()
         );
         return $result;
+    }
+
+    /**
+     * You can override this function to include specific conditions to query given custom post.
+     * 
+     * @see Wetory_Support_Ajax
+     * 
+     * @param array $query Query that is used to create WP_Query in 'wetory_ajax_filter' handler.
+     * @param array $form_data Data send by AJAX request, usually contains form input fields
+     * 
+     *  @since    1.1.0
+     * 
+     * @return array Modified query
+     */
+    public function prepare_filter_query(array $query, array $form_data): array {
+        return $query;
     }
 
 }

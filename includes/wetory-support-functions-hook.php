@@ -86,7 +86,7 @@ if (!function_exists('wetory_wpseo_breadcrumb_links')) {
         return $breadcrumbs;
     }
 
-    if (is_plugin_active('wordpress-seo/wp-seo.php') || is_plugin_active('wordpress-seo-premium/wp-seo-premium.php')) {
+    if (in_array('wordpress-seo/wp-seo.php', apply_filters('active_plugins', get_option('active_plugins')))) {
         add_filter('wpseo_breadcrumb_links', 'wetory_wpseo_breadcrumb_links');
     }
 }

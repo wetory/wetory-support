@@ -125,9 +125,9 @@ abstract class Wetory_Support_Widget extends WP_Widget {
      */
     private function add_args_classname($args) {
         if (isset($args['classname'])) {
-            $args['classname'] .= ' wetory-support-widget';
+            $args['classname'] .= ' wetory-widget';
         } else {
-            $args['classname'] = 'wetory-support-widget';
+            $args['classname'] = 'wetory-widget';
         }
         return $args;
     }

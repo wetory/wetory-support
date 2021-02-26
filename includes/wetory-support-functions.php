@@ -59,6 +59,20 @@ if (!function_exists('wetory_copyright_info')) {
 
 }
 
+if (!function_exists('wetory_get_quoted_string')) {
+
+    /**
+     * Get string surrounded by given character, by default single quote
+     * 
+     * @since      1.1.0
+     * @return string
+     */
+    function wetory_get_quoted_string(string $string, string $quote = "'") {
+        return $quote.$string.$quote;
+    }
+
+}
+
 if (!function_exists('wetory_date_translate')) {
 
     /**
@@ -215,8 +229,30 @@ if (!function_exists('wetory_get_formatted_date')) {
     function wetory_get_formatted_date($datetime, $format = null): string {
 
         $_format = !empty($format) ? $format : get_option('date_format');
+        
+        if(is_object($datetime)){
+            $timestamp = $datetime->getTimestamp();
+        } else {
+            $timestamp = strtotime($datetime);
+        }
 
-        return date_i18n($_format, $datetime);
+        return date_i18n($_format, $timestamp);
+    }
+
+}
+
+if (!function_exists('wetory_load_more_button')) {
+
+    /**
+     * Echoes link to call load more Ajax functionality
+     * @global type $wp_query
+     */
+    function wetory_load_more_button() {
+        global $wp_query;
+        
+        if ($wp_query->max_num_pages > 1) :
+            echo '<div class="wetory-ajax-loadmore-wrapper"><button class="wetory-ajax-loadmore">' . __('Load more', 'wetory-support') . '</button></div>';
+        endif;
     }
 
 }
