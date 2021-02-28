@@ -89,8 +89,8 @@
 
     function update_posts_sumaries() {
 
-        var displayed_posts_count = $('span.displayed-posts-count');
-        var total_posts_count = $('span.total-posts-count');
+        var displayed_posts_count = $('.filter-summary span.displayed-posts-count');
+        var total_posts_count = $('.filter-summary span.total-posts-count');
 
         if (displayed_posts_count) {
             var posts_count = wp_query.posts_per_page * wp_query.current_page;
@@ -126,6 +126,7 @@
     $('form.wetory-ajax-filter').submit(function () {
         var filter = $(this);
         var filter_status = filter.find('.filter-status');
+        var filter_summary = filter.find('.filter-summary');
         var post_list = $('.wetory-ajax-post-list');
         var template = post_list.attr('data-loadmore-template');
         var loadmore = $('.wetory-ajax-loadmore');
@@ -144,6 +145,8 @@
             type: 'POST',
             beforeSend: function (xhr) {
                 filter.find('button[type="submit"]').addClass('loading');
+                if(filter_status)   filter_status.addClass('loading');
+                if(filter_summary)  filter_summary.hide();
             },
             success: function (data) {
                 // Set content
@@ -163,7 +166,7 @@
                 update_posts_sumaries();
                 
                 // Show filter status
-                filter_status.show();
+                if(filter_summary) filter_summary.show();
 
                 // Check if loadmore button is needed
                 if (wp_query.current_page >= wp_query.max_num_pages) {
@@ -174,6 +177,7 @@
             },
             complete: function (xhr) {
                 filter.find('button[type="submit"]').removeClass('loading');
+                if(filter_status) filter_status.removeClass('loading');
             }
         });
 

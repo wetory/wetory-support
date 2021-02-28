@@ -28,7 +28,6 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
      *  - paging    When set to true table is displayed in pages by "n" posts based on "count" attribute
      *  - filter    Display filter over the table or not
      *  - columns   Specify columns and their order to display, by default make columns from all available post meta
-     *  - taxonomy  Posts can be filtered by taxonomies, by default use categories
      *  - terms     Specify terms for filtering posts based on given taxonomy
      * 
      * @since    1.0.0
@@ -89,9 +88,11 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
 
         $template_loader = new Wetory_Support_Template_Loader();
         
+        $template_file = $template_loader->locate_template('posts-table/row-'.$post_type) ? 'posts-table/row-'.$post_type : 'posts-table/row';
+        
         $data = array(
             'post_type' => $post_type,
-            'loadmore_template' => 'posts-table/row-'.$post_type,
+            'loadmore_template' => $template_file,
         );
         
         ob_start();
@@ -99,7 +100,9 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
             
             // Filter template
             if($this->is_filter_enabled()) {
-                $template_loader->get_template_part('posts-filter/filter', $post_type);
+                $template_loader
+                        ->set_template_data($data)
+                        ->get_template_part('posts-filter/filter', $post_type);
             }
             
             // Table header

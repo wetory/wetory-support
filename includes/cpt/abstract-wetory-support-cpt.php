@@ -488,5 +488,4 @@ abstract class Wetory_Support_Cpt {
     public function prepare_filter_query(array $query, array $form_data): array {
         return $query;
     }
-
 }

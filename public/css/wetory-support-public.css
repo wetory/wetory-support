@@ -129,3 +129,36 @@ form.wetory-ajax-filter button[type="reset"] {
     background: #dadada;
     color: #000;
 }
+form.wetory-ajax-filter .filter-status {
+    display: none;
+}
+form.wetory-ajax-filter .filter-status.loading {
+    display: inline-block;
+}
+
+/* Responsive mobile devices support */
+ 
+/* extra small devices */
+@media (max-width: 576px) {
+
+}
+ 
+/* small devices */
+@media (max-width: 768px) {    
+
+}
+ 
+/* medium devices */
+@media (max-width:992px) {
+
+}
+ 
+/* large devices */
+@media (max-width:1200px) {
+ 
+}
+ 
+/* xlarge devices */
+@media (min-width:1200px) {
+ 
+}

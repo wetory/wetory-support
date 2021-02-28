@@ -131,6 +131,24 @@ if (!class_exists('Wetory_Support_Ajax')) {
             } else {
                 unset($query['s']);
             }
+
+            if (isset($form_data['category']) && $form_data['category'] !== "") {
+                $query['category_name'] = wetory_get_quoted_string($form_data['category']);
+            } else {
+                unset($query['category_name']);
+            }
+
+            if (isset($form_data['published_from']) && $form_data['published_from'] !== "") {
+                $query['date_query']['after'] = $form_data['published_from'];
+            } else {
+                unset($query['date_query']['after']);
+            }
+            if (isset($form_data['published_to']) && $form_data['published_to'] !== "") {
+                $query['date_query']['before'] = $form_data['published_to'];
+            } else {
+                unset($query['date_query']['before']);
+            }
+
             return $query;
         }
 

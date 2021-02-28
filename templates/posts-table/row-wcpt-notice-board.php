@@ -19,18 +19,18 @@
     );
 
     $valid_from_meta = get_post_meta(get_the_ID(), 'valid_from', true); 
-    $valid_from = date_create_from_format("Y-m-d", $valid_from_meta);
+    $valid_from_text = $valid_from_meta && $valid_from_meta !== '' ? wetory_get_formatted_date($valid_from_meta) : ''; 
 
     $valid_to_meta = get_post_meta(get_the_ID(), 'valid_to', true);
-    $valid_to = date_create_from_format("Y-m-d", $valid_to_meta);
+    $valid_to_text = $valid_to_meta && $valid_to_meta !== '' ? wetory_get_formatted_date($valid_to_meta) : ''; 
 
     printf(
             '<td>%s</td>',
-            wetory_get_formatted_date($valid_from_meta),
+            $valid_from_text,
     );
     printf(
             '<td>%s</td>',
-            wetory_get_formatted_date($valid_to_meta),
+            $valid_to_text,
     );
     printf(
             '<td>%s</td>',

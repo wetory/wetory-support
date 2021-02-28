@@ -10,7 +10,6 @@
  */
 // Prepare some data for input fields
 $args = array(
-    'type' => 'wcpt-notice-board',
     'orderby' => 'name',
     'order' => 'ASC',
     'hide_empty' => 1,
@@ -18,7 +17,7 @@ $args = array(
     'pad_counts' => false
 );
 
-$categories = get_categories($args);
+$categories = wetory_get_categories_by_post_type('wcpt-notice-board', $args);
 ?>
 <div class="panel panel-default wetory-ajax-filter-wrapper">
     <form class="wetory-ajax-filter autoload" autocomplete="off" class="was-validated">
@@ -55,17 +54,17 @@ $categories = get_categories($args);
                             </select>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="row">
                         <div class="col-sm-12">
                             <label><?php _e('Published date', 'wetory-support'); ?></label>
                         </div>
-                        <div class="input-group col-sm-6">
+                        <div class="form-group input-group col-sm-6">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><?php _e('From', 'wetory-support'); ?></span>
                             </div>
                             <input type="date" class="form-control" id="published_from" name="published_from">
                         </div>
-                        <div class="input-group col-sm-6">
+                        <div class="form-group input-group col-sm-6">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><?php _e('To', 'wetory-support'); ?></span>
                             </div>
@@ -76,9 +75,12 @@ $categories = get_categories($args);
             </div>
             <div class="panel-footer form-group row filter-footer">
                 <div class="col-sm-8">
-                    <span class="filter-status" style="display: none;">
-                        <?php _e('Found <span class="total-posts-count bold-text"></span> posts matching your criteria', 'wetory-support');?>
-                    </span>
+                    <div class="filter-status">
+                        <?php _e('Data loading...', 'wetory-support'); ?>
+                    </div>
+                    <div class="filter-summary" style="display: none;">
+                        <?php _e('Found <span class="total-posts-count bold-text"></span> posts matching your criteria', 'wetory-support'); ?>
+                    </div>
                 </div>
                 <div class="col-sm-4">
                     <button type="submit" class="float-right"><?php _e('Filter', 'wetory-support'); ?></button>

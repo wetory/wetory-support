@@ -46,7 +46,8 @@ if (!function_exists('wetory_created_by_link')) {
 
 }
 
-if (!function_exists('wetory_copyright_info')) { 
+if (!function_exists('wetory_copyright_info')) {
+
     /**
      * Copyright info about website
      * 
@@ -68,7 +69,7 @@ if (!function_exists('wetory_get_quoted_string')) {
      * @return string
      */
     function wetory_get_quoted_string(string $string, string $quote = "'") {
-        return $quote.$string.$quote;
+        return $quote . $string . $quote;
     }
 
 }
@@ -229,8 +230,8 @@ if (!function_exists('wetory_get_formatted_date')) {
     function wetory_get_formatted_date($datetime, $format = null): string {
 
         $_format = !empty($format) ? $format : get_option('date_format');
-        
-        if(is_object($datetime)){
+
+        if (is_object($datetime)) {
             $timestamp = $datetime->getTimestamp();
         } else {
             $timestamp = strtotime($datetime);
@@ -249,10 +250,37 @@ if (!function_exists('wetory_load_more_button')) {
      */
     function wetory_load_more_button() {
         global $wp_query;
-        
+
         if ($wp_query->max_num_pages > 1) :
             echo '<div class="wetory-ajax-loadmore-wrapper"><button class="wetory-ajax-loadmore">' . __('Load more', 'wetory-support') . '</button></div>';
         endif;
+    }
+
+}
+
+if (!function_exists('wetory_get_categories_by_post_type')) {
+
+    function wetory_get_categories_by_post_type($post_type, $args = '') {
+        $exclude = array();
+        
+        //check all categories and exclude
+        foreach (get_categories($args) as $category) {
+            $posts = get_posts(array('post_type' => $post_type, 'category' => $category->cat_ID));
+            if (empty($posts)) {
+                $exclude[] = $category->cat_ID;
+            }
+        }
+        
+        //re-evaluate args
+        if (!empty($exclude)) {
+            if (is_string($args)) {
+                $args .= ('' === $args) ? '' : '&';
+                $args .= 'exclude=' . implode(',', $exclude);
+            } else {
+                $args['exclude'] = $exclude;
+            }
+        }
+        return get_categories($args);
     }
 
 }
