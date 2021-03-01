@@ -31,11 +31,11 @@ class Widget_Wetory_Support_Favourite_Posts extends Wetory_Support_Widget {
     }
 
     /**
-     * Load required sources for this plugin.
+     * Load required sources for this widget.
      */
     protected function load_sources() {
-        add_action('admin_enqueue_scripts', array($this, 'load_scripts'));
-        add_action('admin_enqueue_scripts', array($this, 'load_styles'));
+        add_action('admin_enqueue_scripts', array($this, 'load_admin_scripts'));
+        add_action('admin_enqueue_scripts', array($this, 'load_admin_styles'));
     }
 
     /**
@@ -44,12 +44,12 @@ class Widget_Wetory_Support_Favourite_Posts extends Wetory_Support_Widget {
      * https://developer.wordpress.org/reference/functions/wp_enqueue_script/     * 
      * @since 1.0.0
      */
-    public function load_scripts($hook) {
-        if ($hook != 'widgets.php') {
+    public function load_admin_scripts($hook) {
+        if ($hook != 'widgets.php' || !is_admin()) {
             return;
         }
         
-        wp_enqueue_script('select2', WETORY_SUPPORT_URL . 'admin/assets/select2/4.0.13/js/select2.min.js', array('jquery'), '4.0.13', true);
+        wp_enqueue_script('select2', WETORY_SUPPORT_URL . 'assets/select2/4.0.13/js/select2.min.js', array('jquery'), '4.0.13', true);
         wp_enqueue_script('wetory-favourite-posts-script', WETORY_SUPPORT_URL . 'admin/js/widgets/wetory-favourite-posts.min.js', array('jquery', 'select2'), WETORY_SUPPORT_VERSION, true);
     }
     
@@ -59,12 +59,12 @@ class Widget_Wetory_Support_Favourite_Posts extends Wetory_Support_Widget {
      * https://developer.wordpress.org/reference/functions/wp_enqueue_style/
      * @since 1.1.0
      */
-    public function load_styles($hook) {
+    public function load_admin_styles($hook) {
         if ($hook != 'widgets.php') {
             return;
         }
         
-        wp_enqueue_style('select2', WETORY_SUPPORT_URL . 'admin/assets/select2/4.0.13/css/select2.min.css', array(), '4.0.13', 'all');
+        wp_enqueue_style('select2', WETORY_SUPPORT_URL . 'assets/select2/4.0.13/css/select2.min.css', array(), '4.0.13', 'all');
     }
     
     

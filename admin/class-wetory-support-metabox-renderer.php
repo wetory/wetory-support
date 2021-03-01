@@ -16,9 +16,9 @@
  */
 class Wetory_Support_Metabox_Renderer {
 
-    const LABEL_CLASS = 'wetory_support_metabox_label';
-    const INPUT_CLASS = 'wetory_support_metabox_input';
-    const FIELD_CLASS = 'wetory_support_metabox_field';
+    const LABEL_CLASS = 'wetory-metabox-label';
+    const INPUT_CLASS = 'wetory-metabox-input';
+    const FIELD_CLASS = 'wetory-metabox-field';
 
     /**
      * Rendering fields 
@@ -53,7 +53,7 @@ class Wetory_Support_Metabox_Renderer {
         <div class="<?php echo self::FIELD_CLASS; ?>">
             <div class="<?php echo self::LABEL_CLASS; ?>">
                 <label for="<?php echo $name; ?>">
-                    <?php echo $required ? $title . ' <span class="wetory-support-required">*</span>' : $title; ?>
+                    <?php echo $required ? $title . ' <span class="wetory-required">*</span>' : $title; ?>
                 </label>
                 <?php
                 if ($desc != '') {
@@ -80,7 +80,7 @@ class Wetory_Support_Metabox_Renderer {
         <div class="<?php echo self::FIELD_CLASS; ?>">
             <div class="<?php echo self::LABEL_CLASS; ?>">
                 <label for="<?php echo $name; ?>">
-                    <?php echo $required ? $title . ' <span class="wetory-support-required">*</span>' : $title; ?>
+                    <?php echo $required ? $title . ' <span class="wetory-required">*</span>' : $title; ?>
                 </label>
                 <?php
                 if ($desc != '') {
@@ -108,7 +108,7 @@ class Wetory_Support_Metabox_Renderer {
         <div class="<?php echo self::FIELD_CLASS; ?>">
             <div class="<?php echo self::LABEL_CLASS; ?>">
                 <label for="<?php echo $name; ?>">
-                    <?php echo $required ? $title . ' <span class="wetory-support-required">*</span>' : $title; ?>
+                    <?php echo $required ? $title . ' <span class="wetory-required">*</span>' : $title; ?>
                 </label>
                 <?php
                 if ($desc != '') {
@@ -117,7 +117,7 @@ class Wetory_Support_Metabox_Renderer {
                 ?>
             </div>                
             <div class="<?php echo self::INPUT_CLASS; ?>">
-                <input type="text" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo $default; ?>" placeholder="<?php echo $placeholder; ?>" class="wetory-support-datepicker" <?php echo $required ? 'required' : ''; ?>/>	
+                <input type="text" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo $default; ?>" placeholder="<?php echo $placeholder; ?>" class="wetory-datepicker" <?php echo $required ? 'required' : ''; ?>/>	
             </div>
         </div>
         <?php
@@ -161,7 +161,7 @@ class Wetory_Support_Metabox_Renderer {
         <div class="<?php echo self::FIELD_CLASS; ?>">
             <<div class="<?php echo self::LABEL_CLASS; ?>">
                 <label for="<?php echo $name; ?>">
-                    <?php echo $required ? $title . ' <span class="wetory-support-required">*</span>' : $title; ?>
+                    <?php echo $required ? $title . ' <span class="wetory-required">*</span>' : $title; ?>
                 </label>
                 <?php
                 if ($desc != '') {

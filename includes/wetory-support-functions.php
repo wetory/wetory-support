@@ -32,7 +32,7 @@ if (!function_exists('wetory_get_prefixed_label')) {
 
 }
 
-if (!function_exists('wetory_get_created_by_link')) {
+if (!function_exists('wetory_created_by_link')) {
 
     /**
      * Created by Wetory link
@@ -40,11 +40,40 @@ if (!function_exists('wetory_get_created_by_link')) {
      * @since      1.0.0
      * @return string
      */
-    function wetory_get_created_by_link() {
-        return 'by <a href="https://www.wetory.eu/" target="_blank">wetory</a>';
+    function wetory_created_by_link() {
+        echo 'by <a href="https://www.wetory.eu/" target="_blank">wetory</a>';
     }
 
 }
+
+if (!function_exists('wetory_copyright_info')) {
+
+    /**
+     * Copyright info about website
+     * 
+     * @since      1.1.0
+     * @return string
+     */
+    function wetory_copyright_info() {
+        echo '<a href="' . home_url() . '" title="' . get_bloginfo('description') . '">' . get_bloginfo('name') . '</a> &copy; ' . date("Y");
+    }
+
+}
+
+if (!function_exists('wetory_get_quoted_string')) {
+
+    /**
+     * Get string surrounded by given character, by default single quote
+     * 
+     * @since      1.1.0
+     * @return string
+     */
+    function wetory_get_quoted_string(string $string, string $quote = "'") {
+        return $quote . $string . $quote;
+    }
+
+}
+
 if (!function_exists('wetory_date_translate')) {
 
     /**
@@ -153,6 +182,157 @@ if (!function_exists('wetory_maintenance_page')) {
             wetory_write_log("Deleting custom maintenance page " . $maintenance_page, 'info');
             unlink($maintenance_page);
         }
+    }
+
+}
+
+if (!function_exists('wetory_get_wp_query')) {
+
+    /**
+     * Construct query object based on parameters
+     * 
+     * @see https://developer.wordpress.org/reference/classes/wp_query/
+     * 
+     * @since      1.1.0
+     * @param array $args Parameters for WP_Query object
+     * @return \WP_Query
+     */
+    function wetory_get_wp_query(array $args): WP_Query {
+
+        /**
+         * Specify some default query parameters
+         * @see https://developer.wordpress.org/reference/classes/wp_query/#parameters
+         */
+        $defaults = array(
+            'post_type' => 'any',
+            'post_status' => 'publish',
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'posts_per_page' => -1,
+        );
+
+        $args = wp_parse_args($args, $defaults);
+
+        return new WP_Query($args);
+    }
+
+}
+
+if (!function_exists('wetory_get_formatted_date')) {
+
+    /**
+     * Simple function to get date time in given format or in format from WordPress settings.
+     * 
+     * @since      1.1.0
+     * @param string|DateTime $datetime Date to be formatted
+     * @param string $format Format to display the date
+     * @return string Formatted date time string
+     */
+    function wetory_get_formatted_date($datetime, $format = null): string {
+
+        $_format = !empty($format) ? $format : get_option('date_format');
+
+        if (is_object($datetime)) {
+            $timestamp = $datetime->getTimestamp();
+        } else {
+            $timestamp = strtotime($datetime);
+        }
+
+        return date_i18n($_format, $timestamp);
+    }
+
+}
+
+if (!function_exists('wetory_load_more_button')) {
+
+    /**
+     * Echoes link to call load more Ajax functionality
+     * 
+     * @since      1.1.0
+     * @global type $wp_query
+     */
+    function wetory_load_more_button() {
+        global $wp_query;
+
+        if ($wp_query->max_num_pages > 1) :
+            echo '<div class="wetory-ajax-loadmore-wrapper"><button class="wetory-ajax-loadmore">' . __('Load more', 'wetory-support') . '</button></div>';
+        endif;
+    }
+
+}
+
+if (!function_exists('wetory_get_categories_by_post_type')) {
+
+    function wetory_get_categories_by_post_type($post_type, $args = '') {
+        $exclude = array();
+
+        //check all categories and exclude
+        foreach (get_categories($args) as $category) {
+            $posts = get_posts(array('post_type' => $post_type, 'category' => $category->cat_ID));
+            if (empty($posts)) {
+                $exclude[] = $category->cat_ID;
+            }
+        }
+
+        //re-evaluate args
+        if (!empty($exclude)) {
+            if (is_string($args)) {
+                $args .= ('' === $args) ? '' : '&';
+                $args .= 'exclude=' . implode(',', $exclude);
+            } else {
+                $args['exclude'] = $exclude;
+            }
+        }
+        return get_categories($args);
+    }
+
+}
+
+if (!function_exists('wetory_get_first_image_src')) {
+
+    /**
+     * Get src tag of first image in given HTML
+     * 
+     * @since      1.1.0
+     * @param mixed $html HTML content to be analyzed
+     * @return boolean|string
+     */
+    function wetory_get_first_image_src($html) {
+
+        $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $html, $matches);
+        $first_img = $matches[1][0];
+        
+        if(empty($first_img)){
+            return false;
+        }
+        
+        return $first_img;
+    }
+
+}
+
+if (!function_exists('wetory_get_post_thumbnail_url')) {
+
+    /**
+     * Get post thumbnail or first image from content
+     * 
+     * Useful function for returning some thumbnail URL also if not thumbnail is set for post.
+     * 
+     * @since      1.1.0
+     * @param int|WP_Post $post Post ID or WP_Post object. Default is global $post.
+     * @param string|array $size Registered image size to retrieve the source for or a flat array of height and width dimensions.
+     * @return string Post thumbnail URL or first image from content URL or no image generic image URL from plugin folder
+     */
+    function wetory_get_post_thumbnail_url($post = null, $size = 'post-thumbnail') {
+        if (has_post_thumbnail($post)) {
+            $img_url = get_the_post_thumbnail_url($post, $size);
+        } else {
+            $img_url = wetory_get_first_image_src(get_the_content($post));
+            if (!$img_url || $img_url == '') {
+                $img_url = WETORY_SUPPORT_URL . 'public/images/no-image.png';
+            }
+        }
+        return $img_url;
     }
 
 }

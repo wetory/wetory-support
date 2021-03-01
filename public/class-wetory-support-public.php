@@ -66,7 +66,13 @@ class Wetory_Support_Public {
          * between the defined hooks and the functions defined in this
          * class.
          */
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/wetory-support-public.css', array(), $this->version, 'all');
+        if (defined('WP_DEBUG') && true === WP_DEBUG) {
+            wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/wetory-support-public.css', array(), $this->version, 'all');
+            wp_enqueue_style('boostrap', WETORY_SUPPORT_URL . 'assets/bootstrap/4.4.1/css/bootstrap.css', array(), '4.4.1', 'all');
+        } else {
+            wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/wetory-support-public.min.css', array(), $this->version, 'all');
+            wp_enqueue_style('boostrap', WETORY_SUPPORT_URL . 'assets/bootstrap/4.4.1/css/bootstrap.min.css', array(), '4.4.1', 'all');
+        }
     }
 
     /**
@@ -87,6 +93,19 @@ class Wetory_Support_Public {
          * between the defined hooks and the functions defined in this
          * class.
          */
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wetory-support-public.js', array('jquery'), $this->version, false);
+        if (defined('WP_DEBUG') && true === WP_DEBUG) {
+            wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wetory-support-public.js', array('jquery'), $this->version, false);
+            wp_enqueue_script($this->plugin_name . '-ajax', plugin_dir_url(__FILE__) . 'js/wetory-support-ajax.js', array('jquery'), $this->version, true);
+            wp_enqueue_script('boostrap', WETORY_SUPPORT_URL . 'assets/bootstrap/4.4.1/js/bootstrap.js', array('jquery'), '4.4.1', true);
+        } else {
+            wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wetory-support-public.min.js', array('jquery'), $this->version, false);
+            wp_enqueue_script($this->plugin_name . '-ajax', plugin_dir_url(__FILE__) . 'js/wetory-support-ajax.min.js', array('jquery'), $this->version, true);            
+            wp_enqueue_script('boostrap', WETORY_SUPPORT_URL . 'assets/bootstrap/4.4.1/js/bootstrap.min.js', array('jquery'), '4.4.1', true);
+        }
+        // Pass general parameters
+        wp_localize_script($this->plugin_name . '-ajax', 'parameters', array(
+            'ajaxurl' => admin_url('admin-ajax.php')
+        ));
     }
+
 }

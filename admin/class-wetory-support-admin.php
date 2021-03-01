@@ -62,7 +62,7 @@ class Wetory_Support_Admin {
          * between the defined hooks and the functions defined in this
          * class.
          */
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/wetory-support-admin.css', array(), $this->version, 'all');
+        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/wetory-support-admin.min.css', array(), $this->version, 'all');
     }
 
     /**
@@ -83,7 +83,7 @@ class Wetory_Support_Admin {
          * between the defined hooks and the functions defined in this
          * class.
          */
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wetory-support-admin.js', array('jquery'), $this->version, false);
+        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wetory-support-admin.min.js', array('jquery'), $this->version, false);
 
         // Pass some parameters to JavaScript
 //        wp_localize_script($this->plugin_name, 'wp_configuration',

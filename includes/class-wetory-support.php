@@ -105,6 +105,7 @@ class Wetory_Support {
         $this->define_admin_hooks();
         $this->define_public_hooks();
         $this->register_updater();
+        $this->register_ajax_handlers();
     }
 
     /**
@@ -136,7 +137,12 @@ class Wetory_Support {
         /**
          * Load trait with useful functions for objects
          */
-        require_once WETORY_SUPPORT_PATH . 'includes/trait-wetory-support-object-file.php';
+        require_once WETORY_SUPPORT_PATH . 'includes/traits/trait-wetory-support-object-file.php';
+        
+        /**
+         * Load template loader class
+         */
+        require_once WETORY_SUPPORT_PATH . 'includes/class-wetory-support-template-loader.php';
 
         /**
          * Load helper functions
@@ -184,7 +190,7 @@ class Wetory_Support {
          * The class containing rendering callback functions useful in settings pages.
          */
         require_once WETORY_SUPPORT_PATH . 'admin/class-wetory-support-settings-renderer.php';
-
+        
         /**
          * The class manages metaboxes in this plugin.
          */
@@ -195,6 +201,11 @@ class Wetory_Support {
          */
         require_once WETORY_SUPPORT_PATH . 'admin/class-wetory-support-metabox-renderer.php';
 
+        /**
+         * The class manages AJAX requests in this plugin.
+         */
+        require_once WETORY_SUPPORT_PATH . 'includes/class-wetory-support-ajax.php';
+        
         /**
          * The class responsible plugin options management.
          */
@@ -289,6 +300,19 @@ class Wetory_Support {
         if (is_admin()) {
             new Wetory_Support_Updater(WETORY_SUPPORT_FILE, 'wetory', 'wetory-support'); 
         }
+    }
+    
+    /**
+     * Register plugin's handlers for AJAX requests
+     * 
+     * @see Wetory_Support_Ajax
+     *
+     * @since    1.1.0
+     * @access   private
+     */
+    private function register_ajax_handlers(){
+        $plugin_ajax_handlers = new Wetory_Support_Ajax();
+        $plugin_ajax_handlers->register_handlers();
     }
 
     /**
