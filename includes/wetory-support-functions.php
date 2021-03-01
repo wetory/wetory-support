@@ -223,6 +223,7 @@ if (!function_exists('wetory_get_formatted_date')) {
     /**
      * Simple function to get date time in given format or in format from WordPress settings.
      * 
+     * @since      1.1.0
      * @param string|DateTime $datetime Date to be formatted
      * @param string $format Format to display the date
      * @return string Formatted date time string
@@ -246,6 +247,8 @@ if (!function_exists('wetory_load_more_button')) {
 
     /**
      * Echoes link to call load more Ajax functionality
+     * 
+     * @since      1.1.0
      * @global type $wp_query
      */
     function wetory_load_more_button() {
@@ -262,7 +265,7 @@ if (!function_exists('wetory_get_categories_by_post_type')) {
 
     function wetory_get_categories_by_post_type($post_type, $args = '') {
         $exclude = array();
-        
+
         //check all categories and exclude
         foreach (get_categories($args) as $category) {
             $posts = get_posts(array('post_type' => $post_type, 'category' => $category->cat_ID));
@@ -270,7 +273,7 @@ if (!function_exists('wetory_get_categories_by_post_type')) {
                 $exclude[] = $category->cat_ID;
             }
         }
-        
+
         //re-evaluate args
         if (!empty($exclude)) {
             if (is_string($args)) {
@@ -281,6 +284,55 @@ if (!function_exists('wetory_get_categories_by_post_type')) {
             }
         }
         return get_categories($args);
+    }
+
+}
+
+if (!function_exists('wetory_get_first_image_src')) {
+
+    /**
+     * Get src tag of first image in given HTML
+     * 
+     * @since      1.1.0
+     * @param mixed $html HTML content to be analyzed
+     * @return boolean|string
+     */
+    function wetory_get_first_image_src($html) {
+
+        $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $html, $matches);
+        $first_img = $matches[1][0];
+        
+        if(empty($first_img)){
+            return false;
+        }
+        
+        return $first_img;
+    }
+
+}
+
+if (!function_exists('wetory_get_post_thumbnail_url')) {
+
+    /**
+     * Get post thumbnail or first image from content
+     * 
+     * Useful function for returning some thumbnail URL also if not thumbnail is set for post.
+     * 
+     * @since      1.1.0
+     * @param int|WP_Post $post Post ID or WP_Post object. Default is global $post.
+     * @param string|array $size Registered image size to retrieve the source for or a flat array of height and width dimensions.
+     * @return string Post thumbnail URL or first image from content URL or no image generic image URL from plugin folder
+     */
+    function wetory_get_post_thumbnail_url($post = null, $size = 'post-thumbnail') {
+        if (has_post_thumbnail($post)) {
+            $img_url = get_the_post_thumbnail_url($post, $size);
+        } else {
+            $img_url = wetory_get_first_image_src(get_the_content($post));
+            if (!$img_url || $img_url == '') {
+                $img_url = WETORY_SUPPORT_URL . 'public/images/no-image.png';
+            }
+        }
+        return $img_url;
     }
 
 }

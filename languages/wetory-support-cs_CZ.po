@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2021-02-28 21:58+0100\n"
-"PO-Revision-Date: 2021-02-28 21:58+0100\n"
+"POT-Creation-Date: 2021-03-01 01:54+0100\n"
+"PO-Revision-Date: 2021-03-01 01:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -540,7 +540,7 @@ msgid "File <strong>maintenance.php</strong> deleted from <strong>%s</strong>"
 msgstr ""
 "Soubor <strong>maintenance.php</strong> byl odstraněn z <strong>%s.</strong>"
 
-#: includes/wetory-support-functions.php:255
+#: includes/wetory-support-functions.php:258
 msgid "Load more"
 msgstr "Načíst další"
 
@@ -816,12 +816,12 @@ msgstr ""
 "class=\"total-posts-count bold-text\">%s</span> příspěvků"
 
 #: templates/posts-filter/filter-wcpt-notice-board.php:26
-#: templates/posts-filter/filter.php:30
+#: templates/posts-filter/filter.php:31
 msgid "Filter posts"
 msgstr "Filtrovat příspěvky"
 
 #: templates/posts-filter/filter-wcpt-notice-board.php:34
-#: templates/posts-filter/filter.php:38
+#: templates/posts-filter/filter.php:39
 msgid "Search by keywords"
 msgstr "Hledání podle klíčových slov"
 
@@ -831,7 +831,7 @@ msgstr "Zobrazit archiv"
 
 #: templates/posts-filter/filter-wcpt-notice-board.php:41
 #: templates/posts-filter/filter-wcpt-notice-board.php:50
-#: templates/posts-filter/filter.php:45
+#: templates/posts-filter/filter.php:46
 msgid "Select option"
 msgstr "Vyberte možnost"
 
@@ -844,32 +844,33 @@ msgid "Archive"
 msgstr "Archiv"
 
 #: templates/posts-filter/filter-wcpt-notice-board.php:48
-#: templates/posts-filter/filter.php:43
+#: templates/posts-filter/filter.php:44
+#: templates/posts-grid/item-wcpt-photogallery.php:31
 msgid "Category"
 msgstr "Kategorie"
 
 #: templates/posts-filter/filter-wcpt-notice-board.php:59
-#: templates/posts-filter/filter.php:54
+#: templates/posts-filter/filter.php:55
 msgid "Published date"
 msgstr "Datum zveřejnění"
 
 #: templates/posts-filter/filter-wcpt-notice-board.php:63
-#: templates/posts-filter/filter.php:58
+#: templates/posts-filter/filter.php:59
 msgid "From"
 msgstr "Od"
 
 #: templates/posts-filter/filter-wcpt-notice-board.php:69
-#: templates/posts-filter/filter.php:64
+#: templates/posts-filter/filter.php:65
 msgid "To"
 msgstr "Do"
 
 #: templates/posts-filter/filter-wcpt-notice-board.php:79
-#: templates/posts-filter/filter.php:74
+#: templates/posts-filter/filter.php:75
 msgid "Data loading..."
 msgstr "Načítání dat..."
 
 #: templates/posts-filter/filter-wcpt-notice-board.php:82
-#: templates/posts-filter/filter.php:77
+#: templates/posts-filter/filter.php:78
 msgid ""
 "Found <span class=\"total-posts-count bold-text\"></span> posts matching "
 "your criteria"
@@ -878,12 +879,12 @@ msgstr ""
 "odpovídajících vašim kritériím"
 
 #: templates/posts-filter/filter-wcpt-notice-board.php:86
-#: templates/posts-filter/filter.php:81
+#: templates/posts-filter/filter.php:82
 msgid "Filter"
 msgstr "Filtrovat"
 
 #: templates/posts-filter/filter-wcpt-notice-board.php:87
-#: templates/posts-filter/filter.php:82
+#: templates/posts-filter/filter.php:83
 msgid "Reset"
 msgstr "Obnovit"
 
@@ -925,6 +926,9 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Tomáš Rybnický"
 msgstr "Tomáš Rybnický"
+
+#~ msgid "category"
+#~ msgstr "rubrika"
 
 #~ msgid "Select widgets you want to use in your website"
 #~ msgstr "Vyberte widgety, které chcete na svých webových stránkách používat"

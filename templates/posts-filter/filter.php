@@ -8,6 +8,7 @@
  * @subpackage wetory_support/templates/posts-table
  * @author     Tomas Rybnicky <tomas.rybnicky@wetory.eu>
  */
+
 // Get data passed to template if any
 $post_type = isset($data->post_type) ? $data->post_type : 'post';
 
@@ -24,7 +25,7 @@ $args = array(
 $categories = wetory_get_categories_by_post_type($post_type, $args);
 ?>
 <div class="panel panel-default wetory-ajax-filter-wrapper">
-    <form class="wetory-ajax-filter autoload" autocomplete="off" class="was-validated">
+    <form class="wetory-ajax-filter" autocomplete="off" class="was-validated">
         <div class="panel-heading filter-heading">
             <span class="panel-title filter-title">
                 <a data-toggle="collapse" href="#collapse"><i class="dashicons dashicons-filter"></i> <?php _e('Filter posts', 'wetory-support'); ?></a>

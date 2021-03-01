@@ -87,6 +87,18 @@ table.wetory-table .no-results {
     padding-top: 10px;
 }
 
+/* Templates - Posts grid */
+.wetory-grid .wetory-grid-item {
+    margin-bottom: 30px;
+}
+.wetory-grid .wetory-grid-item .card .card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+.wetory-grid .wetory-grid-item .card .card-body {
+    min-height: 150px;
+}
+
 /* Loadmore */
 .wetory-posts-pagination-loadmore {
     width: 100%;

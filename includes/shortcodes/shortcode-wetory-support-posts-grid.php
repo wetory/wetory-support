@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Name: Posts Table
- * Description: Display posts in table
+ * Name: Posts Grid
+ * Description: Display posts in grid
  * 
  * Link: https://www.wetory.eu/ideas/
  *
@@ -12,12 +12,12 @@
  * @subpackage wetory_support/shortcodes
  * @author     Tomas Rybnicky <tomas.rybnicky@wetory.eu>
  */
-class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
+class Shortcode_Wetory_Support_Posts_Grid extends Wetory_Support_Shortcode {
 
     /**
      * Create new instance with static properties
      * 
-     * [wetory-posts-table]
+     * [wetory-posts-grid]
      * 
      * Attributes described:
      *  - types     Post types to be displayed, by default "post"    
@@ -27,13 +27,14 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
      *  - count     How many posts to display, by default all posts
      *  - paging    When set to true table is displayed in pages by "n" posts based on "count" attribute
      *  - filter    Display filter over the table or not
+     *  - columns   Specify number gird columns
      *  - terms     Specify terms for filtering posts based on given taxonomy
      * 
      * @since    1.0.0
      */
     public function __construct() {
         // specify shortcode requirements here
-        $id = 'wetory-posts-table';
+        $id = 'wetory-posts-grid';
         $atts = array(
             'types' => 'post',
             'status' => 'publish',
@@ -42,10 +43,11 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
             'count' => '-1',
             'paging' => true,
             'filter' => false,
+            'columns' => 2,
             'taxonomy' => 'category',
             'terms' => ''
         );
-        $this->before_content = '<section class="wetory-template wetory-posts-table-wrapper">';
+        $this->before_content = '<section class="wetory-template wetory-posts-grid-wrapper">';
         $this->after_content = '</section>';
         parent::__construct($id, $atts);
     }
@@ -66,7 +68,7 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
         $this->query_posts();
         
         // Generate content
-        $content = $this->generate_table();
+        $content = $this->generate_grid();
 
         // Reset $wp_query
         wp_reset_query();
@@ -75,23 +77,24 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
     }
 
     /**
-     * Generate posts table
+     * Generate posts grid
      * 
      * @since 1.1.0
      * 
-     * @return string HTML markup of table
+     * @return string HTML markup of grid
      */
-    private function generate_table() {
+    private function generate_grid() {
         
         $post_type = $this->get_post_type();
 
         $template_loader = new Wetory_Support_Template_Loader();
         
-        $template = $template_loader->locate_template('posts-table/row-'.$post_type.'.php') ? 'posts-table/row-'.$post_type : 'posts-table/row';
+        $template = $template_loader->locate_template('posts-grid/item-'.$post_type.'.php') ? 'posts-grid/item-'.$post_type : 'posts-grid/item';
+        $columns = $this->get_columns();
         
         $data = array(
             'post_type' => $post_type,
-            'loadmore_template' => $template,
+            'columns' => $columns
         );
         
         ob_start();
@@ -104,19 +107,17 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
                         ->get_template_part('posts-filter/filter', $post_type);
             }
             
-            // Table header
-            $template_loader
-                    ->set_template_data($data)
-                    ->get_template_part('posts-table/header', $post_type);
-            
-            // Rows
+            // Grid items
+            echo '<div class="wetory-grid wetory-ajax-post-list row '.$post_type.'" data-loadmore-template="'.$template.'" data-grid-columns="'.$columns.'">';
             while (have_posts()) : the_post();
-                $template_loader->get_template_part('posts-table/row', $post_type);
+                $template_loader
+                        ->set_template_data($data)
+                        ->get_template_part('posts-grid/item', $post_type);
             endwhile;
             wp_reset_postdata();
+            echo '</div>';
 
-            // Footer with pagination
-            $template_loader->get_template_part('posts-table/footer', $post_type);
+            // Pagination
             $template_loader->get_template_part('pagination', 'loadmore');
         } else {
             $template_loader->get_template_part('content', 'none');
@@ -158,6 +159,21 @@ class Shortcode_Wetory_Support_Posts_Table extends Wetory_Support_Shortcode {
             $enabled = $this->shortcode_attributes['filter'];
         }
         return $enabled;
+    }
+    
+    /**
+     * Evaluating shortcode attribute for number of columns
+     * 
+     * @since 1.1.0
+     * 
+     * @return int
+     */
+    private function get_columns():int {
+        $columns = 2;
+        if (isset($this->shortcode_attributes['columns'])) {
+            $columns = $this->shortcode_attributes['columns'];
+        }
+        return $columns;
     }
 
     /**

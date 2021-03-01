@@ -49,6 +49,11 @@ if (!class_exists('Wetory_Support_Ajax')) {
             if (!isset($_POST['query'])) {
                 die();
             }
+            
+            // Pass some data to template
+            $data = array(
+                'columns' => isset($_POST['columns']) ? $_POST['columns'] : 2
+            );
 
             // Prepare WP_Query         
             $query = json_decode(stripslashes($_POST['query']), true);
@@ -60,7 +65,9 @@ if (!class_exists('Wetory_Support_Ajax')) {
                 $template_loader = new Wetory_Support_Template_Loader();
                 $template = isset($_POST['template']) ? $_POST['template'] : 'content-' . get_post_type();
                 while (have_posts()): the_post();
-                    $template_loader->get_template_part($template);
+                    $template_loader
+                            ->set_template_data($data)
+                            ->get_template_part($template);
                 endwhile;
             endif;
             die;
@@ -82,6 +89,11 @@ if (!class_exists('Wetory_Support_Ajax')) {
             if (!isset($_POST['query'])) {
                 die();
             }
+            
+            // Pass some data to template
+            $data = array(
+                'columns' => isset($_POST['columns']) ? $_POST['columns'] : 2
+            );
 
             // Template loader is needed
             $template_loader = new Wetory_Support_Template_Loader();
@@ -97,7 +109,9 @@ if (!class_exists('Wetory_Support_Ajax')) {
             if (have_posts()) {
                 $template = isset($_POST['template']) ? $_POST['template'] : 'content-' . get_post_type();
                 while (have_posts()): the_post();
-                    $template_loader->get_template_part($template);
+                    $template_loader
+                            ->set_template_data($data)
+                            ->get_template_part($template);
                 endwhile;
             } else {
                 $template_loader->get_template_part('content', 'none');
