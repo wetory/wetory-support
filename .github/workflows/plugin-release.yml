@@ -1,5 +1,5 @@
 # This action takes care of packaging WordPress plugin that can be downloaded and installed
-name: Generate Installable Plugin, and Upload as Release Asset
+name: Plugin Release
 on:
   release:
     types: [published]
