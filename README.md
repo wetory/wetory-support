@@ -1,3 +1,5 @@
+[![Plugin Release](https://github.com/wetory/wetory-support/actions/workflows/plugin-release.yml/badge.svg?event=release)](https://github.com/wetory/wetory-support/actions/workflows/plugin-release.yml)
+
 # Wetory Support
 
 WordPress plugin for [wetory projects](https://www.wetory.eu/projects/). Add reusable content to improve development workflow. 
