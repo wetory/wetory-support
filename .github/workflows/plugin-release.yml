@@ -2,7 +2,9 @@
 name: Plugin Release
 on:
   release:
-    types: [published]
+    types: 
+    - published
+    - edited
 jobs:
   build:
     name: Upload Release Asset
