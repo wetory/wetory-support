@@ -1,3 +1,4 @@
+name: Generate Installable Plugin, and Upload as Release Asset
 
 # Controls when the action will run. 
 on:
