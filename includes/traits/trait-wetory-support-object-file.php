@@ -15,11 +15,11 @@
  * @since      1.0.0
  *
  * @package    wetory_support
- * @subpackage wetory_support/includes
+ * @subpackage wetory_support/includes/traits
  * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
  */
 
-trait Wetory_Support_Object_File
+trait Wetory_Support_Object_File_Trait
 {
     /**
      * Get actual class name

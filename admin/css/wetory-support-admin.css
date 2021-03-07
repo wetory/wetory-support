@@ -2,6 +2,11 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+/* Settings */
+.wrap.wetory-support-settings .form-table th {
+    width: 300px;
+}
+
 /* Tables */
 table.groupped-values td.group {
     background: #f1f1f1;
@@ -138,4 +143,23 @@ table.wetory-settings-table td.col-select select {
     padding: 5px 10px 1px 10px;
     background: #EEE;
     margin: -20px 0px 10px;
+}
+
+/* Metaboxes */
+.wetory-metabox-field {
+    margin-bottom: 10px;
+}
+.wetory-metabox-field .wetory-metabox-label label {
+    font-weight: bold;
+    margin: 0 0 3px;
+}
+.wetory-metabox-field span.wetory-required {
+    color: #F00;
+}
+.wetory-metabox-field .description {
+    font-size: 13px;
+    font-style: italic;
+}
+.wetory-metabox-field .wetory-metabox-input input{
+    width: 100%;
 }

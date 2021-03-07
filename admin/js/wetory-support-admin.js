@@ -30,7 +30,7 @@
      * 
      */
     $(function () {
-        
+
         /**
          * Hide or show widget link options conditionaly on value of widget link style
          */
@@ -41,12 +41,12 @@
                 $(this).parent().next('div.widget-link-options').css("display", "block");
             }
         });
-        
-        $('input.mp-operation').click(function () {  
+
+        $('input.mp-operation').click(function () {
             button = $(this);
             original_value = button.val();
             $.ajax({
-                url: ajaxurl, 
+                url: ajaxurl,
                 type: 'post',
                 data: 'action=wetory_' + button.attr('name') + '_maintenance_page',
                 beforeSend: function () {
@@ -62,7 +62,8 @@
                     button.val(original_value);
                 },
             });
-        });           
+        });
+        
     });
 
 })(jQuery);

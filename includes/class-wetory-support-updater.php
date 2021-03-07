@@ -46,6 +46,12 @@ class Wetory_Support_Updater {
      * @var type 
      */
     private $repo;
+    
+    /**
+     * Holds info about incoming update version
+     * @var string
+     */
+    private $update_version;
 
     /**
      * __FILE__ of plugin
@@ -216,7 +222,7 @@ class Wetory_Support_Updater {
         $response->last_updated = $this->github_API_result[0]->published_at;
         $response->slug = $this->slug;
         $response->name = $this->plugin_data["Name"];
-        $response->version = $this->github_API_result[0]->tag_name;
+        $response->version = $this->update_version = $this->github_API_result[0]->tag_name;
         $response->author = $this->plugin_data["AuthorName"];
         $response->homepage = $this->plugin_data["PluginURI"];
 
@@ -327,8 +333,32 @@ class Wetory_Support_Updater {
         if ($this->plugin_activated) {
             $activate = activate_plugin($this->slug);
         }
+        
+        // Do some post install tasks
+        $this->post_install_tasks();
 
         return $result;
+    }
+    
+    /**
+     * This function contains some actions that can be done after update.
+     * 
+     * For example when there is some stuff in database that is not needed anymore
+     * it can be cleaned in this function. Just add case condition to switch statement
+     * and specify what to do.
+     * 
+     * @since 1.1.0
+     */
+    public function post_install_tasks(){
+        switch ($this->update_version) {
+            case '1.1.0':
+                delete_option('wetory-support-admin_notice_message');
+                delete_option('wetory-support-libraries');
+                break;
+
+            default:
+                break;
+        }
     }
 
 }

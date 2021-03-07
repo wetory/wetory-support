@@ -34,11 +34,15 @@ abstract class Wetory_Controller {
     }
 
     /**
-     * Controller specific registration method
+     * Call registration method on all objects
      * 
      * @since    1.0.0
      */
-    public abstract function register();
+    public function register(){
+        foreach ($this->objects as $object) {
+            $object->register();
+        }
+    }
 
     /**
      * Returns path to base class file
