@@ -1,4 +1,4 @@
-[![Plugin Release](https://github.com/wetory/wetory-support/actions/workflows/plugin-release.yml/badge.svg?event=release)](https://github.com/wetory/wetory-support/actions/workflows/plugin-release.yml)
+[![Plugin Release](https://github.com/wetory/wetory-support/actions/workflows/plugin-release.yml/badge.svg)](https://github.com/wetory/wetory-support/actions/workflows/plugin-release.yml)
 
 # Wetory Support
 
