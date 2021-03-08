@@ -300,7 +300,7 @@ if (!function_exists('wetory_get_first_image_src')) {
     function wetory_get_first_image_src($html) {
 
         $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $html, $matches);
-        $first_img = $matches[1][0];
+        $first_img = isset($matches[1][0]) ? $matches[1][0] : null;
         
         if(empty($first_img)){
             return false;
