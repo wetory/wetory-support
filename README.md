@@ -4,7 +4,7 @@
 WordPress plugin for [wetory projects](https://www.wetory.eu/projects/). Adds reusable content to improve development workflow. Following best practices from official [Plugin Developer Handbook](https://developer.wordpress.org/plugins/).
 
 ## Installation
-Download latest version of [plugin](http://github.com/wetory/wetory-support/releases/latest/download/wetory-support.zip). Go to WordPress admin dashboard and navigate to **Plugins -> Add new**. Use **Upload Plugin** instead of public repository search. Then activate newly installed plugin. 
+Download latest version of [plugin](https://github.com/wetory/wetory-support/releases/latest/download/wetory-support.zip). Go to WordPress admin dashboard and navigate to **Plugins -> Add new**. Use **Upload Plugin** instead of public repository search. Then activate newly installed plugin. 
 
 If older version of plugin is needed for investigation or compatibility problems, check [relese history](https://github.com/wetory/wetory-support/releases).
 
