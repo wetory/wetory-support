@@ -19,4 +19,4 @@ New menu item **Wetory** is added to the admin sidebar navigation. Go to **Wetor
 More datailed plugin usage instructions will be published soon.
 
 ## License
-[GPLv2](http://www.gnu.org/licenses/gpl-2.0.html)
+[GPLv2](http://www.gnu.org/licenses/gpl-2.0.html) 
