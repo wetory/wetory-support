@@ -123,7 +123,7 @@ class Wetory_Support_Metabox {
         // https://developer.wordpress.org/reference/hooks/add_meta_boxes/
         add_action('add_meta_boxes', array($this, 'register'));
 
-        https://developer.wordpress.org/reference/hooks/save_post/
+        // https://developer.wordpress.org/reference/hooks/save_post/
         // add_action('save_post', array($this, 'save_meta_values'), 10, 2);
     }
 
