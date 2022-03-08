@@ -167,7 +167,7 @@ class Widget_Wetory_Support_Favourite_Posts extends Wetory_Support_Widget {
                             <a href="<?php the_permalink($recent_post->ID); ?>"><?php echo $title; ?></a>
                         </h3>
                         <?php if ($show_date) : ?>
-                            <span class="post-date"><?php echo get_the_date('', $recent_post->ID); ?></span>
+                            <p class="post-date"><?php echo get_the_date('', $recent_post->ID); ?></p>
                         <?php endif; ?>
                     </div>
                 </div>

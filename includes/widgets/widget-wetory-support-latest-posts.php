@@ -121,7 +121,7 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
                 $post_title = get_the_title($recent_post->ID);
                 $title = (!empty($post_title) ) ? $post_title : __('(no title)', 'wetory-support');
                 ?>
-                <li>
+                <li class="post-item">
                     <div class="post">
                         <?php if ($show_thumb) : ?>
                             <span class="post-thumbnail">
@@ -137,7 +137,7 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
                             <a href="<?php the_permalink($recent_post->ID); ?>"><?php echo $title; ?></a>
                             <?php echo '</' . $list_item_title_element . '>'; ?>
                             <?php if ($show_date) : ?>
-                                <span class="post-date"><?php echo get_the_date('', $recent_post->ID); ?></span>
+                                <p class="post-date"><?php echo get_the_date('', $recent_post->ID); ?></p>
                             <?php endif; ?>
                         </div>
                     </div>
