@@ -29,13 +29,14 @@ class Widget_Wetory_Support_Icon_Box extends Wetory_Support_Widget {
     }
 
     /**
-     * Outputs the content for the widget instance.
+     * Echoes the widget content. Overriding function WP_Widget::widget() 
      * 
-     * @since 1.1.0
+     * @since 1.2.0
+     * 
+     * @see https://developer.wordpress.org/reference/classes/wp_widget/widget/
      * 
      * @param array $args Display arguments including 'before_title', 'after_title', 'before_widget', and 'after_widget'.
      * @param array $instance Settings for the current widget instance.
-     * @return type
      */
     public function widget($args, $instance) {
         if (!isset($args['widget_id'])) {
@@ -93,9 +94,15 @@ class Widget_Wetory_Support_Icon_Box extends Wetory_Support_Widget {
     }
 
     /**
-     * Update function for the widget
-     *
-     * @since    1.1.0
+     * Updates a particular instance of a widget. Overrding core function.
+     * 
+     * @since 1.0.0
+     * 
+     * @see https://developer.wordpress.org/reference/classes/wp_widget/update/
+     * 
+     * @param array $new_instance New settings for this instance as input by the user via WP_Widget::form().
+     * @param array $old_instance Old settings for this instance.
+     * @return array Settings to save or bool false to cancel saving.
      */
     public function update($new_instance, $old_instance) {
         // processes widget options to be saved
@@ -112,9 +119,14 @@ class Widget_Wetory_Support_Icon_Box extends Wetory_Support_Widget {
     }
 
     /**
-     * Admin form in the widget area
-     *
-     * @since    1.1.0
+     * Outputs the settings update form. Overrides core function.
+     * 
+     * @since 1.0.0
+     * 
+     * @see https://developer.wordpress.org/reference/classes/wp_widget/form/
+     * 
+     * @param array $instance Current settings.
+     * @return string Default return is 'noform'.
      */
     public function form($instance) {
         $title = isset($instance['title']) ? $instance['title'] : '';
