@@ -162,6 +162,12 @@ if (!class_exists('Wetory_Support_Ajax')) {
             } else {
                 unset($query['date_query']['before']);
             }
+            
+            /**
+             * For after/before, whether exact value should be matched or not
+             * @see https://developer.wordpress.org/reference/classes/wp_query/#date-parameters
+             */ 
+            $query['date_query']['inclusive'] = true;
 
             return $query;
         }
