@@ -35,7 +35,6 @@ nbdist/
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
-!.vscode/sftp.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
