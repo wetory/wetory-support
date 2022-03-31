@@ -6,6 +6,26 @@
 .wrap.wetory-support-settings .form-table th {
     width: 300px;
 }
+.wetory-support-plugin-header {    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.wetory-support-plugin-status-bar {
+    display: flex;
+    justify-content: left;
+    width: 70%;
+}
+.wetory-support-plugin-branding .wetory-support-plugin-branding-logo {
+    display: flex;
+    justify-content: flex-end;
+}
+.wetory-support-plugin-branding .wetory-support-plugin-branding-logo img {
+    width: 150px;
+}
+.wetory-support-plugin-branding .wetory-support-plugin-branding-tagline {
+    margin-top: 5px;
+}
 
 /* Tables */
 table.groupped-values td.group {
@@ -48,8 +68,8 @@ table.wetory-settings-table td.col-select select {
 }
 
 /* Tab Navigation */
-.wetory-tabs {
-
+.wetory-support-tab-wrapper {
+    margin-top: 40px;
 }
 .wetory-tab-link {
     cursor: pointer;

@@ -9,7 +9,6 @@
  * that starts the plugin.
  *
  * @link              https://www.wetory.eu/
- * @since             1.0.0
  * @package           wetory_support
  *
  * @wordpress-plugin
@@ -50,7 +49,7 @@ if (!defined('WETORY_SUPPORT_URL')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('WETORY_SUPPORT_VERSION', '1.0.0');
+define('WETORY_SUPPORT_VERSION', '1.1.1');
 
 /**
  * Label can be used in several places
