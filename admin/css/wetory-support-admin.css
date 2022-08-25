@@ -11,20 +11,74 @@
     align-items: center;
     justify-content: space-between;
 }
-.wetory-support-plugin-status-bar {
+.wetory-support-plugin-footer {
+    margin-top: 25px;
+    display: inline-block;
+    width: 100%;
+}
+.wetory-support-plugin-footer .wetory-support-plugin-branding {
+    width: 100%;
+    text-align: center;
+}
+.wetory-support-plugin-branding-logo img {
+    width: 130px;
+    margin-top: 1rem;
+}
+.wetory-support-tab-container{
+    padding: 15px;
+    background: #fff;
+    box-shadow: 0px 2px 2px #ccc;
+    float: left;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+}
+
+/* Repeatable parts */
+.wetory-support-tab-footer {
+    padding: 15px;
+    background: #f5f5f5;
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: -15px;
+}
+.wetory-support-grid-wrapper *, .wetory-support-row * {
+    box-sizing: border-box;
+}
+.wetory-support-row {
+    display: -webkit-box; 
+    display: -ms-flexbox;
     display: flex;
-    justify-content: left;
-    width: 70%;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    margin-left: -12.5px;
+    margin-right: -12.5px;
 }
-.wetory-support-plugin-branding .wetory-support-plugin-branding-logo {
-    display: flex;
-    justify-content: flex-end;
+.wetory-support-col, 
+.wetory-support-col-1, 
+.wetory-support-col-2, 
+.wetory-support-col-3, 
+.wetory-support-col-4, 
+.wetory-support-col-5, 
+.wetory-support-col-6, 
+.wetory-support-col-7, 
+.wetory-support-col-8, 
+.wetory-support-col-9, 
+.wetory-support-col-10, 
+.wetory-support-col-11, 
+.wetory-support-col-12 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 12.5px;
+    padding-left: 12.5px;
 }
-.wetory-support-plugin-branding .wetory-support-plugin-branding-logo img {
-    width: 150px;
-}
-.wetory-support-plugin-branding .wetory-support-plugin-branding-tagline {
-    margin-top: 5px;
+
+.wetory-support-col-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
 }
 
 /* Tables */
@@ -68,7 +122,7 @@ table.wetory-settings-table td.col-select select {
 }
 
 /* Tab Navigation */
-.wetory-support-tab-wrapper {
+.wetory-support-nav-tab-wrapper {
     margin-top: 40px;
 }
 .wetory-tab-link {
@@ -76,6 +130,10 @@ table.wetory-settings-table td.col-select select {
 }
 .wetory-tab-content {
     display: none;
+}
+.wetory-support-nav-tab-wrapper .nav-tab-active {
+    background: #fff;
+    border-bottom: solid 1px #fff;
 }
 
 /* Links */

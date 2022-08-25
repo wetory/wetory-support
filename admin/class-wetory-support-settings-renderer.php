@@ -14,6 +14,20 @@
  * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
  */
 class Wetory_Support_Settings_Renderer {
+    
+    /**
+     * Render tabs navigation for settings page
+     * @since 1.1.1
+     * @param array $tabs Associative array of keys and tab labels
+     * @return void
+     */
+    public static function render_settings_tabs($tabs) {
+        foreach ($tabs as $key => $label) {
+            ?>
+            <a class="nav-tab" href="#<?php echo esc_attr($key); ?>"><?php echo esc_html($label); ?></a>
+            <?php
+        }
+    }
 
     /**
      * Powerful helper function for rendering settings field. 

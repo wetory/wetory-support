@@ -194,11 +194,11 @@ class Wetory_Support_Metabox_Renderer {
         <div class="<?php echo self::FIELD_CLASS; ?>">
             <div class="<?php echo self::LABEL_CLASS; ?>">
                 <label for="<?php echo $name; ?>"><?php echo $title; ?></label>
-            <?php
-            if ($desc != '') {
-                echo '<p class="description">' . $desc . '</p>';
-            }
-            ?>
+                <?php
+                if ($desc != '') {
+                    echo '<p class="description">' . $desc . '</p>';
+                }
+                ?>
             </div>                
             <div class="<?php echo self::INPUT_CLASS; ?>">
                 <?php
