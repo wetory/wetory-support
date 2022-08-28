@@ -462,6 +462,11 @@ class Wetory_Support_Settings {
                         'type' => 'text',
                         'help' => __('Customize the permastruct slug. Defaults to post type key.', 'wetory-support'),
                     ),
+                    'custom-fields' => array(
+                        'label' => __('Custom fields', 'wetory-support'),
+                        'type' => 'checkbox',
+                        'help' => __('Check if you want to allow specifying of custom fields for post type.', 'wetory-support'),
+                    ),
                     'comments' => array(
                         'label' => __('Comments', 'wetory-support'),
                         'type' => 'checkbox',
@@ -478,7 +483,7 @@ class Wetory_Support_Settings {
                         'help' => __('Check if you want to allow revisions for post type.', 'wetory-support'),
                     ),
                     'published-posts' => array(
-                        'label' => __('Published posts', 'wetory-support'),
+                        'label' => __('Posts', 'wetory-support'),
                         'type' => 'raw',
                     ),
                     'description' => array(

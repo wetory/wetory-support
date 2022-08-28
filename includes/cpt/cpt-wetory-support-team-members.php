@@ -1,39 +1,39 @@
 <?php
 
 /**
- * Name: Notice Board
- * Description: Custom post type notice board is used for official records which is mandatory for city/village websites.
+ * Name: Team Members
+ * Description: Custom post type team members is used for evidence of people working in team.
  *
  * Link: https://www.wetory.eu/ideas/
  * 
  * @package    wetory_support
  * @subpackage wetory_support/includes/cpt
- * @since 1.1.0
+ * @since 1.2.0
  * @author     Tomas Rybnicky <tomas.rybnicky@wetory.eu>
  */
 use Wetory_Support_Validator as Validator;
 
-class Cpt_Wetory_Support_Notice_Board extends Wetory_Support_Cpt {
+class Cpt_Wetory_Support_Team_Members extends Wetory_Support_Cpt {
 
     public function __construct() {
         // post type key
-        $id = 'wcpt-notice-board';
+        $id = 'wcpt-team-members';
         parent::__construct($id);
     }
 
     protected function get_post_type_args() {
         $args = array(
-            'label' => __('Notice Board', 'wetory-support'),
-            'description' => __('Custom post type notice board is used for official records which is mandatory for city/village websites.', 'wetory-support'),
+            'label' => __('Team Members', 'wetory-support'),
+            'description' => __('Custom post type team members is used for evidence of people working in team.', 'wetory-support'),
             'labels' => $this->labels(),
-            'supports' => $this->supports(array('title', 'editor', 'author', 'custom-fields')),
-            'taxonomies' => array('category', 'post_tag'),
+            'supports' => $this->supports(array('title', 'editor', 'thumbnail')),
+            'taxonomies' => array(),
             'hierarchical' => false,
             'public' => true,
             'show_ui' => true,
             'show_in_menu' => true,
             'menu_position' => 5,
-            'menu_icon' => 'dashicons-clipboard',
+            'menu_icon' => 'dashicons-admin-users',
             'show_in_admin_bar' => false,
             'show_in_nav_menus' => true,
             'can_export' => true,
@@ -50,12 +50,13 @@ class Cpt_Wetory_Support_Notice_Board extends Wetory_Support_Cpt {
 
     protected function override_labels() {
         $overriden_labels = array(
-            'name' => _x('Notice Board', 'Post Type General Name', 'wetory-support'),
-            'singular_name' => _x('Notice Board Post', 'Post Type Singular Name', 'wetory-support'),
-            'menu_name' => __('Notice Board', 'wetory-support'),
-            'name_admin_bar' => __('Notice Board', 'wetory-support'),
-            'add_new_item' => __('Create New Notice Board Post', 'wetory-support'),
-            'add_new' => __('Create Post', 'wetory-support'),
+            'name' => _x('Team Members', 'Post Type General Name', 'wetory-support'),
+            'singular_name' => _x('Team member', 'Post Type Singular Name', 'wetory-support'),
+            'menu_name' => __('Team Members', 'wetory-support'),
+            'name_admin_bar' => __('Team Members', 'wetory-support'),
+            'add_new_item' => __('Create New Team Member', 'wetory-support'),
+            'add_new' => __('Create Team Member', 'wetory-support'),
+            'featured_image' => __('Photo', 'wetory-support'),
         );
         return $overriden_labels;
     }
@@ -85,76 +86,80 @@ class Cpt_Wetory_Support_Notice_Board extends Wetory_Support_Cpt {
     }
 
     public function meta_boxes() {
-        $post_validity_metabox = new Wetory_Support_Metabox(
-                $this->id . '_post_validity',
-                __('Post validity', 'wetory-support'),
-                __('This post supports limited validity in time. Select limiting dates.', 'wetory-support'),
+        // Contact information
+        $contact_information_metabox = new Wetory_Support_Metabox(
+                $this->id . '_contact_information',
+                __('Contact information', 'wetory-support'),
+                __('These information will be displayed on website depending on used template.', 'wetory-support'),
                 array($this->id),
-                'side',
+                'top',
                 'high'
-        );
-        $post_validity_metabox->add_field(
+        );    
+        $contact_information_metabox->add_field(
                 array(
-                    'name' => 'valid_from',
-                    'title' => __('Valid from', 'wetory-support'),
-                    'type' => 'date',
-                    'required' => true,
-                    'desc' => __('Specify start date of post validity', 'wetory-support')
+                    'name' => 'position',
+                    'title' => __('Position', 'wetory-support'),
+                    'type' => 'text',
+                    'desc' => __('Position in team where this member is working on.', 'wetory-support')
                 )
         );
-        $post_validity_metabox->add_field(
+        $contact_information_metabox->add_field(
                 array(
-                    'name' => 'valid_to',
-                    'title' => __('Valid to', 'wetory-support'),
-                    'type' => 'date',
-                    'desc' => __('Specify end date of post validity', 'wetory-support')
+                    'name' => 'email',
+                    'title' => __('Email contact', 'wetory-support'),
+                    'type' => 'text',     
+                    'desc' => 'Valid email adress which can be used to contact member.',
+                    'placeholder' => 'email@email.com'
                 )
         );
-        $this->add_metabox($post_validity_metabox);
-
-        $post_identity_metabox = new Wetory_Support_Metabox(
-                $this->id . '_post_identity',
-                __('Post identity', 'wetory-support'),
-                __('Additional post identification data.', 'wetory-support'),
+        $contact_information_metabox->add_field(
+                array(
+                    'name' => 'phone',
+                    'title' => __('Phone contact', 'wetory-support'),
+                    'type' => 'text',   
+                    'desc' => 'Preferably use international format of phone number.',
+                    'placeholder' => '(+420)'
+                )
+        );
+        $this->add_metabox($contact_information_metabox);
+        
+        // Social media
+        $social_media_links_metabox = new Wetory_Support_Metabox(
+                $this->id . '_social_media_links',
+                __('Social media links', 'wetory-support'),
+                __('These links will be displayed on website depending on used template.', 'wetory-support'),
                 array($this->id),
                 'normal',
                 'high'
-        );
-        $post_identity_metabox->add_field(
+        );    
+        $social_media_links_metabox->add_field(
                 array(
-                    'name' => 'registration_number',
-                    'title' => __('Reg. number', 'wetory-support'),
-                    'type' => 'text',
-                    'desc' => __('Can help identify post accross multiple systems', 'wetory-support')
+                    'name' => 'facebook',
+                    'title' => __('Facebook', 'wetory-support'),
+                    'type' => 'text'
                 )
         );
-        $this->add_metabox($post_identity_metabox);
+        $social_media_links_metabox->add_field(
+                array(
+                    'name' => 'linkedin',
+                    'title' => __('LinkedIn', 'wetory-support'),
+                    'type' => 'text'
+                )
+        );
+        $social_media_links_metabox->add_field(
+                array(
+                    'name' => 'twitter',
+                    'title' => __('Twitter', 'wetory-support'),
+                    'type' => 'text'
+                )
+        );        
+        $this->add_metabox($social_media_links_metabox);
     }
 
     public function validate_data($post_id, $data) {
 
         if (!isset($_POST['post_title']) || $_POST['post_title'] == '') {
             $this->add_validation_error(sprintf(__('"%s" is mandatory field!', 'wetory-support'), __('Post title', 'wetory-support')));
-        }
-
-        if (isset($_POST['valid_from']) && $_POST['valid_from'] !== '') {
-            if (!Validator::is_date($_POST['valid_from'])) {
-                $this->add_validation_error(sprintf(__('"%s" value is not valid date!', 'wetory-support'), __('Valid from', 'wetory-support')));
-            }
-        } else {
-            $this->add_validation_error(sprintf(__('"%s" value is required!', 'wetory-support'), __('Valid from', 'wetory-support')));
-        }
-
-        if (isset($_POST['valid_to']) && $_POST['valid_to'] !== '') {
-            if (!Validator::is_date($_POST['valid_to'])) {
-                $this->add_validation_error(sprintf(__('"%s" value is not valid date!', 'wetory-support'), __('Valid to', 'wetory-support')));
-            }
-        }
-
-        if (isset($_POST['valid_to']) && $_POST['valid_to'] !== '' && isset($_POST['valid_from']) && $_POST['valid_from'] !== '') {
-            if (strtotime($_POST['valid_to']) < strtotime($_POST['valid_from'])) {
-                $this->add_validation_error(sprintf(__('"%s" value must be higher or equal to "%s"!', 'wetory-support'), __('Valid to', 'wetory-support'), __('Valid from', 'wetory-support')));
-            }
         }
     }
 

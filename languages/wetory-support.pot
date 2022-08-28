@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Wetory Support\n"
-"POT-Creation-Date: 2020-11-29 17:28+0100\n"
+"POT-Creation-Date: 2022-08-28 11:42+0200\n"
 "PO-Revision-Date: 2020-11-29 17:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.4.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: wetory-support.php\n"
@@ -92,113 +92,117 @@ msgstr ""
 msgid "Post type"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:453
+#: admin/class-wetory-support-settings.php:452
 msgid "Post type key"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:457
+#: admin/class-wetory-support-settings.php:456
 msgid "Use"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:459
+#: admin/class-wetory-support-settings.php:458
 msgid "Check if you want to start using post type."
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:462
+#: admin/class-wetory-support-settings.php:461
 msgid "Rewrite slug"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:464
+#: admin/class-wetory-support-settings.php:463
 msgid "Customize the permastruct slug. Defaults to post type key."
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:467
+#: admin/class-wetory-support-settings.php:466
 msgid "Comments"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:469
+#: admin/class-wetory-support-settings.php:468
 msgid "Check if you want to allow comments for post type."
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:472
+#: admin/class-wetory-support-settings.php:471
 msgid "Excerpt"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:474
+#: admin/class-wetory-support-settings.php:473
 msgid "Check if you want to allow excerpt for post type."
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:477
+#: admin/class-wetory-support-settings.php:476
 msgid "Revisions"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:479
+#: admin/class-wetory-support-settings.php:478
 msgid "Check if you want to allow revisions for post type."
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:482
+#: admin/class-wetory-support-settings.php:481
 msgid "Published posts"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:509
+#: admin/class-wetory-support-settings.php:507
 msgid "Customize maintenance mode behaviour."
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:511
+#: admin/class-wetory-support-settings.php:509
 msgid "Maintenance mode page"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:513
+#: admin/class-wetory-support-settings.php:511
 msgid ""
 "Plugin provides template for maintenance page which is shown instead of "
 "default maintenance notification panel."
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:514
+#: admin/class-wetory-support-settings.php:512
 msgid "Create maintenance page"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:514
+#: admin/class-wetory-support-settings.php:512
 msgid "Creating page..."
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:515
+#: admin/class-wetory-support-settings.php:513
 msgid "Delete maintenance page"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:515
+#: admin/class-wetory-support-settings.php:513
 msgid "Deleting page..."
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:527
-msgid "Select widgets you want to use in your website"
+#: admin/class-wetory-support-settings.php:525
+msgid ""
+"Select <a href=\"https://wordpress.org/support/article/wordpress-widgets/\" "
+"target=\"_blank\">widgets</a> you want to use in your website"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:536
-msgid "Select shortcodes you want to use in your website"
+#: admin/class-wetory-support-settings.php:534
+msgid ""
+"Select <a href=\"https://codex.wordpress.org/Shortcode/\" target=\"_blank"
+"\">shortcodes</a> you want to use in your website"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:545
+#: admin/class-wetory-support-settings.php:543
 msgid "Configure API keys for APIs you want to use in your website"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:582
+#: admin/class-wetory-support-settings.php:580
 msgid "Settings saved."
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:583
+#: admin/class-wetory-support-settings.php:581
 msgid "The pemalink structure has been updated."
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:602
+#: admin/class-wetory-support-settings.php:600
 msgid "General"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:603
+#: admin/class-wetory-support-settings.php:601
 msgid "Custom post types"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:604
+#: admin/class-wetory-support-settings.php:602
 msgid "API keys"
 msgstr ""
 
@@ -227,7 +231,7 @@ msgid "Wetory Dashboard"
 msgstr ""
 
 #: admin/partials/wetory-support-admin-display.php:22
-msgid "Brief overview of plugin usage. Maybe will be extended to the future."
+msgid "Brief overview of actual usage of this plugin."
 msgstr ""
 
 #: admin/partials/wetory-support-admin-display.php:27
@@ -246,128 +250,128 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:193
+#: includes/cpt/abstract-wetory-support-cpt.php:194
 msgid "You are not allowed to modify this post!"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:193
+#: includes/cpt/abstract-wetory-support-cpt.php:194
 msgid "Unauthorized action"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:274
+#: includes/cpt/abstract-wetory-support-cpt.php:275
 msgctxt "Post Type General Name"
 msgid "Post Types"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:275
+#: includes/cpt/abstract-wetory-support-cpt.php:276
 msgctxt "Post Type Singular Name"
 msgid "Post Type"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:276
+#: includes/cpt/abstract-wetory-support-cpt.php:277
 msgid "Post Types"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:277
+#: includes/cpt/abstract-wetory-support-cpt.php:278
 msgid "Post Type"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:278
+#: includes/cpt/abstract-wetory-support-cpt.php:279
 msgid "Item Archives"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:279
+#: includes/cpt/abstract-wetory-support-cpt.php:280
 msgid "Item Attributes"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:280
+#: includes/cpt/abstract-wetory-support-cpt.php:281
 msgid "Parent Item:"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:281
+#: includes/cpt/abstract-wetory-support-cpt.php:282
 msgid "All Items"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:282
+#: includes/cpt/abstract-wetory-support-cpt.php:283
 msgid "Add New Item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:283
+#: includes/cpt/abstract-wetory-support-cpt.php:284
 msgid "Add New"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:284
+#: includes/cpt/abstract-wetory-support-cpt.php:285
 msgid "New Item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:285
+#: includes/cpt/abstract-wetory-support-cpt.php:286
 msgid "Edit Item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:286
+#: includes/cpt/abstract-wetory-support-cpt.php:287
 msgid "Update Item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:287
+#: includes/cpt/abstract-wetory-support-cpt.php:288
 msgid "View Item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:288
+#: includes/cpt/abstract-wetory-support-cpt.php:289
 msgid "View Items"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:289
+#: includes/cpt/abstract-wetory-support-cpt.php:290
 msgid "Search Item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:290
+#: includes/cpt/abstract-wetory-support-cpt.php:291
 msgid "Not found"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:291
+#: includes/cpt/abstract-wetory-support-cpt.php:292
 msgid "Not found in Trash"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:292
+#: includes/cpt/abstract-wetory-support-cpt.php:293
 msgid "Featured Image"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:293
+#: includes/cpt/abstract-wetory-support-cpt.php:294
 msgid "Set featured image"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:294
+#: includes/cpt/abstract-wetory-support-cpt.php:295
 msgid "Remove featured image"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:295
+#: includes/cpt/abstract-wetory-support-cpt.php:296
 msgid "Use as featured image"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:296
+#: includes/cpt/abstract-wetory-support-cpt.php:297
 msgid "Insert into item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:297
+#: includes/cpt/abstract-wetory-support-cpt.php:298
 msgid "Uploaded to this item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:298
+#: includes/cpt/abstract-wetory-support-cpt.php:299
 msgid "Items list"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:299
+#: includes/cpt/abstract-wetory-support-cpt.php:300
 msgid "Items list navigation"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:300
+#: includes/cpt/abstract-wetory-support-cpt.php:301
 msgid "Filter items list"
 msgstr ""
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:26
 #: includes/cpt/cpt-wetory-support-notice-board.php:55
 #: includes/cpt/cpt-wetory-support-notice-board.php:56
-msgid "Notice board"
+msgid "Notice Board"
 msgstr ""
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:27
@@ -378,93 +382,177 @@ msgstr ""
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:53
 msgctxt "Post Type General Name"
-msgid "Notice board"
+msgid "Notice Board"
 msgstr ""
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:54
 msgctxt "Post Type Singular Name"
-msgid "Notice board post"
+msgid "Notice Board Post"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:84
+#: includes/cpt/cpt-wetory-support-notice-board.php:57
+msgid "Create New Notice Board Post"
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-notice-board.php:58
+msgid "Create Post"
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-notice-board.php:90
+#: includes/cpt/cpt-wetory-support-team-members.php:90
 msgid "Post validity"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:85
+#: includes/cpt/cpt-wetory-support-notice-board.php:91
+#: includes/cpt/cpt-wetory-support-team-members.php:91
 msgid "This post supports limited validity in time. Select limiting dates."
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:93
-#: includes/cpt/cpt-wetory-support-notice-board.php:118
-#: includes/cpt/cpt-wetory-support-notice-board.php:121
-#: includes/cpt/cpt-wetory-support-notice-board.php:132
+#: includes/cpt/cpt-wetory-support-notice-board.php:99
+#: includes/cpt/cpt-wetory-support-notice-board.php:142
+#: includes/cpt/cpt-wetory-support-notice-board.php:145
+#: includes/cpt/cpt-wetory-support-notice-board.php:156
+#: includes/cpt/cpt-wetory-support-team-members.php:99
+#: includes/cpt/cpt-wetory-support-team-members.php:142
+#: includes/cpt/cpt-wetory-support-team-members.php:145
+#: includes/cpt/cpt-wetory-support-team-members.php:156
+#: templates/posts-table/header-wcpt-notice-board.php:21
 msgid "Valid from"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:96
+#: includes/cpt/cpt-wetory-support-notice-board.php:102
+#: includes/cpt/cpt-wetory-support-team-members.php:102
 msgid "Specify start date of post validity"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:102
-#: includes/cpt/cpt-wetory-support-notice-board.php:126
-#: includes/cpt/cpt-wetory-support-notice-board.php:132
+#: includes/cpt/cpt-wetory-support-notice-board.php:108
+#: includes/cpt/cpt-wetory-support-notice-board.php:150
+#: includes/cpt/cpt-wetory-support-notice-board.php:156
+#: includes/cpt/cpt-wetory-support-team-members.php:108
+#: includes/cpt/cpt-wetory-support-team-members.php:150
+#: includes/cpt/cpt-wetory-support-team-members.php:156
+#: templates/posts-table/header-wcpt-notice-board.php:22
 msgid "Valid to"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:104
+#: includes/cpt/cpt-wetory-support-notice-board.php:110
+#: includes/cpt/cpt-wetory-support-team-members.php:110
 msgid "Specify end date of post validity"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:113
-#: includes/cpt/cpt-wetory-support-photogallery.php:81
+#: includes/cpt/cpt-wetory-support-notice-board.php:117
+#: includes/cpt/cpt-wetory-support-team-members.php:117
+msgid "Post identity"
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-notice-board.php:118
+#: includes/cpt/cpt-wetory-support-team-members.php:118
+msgid "Additional post identification data."
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-notice-board.php:126
+#: includes/cpt/cpt-wetory-support-team-members.php:126
+msgid "Reg. number"
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-notice-board.php:128
+#: includes/cpt/cpt-wetory-support-team-members.php:128
+msgid "Can help identify post accross multiple systems"
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-notice-board.php:137
+#: includes/cpt/cpt-wetory-support-photogallery.php:83
+#: includes/cpt/cpt-wetory-support-team-members.php:137
 #, php-format
 msgid "\"%s\" is mandatory field!"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:113
-#: includes/cpt/cpt-wetory-support-photogallery.php:81
+#: includes/cpt/cpt-wetory-support-notice-board.php:137
+#: includes/cpt/cpt-wetory-support-photogallery.php:83
+#: includes/cpt/cpt-wetory-support-team-members.php:137
 msgid "Post title"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:118
-#: includes/cpt/cpt-wetory-support-notice-board.php:126
+#: includes/cpt/cpt-wetory-support-notice-board.php:142
+#: includes/cpt/cpt-wetory-support-notice-board.php:150
+#: includes/cpt/cpt-wetory-support-team-members.php:142
+#: includes/cpt/cpt-wetory-support-team-members.php:150
 #, php-format
 msgid "\"%s\" value is not valid date!"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:121
+#: includes/cpt/cpt-wetory-support-notice-board.php:145
+#: includes/cpt/cpt-wetory-support-team-members.php:145
 #, php-format
 msgid "\"%s\" value is required!"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:132
+#: includes/cpt/cpt-wetory-support-notice-board.php:156
+#: includes/cpt/cpt-wetory-support-team-members.php:156
 #, php-format
 msgid "\"%s\" value must be higher or equal to \"%s\"!"
 msgstr ""
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:25
-msgid "Photo gallery"
+msgid "Photo Gallery"
 msgstr ""
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:26
 msgid ""
-"Custom post type photogallery is used for creating photo galleries on "
+"Custom post type photo gallery is used for creating photo galleries on "
 "website."
 msgstr ""
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:52
 msgctxt "Post Type General Name"
-msgid "Photo gallery"
+msgid "Photo Gallery"
 msgstr ""
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:53
 msgctxt "Post Type Singular Name"
-msgid "Photo gallery post"
+msgid "Photo Gallery Post"
 msgstr ""
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:54
 #: includes/cpt/cpt-wetory-support-photogallery.php:55
-msgid "Photo galleries"
+msgid "Photo Galleries"
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-photogallery.php:56
+msgid "Create New Gallery"
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-photogallery.php:57
+msgid "Create Gallery"
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-team-members.php:26
+#: includes/cpt/cpt-wetory-support-team-members.php:55
+#: includes/cpt/cpt-wetory-support-team-members.php:56
+msgid "Team Members"
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-team-members.php:27
+msgid ""
+"Custom post type team members is used for evidence of people working in team."
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-team-members.php:53
+msgctxt "Post Type General Name"
+msgid "Team Members"
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-team-members.php:54
+msgctxt "Post Type Singular Name"
+msgid "Team member"
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-team-members.php:57
+msgid "Create New Team Member"
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-team-members.php:58
+msgid "Create Team Member"
 msgstr ""
 
 #: includes/wetory-support-functions-ajax.php:69
@@ -477,6 +565,10 @@ msgstr ""
 msgid "File <strong>maintenance.php</strong> deleted from <strong>%s</strong>"
 msgstr ""
 
+#: includes/wetory-support-functions.php:258
+msgid "Load more"
+msgstr ""
+
 #: includes/widgets/widget-wetory-support-favourite-posts.php:25
 msgid "Favourite Posts"
 msgstr ""
@@ -485,113 +577,164 @@ msgstr ""
 msgid "Add you favourite posts widget to the sidebar"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:93
-#: includes/widgets/widget-wetory-support-latest-posts.php:52
+#: includes/widgets/widget-wetory-support-favourite-posts.php:94
+#: includes/widgets/widget-wetory-support-latest-posts.php:53
 msgid "Recent Posts"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:151
-#: includes/widgets/widget-wetory-support-latest-posts.php:119
+#: includes/widgets/widget-wetory-support-favourite-posts.php:152
+#: includes/widgets/widget-wetory-support-latest-posts.php:122
 msgid "(no title)"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:220
-#: includes/widgets/widget-wetory-support-latest-posts.php:190
+#: includes/widgets/widget-wetory-support-favourite-posts.php:236
+#: includes/widgets/widget-wetory-support-icon-box.php:142
+#: includes/widgets/widget-wetory-support-latest-posts.php:210
 msgid "Title:"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:229
+#: includes/widgets/widget-wetory-support-favourite-posts.php:245
 msgid "Select posts:"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:260
-#: includes/widgets/widget-wetory-support-latest-posts.php:237
+#: includes/widgets/widget-wetory-support-favourite-posts.php:276
+#: includes/widgets/widget-wetory-support-latest-posts.php:257
 msgid "List style:"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:267
-#: includes/widgets/widget-wetory-support-latest-posts.php:244
+#: includes/widgets/widget-wetory-support-favourite-posts.php:283
+#: includes/widgets/widget-wetory-support-latest-posts.php:262
 msgid "Ordered list"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:268
-#: includes/widgets/widget-wetory-support-latest-posts.php:245
+#: includes/widgets/widget-wetory-support-favourite-posts.php:284
+#: includes/widgets/widget-wetory-support-latest-posts.php:263
 msgid "Unordered list"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:269
-#: includes/widgets/widget-wetory-support-latest-posts.php:246
+#: includes/widgets/widget-wetory-support-favourite-posts.php:285
+#: includes/widgets/widget-wetory-support-latest-posts.php:264
 msgid "Listing"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:270
-#: includes/widgets/widget-wetory-support-latest-posts.php:247
+#: includes/widgets/widget-wetory-support-favourite-posts.php:286
+#: includes/widgets/widget-wetory-support-latest-posts.php:265
 msgid "Tiles"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:286
-#: includes/widgets/widget-wetory-support-latest-posts.php:263
+#: includes/widgets/widget-wetory-support-favourite-posts.php:302
+#: includes/widgets/widget-wetory-support-latest-posts.php:310
 msgid "Display post date?"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:291
-#: includes/widgets/widget-wetory-support-latest-posts.php:268
+#: includes/widgets/widget-wetory-support-favourite-posts.php:307
+#: includes/widgets/widget-wetory-support-latest-posts.php:315
 msgid "Display post thumbnail?"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:299
-#: includes/widgets/widget-wetory-support-latest-posts.php:276
+#: includes/widgets/widget-wetory-support-favourite-posts.php:315
+#: includes/widgets/widget-wetory-support-icon-box.php:186
+#: includes/widgets/widget-wetory-support-latest-posts.php:323
 msgid "Link style:"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:306
-#: includes/widgets/widget-wetory-support-latest-posts.php:283
+#: includes/widgets/widget-wetory-support-favourite-posts.php:322
+#: includes/widgets/widget-wetory-support-icon-box.php:191
+#: includes/widgets/widget-wetory-support-latest-posts.php:330
 msgid "None"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:307
-#: includes/widgets/widget-wetory-support-latest-posts.php:284
+#: includes/widgets/widget-wetory-support-favourite-posts.php:323
+#: includes/widgets/widget-wetory-support-icon-box.php:194
+#: includes/widgets/widget-wetory-support-latest-posts.php:331
 msgid "Text link"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:308
-#: includes/widgets/widget-wetory-support-latest-posts.php:285
+#: includes/widgets/widget-wetory-support-favourite-posts.php:324
+#: includes/widgets/widget-wetory-support-icon-box.php:192
+#: includes/widgets/widget-wetory-support-latest-posts.php:332
 msgid "Button"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:309
-#: includes/widgets/widget-wetory-support-latest-posts.php:286
+#: includes/widgets/widget-wetory-support-favourite-posts.php:325
+#: includes/widgets/widget-wetory-support-icon-box.php:195
+#: includes/widgets/widget-wetory-support-latest-posts.php:333
 msgid "Widget title"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:326
-#: includes/widgets/widget-wetory-support-latest-posts.php:302
+#: includes/widgets/widget-wetory-support-favourite-posts.php:342
+#: includes/widgets/widget-wetory-support-latest-posts.php:349
 msgid "Link title:"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:331
-#: includes/widgets/widget-wetory-support-latest-posts.php:307
+#: includes/widgets/widget-wetory-support-favourite-posts.php:347
+#: includes/widgets/widget-wetory-support-icon-box.php:216
+#: includes/widgets/widget-wetory-support-latest-posts.php:354
 msgid "Link URL:"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:340
-#: includes/widgets/widget-wetory-support-latest-posts.php:316
+#: includes/widgets/widget-wetory-support-favourite-posts.php:356
+#: includes/widgets/widget-wetory-support-icon-box.php:225
+#: includes/widgets/widget-wetory-support-latest-posts.php:363
 msgid "Link align:"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:347
-#: includes/widgets/widget-wetory-support-latest-posts.php:323
+#: includes/widgets/widget-wetory-support-favourite-posts.php:363
+#: includes/widgets/widget-wetory-support-icon-box.php:232
+#: includes/widgets/widget-wetory-support-latest-posts.php:370
 msgid "Left"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:348
-#: includes/widgets/widget-wetory-support-latest-posts.php:324
+#: includes/widgets/widget-wetory-support-favourite-posts.php:364
+#: includes/widgets/widget-wetory-support-icon-box.php:233
+#: includes/widgets/widget-wetory-support-latest-posts.php:371
 msgid "Center"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:349
-#: includes/widgets/widget-wetory-support-latest-posts.php:325
+#: includes/widgets/widget-wetory-support-favourite-posts.php:365
+#: includes/widgets/widget-wetory-support-icon-box.php:234
+#: includes/widgets/widget-wetory-support-latest-posts.php:372
 msgid "Right"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-icon-box.php:23
+msgid "Icon Box"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-icon-box.php:25
+msgid "Add icon box widget"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-icon-box.php:49
+msgid "Read more"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-icon-box.php:151
+msgid "Icon type:"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-icon-box.php:156
+msgid "Dashicons"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-icon-box.php:157
+msgid "Favicons"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-icon-box.php:172
+msgid "Icon:"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-icon-box.php:177
+msgid "Text:"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-icon-box.php:193
+msgid "Icon"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-icon-box.php:211
+msgid "Link text:"
 msgstr ""
 
 #: includes/widgets/widget-wetory-support-latest-posts.php:23
@@ -602,16 +745,45 @@ msgstr ""
 msgid "Add latest posts widget to the sidebar"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-latest-posts.php:199
+#: includes/widgets/widget-wetory-support-latest-posts.php:219
 msgid "Post Type:"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-latest-posts.php:207
+#: includes/widgets/widget-wetory-support-latest-posts.php:227
+#: templates/posts-filter/filter-wcpt-notice-board.php:44
 msgid "All"
 msgstr ""
 
-#: includes/widgets/widget-wetory-support-latest-posts.php:228
+#: includes/widgets/widget-wetory-support-latest-posts.php:248
 msgid "Number of posts to show:"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-latest-posts.php:284
+msgid "List item title element:"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-latest-posts.php:289
+msgid "H2"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-latest-posts.php:290
+msgid "H3"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-latest-posts.php:291
+msgid "H4"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-latest-posts.php:292
+msgid "H5"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-latest-posts.php:293
+msgid "H6"
+msgstr ""
+
+#: includes/widgets/widget-wetory-support-latest-posts.php:294
+msgid "Paragraph"
 msgstr ""
 
 #: public/partials/wetory-support-maintenance.php:19
@@ -647,6 +819,111 @@ msgstr ""
 #. Plugin Name of the plugin/theme
 #: public/partials/wetory-support-maintenance.php:47
 msgid "Wetory Support"
+msgstr ""
+
+#: templates/content-none.php:14
+msgid "Nothing to display"
+msgstr ""
+
+#: templates/content-none.php:17
+msgid "It seems that no data exists for requested content."
+msgstr ""
+
+#: templates/pagination-loadmore.php:21
+#, php-format
+msgid ""
+"Showing <span class=\"displayed-posts-count bold-text\">%s</span> of <span "
+"class=\"total-posts-count bold-text\">%s</span> posts"
+msgstr ""
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:26
+#: templates/posts-filter/filter.php:31
+msgid "Filter posts"
+msgstr ""
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:34
+#: templates/posts-filter/filter.php:39
+msgid "Search by keywords"
+msgstr ""
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:39
+msgid "Display archive"
+msgstr ""
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:41
+#: templates/posts-filter/filter-wcpt-notice-board.php:50
+#: templates/posts-filter/filter.php:46
+msgid "Select option"
+msgstr ""
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:42
+msgid "Actual"
+msgstr ""
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:43
+msgid "Archive"
+msgstr ""
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:48
+#: templates/posts-filter/filter.php:44
+#: templates/posts-grid/item-wcpt-photogallery.php:31
+msgid "Category"
+msgstr ""
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:59
+#: templates/posts-filter/filter.php:55
+msgid "Published date"
+msgstr ""
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:63
+#: templates/posts-filter/filter.php:59
+msgid "From"
+msgstr ""
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:69
+#: templates/posts-filter/filter.php:65
+msgid "To"
+msgstr ""
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:79
+#: templates/posts-filter/filter.php:75
+msgid "Data loading..."
+msgstr ""
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:82
+#: templates/posts-filter/filter.php:78
+msgid ""
+"Found <span class=\"total-posts-count bold-text\"></span> posts matching "
+"your criteria"
+msgstr ""
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:86
+#: templates/posts-filter/filter.php:82
+msgid "Filter"
+msgstr ""
+
+#: templates/posts-filter/filter-wcpt-notice-board.php:87
+#: templates/posts-filter/filter.php:83
+msgid "Reset"
+msgstr ""
+
+#: templates/posts-table/header-wcpt-notice-board.php:20
+#: templates/posts-table/header.php:20
+msgid "Title"
+msgstr ""
+
+#: templates/posts-table/header-wcpt-notice-board.php:23
+#: templates/posts-table/header.php:21
+msgid "Author"
+msgstr ""
+
+#: templates/posts-table/header.php:19
+msgid "Published"
+msgstr ""
+
+#: templates/posts-table/row-wcpt-notice-board.php:17
+#: templates/posts-table/row.php:21
+msgid "Go to detail"
 msgstr ""
 
 #. Plugin URI of the plugin/theme

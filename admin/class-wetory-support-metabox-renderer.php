@@ -67,6 +67,66 @@ class Wetory_Support_Metabox_Renderer {
         </div>
         <?php
     }
+    
+    /**
+     * Render email field.
+     * 
+     * Supports: required
+     * 
+     * @since 1.2.0
+     * @param  string $field options
+     * @return void     
+     */
+    public static function render_email($field) {
+        extract($field);
+        ?>
+        <div class="<?php echo self::FIELD_CLASS; ?>">
+            <div class="<?php echo self::LABEL_CLASS; ?>">
+                <label for="<?php echo $name; ?>">
+                    <?php echo $required ? $title . ' <span class="wetory-required">*</span>' : $title; ?>
+                </label>
+                <?php
+                if ($desc != '') {
+                    echo '<p class="description">' . $desc . '</p>';
+                }
+                ?>
+            </div>                
+            <div class="<?php echo self::INPUT_CLASS; ?>">
+                <input type="<?php echo $type; ?>" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo $default; ?>" placeholder="<?php echo $placeholder; ?>" <?php echo $required ? 'required' : ''; ?>/>	
+            </div>
+        </div>
+        <?php
+    }
+    
+    /**
+     * Render telephone field.
+     * 
+     * Supports: required
+     * 
+     * @since 1.2.0
+     * @param  string $field options
+     * @return void     
+     */
+    public static function render_tel($field) {
+        extract($field);
+        ?>
+        <div class="<?php echo self::FIELD_CLASS; ?>">
+            <div class="<?php echo self::LABEL_CLASS; ?>">
+                <label for="<?php echo $name; ?>">
+                    <?php echo $required ? $title . ' <span class="wetory-required">*</span>' : $title; ?>
+                </label>
+                <?php
+                if ($desc != '') {
+                    echo '<p class="description">' . $desc . '</p>';
+                }
+                ?>
+            </div>                
+            <div class="<?php echo self::INPUT_CLASS; ?>">
+                <input type="<?php echo $type; ?>" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo $default; ?>" placeholder="<?php echo $placeholder; ?>" <?php echo $required ? 'required' : ''; ?>/>	
+            </div>
+        </div>
+        <?php
+    }
 
     /**
      * Render textarea field
