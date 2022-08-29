@@ -28,6 +28,7 @@ class Shortcode_Wetory_Support_Posts_Grid extends Wetory_Support_Shortcode {
      *  - paging    When set to true table is displayed in pages by "n" posts based on "count" attribute
      *  - filter    Display filter over the table or not
      *  - columns   Specify number gird columns
+     *  = taxonomy  Specify taxonomy to filter by based on given terms
      *  - terms     Specify terms for filtering posts based on given taxonomy
      * 
      * @since    1.0.0
