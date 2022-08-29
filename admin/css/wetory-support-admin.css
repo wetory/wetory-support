@@ -148,6 +148,7 @@ table.wetory-settings-table td.col-select select {
 /* Metaboxes */
 .wetory-metabox-field {
     margin-bottom: 10px;
+    margin-top: 15px;
 }
 .wetory-metabox-field .wetory-metabox-label label {
     font-weight: bold;
@@ -160,6 +161,15 @@ table.wetory-settings-table td.col-select select {
     font-size: 13px;
     font-style: italic;
 }
-.wetory-metabox-field .wetory-metabox-input input{
-    width: 100%;
+.wetory-metabox-field .wetory-metabox-input input[type=text],
+.wetory-metabox-field .wetory-metabox-input select {
+    width: 100% !important;
+}
+.wetory-metabox-field .wetory-metabox-input.weekday-schedule .form-table th {
+    width: 100px;
+}
+.wetory-metabox-field .wetory-metabox-input.weekday-schedule .form-table th,
+.wetory-metabox-field .wetory-metabox-input.weekday-schedule .form-table td {
+    padding: 10px 5px 10px 0;
+    line-height: 1.7;
 }

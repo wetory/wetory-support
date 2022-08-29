@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2021-03-01 01:54+0100\n"
-"PO-Revision-Date: 2021-03-01 01:55+0100\n"
+"POT-Creation-Date: 2022-08-29 19:59+0200\n"
+"PO-Revision-Date: 2022-08-29 20:02+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 2.4.3\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -21,11 +21,11 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: admin/class-wetory-support-admin.php:119
+#: admin/class-wetory-support-admin.php:120
 msgid "Dashboard"
 msgstr "Nástěnka"
 
-#: admin/class-wetory-support-admin.php:120
+#: admin/class-wetory-support-admin.php:121
 #: admin/class-wetory-support-settings.php:170
 #: admin/partials/wetory-support-admin-display.php:19
 #: admin/partials/wetory-support-admin-display.php:59
@@ -36,7 +36,7 @@ msgstr "Nastavení"
 msgid "No fields in this metabox."
 msgstr "V tomto metaboxu nejsou žádná pole."
 
-#: admin/class-wetory-support-metabox.php:203
+#: admin/class-wetory-support-metabox.php:224
 #, php-format
 msgid "There is already a field with name %s"
 msgstr "Pole s názvem %s existuje"
@@ -119,42 +119,51 @@ msgid "Customize the permastruct slug. Defaults to post type key."
 msgstr "Přizpůsobte slug pro trvalé odkazy. Výchozí nastavením je klíč typu."
 
 #: admin/class-wetory-support-settings.php:466
+msgid "Custom fields"
+msgstr "Vlastní pole"
+
+#: admin/class-wetory-support-settings.php:468
+msgid "Check if you want to allow specifying of custom fields for post type."
+msgstr ""
+"Zaškrtněte, pokud chcete povolit vytváření vlastních polí pro typ příspěvku."
+
+#: admin/class-wetory-support-settings.php:471
 msgid "Comments"
 msgstr "Komentáře"
 
-#: admin/class-wetory-support-settings.php:468
+#: admin/class-wetory-support-settings.php:473
 msgid "Check if you want to allow comments for post type."
 msgstr "Zaškrtněte, pokud chcete povolit komentáře pro typ příspěvku."
 
-#: admin/class-wetory-support-settings.php:471
+#: admin/class-wetory-support-settings.php:476
 msgid "Excerpt"
 msgstr "Stručný výpis"
 
-#: admin/class-wetory-support-settings.php:473
+#: admin/class-wetory-support-settings.php:478
 msgid "Check if you want to allow excerpt for post type."
 msgstr "Zaškrtněte, pokud chcete povolit stručný výpis pro typ příspěvku."
 
-#: admin/class-wetory-support-settings.php:476
+#: admin/class-wetory-support-settings.php:481
 msgid "Revisions"
 msgstr "Revize"
 
-#: admin/class-wetory-support-settings.php:478
+#: admin/class-wetory-support-settings.php:483
 msgid "Check if you want to allow revisions for post type."
 msgstr "Zaškrtněte , pokud chcete povolit revize pro typ příspěvku."
 
-#: admin/class-wetory-support-settings.php:481
-msgid "Published posts"
-msgstr "Publikované příspěvky"
+#: admin/class-wetory-support-settings.php:486
+msgid "Posts"
+msgstr "Příspěvky"
 
-#: admin/class-wetory-support-settings.php:507
+#: admin/class-wetory-support-settings.php:512
 msgid "Customize maintenance mode behaviour."
 msgstr "Přizpůsobte chování v režimu údržby."
 
-#: admin/class-wetory-support-settings.php:509
+#: admin/class-wetory-support-settings.php:514
 msgid "Maintenance mode page"
 msgstr "Stránka režimu údržby"
 
-#: admin/class-wetory-support-settings.php:511
+#: admin/class-wetory-support-settings.php:516
 msgid ""
 "Plugin provides template for maintenance page which is shown instead of "
 "default maintenance notification panel."
@@ -162,23 +171,23 @@ msgstr ""
 "Plugin poskytuje šablonu pro stránku údržby, která je zobrazena namísto "
 "výchozího panelu oznámení údržby."
 
-#: admin/class-wetory-support-settings.php:512
+#: admin/class-wetory-support-settings.php:517
 msgid "Create maintenance page"
 msgstr "Vytvořit stránku údržby"
 
-#: admin/class-wetory-support-settings.php:512
+#: admin/class-wetory-support-settings.php:517
 msgid "Creating page..."
 msgstr "Vytváření stránky..."
 
-#: admin/class-wetory-support-settings.php:513
+#: admin/class-wetory-support-settings.php:518
 msgid "Delete maintenance page"
 msgstr "Odstranit stránku údržby"
 
-#: admin/class-wetory-support-settings.php:513
+#: admin/class-wetory-support-settings.php:518
 msgid "Deleting page..."
 msgstr "Odstraňování stránky..."
 
-#: admin/class-wetory-support-settings.php:525
+#: admin/class-wetory-support-settings.php:530
 msgid ""
 "Select <a href=\"https://wordpress.org/support/article/wordpress-widgets/\" "
 "target=\"_blank\">widgets</a> you want to use in your website"
@@ -187,7 +196,7 @@ msgstr ""
 "target=\"_blank\">widgety</a>, které chcete na svých webových stránkách "
 "používat"
 
-#: admin/class-wetory-support-settings.php:534
+#: admin/class-wetory-support-settings.php:539
 msgid ""
 "Select <a href=\"https://codex.wordpress.org/Shortcode/\" target=\"_blank"
 "\">shortcodes</a> you want to use in your website"
@@ -195,28 +204,28 @@ msgstr ""
 "Vyberte <a href=\"https://codex.wordpress.org/Shortcode/\" target=\"_blank"
 "\">shortcodes,</a>, které chcete na svých webových stránkách používat"
 
-#: admin/class-wetory-support-settings.php:543
+#: admin/class-wetory-support-settings.php:548
 msgid "Configure API keys for APIs you want to use in your website"
 msgstr ""
 "Konfigurace klíčů rozhraní API pro rozhraní API, která chcete použít na webu"
 
-#: admin/class-wetory-support-settings.php:580
+#: admin/class-wetory-support-settings.php:585
 msgid "Settings saved."
 msgstr "Nastavení byla uložena."
 
-#: admin/class-wetory-support-settings.php:581
+#: admin/class-wetory-support-settings.php:586
 msgid "The pemalink structure has been updated."
 msgstr "Struktura trvalých odkazů byla aktualizována."
 
-#: admin/class-wetory-support-settings.php:600
+#: admin/class-wetory-support-settings.php:605
 msgid "General"
 msgstr "Obecné"
 
-#: admin/class-wetory-support-settings.php:601
+#: admin/class-wetory-support-settings.php:606
 msgid "Custom post types"
 msgstr "Vlastní typy obsahu"
 
-#: admin/class-wetory-support-settings.php:602
+#: admin/class-wetory-support-settings.php:607
 msgid "API keys"
 msgstr "Klíče rozhraní API"
 
@@ -268,128 +277,128 @@ msgstr "Podklíč"
 msgid "Value"
 msgstr "Hodnota"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:194
+#: includes/cpt/abstract-wetory-support-cpt.php:193
 msgid "You are not allowed to modify this post!"
 msgstr "Nejste oprávněni upravit tento příspěvek!"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:194
+#: includes/cpt/abstract-wetory-support-cpt.php:193
 msgid "Unauthorized action"
 msgstr "Neoprávněná akce"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:275
+#: includes/cpt/abstract-wetory-support-cpt.php:274
 msgctxt "Post Type General Name"
 msgid "Post Types"
 msgstr "Typy příspěvků"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:276
+#: includes/cpt/abstract-wetory-support-cpt.php:275
 msgctxt "Post Type Singular Name"
 msgid "Post Type"
 msgstr "Typ příspěvku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:277
+#: includes/cpt/abstract-wetory-support-cpt.php:276
 msgid "Post Types"
 msgstr "Typy příspěvků"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:278
+#: includes/cpt/abstract-wetory-support-cpt.php:277
 msgid "Post Type"
 msgstr "Typ příspěvku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:279
+#: includes/cpt/abstract-wetory-support-cpt.php:278
 msgid "Item Archives"
 msgstr "Archivy položek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:280
+#: includes/cpt/abstract-wetory-support-cpt.php:279
 msgid "Item Attributes"
 msgstr "Atributy položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:281
+#: includes/cpt/abstract-wetory-support-cpt.php:280
 msgid "Parent Item:"
 msgstr "Nadřazená položka:"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:282
+#: includes/cpt/abstract-wetory-support-cpt.php:281
 msgid "All Items"
 msgstr "Všechny položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:283
+#: includes/cpt/abstract-wetory-support-cpt.php:282
 msgid "Add New Item"
 msgstr "Přidat novou položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:284
+#: includes/cpt/abstract-wetory-support-cpt.php:283
 msgid "Add New"
 msgstr "Přidat položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:285
+#: includes/cpt/abstract-wetory-support-cpt.php:284
 msgid "New Item"
 msgstr "Nová položka"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:286
+#: includes/cpt/abstract-wetory-support-cpt.php:285
 msgid "Edit Item"
 msgstr "Upravit položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:287
+#: includes/cpt/abstract-wetory-support-cpt.php:286
 msgid "Update Item"
 msgstr "Aktualizovat položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:288
+#: includes/cpt/abstract-wetory-support-cpt.php:287
 msgid "View Item"
 msgstr "Zobrazit položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:289
+#: includes/cpt/abstract-wetory-support-cpt.php:288
 msgid "View Items"
 msgstr "Zobrazit položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:290
+#: includes/cpt/abstract-wetory-support-cpt.php:289
 msgid "Search Item"
 msgstr "Hledat položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:291
+#: includes/cpt/abstract-wetory-support-cpt.php:290
 msgid "Not found"
 msgstr "Nenalezeno"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:292
+#: includes/cpt/abstract-wetory-support-cpt.php:291
 msgid "Not found in Trash"
 msgstr "V koši nebylo nic nalezeno"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:293
+#: includes/cpt/abstract-wetory-support-cpt.php:292
 msgid "Featured Image"
 msgstr "Náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:294
+#: includes/cpt/abstract-wetory-support-cpt.php:293
 msgid "Set featured image"
 msgstr "Zvolit náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:295
+#: includes/cpt/abstract-wetory-support-cpt.php:294
 msgid "Remove featured image"
 msgstr "Odstranit náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:296
+#: includes/cpt/abstract-wetory-support-cpt.php:295
 msgid "Use as featured image"
 msgstr "Použít jako náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:297
+#: includes/cpt/abstract-wetory-support-cpt.php:296
 msgid "Insert into item"
 msgstr "Vložit do položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:298
+#: includes/cpt/abstract-wetory-support-cpt.php:297
 msgid "Uploaded to this item"
 msgstr "Nahrány do této položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:299
+#: includes/cpt/abstract-wetory-support-cpt.php:298
 msgid "Items list"
 msgstr "Seznam položek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:300
+#: includes/cpt/abstract-wetory-support-cpt.php:299
 msgid "Items list navigation"
 msgstr "Navigace pro seznam položek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:301
+#: includes/cpt/abstract-wetory-support-cpt.php:300
 msgid "Filter items list"
 msgstr "Seznam položek filtru"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:26
 #: includes/cpt/cpt-wetory-support-notice-board.php:55
 #: includes/cpt/cpt-wetory-support-notice-board.php:56
-msgid "Notice board"
+msgid "Notice Board"
 msgstr "Úřední deska"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:27
@@ -402,20 +411,20 @@ msgstr ""
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:53
 msgctxt "Post Type General Name"
-msgid "Notice board"
+msgid "Notice Board"
 msgstr "Úřední deska"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:54
 msgctxt "Post Type Singular Name"
-msgid "Notice board post"
+msgid "Notice Board Post"
 msgstr "Příspěvek na úřední desce"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:57
-msgid "Create new notice board post"
+msgid "Create New Notice Board Post"
 msgstr "Vytvořit nový příspěvek na úřední desce"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:58
-msgid "Create post"
+msgid "Create Post"
 msgstr "Vytvořit příspěvek"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:90
@@ -468,12 +477,14 @@ msgstr "Může pomoci identifikovat příspěvek ve více systémech"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:137
 #: includes/cpt/cpt-wetory-support-photogallery.php:83
+#: includes/cpt/cpt-wetory-support-team-members.php:204
 #, php-format
 msgid "\"%s\" is mandatory field!"
 msgstr "\"%s\" je povinné pole!"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:137
 #: includes/cpt/cpt-wetory-support-photogallery.php:83
+#: includes/cpt/cpt-wetory-support-team-members.php:204
 msgid "Post title"
 msgstr "Nadpis příspěvku"
 
@@ -494,12 +505,12 @@ msgid "\"%s\" value must be higher or equal to \"%s\"!"
 msgstr "Hodnota \"%s\" musí být vyšší nebo rovna hodnotě \"%s\"!"
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:25
-msgid "Photo gallery"
+msgid "Photo Gallery"
 msgstr "Fotogalerie"
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:26
 msgid ""
-"Custom post type photogallery is used for creating photo galleries on "
+"Custom post type photo gallery is used for creating photo galleries on "
 "website."
 msgstr ""
 "Vlastní příspěvky typu fotogalerie se používají pro vytváření fotogalerií na "
@@ -507,26 +518,138 @@ msgstr ""
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:52
 msgctxt "Post Type General Name"
-msgid "Photo gallery"
+msgid "Photo Gallery"
 msgstr "Fotogalerie"
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:53
 msgctxt "Post Type Singular Name"
-msgid "Photo gallery post"
+msgid "Photo Gallery Post"
 msgstr "Příspěvek do fotogalerie"
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:54
 #: includes/cpt/cpt-wetory-support-photogallery.php:55
-msgid "Photo galleries"
+msgid "Photo Galleries"
 msgstr "Fotogalerie"
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:56
-msgid "Create new photogallery"
+msgid "Create New Gallery"
 msgstr "Vytvořit novou fotogalerii"
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:57
-msgid "Create photogallery"
+msgid "Create Gallery"
 msgstr "Vytvořit fotogalerii"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:26
+#: includes/cpt/cpt-wetory-support-team-members.php:55
+#: includes/cpt/cpt-wetory-support-team-members.php:56
+msgid "Team Members"
+msgstr "Členové týmu"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:27
+msgid ""
+"Custom post type team members is used for evidence of people working in team."
+msgstr ""
+"Vlastní členové týmu typu post se používají pro evidenci lidí pracujících v "
+"týmu."
+
+#: includes/cpt/cpt-wetory-support-team-members.php:53
+msgctxt "Post Type General Name"
+msgid "Team Members"
+msgstr "Členové týmu"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:54
+msgctxt "Post Type Singular Name"
+msgid "Team member"
+msgstr "Člen týmu"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:57
+msgid "Create New Team Member"
+msgstr "Vytvořit nového člena týmu"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:58
+msgid "Create Team Member"
+msgstr "Vytvořit člena týmu"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:59
+msgid "Photo"
+msgstr "Fotka"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:92
+msgid "Contact information"
+msgstr "Kontaktní informace"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:93
+msgid ""
+"These information will be displayed on website depending on used template."
+msgstr ""
+"Tyto informace budou zobrazeny na webových stránkách v závislosti na použité "
+"šabloně."
+
+#: includes/cpt/cpt-wetory-support-team-members.php:101
+msgid "Position"
+msgstr "Pozice"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:103
+msgid "Position in team where this member is working on."
+msgstr "Pozice v týmu, na které tento člen pracuje."
+
+#: includes/cpt/cpt-wetory-support-team-members.php:109
+msgid "Email contact"
+msgstr "E-mail"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:118
+msgid "Phone contact"
+msgstr "Telefon"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:128
+msgid "Member availability"
+msgstr "Dostupnost"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:129
+msgid ""
+"Member availability is exposed to front-end with indicators when he/she can "
+"be contacted."
+msgstr ""
+"Dostupnost člena je zobrazena na front-endu pomocí indikátorů, kdy může být "
+"kontaktován."
+
+#: includes/cpt/cpt-wetory-support-team-members.php:137
+msgid "Status"
+msgstr "Status"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:140
+msgid "Online"
+msgstr "Online"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:141
+msgid "Offline"
+msgstr "Offline"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:146
+msgid "Display status for member (this overrides scheduled availability)"
+msgstr "Zobrazení stavu člena (přepíše dostupnost podle rozvrhu)"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:171
+msgid "Social media links"
+msgstr "Odkazy na sociální média"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:172
+msgid "These links will be displayed on website depending on used template."
+msgstr ""
+"Tyto odkazy budou zobrazeny na webových stránkách v závislosti na použité "
+"šabloně."
+
+#: includes/cpt/cpt-wetory-support-team-members.php:180
+msgid "Facebook"
+msgstr "Facebook"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:187
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:194
+msgid "Twitter"
+msgstr "Twitter"
 
 #: includes/wetory-support-functions-ajax.php:69
 #, php-format
@@ -552,123 +675,123 @@ msgstr "Oblíbené příspěvky"
 msgid "Add you favourite posts widget to the sidebar"
 msgstr "Přidání widgetu oblíbené příspěvky na postranní panel"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:93
-#: includes/widgets/widget-wetory-support-latest-posts.php:52
+#: includes/widgets/widget-wetory-support-favourite-posts.php:94
+#: includes/widgets/widget-wetory-support-latest-posts.php:53
 msgid "Recent Posts"
 msgstr "Nejnovější příspěvky"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:151
-#: includes/widgets/widget-wetory-support-latest-posts.php:120
+#: includes/widgets/widget-wetory-support-favourite-posts.php:152
+#: includes/widgets/widget-wetory-support-latest-posts.php:122
 msgid "(no title)"
 msgstr "(bez názvu)"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:220
-#: includes/widgets/widget-wetory-support-icon-box.php:130
-#: includes/widgets/widget-wetory-support-latest-posts.php:193
+#: includes/widgets/widget-wetory-support-favourite-posts.php:236
+#: includes/widgets/widget-wetory-support-icon-box.php:142
+#: includes/widgets/widget-wetory-support-latest-posts.php:210
 msgid "Title:"
 msgstr "Název:"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:229
+#: includes/widgets/widget-wetory-support-favourite-posts.php:245
 msgid "Select posts:"
 msgstr "Vybrat příspěvky:"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:260
-#: includes/widgets/widget-wetory-support-latest-posts.php:240
+#: includes/widgets/widget-wetory-support-favourite-posts.php:276
+#: includes/widgets/widget-wetory-support-latest-posts.php:257
 msgid "List style:"
 msgstr "Styl výpisu:"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:267
-#: includes/widgets/widget-wetory-support-latest-posts.php:245
+#: includes/widgets/widget-wetory-support-favourite-posts.php:283
+#: includes/widgets/widget-wetory-support-latest-posts.php:262
 msgid "Ordered list"
 msgstr "Seřazený seznam"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:268
-#: includes/widgets/widget-wetory-support-latest-posts.php:246
+#: includes/widgets/widget-wetory-support-favourite-posts.php:284
+#: includes/widgets/widget-wetory-support-latest-posts.php:263
 msgid "Unordered list"
 msgstr "Neuspořádaný seznam"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:269
-#: includes/widgets/widget-wetory-support-latest-posts.php:247
+#: includes/widgets/widget-wetory-support-favourite-posts.php:285
+#: includes/widgets/widget-wetory-support-latest-posts.php:264
 msgid "Listing"
 msgstr "Výpis"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:270
-#: includes/widgets/widget-wetory-support-latest-posts.php:248
+#: includes/widgets/widget-wetory-support-favourite-posts.php:286
+#: includes/widgets/widget-wetory-support-latest-posts.php:265
 msgid "Tiles"
 msgstr "Dlaždice"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:286
-#: includes/widgets/widget-wetory-support-latest-posts.php:293
+#: includes/widgets/widget-wetory-support-favourite-posts.php:302
+#: includes/widgets/widget-wetory-support-latest-posts.php:310
 msgid "Display post date?"
 msgstr "Zobrazit datum příspěvku?"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:291
-#: includes/widgets/widget-wetory-support-latest-posts.php:298
+#: includes/widgets/widget-wetory-support-favourite-posts.php:307
+#: includes/widgets/widget-wetory-support-latest-posts.php:315
 msgid "Display post thumbnail?"
 msgstr "Zobrazit náhledy příspěvků?"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:299
-#: includes/widgets/widget-wetory-support-icon-box.php:174
-#: includes/widgets/widget-wetory-support-latest-posts.php:306
+#: includes/widgets/widget-wetory-support-favourite-posts.php:315
+#: includes/widgets/widget-wetory-support-icon-box.php:186
+#: includes/widgets/widget-wetory-support-latest-posts.php:323
 msgid "Link style:"
 msgstr "Styl odkazu:"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:306
-#: includes/widgets/widget-wetory-support-icon-box.php:179
-#: includes/widgets/widget-wetory-support-latest-posts.php:313
+#: includes/widgets/widget-wetory-support-favourite-posts.php:322
+#: includes/widgets/widget-wetory-support-icon-box.php:191
+#: includes/widgets/widget-wetory-support-latest-posts.php:330
 msgid "None"
 msgstr "Žádný"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:307
-#: includes/widgets/widget-wetory-support-icon-box.php:182
-#: includes/widgets/widget-wetory-support-latest-posts.php:314
+#: includes/widgets/widget-wetory-support-favourite-posts.php:323
+#: includes/widgets/widget-wetory-support-icon-box.php:194
+#: includes/widgets/widget-wetory-support-latest-posts.php:331
 msgid "Text link"
 msgstr "Textový odkaz"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:308
-#: includes/widgets/widget-wetory-support-icon-box.php:180
-#: includes/widgets/widget-wetory-support-latest-posts.php:315
+#: includes/widgets/widget-wetory-support-favourite-posts.php:324
+#: includes/widgets/widget-wetory-support-icon-box.php:192
+#: includes/widgets/widget-wetory-support-latest-posts.php:332
 msgid "Button"
 msgstr "Tlačítko"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:309
-#: includes/widgets/widget-wetory-support-icon-box.php:183
-#: includes/widgets/widget-wetory-support-latest-posts.php:316
+#: includes/widgets/widget-wetory-support-favourite-posts.php:325
+#: includes/widgets/widget-wetory-support-icon-box.php:195
+#: includes/widgets/widget-wetory-support-latest-posts.php:333
 msgid "Widget title"
 msgstr "Nadpis widgetu"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:326
-#: includes/widgets/widget-wetory-support-latest-posts.php:332
+#: includes/widgets/widget-wetory-support-favourite-posts.php:342
+#: includes/widgets/widget-wetory-support-latest-posts.php:349
 msgid "Link title:"
 msgstr "Název odkazu:"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:331
-#: includes/widgets/widget-wetory-support-icon-box.php:204
-#: includes/widgets/widget-wetory-support-latest-posts.php:337
+#: includes/widgets/widget-wetory-support-favourite-posts.php:347
+#: includes/widgets/widget-wetory-support-icon-box.php:216
+#: includes/widgets/widget-wetory-support-latest-posts.php:354
 msgid "Link URL:"
 msgstr "Adresa URL odkazu:"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:340
-#: includes/widgets/widget-wetory-support-icon-box.php:213
-#: includes/widgets/widget-wetory-support-latest-posts.php:346
+#: includes/widgets/widget-wetory-support-favourite-posts.php:356
+#: includes/widgets/widget-wetory-support-icon-box.php:225
+#: includes/widgets/widget-wetory-support-latest-posts.php:363
 msgid "Link align:"
 msgstr "Zarovnání odkazu:"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:347
-#: includes/widgets/widget-wetory-support-icon-box.php:220
-#: includes/widgets/widget-wetory-support-latest-posts.php:353
+#: includes/widgets/widget-wetory-support-favourite-posts.php:363
+#: includes/widgets/widget-wetory-support-icon-box.php:232
+#: includes/widgets/widget-wetory-support-latest-posts.php:370
 msgid "Left"
 msgstr "Doleva"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:348
-#: includes/widgets/widget-wetory-support-icon-box.php:221
-#: includes/widgets/widget-wetory-support-latest-posts.php:354
+#: includes/widgets/widget-wetory-support-favourite-posts.php:364
+#: includes/widgets/widget-wetory-support-icon-box.php:233
+#: includes/widgets/widget-wetory-support-latest-posts.php:371
 msgid "Center"
 msgstr "Na střed"
 
-#: includes/widgets/widget-wetory-support-favourite-posts.php:349
-#: includes/widgets/widget-wetory-support-icon-box.php:222
-#: includes/widgets/widget-wetory-support-latest-posts.php:355
+#: includes/widgets/widget-wetory-support-favourite-posts.php:365
+#: includes/widgets/widget-wetory-support-icon-box.php:234
+#: includes/widgets/widget-wetory-support-latest-posts.php:372
 msgid "Right"
 msgstr "Napravo"
 
@@ -680,35 +803,35 @@ msgstr "Icon Box"
 msgid "Add icon box widget"
 msgstr "Přidat icon box widget"
 
-#: includes/widgets/widget-wetory-support-icon-box.php:48
+#: includes/widgets/widget-wetory-support-icon-box.php:49
 msgid "Read more"
 msgstr "Číst dále"
 
-#: includes/widgets/widget-wetory-support-icon-box.php:139
+#: includes/widgets/widget-wetory-support-icon-box.php:151
 msgid "Icon type:"
 msgstr "Typ ikony:"
 
-#: includes/widgets/widget-wetory-support-icon-box.php:144
+#: includes/widgets/widget-wetory-support-icon-box.php:156
 msgid "Dashicons"
 msgstr "Dashicons"
 
-#: includes/widgets/widget-wetory-support-icon-box.php:145
+#: includes/widgets/widget-wetory-support-icon-box.php:157
 msgid "Favicons"
 msgstr "Favicons"
 
-#: includes/widgets/widget-wetory-support-icon-box.php:160
+#: includes/widgets/widget-wetory-support-icon-box.php:172
 msgid "Icon:"
 msgstr "Ikona:"
 
-#: includes/widgets/widget-wetory-support-icon-box.php:165
+#: includes/widgets/widget-wetory-support-icon-box.php:177
 msgid "Text:"
 msgstr "Text:"
 
-#: includes/widgets/widget-wetory-support-icon-box.php:181
+#: includes/widgets/widget-wetory-support-icon-box.php:193
 msgid "Icon"
 msgstr "Ikona"
 
-#: includes/widgets/widget-wetory-support-icon-box.php:199
+#: includes/widgets/widget-wetory-support-icon-box.php:211
 msgid "Link text:"
 msgstr "Text odkazu:"
 
@@ -720,44 +843,44 @@ msgstr "Nejnovější příspěvky"
 msgid "Add latest posts widget to the sidebar"
 msgstr "Přidání nejnovějších příspěvků do postranního panelu"
 
-#: includes/widgets/widget-wetory-support-latest-posts.php:202
+#: includes/widgets/widget-wetory-support-latest-posts.php:219
 msgid "Post Type:"
 msgstr "Typy příspěvků:"
 
-#: includes/widgets/widget-wetory-support-latest-posts.php:210
+#: includes/widgets/widget-wetory-support-latest-posts.php:227
 #: templates/posts-filter/filter-wcpt-notice-board.php:44
 msgid "All"
 msgstr "Vše"
 
-#: includes/widgets/widget-wetory-support-latest-posts.php:231
+#: includes/widgets/widget-wetory-support-latest-posts.php:248
 msgid "Number of posts to show:"
 msgstr "Počet příspěvků k zobrazení:"
 
-#: includes/widgets/widget-wetory-support-latest-posts.php:267
+#: includes/widgets/widget-wetory-support-latest-posts.php:284
 msgid "List item title element:"
 msgstr "Element názvu položky v seznamu:"
 
-#: includes/widgets/widget-wetory-support-latest-posts.php:272
+#: includes/widgets/widget-wetory-support-latest-posts.php:289
 msgid "H2"
 msgstr "H2"
 
-#: includes/widgets/widget-wetory-support-latest-posts.php:273
+#: includes/widgets/widget-wetory-support-latest-posts.php:290
 msgid "H3"
 msgstr "H3"
 
-#: includes/widgets/widget-wetory-support-latest-posts.php:274
+#: includes/widgets/widget-wetory-support-latest-posts.php:291
 msgid "H4"
 msgstr "H4"
 
-#: includes/widgets/widget-wetory-support-latest-posts.php:275
+#: includes/widgets/widget-wetory-support-latest-posts.php:292
 msgid "H5"
 msgstr "H5"
 
-#: includes/widgets/widget-wetory-support-latest-posts.php:276
+#: includes/widgets/widget-wetory-support-latest-posts.php:293
 msgid "H6"
 msgstr "H6"
 
-#: includes/widgets/widget-wetory-support-latest-posts.php:277
+#: includes/widgets/widget-wetory-support-latest-posts.php:294
 msgid "Paragraph"
 msgstr "Odstavec"
 
@@ -926,6 +1049,17 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Tomáš Rybnický"
 msgstr "Tomáš Rybnický"
+
+#~ msgid "Published posts"
+#~ msgstr "Publikované příspěvky"
+
+#~ msgctxt "Post Type General Name"
+#~ msgid "Notice board"
+#~ msgstr "Úřední deska"
+
+#~ msgctxt "Post Type General Name"
+#~ msgid "Photo gallery"
+#~ msgstr "Fotogalerie"
 
 #~ msgid "category"
 #~ msgstr "rubrika"
