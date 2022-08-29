@@ -340,14 +340,14 @@ class Wetory_Support_Settings {
                     'type' => 'checkbox',
                     'option_name' => $option_name,
                     'option_key' => $shortcode_id,
-                    'id' => $shortcode_id . '-use',
+                    'id' => $shortcode_id . '-use', 
                     'name' => 'use',
                     'link' => $shortcode_meta['link'],
-                    'help' => $shortcode_meta['description'],
+                    'help' => $shortcode_meta['description'] . '<br><br>'.__('Usage', 'wetory-support').': ' . $shortcode_markup,
                 );
                 add_settings_field(
                         $shortcode_id . '-use',
-                        $shortcode_meta['name'] . ' ' . $shortcode_markup,
+                        $shortcode_meta['name'],
                         array(Settings_Renderer::class, 'render_settings_field'),
                         $settings_page,
                         $settings_section,
@@ -462,6 +462,11 @@ class Wetory_Support_Settings {
                         'type' => 'text',
                         'help' => __('Customize the permastruct slug. Defaults to post type key.', 'wetory-support'),
                     ),
+                    'custom-fields' => array(
+                        'label' => __('Custom fields', 'wetory-support'),
+                        'type' => 'checkbox',
+                        'help' => __('Check if you want to allow specifying of custom fields for post type.', 'wetory-support'),
+                    ),
                     'comments' => array(
                         'label' => __('Comments', 'wetory-support'),
                         'type' => 'checkbox',
@@ -478,7 +483,7 @@ class Wetory_Support_Settings {
                         'help' => __('Check if you want to allow revisions for post type.', 'wetory-support'),
                     ),
                     'published-posts' => array(
-                        'label' => __('Published posts', 'wetory-support'),
+                        'label' => __('Posts', 'wetory-support'),
                         'type' => 'raw',
                     ),
                     'description' => array(

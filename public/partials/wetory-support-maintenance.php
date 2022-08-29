@@ -30,7 +30,7 @@
     </head>
     <body>
         <div class="container maintenance-page">                                 
-            <img class="maintenance-logo" src="https://src.x-wetory.eu/img/chart.png">
+            <img class="maintenance-logo" src="https://src.x-wetory.eu/img/workers.png">
             <h1 class="maintenance-title">
                 <?php _e('Sorry for inconvenience', 'wetory-support'); ?>
             </h1>  
@@ -40,7 +40,7 @@
             <p class="maintenance-info">
                 <?php _e('If you are facing problems for long time, let me know via <a href="mailto:admin@wetory.eu">admin@wetory.eu</a>', 'wetory-support'); ?>
             </p>
-            <img class="maintenance-img" src="https://src.x-wetory.eu/img/workers.png"/>   
+            <img class="maintenance-img" src="https://src.x-wetory.eu/img/chart.png"/>   
             <p class="maintenance-counter">
                 <?php _e('Page will refresh in', 'wetory-support') ?> <span id="autorefresh-counter"></span> <?php _e('seconds', 'wetory-support'); ?>
             </p>

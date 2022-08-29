@@ -16,7 +16,7 @@
  * Plugin Name:       Wetory Support
  * Plugin URI:        https://www.wetory.eu/
  * Description:       Contains some basics for website projects, that improve usability and development. Brings new reusable elements to WordPress. Prerequisite for other Wetory plugins. More info on plugin's website.
- * Version:           1.1.0.3
+ * Version:           1.2.0
  * Author:            Tomáš Rybnický
  * Author URI:        https://www.wetory.eu/
  * License:           GPL-2.0+
@@ -50,7 +50,7 @@ if (!defined('WETORY_SUPPORT_URL')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('WETORY_SUPPORT_VERSION', '1.0.0');
+define('WETORY_SUPPORT_VERSION', '1.2.0');
 
 /**
  * Label can be used in several places

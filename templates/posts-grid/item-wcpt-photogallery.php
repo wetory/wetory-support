@@ -28,7 +28,7 @@ $img_src = wetory_get_post_thumbnail_url();
         </div>
         <div class="card-footer">
             <?php
-            printf('<span class="cat-links">' . __('Category', 'wetory-support') . ' %s</span>', get_the_category_list(', '));
+            printf('<span class="cat-links">' . __('Category', 'wetory-support') . ' <strong>%s</strong></span>', strip_tags(get_the_category_list(', ')));
             ?>
         </div>
     </div>

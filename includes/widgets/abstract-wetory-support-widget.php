@@ -98,7 +98,7 @@ abstract class Wetory_Support_Widget extends WP_Widget {
      * @return boolean
      */
     public function get_options() {
-        $options = Plugin_Options::get_shortcode_options($this->id);
+        $options = Plugin_Options::get_widget_options($this->id);
 
         return $options;
     }

@@ -19,23 +19,24 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
      */
     function __construct() {
         parent::__construct(
-                'wetory_latest_posts', // Base ID
-                wetory_get_prefixed_label(__('Latest Posts', 'wetory-support'), ' '), // Name
-                array(
-                    'description' => __('Add latest posts widget to the sidebar', 'wetory-support'),
-                    'classname' => 'posts-widget wetory-latest-posts'
-                ) // Args
+            'wetory_latest_posts', // Base ID
+            wetory_get_prefixed_label(__('Latest Posts', 'wetory-support'), ' '), // Name
+            array(
+                'description' => __('Add latest posts widget to the sidebar', 'wetory-support'),
+                'classname' => 'posts-widget wetory-latest-posts'
+            ) // Args
         );
     }
 
     /**
-     * Outputs the content for the widget instance.
+     * Echoes the widget content. Overriding function WP_Widget::widget() 
      * 
-     * @since 1.0.0
+     * @since 1.2.0
+     * 
+     * @see https://developer.wordpress.org/reference/classes/wp_widget/widget/
      * 
      * @param array $args Display arguments including 'before_title', 'after_title', 'before_widget', and 'after_widget'.
      * @param array $instance Settings for the current widget instance.
-     * @return type
      */
     public function widget($args, $instance) {
         if (!isset($args['widget_id'])) {
@@ -96,7 +97,7 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
 
             $list_element = 'ul';
             $list_class = 'posts';
-            $thumbnail_size = 'post-thumbnail';
+            $thumbnail_size = 'thumbnail';
             switch ($list_style) {
                 case 'ul':
                     $list_element = 'ul';
@@ -112,6 +113,7 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
                     $list_element = 'ol';
                     break;
             }
+            $list_class .= ' ' . $posttype;
             ?>
             <?php echo '<' . $list_element . ' class="' . $list_class . '">'; ?>
             <?php foreach ($r->posts as $recent_post) : ?>
@@ -119,22 +121,26 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
                 $post_title = get_the_title($recent_post->ID);
                 $title = (!empty($post_title) ) ? $post_title : __('(no title)', 'wetory-support');
                 ?>
-                <li>
-                    <?php if ($show_thumb) : ?>
-                        <span class="post-thumbnail">
-                            <a href="<?php the_permalink($recent_post->ID); ?>" title="<?php echo $title; ?>" aria-hidden="true">
-                                <?php
-                                echo has_post_thumbnail($recent_post->ID) ? get_the_post_thumbnail($recent_post->ID, $thumbnail_size) : '<div class="no-thumbnail"></div>';
-                                ?>
-                            </a>
-                        </span>
-                    <?php endif; ?>
-                    <?php echo '<' . $list_item_title_element . ' class="post-title">'; ?> 
-                    <a href="<?php the_permalink($recent_post->ID); ?>"><?php echo $title; ?></a>
-                    <?php echo '</' . $list_item_title_element . '>'; ?>
-                    <?php if ($show_date) : ?>
-                        <span class="post-date"><?php echo get_the_date('', $recent_post->ID); ?></span>
-                    <?php endif; ?>
+                <li class="post-item">
+                    <div class="post">
+                        <?php if ($show_thumb) : ?>
+                            <span class="post-thumbnail">
+                                <a href="<?php the_permalink($recent_post->ID); ?>" title="<?php echo $title; ?>" aria-hidden="true">
+                                    <?php
+                                    echo has_post_thumbnail($recent_post->ID) ? get_the_post_thumbnail($recent_post->ID, $thumbnail_size) : '<div class="no-thumbnail"></div>';
+                                    ?>
+                                </a>
+                            </span>
+                        <?php endif; ?>
+                        <div class="post-content">
+                            <?php echo '<' . $list_item_title_element . ' class="post-title">'; ?> 
+                            <a href="<?php the_permalink($recent_post->ID); ?>"><?php echo $title; ?></a>
+                            <?php echo '</' . $list_item_title_element . '>'; ?>
+                            <?php if ($show_date) : ?>
+                                <p class="post-date"><?php echo get_the_date('', $recent_post->ID); ?></p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
                 </li>
             <?php endforeach; ?>
             <?php echo '</' . $list_element . '>'; ?>
@@ -150,10 +156,16 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
     }
 
     /**
-     * Update function for the widget
-     *
-     * @since    1.0.0
-     */
+    * Updates a particular instance of a widget. Overrding core function.
+    * 
+    * @since 1.0.0
+    * 
+    * @see https://developer.wordpress.org/reference/classes/wp_widget/update/
+    * 
+    * @param array $new_instance New settings for this instance as input by the user via WP_Widget::form().
+    * @param array $old_instance Old settings for this instance.
+    * @return array Settings to save or bool false to cancel saving.
+    */
     public function update($new_instance, $old_instance) {
         // processes widget options to be saved
         $instance = $old_instance;
@@ -172,9 +184,14 @@ class Widget_Wetory_Support_Latest_Posts extends Wetory_Support_Widget {
     }
 
     /**
-     * Admin form in the widget area
-     *
-     * @since    1.0.0
+     * Outputs the settings update form. Overrides core function.
+     * 
+     * @since 1.0.0
+     * 
+     * @see https://developer.wordpress.org/reference/classes/wp_widget/form/
+     * 
+     * @param array $instance Current settings.
+     * @return string Default return is 'noform'.
      */
     public function form($instance) {
         $title = isset($instance['title']) ? $instance['title'] : '';
