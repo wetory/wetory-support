@@ -123,6 +123,48 @@ class Cpt_Wetory_Support_Team_Members extends Wetory_Support_Cpt {
         );
         $this->add_metabox($contact_information_metabox);
         
+        $availability_metabox = new Wetory_Support_Metabox(
+                $this->id . '_availability',
+                __('Member availability', 'wetory-support'),
+                __('Member availability is exposed to front-end with indicators when he/she can be contacted.', 'wetory-support'),
+                array($this->id),
+                'side',
+                'high'
+        );
+        $availability_metabox->add_field(
+                array(
+                    'name' => 'availability-status',
+                    'title' => __('Status', 'wetory-support'),
+                    'type' => 'select',
+                    'options' => array(
+                        'online' => __('Online', 'wetory-support'), 
+                        'offline' => __('Offline', 'wetory-support'), 
+                        //'schedule_based' => __('Schedule based', 'wetory-support')
+                    ),
+                    'default' => 'online',
+                    'required' => true,
+                    'desc' => __('Display status for member (this overrides scheduled availability)', 'wetory-support')
+                )
+        );
+//        $availability_metabox->add_field(
+//                array(
+//                    'name' => 'availability-schedule',
+//                    'title' => __('Scheduled availability', 'wetory-support'),
+//                    'type' => 'weekday_schedule',
+//                    'options' => array(
+//                        'monday' => __('Monday', 'wetory-support'), 
+//                        'tuesday' => __('Tuesday', 'wetory-support'), 
+//                        'wednesday' => __('Wednesday', 'wetory-support'), 
+//                        'thursday' => __('Thursday', 'wetory-support'), 
+//                        'friday' => __('Friday', 'wetory-support'), 
+//                        'saturday' => __('Saturday', 'wetory-support'), 
+//                        'sunday' => __('Sunday', 'wetory-support')
+//                    ),
+//                    'desc' => __('Pick availability days and time range during days when member appear online.', 'wetory-support')
+//                )
+//        );
+        $this->add_metabox($availability_metabox);
+        
         // Social media
         $social_media_links_metabox = new Wetory_Support_Metabox(
                 $this->id . '_social_media_links',

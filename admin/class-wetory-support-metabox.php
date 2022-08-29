@@ -191,7 +191,8 @@ class Wetory_Support_Metabox {
             'checkbox',
             'date',
             'email',
-            'tel'
+            'tel',
+            'weekday_schedule'
         );
 
         // If a type is set that is now allowed, don't add the field
