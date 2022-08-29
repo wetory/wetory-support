@@ -15,6 +15,7 @@
  * @subpackage wetory_support/admin
  * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
  */
+
 use Wetory_Support_Metabox_Renderer as Metabox_Renderer;
 
 class Wetory_Support_Metabox {
@@ -125,6 +126,9 @@ class Wetory_Support_Metabox {
 
         // https://developer.wordpress.org/reference/hooks/save_post/
         // add_action('save_post', array($this, 'save_meta_values'), 10, 2);
+        
+        // https://developer.wordpress.org/reference/hooks/edit_form_after_title/
+        add_action('edit_form_after_title', array($this, 'move_after_title'));
     }
 
     /**
@@ -140,6 +144,20 @@ class Wetory_Support_Metabox {
         if (in_array($post_type, $this->post_types)) {
             add_meta_box($this->ID, $this->title, array($this, 'render'), $post_type, $this->context, $this->priority);
         }
+    }
+    
+    /**
+     * Move some meta boxes directly after title (top)
+     * 
+     * Calling WordPress function do_meta_boxes
+     * https://developer.wordpress.org/reference/functions/do_meta_boxes/
+     * 
+     * @since 1.2.0
+     */
+    public function move_after_title() {
+        global $post, $wp_meta_boxes;
+        do_meta_boxes(get_current_screen(), 'top', $post);
+        unset($wp_meta_boxes[get_post_type($post)]['top']);
     }
 
     /**
@@ -171,7 +189,10 @@ class Wetory_Support_Metabox {
             'select',
             'radio',
             'checkbox',
-            'date'
+            'date',
+            'email',
+            'tel',
+            'weekday_schedule'
         );
 
         // If a type is set that is now allowed, don't add the field

@@ -50,7 +50,7 @@ if (!defined('WETORY_SUPPORT_URL')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('WETORY_SUPPORT_VERSION', '1.0.0');
+define('WETORY_SUPPORT_VERSION', '1.2.0');
 
 /**
  * Label can be used in several places
