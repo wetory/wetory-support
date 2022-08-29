@@ -1,23 +1,23 @@
 <?php
 
 /**
- * Name: Posts Grid
- * Description: Display posts in grid
+ * Name: Posts Carousel
+ * Description: Display posts in carousel
  * 
  * Link: https://www.wetory.eu/ideas/
  *
- * @since      1.1.0
+ * @since      1.2.0
  * 
  * @package    wetory_support
  * @subpackage wetory_support/shortcodes
  * @author     Tomas Rybnicky <tomas.rybnicky@wetory.eu>
  */
-class Shortcode_Wetory_Support_Posts_Grid extends Wetory_Support_Shortcode {
+class Shortcode_Wetory_Support_Posts_Carousel extends Wetory_Support_Shortcode {
 
     /**
      * Create new instance with static properties
      * 
-     * [wetory-posts-grid]
+     * [wetory-posts-carousel]
      * 
      * Attributes described:
      *  - types     Post types to be displayed, by default "post"    
@@ -25,30 +25,26 @@ class Shortcode_Wetory_Support_Posts_Grid extends Wetory_Support_Shortcode {
      *  - order_by  Select criteria for order, by default "date"
      *  - order     Select order direction, by default "DESC"
      *  - count     How many posts to display, by default all posts
-     *  - paging    When set to true table is displayed in pages by "n" posts based on "count" attribute
-     *  - filter    Display filter over the table or not
      *  - columns   Specify number gird columns
      *  = taxonomy  Specify taxonomy to filter by based on given terms
      *  - terms     Specify terms for filtering posts based on given taxonomy
      * 
-     * @since    1.0.0
+     * @since    1.2.0
      */
     public function __construct() {
         // specify shortcode requirements here
-        $id = 'wetory-posts-grid';
+        $id = 'wetory-posts-carousel';
         $atts = array(
             'types' => 'post',
             'status' => 'publish',
             'order_by' => 'date',
             'order' => 'DESC',
             'count' => '-1',
-            'paging' => true,
-            'filter' => false,
-            'columns' => 2,
+            'columns' => 5,
             'taxonomy' => 'category',
             'terms' => ''
         );
-        $this->before_content = '<section class="wetory-template wetory-posts-grid-wrapper">';
+        $this->before_content = '<section class="wetory-template wetory-posts-carousel-wrapper">';
         $this->after_content = '</section>';
         parent::__construct($id, $atts);
     }
@@ -56,7 +52,7 @@ class Shortcode_Wetory_Support_Posts_Grid extends Wetory_Support_Shortcode {
     /**
      * Override parent function for constructing shortcode content
      * 
-     * @since 1.1.0
+     * @since 1.2.0
      *
      * @param array $atts     Array of attributes
      * @param array $content  Shortcode content or null if not set.
@@ -69,7 +65,7 @@ class Shortcode_Wetory_Support_Posts_Grid extends Wetory_Support_Shortcode {
         $this->query_posts();
         
         // Generate content
-        $content = $this->generate_grid();
+        $content = $this->generate_carousel();
 
         // Reset $wp_query
         wp_reset_query();
@@ -80,11 +76,11 @@ class Shortcode_Wetory_Support_Posts_Grid extends Wetory_Support_Shortcode {
     /**
      * Generate posts grid
      * 
-     * @since 1.1.0
+     * @since 1.2.0
      * 
      * @return string HTML markup of grid
      */
-    private function generate_grid() {
+    private function generate_carousel() {
         
         $post_type = $this->get_post_type();
 
@@ -134,7 +130,7 @@ class Shortcode_Wetory_Support_Posts_Grid extends Wetory_Support_Shortcode {
      * string when there are more post types, which means that no variation will
      * be used in templates. 
      * 
-     * @since 1.1.0
+     * @since 1.2.0
      * 
      * @return string Template variation based on post type
      */
@@ -148,29 +144,14 @@ class Shortcode_Wetory_Support_Posts_Grid extends Wetory_Support_Shortcode {
     }
     
     /**
-     * Evaluating shortcode attribute for posts filter
-     * 
-     * @since 1.1.0
-     * 
-     * @return bool
-     */
-    private function is_filter_enabled():bool {
-        $enabled = false;
-        if (isset($this->shortcode_attributes['filter'])) {
-            $enabled = $this->shortcode_attributes['filter'];
-        }
-        return $enabled;
-    }
-    
-    /**
      * Evaluating shortcode attribute for number of columns
      * 
-     * @since 1.1.0
+     * @since 1.2.0
      * 
      * @return int
      */
     private function get_columns():int {
-        $columns = 2;
+        $columns = 5;
         if (isset($this->shortcode_attributes['columns'])) {
             $columns = $this->shortcode_attributes['columns'];
         }
@@ -187,7 +168,7 @@ class Shortcode_Wetory_Support_Posts_Grid extends Wetory_Support_Shortcode {
      * 
      * @see https://developer.wordpress.org/reference/functions/wp_reset_query/
      * 
-     * @since 1.1.0     * 
+     * @since 1.2.0     * 
      */
     private function query_posts() {
         global $wp_query;

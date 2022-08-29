@@ -340,14 +340,14 @@ class Wetory_Support_Settings {
                     'type' => 'checkbox',
                     'option_name' => $option_name,
                     'option_key' => $shortcode_id,
-                    'id' => $shortcode_id . '-use',
+                    'id' => $shortcode_id . '-use', 
                     'name' => 'use',
                     'link' => $shortcode_meta['link'],
-                    'help' => $shortcode_meta['description'],
+                    'help' => $shortcode_meta['description'] . '<br><br>'.__('Usage', 'wetory-support').': ' . $shortcode_markup,
                 );
                 add_settings_field(
                         $shortcode_id . '-use',
-                        $shortcode_meta['name'] . ' ' . $shortcode_markup,
+                        $shortcode_meta['name'],
                         array(Settings_Renderer::class, 'render_settings_field'),
                         $settings_page,
                         $settings_section,
