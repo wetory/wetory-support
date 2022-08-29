@@ -28,6 +28,7 @@ class Shortcode_Wetory_Support_Posts_Grid extends Wetory_Support_Shortcode {
      *  - paging    When set to true table is displayed in pages by "n" posts based on "count" attribute
      *  - filter    Display filter over the table or not
      *  - columns   Specify number gird columns
+     *  = taxonomy  Specify taxonomy to filter by based on given terms
      *  - terms     Specify terms for filtering posts based on given taxonomy
      * 
      * @since    1.0.0
@@ -118,7 +119,9 @@ class Shortcode_Wetory_Support_Posts_Grid extends Wetory_Support_Shortcode {
             echo '</div>';
 
             // Pagination
-            $template_loader->get_template_part('pagination', 'loadmore');
+            if($this->is_paging_enabled()){
+                //$template_loader->get_template_part('pagination', 'loadmore');
+            }
         } else {
             $template_loader->get_template_part('content', 'none');
         }
@@ -157,6 +160,21 @@ class Shortcode_Wetory_Support_Posts_Grid extends Wetory_Support_Shortcode {
         $enabled = false;
         if (isset($this->shortcode_attributes['filter'])) {
             $enabled = $this->shortcode_attributes['filter'];
+        }
+        return $enabled;
+    }
+    
+    /**
+     * Evaluating shortcode attribute for posts paging
+     * 
+     * @since 1.2.0
+     * 
+     * @return bool
+     */
+    private function is_paging_enabled():bool {
+        $enabled = false;
+        if (isset($this->shortcode_attributes['paging'])) {
+            $enabled = filter_var($this->shortcode_attributes['paging'], FILTER_VALIDATE_BOOLEAN);
         }
         return $enabled;
     }
