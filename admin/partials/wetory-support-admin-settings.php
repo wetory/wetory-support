@@ -16,7 +16,8 @@ if (!defined('WPINC')) {
 }
 
 // Set up some useful variables
-$wetory_images_path = WETORY_SUPPORT_URL . 'images/';
+$wetory_support_images_path = WETORY_SUPPORT_URL . 'images/';
+$wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/views/';
 ?>
 
 <script type="text/javascript">
@@ -36,17 +37,10 @@ $wetory_images_path = WETORY_SUPPORT_URL . 'images/';
     <div class="wetory-support-plugin-header">
         <p>
             <?php _e('Here you can modify plugin behavior. You can select what parts you want to use. Everything is disabled by default to prevent unnecesary loads.', 'wetory-support'); ?>
-            <?php printf(__('Overview of all plugin settings can be found on <a href="%s">dashboard</a>.', 'wetory-support'), $this->links['dashboard']['url']); ?>
         </p>        
     </div>
 
     <div class="nav-tab-wrapper wetory-support-nav-tab-wrapper">
-        <?php
-        foreach ($tabs as $tab => $name) {
-            $class = ( $tab == $active_tab ) ? 'nav-tab-active' : '';
-            echo "<a class='nav-tab $class' href='?page=wetory-support-settings&tab=$tab'>$name</a>";
-        }
-        ?>
         <?php
         $tabs_arr = array(
             'wetory-support-settings-general' => __('General', 'wetory-support'),
@@ -61,34 +55,42 @@ $wetory_images_path = WETORY_SUPPORT_URL . 'images/';
     </div>
 
     <div id="wetory-support-tab-container" class="wetory-support-tab-container">
-        <?php if ($active_tab == 'general'): ?>
-            <form method="POST" action="options.php">
-                <?php
-                settings_fields('wetory-support-settings-general');
-                do_settings_sections('wetory-support-settings-general');
-                submit_button();
-                ?>
-            </form> 
-        <?php elseif ($active_tab == 'cpt'): ?>
-            <form method="POST">
-                <input type="hidden" name="cpt_updated" value="true" />  
-                <p><?php _e('Configure custom post types you want to use in your website.', 'wetory-support'); ?></p>              
-                <?php
-                wp_nonce_field('wetory_support_settings_cpt_update', 'wetory_support_settings_cpt_form');
-                $this->render_cpt_form_table();
-                submit_button();
-                ?>
-            </form>
-        <?php elseif ($active_tab == 'apikeys'): ?>
-            <form method="POST" action="options.php">
-                <?php
-                settings_fields('wetory-support-settings-apikeys');
-                do_settings_sections('wetory-support-settings-apikeys');
-                submit_button();
-                ?>
-            </form> 
-        <?php endif; ?>
-        
+        <?php
+        $setting_views_a = array(
+            'wetory-support-settings-general' => 'admin-settings-general.php',
+            'wetory-support-settings-content' => 'admin-settings-content.php',
+            'wetory-support-settings-cpt' => 'admin-settings-cpt.php',
+            'wetory-support-settings-connections' => 'admin-settings-connections.php',
+            'wetory-support-settings-advanced' => 'admin-settings-advanced.php',
+        );
+        $setting_views_b = array(
+            'wetory-support-settings-overview' => 'admin-settings-overview.php',
+        );
+        ?>
+        <?php $form_action = isset($_SERVER['REQUEST_URI']) ? sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI'])) : ''; ?>
+        <form method="post" action="<?php echo esc_url($form_action); ?>" id="wetory_support_settings_form">
+            <input type="hidden" name="wetory_support_action" value="" id="wetory_support_action" />
+            <?php
+            if (function_exists('wp_nonce_field')) {
+                wp_nonce_field('wetory-support-update-' . WETORY_SUPPORT_VERSION);
+            }
+            foreach ($setting_views_a as $target_id => $value) {
+                $settings_view = $wetory_support_admin_view_path . $value;
+                if (file_exists($settings_view)) {
+                    include $settings_view;
+                }
+            }
+            ?>
+        </form>
+        <?php
+        foreach ($setting_views_b as $target_id => $value) {
+            $settings_view = $wetory_support_admin_view_path . $value;
+            if (file_exists($settings_view)) {
+                include $settings_view;
+            }
+        }
+        ?>
+
         <div style="clear: both;"></div>
         <div class="wetory-support-tab-footer">
             <div class="wetory-support-row">
@@ -121,7 +123,7 @@ $wetory_images_path = WETORY_SUPPORT_URL . 'images/';
                 ?>
             </div>
             <div class="wetory-support-plugin-branding-logo">
-                <img src="<?php echo esc_url($wetory_images_path); ?>logo.png" alt="Wetory Logo">
+                <img src="<?php echo esc_url($wetory_support_images_path); ?>logo.png" alt="Wetory Logo">
             </div>
         </div>
     </div>

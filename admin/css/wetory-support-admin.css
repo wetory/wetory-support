@@ -123,7 +123,7 @@ table.wetory-settings-table td.col-select select {
 
 /* Tab Navigation */
 .wetory-support-nav-tab-wrapper {
-    margin-top: 40px;
+    margin-top: 10px;
 }
 .wetory-tab-link {
     cursor: pointer;

@@ -323,26 +323,19 @@ class Wetory_Support {
      * @access   private
      */
     private function define_admin_hooks() {
+        $plugin_admin = new Wetory_Support_Admin($this->get_plugin_name(), $this->get_version(), $this);
+        
+        // Add admin menu items
+        $this->loader->add_action('admin_menu', $plugin_admin, 'admin_menu');
+        
+        // Add action links
+        $this->loader->add_filter('plugin_action_links_' . WETORY_SUPPORT_BASENAME, $plugin_admin, 'plugin_action_links');
 
-        $plugin_admin = new Wetory_Support_Admin($this->get_plugin_name(), $this->get_version());
-
+        // Load scripts and styles
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
-
-        // This is required for building settings page according to loaded content
-        $plugin_settings = new Wetory_Support_Settings(
-                $this->get_plugin_widgets(),
-                $this->get_plugin_shortcodes(),
-                $this->get_plugin_apikeys(),
-                $this->get_plugin_cpts(),
-                $this->get_plugin_name()
-        );
-
-        $this->loader->add_filter('plugin_action_links_' . WETORY_SUPPORT_BASENAME, $plugin_admin, 'add_action_links');
-
-        $this->loader->add_action('admin_menu', $plugin_settings, 'add_settings_pages');
-        $this->loader->add_action('admin_init', $plugin_settings, 'register_and_build_fields');
         
+        // Admin notices
         $this->loader->add_action('admin_notices', Wetory_Support_Admin_Notices::class, 'display_notices');
     }
 
