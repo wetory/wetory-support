@@ -63,7 +63,53 @@
                 },
             });
         });
-        
+
+        // Navigation tabs in settings page
+        var ws_nav_tab = $('.wetory-support-nav-tab-wrapper .nav-tab');
+        if (ws_nav_tab.length > 0) {
+            ws_nav_tab.click(
+                    function () {
+                        var href_hash = $(this).attr('href');
+                        ws_nav_tab.removeClass('nav-tab-active');
+                        $(this).addClass('nav-tab-active');
+                        href_hash = href_hash.charAt(0) === '#' ? href_hash.substring(1) : href_hash;
+                        var ws_tab_elm = $('div[data-id="' + href_hash + '"]');
+                        $('.wetory-support-tab-content').hide();
+                        if (ws_tab_elm.length > 0) {
+                            ws_tab_elm.fadeIn();
+                        }
+                    }
+            );
+            var location_hash = window.location.hash;
+            if (location_hash !== "") {
+                var ws_tab_hash = location_hash.charAt(0) === '#' ? location_hash.substring(1) : location_hash;
+                if (ws_tab_hash !== "") {
+                    $('div[data-id="' + ws_tab_hash + '"]').show();
+                    $('a[href="#' + ws_tab_hash + '"]').addClass('nav-tab-active');
+                }
+            } else {
+                ws_nav_tab.eq(0).click();
+            }
+        }
+        // Navigation sub-tabs under top tabs in settings page
+        $('.wetory-support-sub-tab li').click(
+                function () {
+                    var trgt = $(this).attr('data-target');
+                    var prnt = $(this).parent('.wetory-support-sub-tab');
+                    var ctnr = prnt.siblings('.wetory-support-sub-tab-container');
+                    prnt.find('li a').css({'color': '#0073aa', 'cursor': 'pointer'});
+                    $(this).find('a').css({'color': '#000', 'cursor': 'default', 'font-weight': '600'});
+                    ctnr.find('.wetory-support-sub-tab-content').hide();
+                    ctnr.find('.wetory-support-sub-tab-content[data-id="' + trgt + '"]').fadeIn();
+                }
+        );
+        $('.wetory-support-sub-tab').each(
+                function () {
+                    var elm = $(this).children('li').eq(0);
+                    elm.click();
+                }
+        );
+
     });
 
 })(jQuery);

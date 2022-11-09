@@ -135,6 +135,29 @@ table.wetory-settings-table td.col-select select {
     background: #fff;
     border-bottom: solid 1px #fff;
 }
+.wetory-support-tab-content {
+    display: none;
+    float: left;
+    width: 100%;
+    height: auto;
+}
+.wetory-support-sub-tab {
+    display: inline-block;
+    margin: 0px;
+    float: left;
+    width: 100%;
+    height: auto;
+}
+.wetory-support-sub-tab li {
+    display: inline-block;
+    border-left: solid 1px #ccc;
+    padding: 3px 10px;
+    cursor: pointer;
+}
+.wetory-support-sub-tab li:first-child {
+    border-left:none; 
+    padding-left: 0px;
+}
 
 /* Links */
 .link-button {
