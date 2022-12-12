@@ -45,7 +45,6 @@ $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/
         $tabs_arr = array(
             'wetory-support-settings-general' => __('General', 'wetory-support'),
             'wetory-support-settings-content' => __('Content', 'wetory-support'),
-            'wetory-support-settings-cpt' => __('Custom post types', 'wetory-support'),
             'wetory-support-settings-connections' => __('Connections', 'wetory-support'),
             'wetory-support-settings-advanced' => __('Advanced', 'wetory-support'),
             'wetory-support-settings-overview' => __('Settings overview', 'wetory-support')
@@ -59,7 +58,6 @@ $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/
         $setting_views_a = array(
             'wetory-support-settings-general' => 'admin-settings-general.php',
             'wetory-support-settings-content' => 'admin-settings-content.php',
-            'wetory-support-settings-cpt' => 'admin-settings-cpt.php',
             'wetory-support-settings-connections' => 'admin-settings-connections.php',
             'wetory-support-settings-advanced' => 'admin-settings-advanced.php',
         );
