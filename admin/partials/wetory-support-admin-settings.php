@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Provide a admin area view for the plugin settings
  *
@@ -21,17 +22,19 @@ $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/
 ?>
 
 <script type="text/javascript">
-    var wetory_support_settings_success_message = '<?php echo esc_html__('Settings updated.', 'wetory-support'); ?>';
-    var wetory_support_settings_error_message = '<?php echo esc_html__('Unable to update settings.', 'wetory-support'); ?>';
+    var wetory_support_update_settings_success_message = '<?php echo esc_html__('Settings updated successfully', 'wetory-support'); ?>';
+    var wetory_support_update_settings_error_message = '<?php echo esc_html__('Unable to update settings', 'wetory-support'); ?>';
+    var wetory_support_reset_settings_success_message = '<?php echo esc_html__('Settings reseted successful', 'wetory-support'); ?>';
+    var wetory_support_reset_settings_error_message = '<?php echo esc_html__('Unable to reset settings', 'wetory-support'); ?>';
 </script>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <div class="wrap wetory-support-settings">
 
-    <h1 class="wp-heading-inline"><?php _e('Settings', 'wetory-support') ?></h1>  
+    <h1 class="wp-heading-inline"><?php _e('Settings', 'wetory-support') ?></h1>
 
     <!--NEED THE settings_errors below so that the errors/success messages are shown after submission - wasn't working once we started using add_menu_page and stopped using add_options_page so needed this-->
-    <?php settings_errors(); ?>      
+    <?php settings_errors(); ?>
 
 
     <div class="wetory-support-plugin-header">
@@ -39,6 +42,8 @@ $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/
             <?php _e('Here you can modify plugin behavior. You can select what parts you want to use. Everything is disabled by default to prevent unnecesary loads.', 'wetory-support'); ?>
         </p>        
     </div>
+
+    <div class="wetory-support-plugin-notifications"></div>
 
     <div class="nav-tab-wrapper wetory-support-nav-tab-wrapper">
         <?php
@@ -67,7 +72,7 @@ $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/
         ?>
         <?php $form_action = isset($_SERVER['REQUEST_URI']) ? sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI'])) : ''; ?>
         <form method="post" action="<?php echo esc_url($form_action); ?>" id="wetory_support_settings_form">
-            <input type="hidden" name="wetory_support_action" value="" id="wetory_support_action" />
+            <input type="hidden" name="wetory_support_submit_action" value="" id="wetory_support_submit_action" />
             <?php
             if (function_exists('wp_nonce_field')) {
                 wp_nonce_field('wetory-support-update-' . WETORY_SUPPORT_VERSION);
@@ -79,25 +84,26 @@ $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/
                 }
             }
             ?>
-        </form>
-        <?php
-        foreach ($setting_views_b as $target_id => $value) {
-            $settings_view = $wetory_support_admin_view_path . $value;
-            if (file_exists($settings_view)) {
-                include $settings_view;
+            <?php
+            foreach ($setting_views_b as $target_id => $value) {
+                $settings_view = $wetory_support_admin_view_path . $value;
+                if (file_exists($settings_view)) {
+                    include $settings_view;
+                }
             }
-        }
-        ?>
+            ?>
 
-        <div style="clear: both;"></div>
-        <div class="wetory-support-tab-footer">
-            <div class="wetory-support-row">
-                <div class="wetory-support-col-6"></div>
-                <div class="wetory-support-col-6"><input type="submit" name="update_admin_settings_form" value="<?php echo esc_html__('Update Settings', 'wetory-support'); ?>" class="button-primary" style="float:right;" onClick="return cli_store_settings_btn_click(this.name)" />
-                    <span class="spinner" style="margin-top:10px"></span>
+            <div style="clear: both;"></div>
+            <div class="wetory-support-tab-footer">
+                <div class="wetory-support-row">
+                    <div class="wetory-support-col-6"></div>
+                    <div class="wetory-support-col-6">
+                        <input type="submit" name="update_settings" value="<?php echo esc_html__('Update Settings', 'wetory-support'); ?>" class="button-primary" style="float:right;" onClick="return wetory_support_settings_btn_click(this.name)" />
+                        <span class="spinner"></span>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <div class="wetory-support-plugin-footer">
@@ -105,18 +111,18 @@ $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/
             <div class="wetory-support-plugin-branding-tagline">
                 <?php
                 echo sprintf(
-                        wp_kses(
-                                __('Wetory Support %s &copy; %s | by <a href="%s" target="_blank">wetory</a>', 'wetory-support'),
-                                array(
-                                    'a' => array(
-                                        'href' => array(),
-                                        'target' => array(),
-                                    ),
-                                )
-                        ),
-                        'v' . WETORY_SUPPORT_VERSION,
-                        date("Y"),
-                        'https://www.wetory.eu/'
+                    wp_kses(
+                        __('Wetory Support %s &copy; %s | by <a href="%s" target="_blank">wetory</a>', 'wetory-support'),
+                        array(
+                            'a' => array(
+                                'href' => array(),
+                                'target' => array(),
+                            ),
+                        )
+                    ),
+                    'v' . WETORY_SUPPORT_VERSION,
+                    date("Y"),
+                    'https://www.wetory.eu/'
                 );
                 ?>
             </div>

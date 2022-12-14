@@ -14,25 +14,23 @@
 if (!defined('WPINC')) {
     die;
 }
+
+$shortcodes = $this->plugin_obj->get_plugin_shortcodes()->get_objects();
+$widgets = $this->plugin_obj->get_plugin_widgets()->get_objects();
+$cpt_objects = $this->plugin_obj->get_plugin_cpts()->get_objects();
+
 ?>
 
 <div class="wetory-support-tab-content" data-id="<?php echo esc_attr($target_id); ?>">
     <ul class="wetory-support-sub-tab">
-        <li data-target="general"><a><?php echo esc_html__('Widgets', 'wetory-support'); ?></a></li>        
-        <li data-target="general"><a><?php echo esc_html__('Shortcodes', 'wetory-support'); ?></a></li>
+        <li data-target="general"><a><?php echo esc_html__('General', 'wetory-support'); ?></a></li>       
         <li data-target="cpt"><a><?php echo esc_html__('Custom post types', 'wetory-support'); ?></a></li>
     
     </ul>
     <div class="wetory-support-sub-tab-container">
-        <div class="wetory-support-sub-tab-content" data-id="widgets" style="display:block;">
-            <div class="wetory-support-settings-section widgets">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-        </div>
-        <div class="wetory-support-sub-tab-content" data-id="shortcodes" style="display:block;">
-            <div class="wetory-support-settings-section widgets">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
+        <div class="wetory-support-sub-tab-content" data-id="general" style="display:block;">            
+            <?php do_action('wetory_support_settings_render_section','widgets'); ?>
+            <?php do_action('wetory_support_settings_render_section','shortcodes'); ?>
         </div>
         <div class="wetory-support-sub-tab-content" data-id="cpt">
             <div class="wetory-support-settings-section cpt">

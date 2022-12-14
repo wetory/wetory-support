@@ -24,6 +24,7 @@ class Wetory_Support_Apikeys_Controller extends Wetory_Controller {
      */
     public function __construct() {
         parent::__construct();
+        add_filter('wetory_support_settings_sections', array($this, 'settings_section'), 10, 1);
     }
     
     public function get_instance($file): Wetory_Support_Apikey {
@@ -37,6 +38,61 @@ class Wetory_Support_Apikeys_Controller extends Wetory_Controller {
 
     protected function glob_filter(): string {        
         return self::GLOB_FILTER;
+    }
+
+    /**
+     * Add settings section.
+     * 
+     * It is hooked into 'wetory_support_settings_sections' filter
+     * which is used to populate final data for sections.
+     * 
+     * @param array $sections Associative array that holds data about sections
+     * 
+     * @since    1.2.1
+     */
+    public function settings_section($sections)
+    {
+        $section_name = 'apikeys';
+
+        $section = array(
+            'title' => __('API Keys', 'wetory-support'),
+            'description' => __('Configure API keys for APIs you want to use in your website', 'wetory-support'),
+            'settings_fields' => array()
+        );
+
+        // Loop through all plugin's loaded API key objects
+        $apikeys = $this->get_objects();
+
+        if ($apikeys) {
+
+            foreach ($apikeys as $apikey) {
+
+                $apikey_id = $apikey->get_id();
+                $apikey_meta = $apikey->get_meta();
+
+                $keys = $apikey->get_keys();
+                foreach ($keys as $key => $label) {
+                    $label = sizeof($keys) > 1 ? $apikey_meta['name'] .' - ' . $label : $apikey_meta['name'];
+                    unset($field);
+                    $field = array(
+                        'label' => $label,
+                        'type' => 'text',
+                        'option_section' => $section_name,
+                        'option_key' => $apikey_id,
+                        'id' => $apikey_id . '-' . $key,
+                        'name' => $key,
+                        'link' => $apikey_meta['link'],
+                        'help' => $apikey_meta['description'],
+                    );
+
+                    $section['settings_fields'][] = $field;
+                }
+            }
+        }
+
+        $sections[$section_name] = $section;
+
+        return $sections;
     }
 
 }

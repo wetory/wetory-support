@@ -11,7 +11,10 @@
  * @subpackage wetory_support/admin
  * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
  */
-class Wetory_Support_Admin {
+use Wetory_Support_Admin_Notices as Notices;
+
+class Wetory_Support_Admin
+{
 
     /**
      * The ID of this plugin.
@@ -54,14 +57,13 @@ class Wetory_Support_Admin {
      * Initialize the class and set its properties.
      *
      * @since    1.0.0
-     * @param      string    $plugin_name       The name of this plugin.
-     * @param      string    $version    The version of this plugin.
      * @param      Wetory_Support    $plugin_obj    Instance of main plugin class
      */
-    public function __construct($plugin_name, $version, $plugin_obj) {
-        $this->plugin_name = $plugin_name;
-        $this->version = $version;
+    public function __construct($plugin_obj)
+    {        
         $this->plugin_obj = $plugin_obj;
+        $this->plugin_name = $plugin_obj->get_plugin_name();
+        $this->version = $plugin_obj->get_version();
 
         $this->build_links();
     }
@@ -71,7 +73,8 @@ class Wetory_Support_Admin {
      *
      * @since    1.0.0
      */
-    public function enqueue_styles() {
+    public function enqueue_styles()
+    {
 
         /**
          * This function is provided for demonstration purposes only.
@@ -92,7 +95,8 @@ class Wetory_Support_Admin {
      *
      * @since    1.0.0
      */
-    public function enqueue_scripts() {
+    public function enqueue_scripts()
+    {
 
         /**
          * This function is provided for demonstration purposes only.
@@ -108,12 +112,12 @@ class Wetory_Support_Admin {
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wetory-support-admin.js', array('jquery'), $this->version, false);
 
         // Pass some parameters to JavaScript
-//        wp_localize_script($this->plugin_name, 'wp_configuration',
-//                array(
-//                    'date_format' => get_option('date_format'),
-//                    'time_format' => get_option('time_format'),
-//                )
-//        );
+        //        wp_localize_script($this->plugin_name, 'wp_configuration',
+        //                array(
+        //                    'date_format' => get_option('date_format'),
+        //                    'time_format' => get_option('time_format'),
+        //                )
+        //        );
     }
 
     /**
@@ -123,14 +127,15 @@ class Wetory_Support_Admin {
      * 
      * @since    1.0.0
      */
-    private function build_links() {
+    private function build_links()
+    {
         $this->links = array();
         $this->links['settings'] = array(
             'slug' => $this->plugin_name . '-settings',
             'url' => esc_url(add_query_arg(
-                            'page',
-                            $this->plugin_name . '-settings',
-                            get_admin_url() . 'admin.php'
+                'page',
+                $this->plugin_name . '-settings',
+                get_admin_url() . 'admin.php'
             ))
         );
     }
@@ -141,7 +146,8 @@ class Wetory_Support_Admin {
      *
      * @since    1.0.0
      */
-    public function plugin_action_links($links) {
+    public function plugin_action_links($links)
+    {
         $links = array_merge(array('<a href="' . $this->links['settings']['url'] . '">' . __('Settings', 'wetory-support') . '</a>'), $links);
         return $links;
     }
@@ -151,42 +157,43 @@ class Wetory_Support_Admin {
      * 
      * @since    1.2.1
      */
-    public function admin_menu() {
+    public function admin_menu()
+    {
         global $submenu;
 
         // https://developer.wordpress.org/reference/functions/add_options_page/
         // add_options_page( $page_title, $menu_title, $capability, $menu_slug, $callback = '', $position = null )
-//        add_options_page(
-//                __('Settings - Wetory', 'wetory-support'),
-//                __('Wetory', 'wetory-support'),
-//                'administrator',
-//                $this->links['settings']['slug'],
-//                array($this, 'admin_settings_page'),
-//                999
-//        );
+        //        add_options_page(
+        //                __('Settings - Wetory', 'wetory-support'),
+        //                __('Wetory', 'wetory-support'),
+        //                'administrator',
+        //                $this->links['settings']['slug'],
+        //                array($this, 'admin_settings_page'),
+        //                999
+        //        );
 
         // https://developer.wordpress.org/reference/functions/add_menu_page/
         // add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
         add_menu_page(
-                __('Settings - Wetory', 'wetory-support'),
-                __('Wetory', 'wetory-support'),
-                'administrator',
-                $this->links['settings']['slug'],
-                array($this, 'admin_settings_page'),
-                WETORY_SUPPORT_URL . 'images/dashicon-style-icon.png',
-                999
+            __('Settings - Wetory', 'wetory-support'),
+            __('Wetory', 'wetory-support'),
+            'administrator',
+            $this->links['settings']['slug'],
+            array($this, 'admin_settings_page'),
+            WETORY_SUPPORT_URL . 'images/dashicon-style-icon.png',
+            999
         );
 
         // https://developer.wordpress.org/reference/functions/add_submenu_page/
         // add_submenu_page( '$parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function );
-//        add_submenu_page(
-//                $this->links['settings']['slug'],
-//                __('Settings - Wetory', 'wetory-support'),
-//                __('Settings', 'wetory-support'),
-//                'administrator',
-//                $this->links['settings']['slug'],
-//                array($this, 'admin_settings_page')
-//        );    
+        //        add_submenu_page(
+        //                $this->links['settings']['slug'],
+        //                __('Settings - Wetory', 'wetory-support'),
+        //                __('Settings', 'wetory-support'),
+        //                'administrator',
+        //                $this->links['settings']['slug'],
+        //                array($this, 'admin_settings_page')
+        //        );    
     }
 
     /**
@@ -194,8 +201,13 @@ class Wetory_Support_Admin {
      * 
      * @since    1.2.1
      */
-    public function admin_settings_page() {
-        require_once plugin_dir_path( __FILE__ ) . 'partials/wetory-support-admin-settings.php';
+    public function admin_settings_page()
+    {
+        if (!current_user_can('manage_options')) {
+            wp_die(esc_html__('You do not have sufficient permission to perform this operation', 'wetory-support'));
+        }
+        Notices::success(__('Settings saved.', 'wetory-support'), true);
+        Notices::info(__('The pemalink structure has been updated.', 'wetory-support'), true);
+        require_once plugin_dir_path(__FILE__) . 'partials/wetory-support-admin-settings.php';
     }
-
 }

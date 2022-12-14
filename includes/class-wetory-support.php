@@ -323,7 +323,11 @@ class Wetory_Support {
      * @access   private
      */
     private function define_admin_hooks() {
-        $plugin_admin = new Wetory_Support_Admin($this->get_plugin_name(), $this->get_version(), $this);
+        $plugin_admin = new Wetory_Support_Admin($this);
+        $plugin_settings = new Wetory_Support_Settings($this);
+
+        // Initialize settings
+        $this->loader->add_action('admin_init', $plugin_settings, 'init_settings');
         
         // Add admin menu items
         $this->loader->add_action('admin_menu', $plugin_admin, 'admin_menu');

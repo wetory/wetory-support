@@ -25,7 +25,7 @@
     margin-top: 1rem;
 }
 .wetory-support-tab-container{
-    padding: 15px;
+    padding: 5px 15px 15px 15px;
     background: #fff;
     box-shadow: 0px 2px 2px #ccc;
     float: left;
@@ -140,11 +140,14 @@ table.wetory-settings-table td.col-select select {
     float: left;
     width: 100%;
     height: auto;
+    padding-top: 10px;
+}
+.wetory-support-sub-tab-content .wetory-support-settings-section:not(:last-child) {
+    /* border-bottom: 2px dotted #e2e4e7; */
 }
 .wetory-support-sub-tab {
     display: inline-block;
     margin: 0px;
-    float: left;
     width: 100%;
     height: auto;
 }
@@ -162,7 +165,7 @@ table.wetory-settings-table td.col-select select {
 /* Links */
 .link-button {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
     margin-left: 10px;
 }
 .link-button .button {
@@ -262,5 +265,11 @@ table.wetory-settings-table td.col-select select {
     font-style: italic;
 }
 .wetory-metabox-field .wetory-metabox-input input{
+    width: 100%;
+}
+
+/* Notofication */
+.wetory-support-plugin-notifications {
+    display: inline-block;
     width: 100%;
 }

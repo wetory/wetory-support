@@ -25,6 +25,79 @@ class Wetory_Support_Options {
     const KEY_CPT = 'wetory-support-cpt';
 
     /**
+     * Helper function for retrieving value from options. 
+     * 
+     * Plugin options are designed to be stored in sections serialized to
+     * one option entry in database. This requries "special" approach to retrieve 
+     * particular setting value.
+     * 
+     * Default values for arguments are used in case nothing is provided.
+     * 
+     * Example of input
+     * 
+     * $args = array(
+     *      'option_name'      => 'my-option-name',
+     *      'option_section'   => 'display',
+     *      'option_key'       => 'my-key',
+     *      'name'             => 'my-setting'
+     * }
+     * 
+     * @since      1.2.1
+     * @param array $args Arguments
+     * @return mixed Value of the setting stored in given option and section. A value of any type may be returned, including scalar (string, boolean, float, integer), null, array, object.
+     */
+    public static function get_value(mixed $args, mixed $default = null){
+        $defaults = array(
+            'option_name' => WETORY_SUPPORT_OPTION,
+            'option_section' => 'general',
+            'option_key' => null,
+            'name' => null
+        );
+        $args = wp_parse_args($args, $defaults);
+
+        $section = self::get_section($args);
+        if($section){
+            $value = isset($args['option_key']) ? $section['option_key']['name'] : $section['name'];
+            $value = isset($value) ? $value : $default;
+            return $value;
+        }
+
+        return $default;
+    }
+
+    /**
+     * Helper function for retrieving options section. 
+     * 
+     * Plugin options are designed to be stored in sections serialized to
+     * one option entry in database. This requries "special" approach to retrieve 
+     * particular section
+     * 
+     * Default values for arguments are used in case nothing is provided.
+     * 
+     * Example of input
+     * 
+     * $args = array(
+     *      'option_name'      => 'my-option-name',
+     *      'option_section'   => 'display'
+     * }
+     * 
+     * @since      1.2.1
+     * @param array $args Arguments
+     * @return array Associative array with deserialized options section data
+     */
+    public static function get_section(mixed $args){
+        $defaults = array(
+            'option_name' => WETORY_SUPPORT_OPTION,
+            'option_section' => 'general'
+        );
+        $args = wp_parse_args($args, $defaults);
+
+        $section = isset(get_option($args['option_name'])['option_section']) ? get_option($args['option_name'])['option_section'] : false;
+
+        return $section;
+    }
+
+    /**
      * Helper function to check if  plugin settings allow usage of given widget
      * @param string $widget Widget class name
      * @return boolean

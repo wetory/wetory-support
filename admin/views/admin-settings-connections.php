@@ -14,3 +14,17 @@
 if (!defined('WPINC')) {
     die;
 }
+
+?>
+
+<div class="wetory-support-tab-content" data-id="<?php echo esc_attr($target_id); ?>">
+    <ul class="wetory-support-sub-tab">
+        <li data-target="apikeys"><a><?php echo esc_html__('API Keys', 'wetory-support'); ?></a></li>   
+    
+    </ul>
+    <div class="wetory-support-sub-tab-container">
+        <div class="wetory-support-sub-tab-content" data-id="apikeys" style="display:block;">
+            <?php do_action('wetory_support_settings_render_section','apikeys'); ?>
+        </div>
+    </div>
+</div>
