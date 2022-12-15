@@ -66,7 +66,7 @@ if (!function_exists('wetory_create_maintenance_page')) {
     function wetory_create_maintenance_page() {
 
         wetory_maintenance_page('create');
-        printf(__('File <strong>maintenance.php</strong> created in <strong>%s</strong>', 'wetory-support'), WP_CONTENT_DIR);
+        printf(__('File <strong>%s/maintenance.php</strong> created', 'wetory-support'), WP_CONTENT_DIR);
         die;
     }
 
@@ -85,7 +85,7 @@ if (!function_exists('wetory_delete_maintenance_page')) {
     function wetory_delete_maintenance_page() {
 
         wetory_maintenance_page('delete');
-        printf(__('File <strong>maintenance.php</strong> deleted from <strong>%s</strong>', 'wetory-support'), WP_CONTENT_DIR);
+        printf(__('File <strong>%s/maintenance.php</strong> deleted', 'wetory-support'), WP_CONTENT_DIR);
         die;
     }
 

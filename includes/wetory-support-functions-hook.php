@@ -90,4 +90,23 @@ if (!function_exists('wetory_wpseo_breadcrumb_links')) {
         add_filter('wpseo_breadcrumb_links', 'wetory_wpseo_breadcrumb_links');
     }
 }
+
+
+if (!function_exists('wetory_recreate_maintenance_page')) {
+
+    /**
+     * Recreating custom maintenance page before installing updates
+     * 
+     * @since 1.2.1
+     */
+    function wetory_recreate_maintenance_page() {
+        wetory_write_log('Recreating custom maintenance page', 'info');
+        if(function_exists('wetory_maintenance_page') && is_plugin_active('wetory-support/wetory-support.php')){
+            wetory_maintenance_page('delete');
+            wetory_maintenance_page('create');
+        }
+    }
+
+    add_action("wetory_run_routines_daily", 'wetory_recreate_maintenance_page');
+}
     

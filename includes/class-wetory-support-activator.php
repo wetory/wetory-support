@@ -11,7 +11,8 @@
  * @subpackage wetory_support/includes
  * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
  */
-class Wetory_Support_Activator {
+class Wetory_Support_Activator
+{
 
 	/**
 	 * Short Description. (use period)
@@ -20,8 +21,12 @@ class Wetory_Support_Activator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function activate() {
+	public static function activate()
+	{
+		$timestamp = wp_next_scheduled('wetory_run_routines_daily');
 
+		if ($timestamp == false) {
+			wp_schedule_event(time(), 'daily', 'wetory_run_routines_daily');
+		}
 	}
-
 }
