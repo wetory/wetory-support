@@ -10,7 +10,6 @@
  * @package    wetory_support
  * @subpackage wetory_support/public/partials
  */
-
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +43,7 @@
             <p class="maintenance-counter">
                 <?php _e('Page will refresh in', 'wetory-support') ?> <span id="autorefresh-counter"></span> <?php _e('seconds', 'wetory-support'); ?>
             </p>
-            <p><?php _e('Wetory Support', 'wetory-support'); ?> &copy; <?php echo date("Y"); ?> | <?php echo wetory_get_created_by_link(); ?></p>
+            <p><?php wetory_copyright_info(); ?> | <?php wetory_created_by_link(); ?></p>
         </div>
     </body>
     <!-- JavaScript -->
