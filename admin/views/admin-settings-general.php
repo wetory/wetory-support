@@ -29,15 +29,38 @@ if (!defined('WPINC')) {
         </div>
         <div class="wetory-support-sub-tab-content" data-id="maintenance">
             <div class="wetory-support-settings-section maintenance">
+                <?php $section_name = 'maintenance'; ?>
                 <h3><?php echo esc_html__('Maintenance', 'wetory-support'); ?></h3>
                 <p><?php _e('Customize maintenance mode behaviour.', 'wetory-support'); ?></p>
-                <h4><?php _e('Maintenance mode page', 'wetory-support'); ?></h4>
-                <div class="mp-operations-wrapper">          
-                    <p><?php _e('Plugin provides template for maintenance page which is shown instead of default maintenance notification panel.', 'wetory-support'); ?></p>
-                    <input type="button" name="create" class="mp-operation button" value="<?php _e('Create maintenance page', 'wetory-support'); ?>" data-working-text="<?php _e('Creating page...', 'wetory-support'); ?>"> 
-                    <input type="button" name="delete" class="mp-operation button" value="<?php _e('Delete maintenance page', 'wetory-support'); ?>" data-working-text="<?php _e('Deleting page...', 'wetory-support'); ?>">     
-                    <span class="mp-operation-outcome"></span>
-                </div>
+                <table class="form-table">
+                    <tr valign="top">
+                        <th scope="row"><?php _e('Maintenance mode page', 'wetory-support'); ?></th>
+                        <td>
+                            <input type="button" name="create" class="mp-operation button" value="<?php _e('Create maintenance page', 'wetory-support'); ?>" data-working-text="<?php _e('Creating page...', 'wetory-support'); ?>"> 
+                            <input type="button" name="delete" class="mp-operation button" value="<?php _e('Delete maintenance page', 'wetory-support'); ?>" data-working-text="<?php _e('Deleting page...', 'wetory-support'); ?>">     
+                            <span class="settings-field-description"><?php _e('Plugin provides template for maintenance page which is shown instead of default maintenance notification panel.', 'wetory-support'); ?></span>
+                        </td>
+                    </tr>
+                </table>
+                <?php if (defined('DISABLE_WP_CRON') && DISABLE_WP_CRON === true): ?>
+                    <div class="alert alert-warning" role="alert">
+                        <?php _e('<a href="https://developer.wordpress.org/plugins/cron/" targte="_blank">WP-Cron</a> is disabled on this website. Automatic custom maintenance page recreation will not work as it is using WP-Cron for event scheduling.', 'wetory-support'); ?>
+                    </div>
+                <?php endif; ?>
+                <table class="form-table">
+                <?php                    
+                    $settings_field = array(
+                        'label' => __('Auto-recreate custom maintenance page', 'wetory-support'),
+                        'type' => 'checkbox',
+                        'option_section' => $section_name,
+                        'option_key' => 'maintenance-page',
+                        'id' => 'autorecreate',
+                        'name' => 'autorecreate',
+                        'help' => __('Custom maintenance page can be automatically recreated by WP-Cron scheduled events.', 'wetory-support'),
+                    );
+                    Wetory_Support_Settings_Renderer::render_settings_field($settings_field);
+                ?>
+                </table>
             </div>
         </div>
         <div class="wetory-support-sub-tab-content" data-id="security">

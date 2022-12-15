@@ -87,11 +87,11 @@ class Wetory_Support_Settings_Renderer
         echo '<div class="wetory-support-settings-section ' . $args['name'] . '">';
 
         if (isset($args['title'])) {
-            echo '<'.$args['title_element'].'>' . esc_html($args['title']) . '</'.$args['title_element'].'>';
+            echo '<' . $args['title_element'] . ' class="section-title">' . esc_html($args['title']) . '</' . $args['title_element'] . '>';
         }
 
         if (isset($args['description'])) {
-            echo $args['description'];
+            echo '<p class="section-description">' . $args['description'] . '</p>';
         }
 
         // Form table - START
@@ -152,8 +152,9 @@ class Wetory_Support_Settings_Renderer
      * 
      * @since      1.0.0
      * @param array $args Arguments that are passed to callback function add_settings_field
+     * @param boolean $table_cell_markup When set to true rendering field as table cell, otherwise rendering it without additional HTML markup
      */
-    public static function render_settings_field($args)
+    public static function render_settings_field($args, $table_cell_markup = true)
     {
 
         // Apply defaults
@@ -162,10 +163,6 @@ class Wetory_Support_Settings_Renderer
             'option_section' => 'general',
         );
         $args = wp_parse_args($args, $defaults);
-
-        if (isset($args['before'])) {
-            echo $args['before'];
-        }
 
         // Construct option name        
         $name  = isset($args['option_name']) ? $args['option_name'] : '';
@@ -190,20 +187,28 @@ class Wetory_Support_Settings_Renderer
         $required = (isset($args['required']) && $args['required']) ? 'required' : '';
         $disabled = (isset($args['disabled']) && $args['disabled']) ? 'disabled' : '';
 
-        // One field = row in form table
-        echo '<tr>';
+        if (isset($args['before'])) {
+            echo $args['before'];
+        }
+
+        // One field = row in form table when using table cell markup 
+        if ($table_cell_markup) {
+            echo '<tr>';
+        }
 
         // Render label
         if (isset($args['label'])) {
-            printf(
-                '<th scope="row"><label for="%1$s">%2$s</label></th>',
-                $name,
-                $args['label']
-            );
-        }        
+            if ($table_cell_markup) {
+                echo '<th scope="row">' . self::render_settings_field_label($name, $args['label'], false) . '</th>';
+            } else {
+                self::render_settings_field_label($name, $args['label']);
+            }
+        }
 
         // Render different input types
-        echo '<td>';
+        if ($table_cell_markup) {
+            echo '<td>';
+        }
         switch ($args['type']) {
 
             case 'checkbox':
@@ -248,19 +253,30 @@ class Wetory_Support_Settings_Renderer
                 );
                 break;
         }
-        if (isset($args['help'])) {
-            self::render_tooltip($args['help']);
-        }
-        if (isset($args['link'])) {
-            self::render_link_button($args['link'], __('More info', 'wetory-support'));
-        } 
-        echo '</td>';
-           
-        if (isset($args['description'])) {
-            echo '<td><div class="description"><small>' . $args['description'] . '</small></div></td>';
-        }   
 
-        echo '</tr>';
+        // Render help
+        if (isset($args['help'])) {
+            self::render_settings_field_tooltip($args['help']);
+        }
+
+        // Render link to get more info
+        if (isset($args['link'])) {
+            self::render_settings_field_link_button($args['link'], __('More info', 'wetory-support'));
+        }
+
+        // Render description
+        if (isset($args['description'])) {
+            self::render_settings_field_description($args['description']);
+        }
+
+
+        if ($table_cell_markup) {
+            echo '</td>';
+        }
+
+        if ($table_cell_markup) {
+            echo '</tr>';
+        }
 
         if (isset($args['after'])) {
             echo $args['after'];
@@ -280,6 +296,7 @@ class Wetory_Support_Settings_Renderer
      * Example of input:
      * $args = array(
      *     'option_name' => 'plugin_option_name',
+     *     'option_section' => 'my_option_section',
      *     'columns' => array(
      *         'title' => array(
      *              'label' => __('Library', 'wetory-support'),
@@ -298,19 +315,27 @@ class Wetory_Support_Settings_Renderer
      */
     public static function render_horizontal_form_table($args, $data)
     {
-
-        if (!isset($args['columns']) || !isset($args['option_name'])) {
+        // We need columns for table so skip rendering if no columns passed
+        if (!isset($args['columns'])) {
             return;
         }
 
-        echo '<table class="form-table wetory-settings-table ' . $args['option_name'] . '" role="presentation">';
+        // Apply defaults
+        $defaults = array(
+            'option_name' => WETORY_SUPPORT_OPTION,
+            'option_section' => 'general',
+        );
+        $args = wp_parse_args($args, $defaults);
+
+        echo '<div class="wetory-support-settings-section ' . $args['option_section'] . '">';
+        echo '<table class="form-table wetory-settings-table ' . $args['option_section'] . '" role="presentation">';
 
         echo '<thead><tr>';
         foreach ($args['columns'] as $column_id => $column_options) {
             $column_class = 'col-' . $column_options['type'];
             $column_class .= isset($column_options['class']) ? ' ' . $column_options['class'] : '';
             if (isset($column_options['help'])) {
-                $column_text = self::render_tooltip($column_options['help'], false, $column_options['label']);
+                $column_text = self::render_settings_field_tooltip($column_options['help'], false, $column_options['label']);
             } else {
                 $column_text = $column_options['label'];
             }
@@ -336,11 +361,11 @@ class Wetory_Support_Settings_Renderer
                         break;
 
                     case 'link':
-                        echo '<td class="' . $column_class . '">' . self::render_link_button($column_data[$column_id], __('More info', 'wetory-support'), false) . '</td>';
+                        echo '<td class="' . $column_class . '">' . self::render_settings_field_link_button($column_data[$column_id], __('More info', 'wetory-support'), false) . '</td>';
                         break;
 
                     case 'tooltip':
-                        echo '<td class="' . $column_class . '">' . self::render_tooltip($column_data[$column_id], false) . '</td>';
+                        echo '<td class="' . $column_class . '">' . self::render_settings_field_tooltip($column_data[$column_id], false) . '</td>';
                         break;
 
                     default:
@@ -348,6 +373,7 @@ class Wetory_Support_Settings_Renderer
                         $field_args = array(
                             'type' => $column_options['type'],
                             'option_name' => $args['option_name'],
+                            'option_section' => $args['option_section'],
                             'option_key' => $column_data['id'],
                             'id' => $column_data['id'] . '-' . $column_id,
                             'name' => $column_id,
@@ -357,7 +383,7 @@ class Wetory_Support_Settings_Renderer
                         if (isset($column_options['options'])) {
                             $field_args['options'] = $column_data[$column_options['options']];
                         }
-                        self::render_settings_field($field_args);
+                        self::render_settings_field($field_args, false);
                         break;
                 }
             }
@@ -366,6 +392,7 @@ class Wetory_Support_Settings_Renderer
 
         echo '  </tbody>';
         echo '</table>';
+        echo '</div>';
     }
 
     /**
@@ -377,9 +404,47 @@ class Wetory_Support_Settings_Renderer
      * @param string $content Content elements to be wrapped by tool tip
      * @return string Tool tip HTML markup
      */
-    public static function render_tooltip($tooltip_text, $echo = true, $content = ' ? ')
+    public static function render_settings_field_tooltip($tooltip_text, $echo = true, $content = ' ? ')
     {
         $html = '<div class="tooltip">' . $content . '<span class="tooltip-text">' . $tooltip_text . '</span></div>';
+        if ($echo) {
+            echo $html;
+        } else {
+            return $html;
+        }
+    }
+
+    /**
+     * Render label for input
+     * 
+     * @since 1.2.1
+     * @param string $for Input field which is this laebl for
+     * @param string $label_text Label text to be shown
+     * @param bool $echo Immediately render or just return HTML markup, by default true
+     * @return string Label HTML markup
+     */
+    public static function render_settings_field_label(string $for, string $label_text, bool $echo = true)
+    {
+        $html = '<label for="' . $for . '">' . $label_text . '</label>';
+        if ($echo) {
+            echo $html;
+        } else {
+            return $html;
+        }
+    }
+
+    /**
+     * Render field description
+     * 
+     * @since 1.2.1
+     * @param string $description_text Information to be shown
+     * @param bool $echo Immediately render or just return HTML markup, by default true
+     * @param string $class Optional CSS class to be applied to element
+     * @return string Description HTML markup
+     */
+    public static function render_settings_field_description(string $description_text, bool $echo = true, $class = 'settings-field-description')
+    {
+        $html = '<span class="' . $class . '">' . $description_text . '</span>';
         if ($echo) {
             echo $html;
         } else {
@@ -397,7 +462,7 @@ class Wetory_Support_Settings_Renderer
      * @param string $class Optional CSS class to be applied to button element
      * @return string Button HTML markup
      */
-    public static function render_link_button($link, $content, $echo = true, $class = 'button button-primary')
+    public static function render_settings_field_link_button($link, $content, $echo = true, $class = 'button button-primary')
     {
         $html = '<div class="link-button"><a class="' . $class . '" href="' . $link . '" target="_blank">' . $content . '</a></div>';
         if ($echo) {

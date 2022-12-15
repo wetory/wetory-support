@@ -323,6 +323,7 @@ class Wetory_Support {
      * @access   private
      */
     private function define_admin_hooks() {
+        
         $plugin_admin = new Wetory_Support_Admin($this);
         $plugin_settings = new Wetory_Support_Settings($this);
 

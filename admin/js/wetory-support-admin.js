@@ -53,7 +53,7 @@
                     button.val(button.attr('data-working-text'));
                 },
                 success: function (response) {
-                    $(".mp-operation-outcome").html(response);
+                    wetory_support_notify_msg.success(response);
                 },
                 error: function () {
                     // TODO
@@ -166,6 +166,12 @@
     document.getElementById('wetory_support_submit_action').value = vl;
 }
 
+// Reload browser page
+function refresh_page(e){
+    e.preventDefault();
+    window.location.reload();
+} 
+
 // Dismiss admin area notifications
 function wetory_support_dismiss_notice_btn_click(el){
     alert('I am live!');
@@ -197,11 +203,11 @@ function openSettingsTab(evt, tabName) {
 var wetory_support_notify_msg =
 {
     error: function (message) {
-        var el = jQuery('<div class="notice notice-error settings-error is-dismissible"><p><strong>' + message + '</p></strong><button type="button" class="notice-dismiss" onclick="return this.parentNode.remove();"><span class="screen-reader-text">Dismiss this notice.</span></button></div>');
+        var el = jQuery('<div class="notice notice-error settings-error is-dismissible"><p>' + message + '</p><button type="button" class="notice-dismiss" onclick="return this.parentNode.remove();"><span class="screen-reader-text">Dismiss this notice.</span></button></div>');
         this.setNotify(el);
     },
     success: function (message) {
-        var el = jQuery('<div class="notice notice-success settings-error is-dismissible auto-dissmiss"><p><strong>' + message + '</p></strong><button type="button" class="notice-dismiss" onclick="return this.parentNode.remove();"><span class="screen-reader-text">Dismiss this notice.</span></button></div>');
+        var el = jQuery('<div class="notice notice-success settings-error is-dismissible auto-dissmiss"><p>' + message + '</p><button type="button" class="notice-dismiss" onclick="return this.parentNode.remove();"><span class="screen-reader-text">Dismiss this notice.</span></button></div>');
         this.setNotify(el);
     },
     setNotify: function (el) {

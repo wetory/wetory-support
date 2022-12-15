@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Provide a admin area view for the plugin settings
  *
@@ -23,18 +24,94 @@ $cpt_objects = $this->plugin_obj->get_plugin_cpts()->get_objects();
 
 <div class="wetory-support-tab-content" data-id="<?php echo esc_attr($target_id); ?>">
     <ul class="wetory-support-sub-tab">
-        <li data-target="general"><a><?php echo esc_html__('General', 'wetory-support'); ?></a></li>       
+        <li data-target="general"><a><?php echo esc_html__('General', 'wetory-support'); ?></a></li>
         <li data-target="cpt"><a><?php echo esc_html__('Custom post types', 'wetory-support'); ?></a></li>
-    
+
     </ul>
     <div class="wetory-support-sub-tab-container">
-        <div class="wetory-support-sub-tab-content" data-id="general" style="display:block;">            
-            <?php do_action('wetory_support_settings_render_section','widgets'); ?>
-            <?php do_action('wetory_support_settings_render_section','shortcodes'); ?>
+        <div class="wetory-support-sub-tab-content" data-id="general" style="display:block;">
+            <?php
+            // @see Wetory_Support_Widgets_Controller::settings_section()
+            do_action('wetory_support_settings_render_section', 'widgets');
+            // @see Wetory_Support_Shortcodes_Controller::settings_section()
+            do_action('wetory_support_settings_render_section', 'shortcodes');
+            ?>
         </div>
         <div class="wetory-support-sub-tab-content" data-id="cpt">
             <div class="wetory-support-settings-section cpt">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h3 class="title"><?php _e('Custom post types', 'wetory-support'); ?></h3>
+                <p class="description"><?php _e('Configure custom post types you want to use in your website. These are prepared most common post types ready to use with all meta properties.', 'wetory-support'); ?></p>
+                <div class="alert alert-info" role="alert">
+                    <?php _e('After saving settings you will need to refresh page to see effect of changes done in this section.', 'wetory-support'); ?>
+                    <a onClick="window.location.reload()" class="alert-link reload-page"><?php _e('Reload page', 'wetory-support'); ?></a>
+                </div>
+                <?php
+                // Convert objects to arrays
+                $cpt_array_objects = array();
+                foreach ($cpt_objects as $cpt_object) {
+                    array_push($cpt_array_objects, $cpt_object->to_array());
+                }
+
+                // Prepare columns for form-table
+                if ($cpt_objects) {
+                    unset($args);
+                    $args = array(
+                        'option_section' => 'cpt',
+                        'columns' => array(
+                            'name' => array(
+                                'label' => __('Post type', 'wetory-support'),
+                                'type' => 'raw',
+                            ),
+                            'id' => array(
+                                'label' => __('Post type key', 'wetory-support'),
+                                'type' => 'raw',
+                            ),
+                            'use' => array(
+                                'label' => __('Use', 'wetory-support'),
+                                'type' => 'checkbox',
+                                'help' => __('Check if you want to start using post type.', 'wetory-support'),
+                            ),
+                            'rewrite-slug' => array(
+                                'label' => __('Rewrite slug', 'wetory-support'),
+                                'type' => 'text',
+                                'help' => __('Customize the permastruct slug. Defaults to post type key.', 'wetory-support'),
+                            ),
+                            'comments' => array(
+                                'label' => __('Comments', 'wetory-support'),
+                                'type' => 'checkbox',
+                                'help' => __('Check if you want to allow comments for post type.', 'wetory-support'),
+                            ),
+                            'excerpt' => array(
+                                'label' => __('Excerpt', 'wetory-support'),
+                                'type' => 'checkbox',
+                                'help' => __('Check if you want to allow excerpt for post type.', 'wetory-support'),
+                            ),
+                            'revisions' => array(
+                                'label' => __('Revisions', 'wetory-support'),
+                                'type' => 'checkbox',
+                                'help' => __('Check if you want to allow revisions for post type.', 'wetory-support'),
+                            ),
+                            'published-posts' => array(
+                                'label' => __('Published posts', 'wetory-support'),
+                                'type' => 'raw',
+                            ),
+                            'description' => array(
+                                'label' => '',
+                                'type' => 'tooltip',
+                                'class' => 'compact',
+                            ),
+                            'link' => array(
+                                'label' => '',
+                                'type' => 'link',
+                                'source' => 'meta',
+                                'class' => 'compact',
+                            )
+                        ),
+                    );
+                    // Render table using helper function
+                    Wetory_Support_Settings_Renderer::render_horizontal_form_table($args, $cpt_array_objects);
+                }
+                ?>
             </div>
         </div>
     </div>

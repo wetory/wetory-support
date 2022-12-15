@@ -3,7 +3,8 @@
 /**
  * Define settings available for the plugin
  *
- * Adding menu item and settings page to administration section. Should be instantiated only for admin
+ * Main purpose of this class is registering hooks to action 'wetory_support_settings_render_section' which 
+ * can be used to render settings sections in views. 
  *
  * @link       https://www.wetory.eu/
  * @since      1.0.0
@@ -15,16 +16,6 @@
 
 class Wetory_Support_Settings
 {
-
-    /**
-     * The unique identifier of this plugin.
-     *
-     * @since    1.0.0
-     * @access   protected
-     * @var      string    $plugin_name    The string used to uniquely identify this plugin.
-     */
-    protected $plugin_name;
-
     /**
      * Object holding abstraction of plugin
      *
@@ -34,15 +25,6 @@ class Wetory_Support_Settings
      * @see Wetory_Support
      */
     private $plugin_obj;
-
-    /**
-     * Associative array holding plugin pages links
-     *
-     * @since    1.0.0
-     * @access   private
-     * @var      array    $links Associative array.
-     */
-    private $links;
 
     /**
      * Associative array holding plugin settings sections
@@ -62,7 +44,6 @@ class Wetory_Support_Settings
     public function __construct($plugin_obj)
     {
         $this->plugin_obj = $plugin_obj;
-        $this->plugin_name = $plugin_obj->get_plugin_name();
 
         add_action('wetory_support_settings_render_section', array($this, 'render_section'), 10, 1);
     }
@@ -107,12 +88,8 @@ class Wetory_Support_Settings
      */
     public function render_section($name)
     {
-        $section = $this->get_section($name);
-        if(isset($section['type']) && $section['type'] == 'horizontal_form_table') {
-            // Wetory_Support_Settings_Renderer::render_horizontal_form_table($args, $cpt_array_objects);
-        } else {
-            Wetory_Support_Settings_Renderer::render_settings_section($section);
-        }
+        $section = $this->get_section($name);        
+        Wetory_Support_Settings_Renderer::render_settings_section($section);
     }
 
 
@@ -144,89 +121,4 @@ class Wetory_Support_Settings
         $this->sections = array();
         $this->sections = apply_filters('wetory_support_settings_sections', $this->sections);
     }
-
-    /**
-     * Render custom settings form.
-     * 
-     * Function rendering custom settings form in form of table where rows are custom post types
-     * and columns are their options. This is nicely feasible as all custom post types funcitons
-     * are same. Using special render function
-     * 
-     * @see Wetory_Support_Settings_Renderer::render_horizontal_form_table($args, $data) 
-     * 
-     * @since    1.1.0
-     */
-    /*
-    private function render_cpt_form_table() {
-
-        $option_name = self::CPT_OPTION;
-
-        // Load custom post type objects
-        $cpt_objects = $this->plugin_cpt->get_objects();
-        $cpt_array_objects = array();
-
-        // Convert objects to arrays
-        foreach ($cpt_objects as $cpt_object) {
-            array_push($cpt_array_objects, $cpt_object->to_array());
-        }
-
-        if ($cpt_objects) {
-            unset($args);
-            $args = array(
-                'option_name' => $option_name,
-                'columns' => array(
-                    'name' => array(
-                        'label' => __('Post type', 'wetory-support'),
-                        'type' => 'raw',
-                    ),
-                    'id' => array(
-                        'label' => __('Post type key', 'wetory-support'),
-                        'type' => 'raw',
-                    ),
-                    'use' => array(
-                        'label' => __('Use', 'wetory-support'),
-                        'type' => 'checkbox',
-                        'help' => __('Check if you want to start using post type.', 'wetory-support'),
-                    ),
-                    'rewrite-slug' => array(
-                        'label' => __('Rewrite slug', 'wetory-support'),
-                        'type' => 'text',
-                        'help' => __('Customize the permastruct slug. Defaults to post type key.', 'wetory-support'),
-                    ),
-                    'comments' => array(
-                        'label' => __('Comments', 'wetory-support'),
-                        'type' => 'checkbox',
-                        'help' => __('Check if you want to allow comments for post type.', 'wetory-support'),
-                    ),
-                    'excerpt' => array(
-                        'label' => __('Excerpt', 'wetory-support'),
-                        'type' => 'checkbox',
-                        'help' => __('Check if you want to allow excerpt for post type.', 'wetory-support'),
-                    ),
-                    'revisions' => array(
-                        'label' => __('Revisions', 'wetory-support'),
-                        'type' => 'checkbox',
-                        'help' => __('Check if you want to allow revisions for post type.', 'wetory-support'),
-                    ),
-                    'published-posts' => array(
-                        'label' => __('Published posts', 'wetory-support'),
-                        'type' => 'raw',
-                    ),
-                    'description' => array(
-                        'label' => '',
-                        'type' => 'tooltip',
-                        'class' => 'compact',
-                    ),
-                    'link' => array(
-                        'label' => '',
-                        'type' => 'link',
-                        'source' => 'meta',
-                        'class' => 'compact',
-                    )
-                ),
-            );
-            Settings_Renderer::render_horizontal_form_table($args, $cpt_array_objects);
-        }
-    }
-    */
 }
