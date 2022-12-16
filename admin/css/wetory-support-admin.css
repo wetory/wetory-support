@@ -6,7 +6,11 @@
 .wrap.wetory-support-settings .form-table th {
     width: 300px;
 }
-
+.wrap.wetory-support-settings .form-table th,
+.wrap.wetory-support-settings .form-table td
+{
+    padding: 10px 10px 10px 0
+}
 .wetory-support-plugin-header {
     display: flex;
     align-items: center;
