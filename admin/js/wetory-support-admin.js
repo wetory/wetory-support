@@ -111,7 +111,7 @@
         );
 
         // Settings form submit
-        $('#wetory_support_settings_formX').submit(
+        $('#wetory_support_settings_form').submit(
             function (e) {
                 var submit_action = $('#wetory_support_submit_action').val();
                 e.preventDefault();

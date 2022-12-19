@@ -136,7 +136,6 @@ class Wetory_Support_Settings_Renderer
      *      'description'    => 'Description text',
      *      'link'           => 'Link to documentation',
      *      'required'       => 'true|false|null',
-     *      'required'       => 'true|false|null',
      *      'options'        => array (
      *           'value1'  => 'Label 1',
      *           'value2'  => 'Label 2',

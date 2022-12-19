@@ -206,8 +206,6 @@ class Wetory_Support_Admin
         if (!current_user_can('manage_options')) {
             wp_die(esc_html__('You do not have sufficient permission to perform this operation', 'wetory-support'));
         }
-        Notices::success(__('Settings saved.', 'wetory-support'), true);
-        Notices::info(__('The pemalink structure has been updated.', 'wetory-support'), true);
         require_once plugin_dir_path(__FILE__) . 'partials/wetory-support-admin-settings.php';
     }
 }

@@ -241,9 +241,7 @@ a.reload-page {
 
 /* Content */
 .settings-field-description {
-    color: #8e8989;
     font-style: italic;
-    font-weight: 250;
     font-size: 12px;
     display: inline-block;
     width: 100%;
