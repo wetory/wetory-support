@@ -138,7 +138,6 @@ class Wetory_Support_Settings
             'label' => __('Verbosity', 'wetory-support'),
             'type' => 'select',
             'option_section' => $section_name,
-            'option_key' => 'verbosity',
             'id' => 'verbosity',
             'name' => 'verbosity',
             'required'       => true,

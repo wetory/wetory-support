@@ -170,7 +170,8 @@ class Wetory_Support_Settings_Renderer
         $name .= '[' . $args['name'] . ']';
 
         // Get value
-        $option_value = Options::get_value($args, null);
+        // $option_value = Options::get_value($args, null);
+        $option_value = null;
 
         // We can enable debigguing to view what comes into function
         if (isset($args['debug']) && $args['debug']) {
@@ -319,6 +320,37 @@ class Wetory_Support_Settings_Renderer
             return;
         }
 
+        // Get category structures if any
+        $render_categories = false;
+        $category_general = 'General';
+        $categories = array($category_general);
+        foreach ($data as $item) {
+            if (isset($item['meta']['category']) && $item['meta']['category'] != "") {
+                $categories[] = $item['meta']['category'];
+            }
+        }
+        $categories = array_unique($categories);
+
+        if (sizeof($categories) > 1) {
+            $render_categories = true;
+            $data_with_categories = array();
+            foreach ($categories as $category) {
+                $data_with_categories[$category] = array();
+                foreach ($data as $key => $item) {
+                    if (!isset($item['meta']['category']) || $item['meta']['category'] == '') {
+                        $data_with_categories[$category_general][] = $item;
+                    } else if ($item['meta']['category'] === $category) {
+                        $data_with_categories[$category][] = $item;
+                    } else {
+                        continue;
+                    }
+                    unset($data[$key]);
+                }
+            }
+        }
+
+        $data = $data_with_categories;
+
         // Apply defaults
         $defaults = array(
             'option_name' => WETORY_SUPPORT_SETTINGS_OPTION,
@@ -344,49 +376,56 @@ class Wetory_Support_Settings_Renderer
 
         echo '<tbody>';
 
-        foreach ($data as $item) {
+        foreach ($data as $category => $category_items) {
 
-            echo '<tr>';
-
-            foreach ($args['columns'] as $column_id => $column_options) {
-
-                $column_data = (isset($column_options['source'])) ? $item[$column_options['source']] : $item;
-                $column_class = 'col-' . $column_options['type'];
-                $column_class .= isset($column_options['class']) ? ' ' . $column_options['class'] : '';
-
-                switch ($column_options['type']) {
-                    case 'raw':
-                        echo '<td class="' . $column_class . '">' . $column_data[$column_id] . '</td>';
-                        break;
-
-                    case 'link':
-                        echo '<td class="' . $column_class . '">' . self::render_settings_field_link_button($column_data[$column_id], __('More info', 'wetory-support'), false) . '</td>';
-                        break;
-
-                    case 'tooltip':
-                        echo '<td class="' . $column_class . '">' . self::render_settings_field_tooltip($column_data[$column_id], false) . '</td>';
-                        break;
-
-                    default:
-                        unset($field_args);
-                        $field_args = array(
-                            'type' => $column_options['type'],
-                            'option_name' => $args['option_name'],
-                            'option_section' => $args['option_section'],
-                            'option_key' => $column_data['id'],
-                            'id' => $column_data['id'] . '-' . $column_id,
-                            'name' => $column_id,
-                            'before' => '<td class="' . $column_class . '">',
-                            'after' => '</td>',
-                        );
-                        if (isset($column_options['options'])) {
-                            $field_args['options'] = $column_data[$column_options['options']];
-                        }
-                        self::render_settings_field($field_args, false);
-                        break;
-                }
+            if ($render_categories && sizeof($category_items) > 0){
+                echo '<tr class="data-category-name"><td colspan="'.sizeof($args['columns']).'">'. __('Category', 'wetory-support') . ': ' .$category.'</td></tr>';
             }
-            echo '</tr>';
+
+            foreach ($category_items as $item) {
+
+                echo '<tr>';
+
+                foreach ($args['columns'] as $column_id => $column_options) {
+
+                    $column_data = (isset($column_options['source'])) ? $item[$column_options['source']] : $item;
+                    $column_class = 'col-' . $column_options['type'];
+                    $column_class .= isset($column_options['class']) ? ' ' . $column_options['class'] : '';
+
+                    switch ($column_options['type']) {
+                        case 'raw':
+                            echo '<td class="' . $column_class . '">' . $column_data[$column_id] . '</td>';
+                            break;
+
+                        case 'link':
+                            echo '<td class="' . $column_class . '">' . self::render_settings_field_link_button($column_data[$column_id], __('More info', 'wetory-support'), false) . '</td>';
+                            break;
+
+                        case 'tooltip':
+                            echo '<td class="' . $column_class . '">' . self::render_settings_field_tooltip($column_data[$column_id], false) . '</td>';
+                            break;
+
+                        default:
+                            unset($field_args);
+                            $field_args = array(
+                                'type' => $column_options['type'],
+                                'option_name' => $args['option_name'],
+                                'option_section' => $args['option_section'],
+                                'option_key' => $column_data['id'],
+                                'id' => $column_data['id'] . '-' . $column_id,
+                                'name' => $column_id,
+                                'before' => '<td class="' . $column_class . '">',
+                                'after' => '</td>',
+                            );
+                            if (isset($column_options['options'])) {
+                                $field_args['options'] = $column_data[$column_options['options']];
+                            }
+                            self::render_settings_field($field_args, false);
+                            break;
+                    }
+                }
+                echo '</tr>';
+            }
         }
 
         echo '  </tbody>';
