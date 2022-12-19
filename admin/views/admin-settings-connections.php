@@ -24,7 +24,7 @@ if (!defined('WPINC')) {
     </ul>
     <div class="wetory-support-sub-tab-container">
         <div class="wetory-support-sub-tab-content" data-id="apikeys" style="display:block;">
-            <?php do_action('wetory_support_settings_render_section','apikeys'); ?>
+            <?php do_action('wetory_settings_render_section','apikeys'); ?>
         </div>
     </div>
 </div>

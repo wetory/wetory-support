@@ -14,8 +14,9 @@
  * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
  */
 
-class Wetory_Support_Shortcodes_Controller extends Wetory_Controller{
-    
+class Wetory_Support_Shortcodes_Controller extends Wetory_Controller
+{
+
     const BASE_CLASS = WETORY_SUPPORT_PATH . 'includes/shortcodes/abstract-wetory-support-shortcode.php';
     const GLOB_FILTER = WETORY_SUPPORT_PATH . 'includes/shortcodes/shortcode-wetory-support-*.php';
 
@@ -24,28 +25,32 @@ class Wetory_Support_Shortcodes_Controller extends Wetory_Controller{
      * 
      * @since    1.0.0
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
-        add_filter('wetory_support_settings_sections', array($this, 'settings_section'), 10, 1);
+        add_filter('wetory_settings_sections', array($this, 'settings_section'), 10, 1);
     }
-    
-    public function get_instance($file): Wetory_Support_Shortcode {
+
+    public function get_instance($file): Wetory_Support_Shortcode
+    {
         parent::get_instance($file);
         return Wetory_Support_Shortcode::create_instance($this->get_class($file));
     }
 
-    protected function base_class(): string {
+    protected function base_class(): string
+    {
         return self::BASE_CLASS;
     }
 
-    protected function glob_filter(): string {
+    protected function glob_filter(): string
+    {
         return self::GLOB_FILTER;
     }
 
     /**
      * Add settings section.
      * 
-     * It is hooked into 'wetory_support_settings_sections' filter
+     * It is hooked into 'wetory_settings_sections' filter
      * which is used to populate final data for sections.
      * 
      * @param array $sections Associative array that holds data about sections
@@ -93,5 +98,4 @@ class Wetory_Support_Shortcodes_Controller extends Wetory_Controller{
 
         return $sections;
     }
-
 }

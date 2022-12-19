@@ -43,8 +43,8 @@ if (!defined('WETORY_SUPPORT_PATH')) {
 if (!defined('WETORY_SUPPORT_URL')) {
     define('WETORY_SUPPORT_URL', plugin_dir_url(WETORY_SUPPORT_FILE));
 }
-if (!defined('WETORY_SUPPORT_OPTION')) {
-    define('WETORY_SUPPORT_OPTION', 'wetory-support-settings');
+if (!defined('WETORY_SUPPORT_SETTINGS_OPTION')) {
+    define('WETORY_SUPPORT_SETTINGS_OPTION', 'wetory-support-settings');
 }
 
 /**

@@ -125,16 +125,16 @@ class Wetory_Support_Settings_Renderer
      * Example of input
      * 
      * $args = array(
-     *      'label'          => 'My Option Label',
+     *      'label'          => 'My Field Label',
      *      'type'           => 'input',
      *      'option_name'    => 'my_option_name',
      *      'option_section' => 'my_option_section',
      *      'option_key'     => 'my_option_key',
      *      'id'             => 'my_field_id',
      *      'name'           => 'my_field_name',
-     *      'help'           => 'help_text'
-     *      'description'    => 'description_text'
-     *      'link'           => 'lint_to_documentation'
+     *      'help'           => 'Help text',
+     *      'description'    => 'Description text',
+     *      'link'           => 'Link to documentation',
      *      'required'       => 'true|false|null',
      *      'required'       => 'true|false|null',
      *      'options'        => array (
@@ -159,7 +159,7 @@ class Wetory_Support_Settings_Renderer
 
         // Apply defaults
         $defaults = array(
-            'option_name' => WETORY_SUPPORT_OPTION,
+            'option_name' => WETORY_SUPPORT_SETTINGS_OPTION,
             'option_section' => 'general',
         );
         $args = wp_parse_args($args, $defaults);
@@ -322,7 +322,7 @@ class Wetory_Support_Settings_Renderer
 
         // Apply defaults
         $defaults = array(
-            'option_name' => WETORY_SUPPORT_OPTION,
+            'option_name' => WETORY_SUPPORT_SETTINGS_OPTION,
             'option_section' => 'general',
         );
         $args = wp_parse_args($args, $defaults);

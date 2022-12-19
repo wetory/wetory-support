@@ -24,17 +24,22 @@ $cpt_objects = $this->plugin_obj->get_plugin_cpts()->get_objects();
 
 <div class="wetory-support-tab-content" data-id="<?php echo esc_attr($target_id); ?>">
     <ul class="wetory-support-sub-tab">
-        <li data-target="general"><a><?php echo esc_html__('General', 'wetory-support'); ?></a></li>
+        <li data-target="widgets"><a><?php echo esc_html__('Widgets', 'wetory-support'); ?></a></li>
+        <li data-target="shortcodes"><a><?php echo esc_html__('Shortcodes', 'wetory-support'); ?></a></li>
         <li data-target="cpt"><a><?php echo esc_html__('Custom post types', 'wetory-support'); ?></a></li>
 
     </ul>
     <div class="wetory-support-sub-tab-container">
-        <div class="wetory-support-sub-tab-content" data-id="general" style="display:block;">
+        <div class="wetory-support-sub-tab-content" data-id="widgets" style="display:block;">
             <?php
             // @see Wetory_Support_Widgets_Controller::settings_section()
-            do_action('wetory_support_settings_render_section', 'widgets');
+            do_action('wetory_settings_render_section', 'widgets');
+            ?>
+        </div>
+        <div class="wetory-support-sub-tab-content" data-id="shortcodes" style="display:block;">
+            <?php
             // @see Wetory_Support_Shortcodes_Controller::settings_section()
-            do_action('wetory_support_settings_render_section', 'shortcodes');
+            do_action('wetory_settings_render_section', 'shortcodes');
             ?>
         </div>
         <div class="wetory-support-sub-tab-content" data-id="cpt">

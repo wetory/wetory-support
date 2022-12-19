@@ -3,7 +3,7 @@
 /**
  * Define settings available for the plugin
  *
- * Main purpose of this class is registering hooks to action 'wetory_support_settings_render_section' which 
+ * Main purpose of this class is registering hooks to action 'wetory_settings_render_section' which 
  * can be used to render settings sections in views. 
  *
  * @link       https://www.wetory.eu/
@@ -45,7 +45,7 @@ class Wetory_Support_Settings
     {
         $this->plugin_obj = $plugin_obj;
 
-        add_action('wetory_support_settings_render_section', array($this, 'render_section'), 10, 1);
+        add_action('wetory_settings_render_section', array($this, 'render_section'), 10, 1);
     }
 
 
@@ -81,7 +81,7 @@ class Wetory_Support_Settings
     /**
      * Render settings section HTML markup
      *
-     * @param [string] $section Name which was used to register section
+     * @param [string] $name Name which was used to register section
      * @return [mixed] HTML markup for section if section with given name found
      * 
      * @since    1.2.1
@@ -98,7 +98,7 @@ class Wetory_Support_Settings
      * full set of settings sections.
      * 
      * If new section is needed just simply create new function folowing naming standard
-     * 'register_section_*' and it will be autmatically hooked to 'wetory_support_settings_sections'
+     * 'register_section_*' and it will be autmatically hooked to 'wetory_settings_sections'
      * filter.
      * 
      * @see https://developer.wordpress.org/plugins/hooks/filters/
@@ -114,11 +114,11 @@ class Wetory_Support_Settings
 
         foreach ($class_methods as $method_name) {
             if (substr($method_name, 0, 17) === "register_section_") {
-                add_filter('wetory_support_settings_sections', array($this, $method_name), 10, 1);
+                add_filter('wetory_settings_sections', array($this, $method_name), 10, 1);
             }
         }
 
         $this->sections = array();
-        $this->sections = apply_filters('wetory_support_settings_sections', $this->sections);
+        $this->sections = apply_filters('wetory_settings_sections', $this->sections);
     }
 }

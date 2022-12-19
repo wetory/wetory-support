@@ -48,7 +48,7 @@ class Wetory_Support_Options {
      */
     public static function get_value(mixed $args, mixed $default = null){
         $defaults = array(
-            'option_name' => WETORY_SUPPORT_OPTION,
+            'option_name' => WETORY_SUPPORT_SETTINGS_OPTION,
             'option_section' => 'general',
             'option_key' => null,
             'name' => null
@@ -87,7 +87,7 @@ class Wetory_Support_Options {
      */
     public static function get_section(mixed $args){
         $defaults = array(
-            'option_name' => WETORY_SUPPORT_OPTION,
+            'option_name' => WETORY_SUPPORT_SETTINGS_OPTION,
             'option_section' => 'general'
         );
         $args = wp_parse_args($args, $defaults);

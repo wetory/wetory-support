@@ -24,7 +24,7 @@ class Wetory_Support_Apikeys_Controller extends Wetory_Controller {
      */
     public function __construct() {
         parent::__construct();
-        add_filter('wetory_support_settings_sections', array($this, 'settings_section'), 10, 1);
+        add_filter('wetory_settings_sections', array($this, 'settings_section'), 10, 1);
     }
     
     public function get_instance($file): Wetory_Support_Apikey {
@@ -43,7 +43,7 @@ class Wetory_Support_Apikeys_Controller extends Wetory_Controller {
     /**
      * Add settings section.
      * 
-     * It is hooked into 'wetory_support_settings_sections' filter
+     * It is hooked into 'wetory_settings_sections' filter
      * which is used to populate final data for sections.
      * 
      * @param array $sections Associative array that holds data about sections
