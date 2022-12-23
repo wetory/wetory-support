@@ -63,7 +63,7 @@ class Wetory_Support_Widgets_Controller extends Wetory_Controller
     public function settings_section($sections)
     {
 
-        $section_name = 'widgets';
+        $section_name = WETORY_SUPPORT_SETTINGS_WIDGETS_SECTION;
 
         $section = array(
             'title' => __('Widgets', 'wetory-support'),
@@ -113,6 +113,8 @@ class Wetory_Support_Widgets_Controller extends Wetory_Controller
      * @since    1.2.1
      */
     public function sanitize_settings($settings){
+
+        $section_name = WETORY_SUPPORT_SETTINGS_WIDGETS_SECTION;
         
         $widgets = $this->get_objects();
 
@@ -120,8 +122,8 @@ class Wetory_Support_Widgets_Controller extends Wetory_Controller
             foreach ($widgets as $widget) {
                 $widget_id = $widget->get_id();
 
-                if(isset($settings['widgets'][$widget_id]['use']) && !empty($settings['widgets'][$widget_id]['use'])){
-                    $settings['widgets'][$widget_id]['use'] = Sanitizer::sanitize_checkbox($settings['widgets'][$widget_id]['use'], 'on');
+                if(isset($settings[$section_name][$widget_id]['use']) && !empty($settings[$section_name][$widget_id]['use'])){
+                    $settings[$section_name][$widget_id]['use'] = Sanitizer::sanitize_checkbox($settings[$section_name][$widget_id]['use'], 'on');
                 }
             }
         }   

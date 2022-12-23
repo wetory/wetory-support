@@ -12,6 +12,8 @@
  * @subpackage wetory_support/includes/controllers
  * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
  */
+use Wetory_Support_Sanitizer as Sanitizer;
+
 class Wetory_Support_Apikeys_Controller extends Wetory_Controller {
 
     const BASE_CLASS = WETORY_SUPPORT_PATH . 'includes/api-keys/abstract-wetory-support-apikey.php';
@@ -25,6 +27,7 @@ class Wetory_Support_Apikeys_Controller extends Wetory_Controller {
     public function __construct() {
         parent::__construct();
         add_filter('wetory_settings_sections', array($this, 'settings_section'), 10, 1);
+        add_filter('wetory_settings_sanitize', array($this, 'sanitize_settings'), 10, 1);
     }
     
     public function get_instance($file): Wetory_Support_Apikey {
@@ -52,7 +55,7 @@ class Wetory_Support_Apikeys_Controller extends Wetory_Controller {
      */
     public function settings_section($sections)
     {
-        $section_name = 'apikeys';
+        $section_name = WETORY_SUPPORT_SETTINGS_APIKEYS_SECTION;
 
         $section = array(
             'title' => __('API Keys', 'wetory-support'),
@@ -93,6 +96,40 @@ class Wetory_Support_Apikeys_Controller extends Wetory_Controller {
         $sections[$section_name] = $section;
 
         return $sections;
+    }
+
+    /**
+     * Sanitize settings.
+     * 
+     * It is hooked into 'wetory_settings_sanitize' filter
+     * which is used during read/write of settings.
+     * 
+     * @param array $settings Associative array representing plugin settings
+     * 
+     * @since    1.2.1
+     */
+    public function sanitize_settings($settings){
+
+        $section_name = WETORY_SUPPORT_SETTINGS_APIKEYS_SECTION;
+        
+        $apikeys = $this->get_objects();
+
+        if ($apikeys) {
+
+            foreach ($apikeys as $apikey) {
+
+                $apikey_id = $apikey->get_id();
+
+                $keys = $apikey->get_keys();
+                foreach ($keys as $key) {
+                    if(isset($settings[$section_name][$apikey_id][$key]) && !empty($settings[$section_name][$apikey_id][$key])){
+                        $settings[$section_name][$apikey_id][$key] = Sanitizer::sanitize_text($settings[$section_name][$apikey_id][$key]);
+                    }
+                }
+            }
+        }
+        
+        return $settings;
     }
 
 }

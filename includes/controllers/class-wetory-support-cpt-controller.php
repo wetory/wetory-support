@@ -55,7 +55,9 @@ class Wetory_Support_Cpt_Controller extends Wetory_Controller{
      * 
      * @since    1.2.1
      */
-    public function sanitize_settings($settings){        
+    public function sanitize_settings($settings){     
+        
+        $section_name = WETORY_SUPPORT_SETTINGS_CPT_SECTION;
         
         $cpt_objects = $this->get_objects();
 
@@ -64,28 +66,28 @@ class Wetory_Support_Cpt_Controller extends Wetory_Controller{
                 $cpt_object_id = $cpt_object->get_id();
 
                 // use
-                if(isset($settings['cpt'][$cpt_object_id]['use']) && !empty($settings['cpt'][$cpt_object_id]['use'])){
-                    $settings['cpt'][$cpt_object_id]['use'] = Sanitizer::sanitize_checkbox($settings['cpt'][$cpt_object_id]['use'], 'on');
+                if(isset($settings[$section_name][$cpt_object_id]['use']) && !empty($settings[$section_name][$cpt_object_id]['use'])){
+                    $settings[$section_name][$cpt_object_id]['use'] = Sanitizer::sanitize_checkbox($settings[$section_name][$cpt_object_id]['use'], 'on');
                 }
 
                 // rewrite-slug
-                if(isset($settings['cpt'][$cpt_object_id]['rewrite-slug']) && !empty($settings['cpt'][$cpt_object_id]['rewrite-slug'])){
-                    $settings['cpt'][$cpt_object_id]['rewrite-slug'] = Sanitizer::sanitize_slug($settings['cpt'][$cpt_object_id]['rewrite-slug']);
+                if(isset($settings[$section_name][$cpt_object_id]['rewrite-slug']) && !empty($settings[$section_name][$cpt_object_id]['rewrite-slug'])){
+                    $settings[$section_name][$cpt_object_id]['rewrite-slug'] = Sanitizer::sanitize_slug($settings[$section_name][$cpt_object_id]['rewrite-slug']);
                 }
 
                 // comments
-                if(isset($settings['cpt'][$cpt_object_id]['comments']) && !empty($settings['cpt'][$cpt_object_id]['comments'])){
-                    $settings['cpt'][$cpt_object_id]['comments'] = Sanitizer::sanitize_checkbox($settings['cpt'][$cpt_object_id]['comments'], 'on');
+                if(isset($settings[$section_name][$cpt_object_id]['comments']) && !empty($settings[$section_name][$cpt_object_id]['comments'])){
+                    $settings[$section_name][$cpt_object_id]['comments'] = Sanitizer::sanitize_checkbox($settings[$section_name][$cpt_object_id]['comments'], 'on');
                 }
 
                 // excerpt
-                if(isset($settings['cpt'][$cpt_object_id]['excerpt']) && !empty($settings['cpt'][$cpt_object_id]['excerpt'])){
-                    $settings['cpt'][$cpt_object_id]['excerpt'] = Sanitizer::sanitize_checkbox($settings['cpt'][$cpt_object_id]['excerpt'], 'on');
+                if(isset($settings[$section_name][$cpt_object_id]['excerpt']) && !empty($settings[$section_name][$cpt_object_id]['excerpt'])){
+                    $settings[$section_name][$cpt_object_id]['excerpt'] = Sanitizer::sanitize_checkbox($settings[$section_name][$cpt_object_id]['excerpt'], 'on');
                 }
 
                 // revisions
-                if(isset($settings['cpt'][$cpt_object_id]['revisions']) && !empty($settings['cpt'][$cpt_object_id]['revisions'])){
-                    $settings['cpt'][$cpt_object_id]['revisions'] = Sanitizer::sanitize_checkbox($settings['cpt'][$cpt_object_id]['revisions'], 'on');
+                if(isset($settings[$section_name][$cpt_object_id]['revisions']) && !empty($settings[$section_name][$cpt_object_id]['revisions'])){
+                    $settings[$section_name][$cpt_object_id]['revisions'] = Sanitizer::sanitize_checkbox($settings[$section_name][$cpt_object_id]['revisions'], 'on');
                 }
             }
         }   

@@ -56,8 +56,6 @@ class Wetory_Support_Sanitizer
      * @param array $valid_values Array with all possible valid  values for select
      * @return string|int Sanitized value.
      * 
-     * @see https://developer.wordpress.org/reference/functions/sanitize_title/
-     * 
      * @since 1.2.1
      */
     public static function sanitize_select($value, $valid_values)
@@ -66,6 +64,23 @@ class Wetory_Support_Sanitizer
         if (!in_array($value, $valid_values)) {
             $value = '';
         }
+        return $value;
+    }
+
+    /**
+     * Sanitize text
+     *
+     * @param string|int $value Value to be sanitized
+     * @return string|int Sanitized value.
+     * 
+     * @see https://developer.wordpress.org/reference/functions/sanitize_title/
+     * 
+     * @since 1.2.1
+     */
+    public static function sanitize_text($value)
+    {
+        $value = sanitize_text_field($value);
+        
         return $value;
     }
 }

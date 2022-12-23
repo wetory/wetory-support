@@ -15,16 +15,6 @@
 class Wetory_Support_Options {
 
     /**
-     * Private member to hold key names in plugin options. Just to make it simple
-     * if some changes in keys needed.
-     * @var type 
-     */
-    const KEY_SHORTCODES = 'wetory-support-shortcodes';
-    const KEY_WIDGETS = 'wetory-support-widgets';
-    const KEY_APIKEYS = 'wetory-support-apikeys';
-    const KEY_CPT = 'wetory-support-cpt';
-
-    /**
      * Helper function for retrieving settings value from options. 
      * 
      * Plugin options are designed to be stored in sections serialized to
@@ -183,9 +173,8 @@ class Wetory_Support_Options {
      * @since    1.0.0
      */
     public static function use_widget($widget) {
-
-        $option_widgets = get_option(self::KEY_WIDGETS);
-        return isset($option_widgets[strtolower($widget)]['use']) && $option_widgets[strtolower($widget)]['use'] == 'on';
+        $settings_section = self::get_settings_section(array('option_section' => WETORY_SUPPORT_SETTINGS_WIDGETS_SECTION));
+        return isset($settings_section[strtolower($widget)]['use']) && $settings_section[strtolower($widget)]['use'] == 'on';
     }
 
     /**
@@ -196,8 +185,8 @@ class Wetory_Support_Options {
      * @since    1.0.0
      */
     public static function use_shortcode($shortcode) {
-        $option_shotcodes = get_option(self::KEY_SHORTCODES);
-        return isset($option_shotcodes[strtolower($shortcode)]['use']) && $option_shotcodes[strtolower($shortcode)]['use'] == 'on';
+        $settings_section = self::get_settings_section(array('option_section' => WETORY_SUPPORT_SETTINGS_SHORTCODES_SECTION));
+        return isset($settings_section[strtolower($shortcode)]['use']) && $settings_section[strtolower($shortcode)]['use'] == 'on';
     }
     
     /**
@@ -208,8 +197,8 @@ class Wetory_Support_Options {
      * @since    1.1.0
      */
     public static function use_cpt($cpt) {
-        $option_cpt = get_option(self::KEY_CPT);
-        return isset($option_cpt[strtolower($cpt)]['use']) && $option_cpt[strtolower($cpt)]['use'] == 'on';
+        $settings_section = self::get_settings_section(array('option_section' => WETORY_SUPPORT_SETTINGS_CPT_SECTION));
+        return isset($settings_section[strtolower($cpt)]['use']) && $settings_section[strtolower($cpt)]['use'] == 'on';
     }
 
     /**
@@ -222,7 +211,8 @@ class Wetory_Support_Options {
      * @since    1.0.0
      */
     public static function get_apikey_options($apikey) {
-        $options = isset(get_option(self::KEY_APIKEYS)[$apikey]) ? get_option(self::KEY_APIKEYS)[$apikey] : false;
+        $settings_section = self::get_settings_section(array('option_section' => WETORY_SUPPORT_SETTINGS_APIKEYS_SECTION));
+        $options = isset($settings_section[$apikey]) ? $settings_section[$apikey] : false;
         return $options;
     }
 
@@ -236,7 +226,8 @@ class Wetory_Support_Options {
      * @since    1.0.0
      */
     public static function get_shortcode_options($shortcode) {
-        $options = isset(get_option(self::KEY_SHORTCODES)[$shortcode]) ? get_option(self::KEY_SHORTCODES)[$shortcode] : false;
+        $settings_section = self::get_settings_section(array('option_section' => WETORY_SUPPORT_SETTINGS_SHORTCODES_SECTION));
+        $options = isset($settings_section[$shortcode]) ? $settings_section[$shortcode] : false;
         return $options;
     }
     
@@ -250,7 +241,8 @@ class Wetory_Support_Options {
      * @since    1.0.0
      */
     public static function get_widget_options($widget) {
-        $options = isset(get_option(self::KEY_WIDGETS)[$widget]) ? get_option(self::KEY_WIDGETS)[$widget] : false;
+        $settings_section = self::get_settings_section(array('option_section' => WETORY_SUPPORT_SETTINGS_WIDGETS_SECTION));
+        $options = isset($settings_section[$widget]) ? $settings_section[$widget] : false;
         return $options;
     }
     
@@ -264,7 +256,8 @@ class Wetory_Support_Options {
      * @since    1.1.0
      */
     public static function get_cpt_options($cpt) {
-        $options = isset(get_option(self::KEY_CPT)[$cpt]) ? get_option(self::KEY_CPT)[$cpt] : false;
+        $settings_section = self::get_settings_section(array('option_section' => WETORY_SUPPORT_SETTINGS_CPT_SECTION));
+        $options = isset($settings_section[$cpt]) ? $settings_section[$cpt] : false;
         return $options;
     }
 

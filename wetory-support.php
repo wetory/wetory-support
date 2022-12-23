@@ -43,11 +43,26 @@ if (!defined('WETORY_SUPPORT_PATH')) {
 if (!defined('WETORY_SUPPORT_URL')) {
     define('WETORY_SUPPORT_URL', plugin_dir_url(WETORY_SUPPORT_FILE));
 }
+/**
+ * Define some reusable settings constants
+ */
 if (!defined('WETORY_SUPPORT_SETTINGS_OPTION')) {
     define('WETORY_SUPPORT_SETTINGS_OPTION', 'wetory-support-settings');
 }
 if (!defined('WETORY_SUPPORT_SETTINGS_CACHE_OPTION')) {
     define('WETORY_SUPPORT_SETTINGS_CACHE_OPTION', 'wetory-support-settings-cache');
+}
+if (!defined('WETORY_SUPPORT_SETTINGS_WIDGETS_SECTION')) {
+    define('WETORY_SUPPORT_SETTINGS_WIDGETS_SECTION', 'widgets');
+}
+if (!defined('WETORY_SUPPORT_SETTINGS_SHORTCODES_SECTION')) {
+    define('WETORY_SUPPORT_SETTINGS_SHORTCODES_SECTION', 'shortcodes');
+}
+if (!defined('WETORY_SUPPORT_SETTINGS_CPT_SECTION')) {
+    define('WETORY_SUPPORT_SETTINGS_CPT_SECTION', 'cpt');
+}
+if (!defined('WETORY_SUPPORT_SETTINGS_APIKEYS_SECTION')) {
+    define('WETORY_SUPPORT_SETTINGS_APIKEYS_SECTION', 'apikeys');
 }
 
 /**
@@ -55,18 +70,23 @@ if (!defined('WETORY_SUPPORT_SETTINGS_CACHE_OPTION')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('WETORY_SUPPORT_VERSION', '1.1.1');
+if (!defined('WETORY_SUPPORT_VERSION')) {
+    define('WETORY_SUPPORT_VERSION', '1.1.1');
+}
 
 /**
  * Label can be used in several places
  */
-define('WETORY_LABEL', '#');
+if (!defined('WETORY_LABEL')) {
+    define('WETORY_LABEL', '#');
+}
 
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wetory-support-activator.php
  */
-function activate_wetory_support() {
+function activate_wetory_support()
+{
     require_once plugin_dir_path(__FILE__) . 'includes/class-wetory-support-activator.php';
     Wetory_Support_Activator::activate();
 }
@@ -75,7 +95,8 @@ function activate_wetory_support() {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-wetory-support-deactivator.php
  */
-function deactivate_wetory_support() {
+function deactivate_wetory_support()
+{
     require_once plugin_dir_path(__FILE__) . 'includes/class-wetory-support-deactivator.php';
     Wetory_Support_Deactivator::deactivate();
 }
@@ -98,7 +119,8 @@ require plugin_dir_path(__FILE__) . 'includes/class-wetory-support.php';
  *
  * @since    1.0.0
  */
-function run_wetory_support() {
+function run_wetory_support()
+{
     $plugin = new Wetory_Support();
     $plugin->run();
 }

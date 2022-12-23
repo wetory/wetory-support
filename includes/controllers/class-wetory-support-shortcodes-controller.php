@@ -61,7 +61,7 @@ class Wetory_Support_Shortcodes_Controller extends Wetory_Controller
      */
     public function settings_section($sections)
     {
-        $section_name = 'shortcodes';
+        $section_name = WETORY_SUPPORT_SETTINGS_SHORTCODES_SECTION;
 
         $section = array(
             'title' => __('Shortcodes', 'wetory-support'),
@@ -112,6 +112,8 @@ class Wetory_Support_Shortcodes_Controller extends Wetory_Controller
      * @since    1.2.1
      */
     public function sanitize_settings($settings){
+
+        $section_name = WETORY_SUPPORT_SETTINGS_SHORTCODES_SECTION;
         
         $shortcodes = $this->get_objects();
 
@@ -119,8 +121,8 @@ class Wetory_Support_Shortcodes_Controller extends Wetory_Controller
             foreach ($shortcodes as $shortcode) {
                 $shortcode_id = $shortcode->get_id();
 
-                if(isset($settings['shortcodes'][$shortcode_id]['use']) && !empty($settings['widgets'][$shortcode_id]['use'])){
-                    $settings['widgets'][$shortcode_id]['use'] = Sanitizer::sanitize_checkbox($settings['widgets'][$shortcode_id]['use'], 'on');
+                if(isset($settings[$section_name][$shortcode_id]['use']) && !empty($settings[$section_name][$shortcode_id]['use'])){
+                    $settings[$section_name][$shortcode_id]['use'] = Sanitizer::sanitize_checkbox($settings[$section_name][$shortcode_id]['use'], 'on');
                 }
             }
         }   
