@@ -163,19 +163,9 @@ class Wetory_Support_Admin
     {
         global $submenu;
 
-        // https://developer.wordpress.org/reference/functions/add_options_page/
-        // add_options_page( $page_title, $menu_title, $capability, $menu_slug, $callback = '', $position = null )
-        //        add_options_page(
-        //                __('Settings - Wetory', 'wetory-support'),
-        //                __('Wetory', 'wetory-support'),
-        //                'administrator',
-        //                $this->links['settings']['slug'],
-        //                array($this, 'admin_settings_page'),
-        //                999
-        //        );
-
         // https://developer.wordpress.org/reference/functions/add_menu_page/
         // add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
+        /* 
         add_menu_page(
             __('Settings - Wetory', 'wetory-support'),
             __('Wetory', 'wetory-support'),
@@ -185,17 +175,18 @@ class Wetory_Support_Admin
             WETORY_SUPPORT_URL . 'images/dashicon-style-icon.png',
             999
         );
+        */
 
         // https://developer.wordpress.org/reference/functions/add_submenu_page/
         // add_submenu_page( '$parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function );
-        //        add_submenu_page(
-        //                $this->links['settings']['slug'],
-        //                __('Settings - Wetory', 'wetory-support'),
-        //                __('Settings', 'wetory-support'),
-        //                'administrator',
-        //                $this->links['settings']['slug'],
-        //                array($this, 'admin_settings_page')
-        //        );    
+        add_submenu_page(
+            'options-general.php',
+            __('Settings - Wetory', 'wetory-support'),
+            __('Wetory', 'wetory-support'),
+            'administrator',
+            $this->links['settings']['slug'],
+            array($this, 'admin_settings_page')
+        );
     }
 
     /**
@@ -210,7 +201,7 @@ class Wetory_Support_Admin
         }
 
         $options = Options::get_settings_option();
-        
+
         require_once plugin_dir_path(__FILE__) . 'partials/wetory-support-admin-settings.php';
     }
 }
