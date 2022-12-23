@@ -64,6 +64,31 @@ if (!class_exists('Wetory_Support_Ajax')) {
             die();
         }
 
+        public function handle_wetory_support_ajax_reset_settings(){
+            wetory_write_log(__('Resetting plugin settings', 'wetory-support'), 'info');
+            check_admin_referer('wetory-support-update-' . WETORY_SUPPORT_SETTINGS_OPTION);
+            
+            try {
+                
+                $options = array();
+                $options = apply_filters('wetory_settings_default', $options);
+                $options = apply_filters('wetory_settings_validate', $options);
+
+                if (is_wp_error($options)) {
+                    wp_send_json_error($options, $options->get_error_code());
+                    die();
+                }
+
+                // Save settings to database
+                $updated = update_option(WETORY_SUPPORT_SETTINGS_OPTION, $options);
+                wp_send_json_success(esc_html__('Settings set to defaults successfully', 'wetory-support'));
+            } catch (Exception $e) {
+                wp_send_json_error($e->getMessage(), $e->getCode());
+            }
+
+            die();
+        }
+
         /**
          * Handler function for Ajax url call 'wetory_ajax_loadmore'
          * 

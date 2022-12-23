@@ -243,6 +243,12 @@ a.reload-page {
     cursor: pointer;
     text-decoration: underline;
 }
+/* Buttons */
+.button-secondary.danger,
+.button-secondary.danger:hover {
+    color: #e14d43;
+    border-color: #e14d43;
+}
 
 /* Content */
 .settings-field-description {

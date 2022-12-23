@@ -64,6 +64,8 @@
             });
         });
 
+        
+
         // Navigation tabs in settings page
         var ws_nav_tab = $('.wetory-support-nav-tab-wrapper .nav-tab');
         if (ws_nav_tab.length > 0) {
@@ -127,8 +129,16 @@
                             spinner.css({ 'visibility': 'visible' });
                             submit_btn.css({ 'opacity': '.5', 'cursor': 'default' }).prop('disabled', true);
                         },
-                        success: function (response) {                            
+                        success: function (response) {      
                             wetory_support_notify_msg.success(response.data);
+                            if (submit_action == 'wetory_support_ajax_reset_settings') {
+                                setTimeout(
+                                    function(){
+                                        window.location.reload( true );
+                                    },
+                                    1000
+                                );
+                            }                                                  
                         },
                         error: function (xhr, status, error) {    
                             if(xhr.responseJSON && xhr.responseJSON.data) {
