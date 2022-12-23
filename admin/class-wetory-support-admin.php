@@ -11,7 +11,9 @@
  * @subpackage wetory_support/admin
  * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
  */
+
 use Wetory_Support_Admin_Notices as Notices;
+use Wetory_Support_Options as Options;
 
 class Wetory_Support_Admin
 {
@@ -60,7 +62,7 @@ class Wetory_Support_Admin
      * @param      Wetory_Support    $plugin_obj    Instance of main plugin class
      */
     public function __construct($plugin_obj)
-    {        
+    {
         $this->plugin_obj = $plugin_obj;
         $this->plugin_name = $plugin_obj->get_plugin_name();
         $this->version = $plugin_obj->get_version();
@@ -206,7 +208,9 @@ class Wetory_Support_Admin
         if (!current_user_can('manage_options')) {
             wp_die(esc_html__('You do not have sufficient permission to perform this operation', 'wetory-support'));
         }
-        wetory_write_log($_POST);
+
+        $options = Options::get_settings_option();
+        
         require_once plugin_dir_path(__FILE__) . 'partials/wetory-support-admin-settings.php';
     }
 }

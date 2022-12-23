@@ -14,6 +14,8 @@
  * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu> 
  */
 
+ use Wetory_Support_Sanitizer as Sanitizer;
+
 class Wetory_Support_Settings
 {
     /**
@@ -46,6 +48,10 @@ class Wetory_Support_Settings
         $this->plugin_obj = $plugin_obj;
 
         add_action('wetory_settings_render_section', array($this, 'render_section'), 10, 1);
+
+        add_filter('wetory_settings_default', array($this, 'get_default_settings'), 10, 1);
+        add_filter('wetory_settings_validate', array($this, 'validate_settings'), 10, 1);
+        add_filter('wetory_settings_sanitize', array($this, 'sanitize_settings'), 10, 1);
     }
 
 
@@ -155,5 +161,95 @@ class Wetory_Support_Settings
         $sections[$section_name] = $section;
 
         return $sections;
+    }
+
+    /**
+     * Validate data passed to plugin settings
+     * 
+     * This function is hooked to 'wetory_settings_validate' filter.
+     * 
+     * @see https://developer.wordpress.org/plugins/hooks/filters/
+     * @see https://developer.wordpress.org/plugins/hooks/custom-hooks/
+     * 
+     * @param array $settings Associative array representing plugin settings before validation
+     * @return array Associative array representing validated plugin settings
+     * 
+     * @since    1.2.1
+     */
+    public function validate_settings($settings)
+    {
+        wetory_write_log(__('Validating plugin settings', 'wetory-support'));
+        
+        $wp_error = new WP_Error();
+
+        // Doing sanitization for now - may be extended to the future
+        $settings = apply_filters('wetory_settings_sanitize', $settings);
+
+        // Debugging section
+        if(isset($settings['debugging']['verbosity']) && $settings['debugging']['verbosity'] ===''){
+            $wp_error->add(500, __('Value for debugging verbosity is not valid!','wetory-support'));
+        }
+
+        // Return error instead of settings array
+        if($wp_error->has_errors()) {
+            return $wp_error;
+        }
+
+        return $settings;
+    }
+
+    /**
+     * Sanitize plugin settings data after retrieving from database
+     * 
+     * This function is hooked to 'wetory_settings_sanitize' filter.
+     * 
+     * @see https://developer.wordpress.org/plugins/hooks/filters/
+     * @see https://developer.wordpress.org/plugins/hooks/custom-hooks/
+     * 
+     * @param array $settings Associative array representing plugin settings retrieved from database
+     * @return array Associative array representing sanitized plugin settings
+     * 
+     * @since    1.2.1
+     */
+    public function sanitize_settings($settings)
+    {
+        // Maintenance section
+        if(isset($settings['maintenance']['maintenance-page']['disable-autorecreate']) && !empty($settings['maintenance']['maintenance-page']['disable-autorecreate'])){
+            $settings['maintenance']['maintenance-page']['disable-autorecreate'] = Sanitizer::sanitize_checkbox($settings['maintenance']['maintenance-page']['disable-autorecreate'], 'on');
+        }
+
+        // Debugging section
+        if(isset($settings['debugging']['verbosity']) && !empty($settings['debugging']['verbosity'])){
+            $settings['debugging']['verbosity'] = Sanitizer::sanitize_select($settings['debugging']['verbosity'], array('disabled', 'basic', 'detailed'));
+        }
+
+        return $settings;
+    }
+
+    /**
+     * Get defaults for plugin settings
+     * 
+     * This function is hooked to 'wetory_settings_default' filter.
+     * 
+     * @see https://developer.wordpress.org/plugins/hooks/filters/
+     * @see https://developer.wordpress.org/plugins/hooks/custom-hooks/
+     * 
+     * @param array $settings Associative array representing plugin setting
+     * @return array Associative array representing plugin settings enriched with default values if not presented
+     * 
+     * @since    1.2.1
+     */
+    public function get_default_settings($settings)
+    {
+        $deafult_settings = array(
+            'debugging' => array(
+                'verbosity' => 'disabled',
+            )
+
+        );
+
+        $settings = wp_parse_args($settings, $deafult_settings);
+
+        return $settings;
     }
 }

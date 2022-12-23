@@ -46,6 +46,9 @@ if (!defined('WETORY_SUPPORT_URL')) {
 if (!defined('WETORY_SUPPORT_SETTINGS_OPTION')) {
     define('WETORY_SUPPORT_SETTINGS_OPTION', 'wetory-support-settings');
 }
+if (!defined('WETORY_SUPPORT_SETTINGS_CACHE_OPTION')) {
+    define('WETORY_SUPPORT_SETTINGS_CACHE_OPTION', 'wetory-support-settings-cache');
+}
 
 /**
  * Currently plugin version.
@@ -96,7 +99,6 @@ require plugin_dir_path(__FILE__) . 'includes/class-wetory-support.php';
  * @since    1.0.0
  */
 function run_wetory_support() {
-
     $plugin = new Wetory_Support();
     $plugin->run();
 }

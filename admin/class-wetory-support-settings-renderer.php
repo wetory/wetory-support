@@ -170,8 +170,8 @@ class Wetory_Support_Settings_Renderer
         $name .= '[' . $args['name'] . ']';
 
         // Get value
-        // $option_value = Options::get_value($args, null);
-        $option_value = null;
+        $option_value = Options::get_settings_value($args, null);
+        // $option_value = null;
 
         // We can enable debigguing to view what comes into function
         if (isset($args['debug']) && $args['debug']) {
@@ -378,8 +378,8 @@ class Wetory_Support_Settings_Renderer
 
         foreach ($data as $category => $category_items) {
 
-            if ($render_categories && sizeof($category_items) > 0){
-                echo '<tr class="data-category-name"><td colspan="'.sizeof($args['columns']).'">'. __('Category', 'wetory-support') . ': ' .$category.'</td></tr>';
+            if ($render_categories && sizeof($category_items) > 0) {
+                echo '<tr class="data-category-name"><td colspan="' . sizeof($args['columns']) . '">' . __('Category', 'wetory-support') . ': ' . $category . '</td></tr>';
             }
 
             foreach ($category_items as $item) {

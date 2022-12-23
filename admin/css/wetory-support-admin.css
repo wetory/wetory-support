@@ -133,7 +133,8 @@ table.wetory-settings-table th.compact {
     width: 1%;
 }
 
-table.wetory-settings-table td:first-child {
+table.wetory-settings-table td:first-child,
+table.wetory-settings-table th:first-child {
     padding-left: 5px !important;
     font-weight: bold;
 }

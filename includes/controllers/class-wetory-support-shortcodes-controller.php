@@ -13,6 +13,7 @@
  * @subpackage wetory_support/includes/controllers
  * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
  */
+use Wetory_Support_Sanitizer as Sanitizer;
 
 class Wetory_Support_Shortcodes_Controller extends Wetory_Controller
 {
@@ -28,7 +29,8 @@ class Wetory_Support_Shortcodes_Controller extends Wetory_Controller
     public function __construct()
     {
         parent::__construct();
-        add_filter('wetory_settings_sections', array($this, 'settings_section'), 10, 1);
+        add_filter('wetory_settings_sections', array($this, 'settings_section'), 10, 1);    
+        add_filter('wetory_settings_sanitize', array($this, 'sanitize_settings'), 10, 1);
     }
 
     public function get_instance($file): Wetory_Support_Shortcode
@@ -97,5 +99,32 @@ class Wetory_Support_Shortcodes_Controller extends Wetory_Controller
         $sections[$section_name] = $section;
 
         return $sections;
+    }
+
+    /**
+     * Sanitize settings.
+     * 
+     * It is hooked into 'wetory_settings_sanitize' filter
+     * which is used during read/write of settings.
+     * 
+     * @param array $settings Associative array representing plugin settings
+     * 
+     * @since    1.2.1
+     */
+    public function sanitize_settings($settings){
+        
+        $shortcodes = $this->get_objects();
+
+        if ($shortcodes) {
+            foreach ($shortcodes as $shortcode) {
+                $shortcode_id = $shortcode->get_id();
+
+                if(isset($settings['shortcodes'][$shortcode_id]['use']) && !empty($settings['widgets'][$shortcode_id]['use'])){
+                    $settings['widgets'][$shortcode_id]['use'] = Sanitizer::sanitize_checkbox($settings['widgets'][$shortcode_id]['use'], 'on');
+                }
+            }
+        }   
+        
+        return $settings;
     }
 }

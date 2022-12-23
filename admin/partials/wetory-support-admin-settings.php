@@ -21,13 +21,6 @@ $wetory_support_images_path = WETORY_SUPPORT_URL . 'images/';
 $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/views/';
 ?>
 
-<script type="text/javascript">
-    var wetory_support_update_settings_success_message = '<?php echo esc_html__('Settings updated successfully', 'wetory-support'); ?>';
-    var wetory_support_update_settings_error_message = '<?php echo esc_html__('Unable to update settings', 'wetory-support'); ?>';
-    var wetory_support_reset_settings_success_message = '<?php echo esc_html__('Settings reseted successful', 'wetory-support'); ?>';
-    var wetory_support_reset_settings_error_message = '<?php echo esc_html__('Unable to reset settings', 'wetory-support'); ?>';
-</script>
-
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <div class="wrap wetory-support-settings">
 
@@ -75,7 +68,7 @@ $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/
             <input type="hidden" name="wetory_support_submit_action" value="" id="wetory_support_submit_action" />
             <?php
             if (function_exists('wp_nonce_field')) {
-                wp_nonce_field('wetory-support-update-' . WETORY_SUPPORT_VERSION);
+                wp_nonce_field('wetory-support-update-' . WETORY_SUPPORT_SETTINGS_OPTION);
             }
             foreach ($setting_views_a as $target_id => $value) {
                 $settings_view = $wetory_support_admin_view_path . $value;
@@ -98,7 +91,7 @@ $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/
                 <div class="wetory-support-row">
                     <div class="wetory-support-col-6"></div>
                     <div class="wetory-support-col-6">
-                        <input type="submit" name="update_settings" value="<?php echo esc_html__('Update Settings', 'wetory-support'); ?>" class="button-primary" style="float:right;" onClick="return wetory_support_settings_btn_click(this.name)" />
+                        <input type="submit" name="wetory_support_ajax_update_settings" value="<?php echo esc_html__('Update Settings', 'wetory-support'); ?>" class="button-primary" style="float:right;" onClick="return wetory_support_settings_btn_click(this.name)" />
                         <span class="spinner"></span>
                     </div>
                 </div>

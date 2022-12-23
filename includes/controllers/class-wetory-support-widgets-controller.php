@@ -14,6 +14,7 @@
  */
 
 use Wetory_Support_Options as Plugin_Options;
+use Wetory_Support_Sanitizer as Sanitizer;
 
 class Wetory_Support_Widgets_Controller extends Wetory_Controller
 {
@@ -29,7 +30,8 @@ class Wetory_Support_Widgets_Controller extends Wetory_Controller
     public function __construct()
     {
         parent::__construct();
-        add_filter('wetory_settings_sections', array($this, 'settings_section'), 10, 1);
+        add_filter('wetory_settings_sections', array($this, 'settings_section'), 10, 1);        
+        add_filter('wetory_settings_sanitize', array($this, 'sanitize_settings'), 10, 1);
     }
 
     public function get_instance($file): Wetory_Support_Widget
@@ -98,5 +100,32 @@ class Wetory_Support_Widgets_Controller extends Wetory_Controller
         $sections[$section_name] = $section;
 
         return $sections;
+    }
+
+    /**
+     * Sanitize settings.
+     * 
+     * It is hooked into 'wetory_settings_sanitize' filter
+     * which is used during read/write of settings.
+     * 
+     * @param array $settings Associative array representing plugin settings
+     * 
+     * @since    1.2.1
+     */
+    public function sanitize_settings($settings){
+        
+        $widgets = $this->get_objects();
+
+        if ($widgets) {
+            foreach ($widgets as $widget) {
+                $widget_id = $widget->get_id();
+
+                if(isset($settings['widgets'][$widget_id]['use']) && !empty($settings['widgets'][$widget_id]['use'])){
+                    $settings['widgets'][$widget_id]['use'] = Sanitizer::sanitize_checkbox($settings['widgets'][$widget_id]['use'], 'on');
+                }
+            }
+        }   
+        
+        return $settings;
     }
 }

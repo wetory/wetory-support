@@ -217,6 +217,11 @@ class Wetory_Support {
         require_once WETORY_SUPPORT_PATH . 'includes/class-wetory-support-validator.php';
 
         /**
+         * Sinitizing service
+         */
+        require_once WETORY_SUPPORT_PATH . 'includes/class-wetory-support-sanitizer.php';
+
+        /**
          * The class responsible for defining all actions that occur in the public-facing
          * side of the site.
          */

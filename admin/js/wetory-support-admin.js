@@ -116,41 +116,37 @@
                 var submit_action = $('#wetory_support_submit_action').val();
                 e.preventDefault();
                 var data = $(this).serialize();
-                var url = $(this).attr('action');
                 var spinner = $(this).find('.spinner');
                 var submit_btn = $(this).find('input[type="submit"]');
-                spinner.css({ 'visibility': 'visible' });
-                submit_btn.css({ 'opacity': '.5', 'cursor': 'default' }).prop('disabled', true);
                 $.ajax(
                     {
-                        url: url,
-                        type: 'POST',
-                        data: data,
-                        success: function (data) {
-                            spinner.css({ 'visibility': 'hidden' });
-                            submit_btn.css({ 'opacity': '1', 'cursor': 'pointer' }).prop('disabled', false);
-                            if (submit_action == 'reset_settings') {
-                                wetory_support_notify_msg.success(wetory_support_reset_settings_success_message);
-                                setTimeout(
-                                    function () {
-                                        window.location.reload(true);
-                                    },
-                                    1000
-                                );
-                            } else {
-                                wetory_support_notify_msg.success(wetory_support_update_settings_success_message);
-                            }
-                            // cli_bar_active_msg();
+                        url: ajaxurl,
+                        type: 'post',
+                        data: data + '&action=' + submit_action,
+                        beforeSend: function () {                            
+                            spinner.css({ 'visibility': 'visible' });
+                            submit_btn.css({ 'opacity': '.5', 'cursor': 'default' }).prop('disabled', true);
                         },
-                        error: function () {
+                        success: function (response) {                            
+                            wetory_support_notify_msg.success(response.data);
+                        },
+                        error: function (xhr, status, error) {    
+                            if(xhr.responseJSON && xhr.responseJSON.data) {
+                                if(Array.isArray(xhr.responseJSON.data) && xhr.responseJSON.data.length){
+                                    xhr.responseJSON.data.forEach((error, i, arr) => {
+                                        wetory_support_notify_msg.error(error.message);
+                                    })
+                                } else {
+                                    wetory_support_notify_msg.error(xhr.responseJSON.data);
+                                }                                
+                            } else {
+                                wetory_support_notify_msg.error(xhr.responseText);
+                            }                            
+                        },
+                        complete: function () {
                             spinner.css({ 'visibility': 'hidden' });
                             submit_btn.css({ 'opacity': '1', 'cursor': 'pointer' }).prop('disabled', false);
-                            if (submit_action == 'reset_settings') {
-                                wetory_support_notify_msg.error(wetory_support_reset_settings_error_message);
-                            } else {
-                                wetory_support_notify_msg.error(wetory_support_update_settings_error_message);
-                            }
-                        }
+                        },
                     }
                 );
             }
@@ -174,7 +170,6 @@ function refresh_page(e){
 
 // Dismiss admin area notifications
 function wetory_support_dismiss_notice_btn_click(el){
-    alert('I am live!');
     el.parent().remove();
 }
 

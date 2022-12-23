@@ -50,13 +50,13 @@ if (!defined('WPINC')) {
                 <table class="form-table">
                 <?php                    
                     $settings_field = array(
-                        'label' => __('Auto-recreate custom maintenance page', 'wetory-support'),
+                        'label' => __('Disable recreate of custom maintenance page', 'wetory-support'),
                         'type' => 'checkbox',
                         'option_section' => $section_name,
                         'option_key' => 'maintenance-page',
-                        'id' => 'autorecreate',
-                        'name' => 'autorecreate',
-                        'help' => __('Custom maintenance page can be automatically recreated by WP-Cron scheduled events.', 'wetory-support'),
+                        'id' => 'disable-autorecreate',
+                        'name' => 'disable-autorecreate',
+                        'description' => __('Custom maintenance page is by default automatically recreated by WP-Cron scheduled events.', 'wetory-support'),
                     );
                     Wetory_Support_Settings_Renderer::render_settings_field($settings_field);
                 ?>

@@ -14,11 +14,12 @@
 class Wetory_Support_Validator {
 
     /**
+     * Check if given string is valid date
      * 
-     * @param type $value
+     * @param string $value
      * @return int <p>Returns a timestamp on success, <b><code>FALSE</code></b> otherwise. Previous to PHP 5.1.0, this function would return <i>-1</i> on failure.</p>
      */
-    public static function is_date($value) {
+    public static function is_date(string $value) {
         $time = strtotime($value);        
         return $time !== false ;
     }

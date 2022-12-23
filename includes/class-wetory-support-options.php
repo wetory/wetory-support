@@ -25,7 +25,7 @@ class Wetory_Support_Options {
     const KEY_CPT = 'wetory-support-cpt';
 
     /**
-     * Helper function for retrieving value from options. 
+     * Helper function for retrieving settings value from options. 
      * 
      * Plugin options are designed to be stored in sections serialized to
      * one option entry in database. This requries "special" approach to retrieve 
@@ -46,7 +46,8 @@ class Wetory_Support_Options {
      * @param array $args Arguments
      * @return mixed Value of the setting stored in given option and section. A value of any type may be returned, including scalar (string, boolean, float, integer), null, array, object.
      */
-    public static function get_value(mixed $args, mixed $default = null){
+    public static function get_settings_value(array $args, mixed $default = null){
+        $value = null;
         $defaults = array(
             'option_name' => WETORY_SUPPORT_SETTINGS_OPTION,
             'option_section' => 'general',
@@ -55,9 +56,15 @@ class Wetory_Support_Options {
         );
         $args = wp_parse_args($args, $defaults);
 
-        $section = self::get_section($args);
-        if($section){
-            $value = isset($args['option_key']) ? $section['option_key']['name'] : $section['name'];
+        $section = self::get_settings_section($args);
+
+        if($section && isset($args['name'])){
+            $option_key = isset($args['option_key']) && isset($section[$args['option_key']]) ? $section[$args['option_key']] : null;
+            if (isset($option_key)) {
+                $value = isset($option_key[$args['name']]) ? $option_key[$args['name']] : null;
+            } else {
+                $value = isset($section[$args['name']]) ? $section[$args['name']] : null;
+            }
             $value = isset($value) ? $value : $default;
             return $value;
         }
@@ -66,7 +73,7 @@ class Wetory_Support_Options {
     }
 
     /**
-     * Helper function for retrieving options section. 
+     * Helper function for retrieving settings option section. 
      * 
      * Plugin options are designed to be stored in sections serialized to
      * one option entry in database. This requries "special" approach to retrieve 
@@ -85,16 +92,87 @@ class Wetory_Support_Options {
      * @param array $args Arguments
      * @return array Associative array with deserialized options section data
      */
-    public static function get_section(mixed $args){
+    public static function get_settings_section(array $args){
         $defaults = array(
             'option_name' => WETORY_SUPPORT_SETTINGS_OPTION,
             'option_section' => 'general'
         );
-        $args = wp_parse_args($args, $defaults);
+        $args = wp_parse_args($args, $defaults);        
 
-        $section = isset(get_option($args['option_name'])['option_section']) ? get_option($args['option_name'])['option_section'] : false;
+        $option = self::get_settings_option($args['option_name']);
+
+        $section = isset($option[$args['option_section']]) ? $option[$args['option_section']] : false;
 
         return $section;
+    }
+
+    /**
+     * Helper function for retrieving plugin settings option. 
+     * 
+     * By default reading option with name using constant WETORY_SUPPORT_SETTINGS_OPTION 
+     * 
+     * @since      1.2.1
+     * @param string $option_name Name of the option registered for plugin
+     * @return array Associative array with deserialized plugin options data
+     */
+    public static function get_settings_option(string $option_name = WETORY_SUPPORT_SETTINGS_OPTION) {
+        $wetory_support_settings = array();
+        $settings_cache_status = self::get_settings_cache_status();
+        if($settings_cache_status == 'dirty' || empty($wetory_support_settings)){
+            $wetory_support_settings = get_option($option_name);
+            self::set_settings_cache_status('clean');
+        }
+        $wetory_support_settings = apply_filters('wetory_settings_default', $wetory_support_settings);
+        $wetory_support_settings = apply_filters('wetory_settings_sanitize', $wetory_support_settings);
+
+        return $wetory_support_settings;
+    }
+
+    /**
+     * Helper function for retrieving plugin settings cache option. 
+     * 
+     * Not actually in use yet.
+     * 
+     * @since      1.2.1
+     * @return string Settings cache status can be 'dirty' or 'clean'
+     */
+    private static function get_settings_cache_status(){
+        $cache_option = get_option(WETORY_SUPPORT_SETTINGS_CACHE_OPTION);
+        if(!isset($cache_option['status'])){
+            self::invalidate_setting_cache();
+            $cache_option['status'] = 'dirty';
+        }
+        return $cache_option['status'];
+    }
+
+    /**
+     * Helper function for setting plugin settings cache option. 
+     * 
+     * Not actually in use yet.
+     * 
+     * @since      1.2.1
+     * @param string Settings cache status can be 'dirty' or 'clean'
+     * @return void
+     */
+    private static function set_settings_cache_status(string $status){
+        $cache_option = array(
+            'status' => $status,
+        );
+        update_option(WETORY_SUPPORT_SETTINGS_CACHE_OPTION, $cache_option);
+    }
+
+    /**
+     * Invalidating setting cache. 
+     * 
+     * Just wrapper function for calling set_settings_cache_status('dirty')
+     * 
+     * Not actually in use yet.
+     * 
+     * @since      1.2.1
+     * @return void
+     */
+    public static function invalidate_setting_cache(){
+        self::set_settings_cache_status('dirty');
     }
 
     /**
