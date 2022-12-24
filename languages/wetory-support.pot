@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Wetory Support\n"
-"POT-Creation-Date: 2022-12-24 01:04+0100\n"
+"POT-Creation-Date: 2022-12-24 03:24+0100\n"
 "PO-Revision-Date: 2020-11-29 17:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -28,15 +28,16 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: admin/class-wetory-support-admin.php:184
+#: admin/class-wetory-support-admin.php:171
+#: admin/class-wetory-support-admin.php:207
 msgid "Settings - Wetory"
 msgstr ""
 
-#: admin/class-wetory-support-admin.php:185
+#: admin/class-wetory-support-admin.php:172
 msgid "Wetory"
 msgstr ""
 
-#: admin/class-wetory-support-admin.php:200
+#: admin/class-wetory-support-admin.php:220
 msgid "You do not have sufficient permission to perform this operation"
 msgstr ""
 
@@ -49,18 +50,18 @@ msgstr ""
 msgid "There is already a field with name %s"
 msgstr ""
 
-#: admin/class-wetory-support-settings-renderer.php:232
+#: admin/class-wetory-support-settings-renderer.php:231
 msgid ""
 "No options list found in arguments! This parameter is required when using "
 "select type in render_settings_field callback."
 msgstr ""
 
-#: admin/class-wetory-support-settings-renderer.php:264
-#: admin/class-wetory-support-settings-renderer.php:401
+#: admin/class-wetory-support-settings-renderer.php:263
+#: admin/class-wetory-support-settings-renderer.php:400
 msgid "More info"
 msgstr ""
 
-#: admin/class-wetory-support-settings-renderer.php:382
+#: admin/class-wetory-support-settings-renderer.php:381
 #: templates/posts-filter/filter-wcpt-notice-board.php:48
 #: templates/posts-filter/filter.php:44
 #: templates/posts-grid/item-wcpt-photogallery.php:31
@@ -72,48 +73,40 @@ msgstr ""
 msgid "Given settings section \"%s\" not found!"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:138
-msgid "Debugging"
+#: admin/class-wetory-support-settings.php:142
+msgid "Debugging verbosity"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:139
-msgid "Here you can modify plugin debugging behaviour."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:144
-msgid "Verbosity"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:151
+#: admin/class-wetory-support-settings.php:149
 msgid "Disabled"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:152
+#: admin/class-wetory-support-settings.php:150
 msgid "Basic"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:153
+#: admin/class-wetory-support-settings.php:151
 msgid "Detailed"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:155
+#: admin/class-wetory-support-settings.php:153
 msgid ""
 "Debugging is working only if <a href=\"https://wordpress.org/support/article/"
 "debugging-in-wordpress/\" target=\"_blank\">WordPress debugging</a> is "
 "enabled."
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:156
+#: admin/class-wetory-support-settings.php:154
 msgid ""
 "Verbosity level can be changed to control what is written to WordPress debug "
 "log."
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:181
+#: admin/class-wetory-support-settings.php:179
 msgid "Validating plugin settings"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:190
+#: admin/class-wetory-support-settings.php:188
 msgid "Value for debugging verbosity is not valid!"
 msgstr ""
 
@@ -161,6 +154,7 @@ msgid "Connections"
 msgstr ""
 
 #: admin/partials/wetory-support-admin-settings.php:47
+#: admin/views/admin-settings-advanced.php:22
 msgid "Advanced"
 msgstr ""
 
@@ -178,20 +172,34 @@ msgid ""
 "Wetory Support %s &copy; %s | by <a href=\"%s\" target=\"_blank\">wetory</a>"
 msgstr ""
 
-#: admin/views/admin-settings-advanced.php:30
+#: admin/views/admin-settings-advanced.php:23
+msgid ""
+"Usually you do not need to touch these settings, but in case there are some "
+"troubles this section can be helpful."
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:32
 msgid "Reset settings"
 msgstr ""
 
-#: admin/views/admin-settings-advanced.php:32
+#: admin/views/admin-settings-advanced.php:34
 msgid "Delete settings and reset"
 msgstr ""
 
-#: admin/views/admin-settings-advanced.php:32
+#: admin/views/admin-settings-advanced.php:34
 msgid "Are you sure you want to delete all your settings?"
 msgstr ""
 
-#: admin/views/admin-settings-advanced.php:33
+#: admin/views/admin-settings-advanced.php:35
 msgid "Warning: Resets all your current settings to default."
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:40
+msgid "Hide admin bar menu"
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:45
+msgid "Plugin settings page available from admin toolbar can be hidden."
 msgstr ""
 
 #: admin/views/admin-settings-connections.php:22
@@ -635,7 +643,7 @@ msgstr ""
 msgid "File <strong>%s/maintenance.php</strong> deleted"
 msgstr ""
 
-#: includes/wetory-support-functions.php:260
+#: includes/wetory-support-functions.php:254
 msgid "Load more"
 msgstr ""
 

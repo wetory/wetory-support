@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2022-12-24 00:59+0100\n"
-"PO-Revision-Date: 2022-12-24 01:03+0100\n"
+"POT-Creation-Date: 2022-12-24 03:25+0100\n"
+"PO-Revision-Date: 2022-12-24 03:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -28,15 +28,16 @@ msgstr ""
 msgid "Settings"
 msgstr "Nastavení"
 
-#: admin/class-wetory-support-admin.php:184
+#: admin/class-wetory-support-admin.php:171
+#: admin/class-wetory-support-admin.php:207
 msgid "Settings - Wetory"
 msgstr "Nastavení - Wetory"
 
-#: admin/class-wetory-support-admin.php:185
+#: admin/class-wetory-support-admin.php:172
 msgid "Wetory"
 msgstr "Wetory"
 
-#: admin/class-wetory-support-admin.php:200
+#: admin/class-wetory-support-admin.php:220
 msgid "You do not have sufficient permission to perform this operation"
 msgstr "Nemáte dostatečná oprávnění k provedení této operace"
 
@@ -49,7 +50,7 @@ msgstr "V tomto metaboxu nejsou žádná pole."
 msgid "There is already a field with name %s"
 msgstr "Pole s názvem %s existuje"
 
-#: admin/class-wetory-support-settings-renderer.php:232
+#: admin/class-wetory-support-settings-renderer.php:231
 msgid ""
 "No options list found in arguments! This parameter is required when using "
 "select type in render_settings_field callback."
@@ -57,12 +58,12 @@ msgstr ""
 "V argumentech nebyl nalezen žádný seznam možností! Tento parametr je "
 "vyžadován při použití typu select v render_settings_field callback funkci."
 
-#: admin/class-wetory-support-settings-renderer.php:264
-#: admin/class-wetory-support-settings-renderer.php:401
+#: admin/class-wetory-support-settings-renderer.php:263
+#: admin/class-wetory-support-settings-renderer.php:400
 msgid "More info"
 msgstr "Více informací"
 
-#: admin/class-wetory-support-settings-renderer.php:382
+#: admin/class-wetory-support-settings-renderer.php:381
 #: templates/posts-filter/filter-wcpt-notice-board.php:48
 #: templates/posts-filter/filter.php:44
 #: templates/posts-grid/item-wcpt-photogallery.php:31
@@ -74,31 +75,23 @@ msgstr "Kategorie"
 msgid "Given settings section \"%s\" not found!"
 msgstr "Daná sekce nastavení \"%s\" nenalezena!"
 
-#: admin/class-wetory-support-settings.php:138
-msgid "Debugging"
-msgstr "Debugging"
+#: admin/class-wetory-support-settings.php:142
+msgid "Debugging verbosity"
+msgstr "Úroveň debuggování"
 
-#: admin/class-wetory-support-settings.php:139
-msgid "Here you can modify plugin debugging behaviour."
-msgstr "Zde můžete upravit chování debuggování pluginu."
-
-#: admin/class-wetory-support-settings.php:144
-msgid "Verbosity"
-msgstr "Úroveň podrobností"
-
-#: admin/class-wetory-support-settings.php:151
+#: admin/class-wetory-support-settings.php:149
 msgid "Disabled"
 msgstr "Zakázáno"
 
-#: admin/class-wetory-support-settings.php:152
+#: admin/class-wetory-support-settings.php:150
 msgid "Basic"
 msgstr "Základní"
 
-#: admin/class-wetory-support-settings.php:153
+#: admin/class-wetory-support-settings.php:151
 msgid "Detailed"
 msgstr "Podrobný"
 
-#: admin/class-wetory-support-settings.php:155
+#: admin/class-wetory-support-settings.php:153
 msgid ""
 "Debugging is working only if <a href=\"https://wordpress.org/support/article/"
 "debugging-in-wordpress/\" target=\"_blank\">WordPress debugging</a> is "
@@ -108,7 +101,7 @@ msgstr ""
 "\"https://wordpress.org/support/article/debugging-in-wordpress/\" target="
 "\"_blank\">debuggování ve WordPress</a> ."
 
-#: admin/class-wetory-support-settings.php:156
+#: admin/class-wetory-support-settings.php:154
 msgid ""
 "Verbosity level can be changed to control what is written to WordPress debug "
 "log."
@@ -116,11 +109,11 @@ msgstr ""
 "Úroveň podrobností debuggování lze změnit, ovlivníte tím to co je zapisováno "
 "do debug logu ve WordPress."
 
-#: admin/class-wetory-support-settings.php:181
+#: admin/class-wetory-support-settings.php:179
 msgid "Validating plugin settings"
 msgstr "Ověřování nastavení pluginu"
 
-#: admin/class-wetory-support-settings.php:190
+#: admin/class-wetory-support-settings.php:188
 msgid "Value for debugging verbosity is not valid!"
 msgstr "Hodnota pro úroveň podrobností debuggování není platná!"
 
@@ -171,6 +164,7 @@ msgid "Connections"
 msgstr "Propojení"
 
 #: admin/partials/wetory-support-admin-settings.php:47
+#: admin/views/admin-settings-advanced.php:22
 msgid "Advanced"
 msgstr "Pokročilé"
 
@@ -189,21 +183,39 @@ msgid ""
 msgstr ""
 "Wetory Support %s &copy; %s | by <a href=\"%s\" target=\"_blank\">wetory</a>"
 
-#: admin/views/admin-settings-advanced.php:30
+#: admin/views/admin-settings-advanced.php:23
+msgid ""
+"Usually you do not need to touch these settings, but in case there are some "
+"troubles this section can be helpful."
+msgstr ""
+"Obvykle si těchto nastavení nemusíte všímat, ale v případě, že se vyskytnou "
+"nějaké potíže, může být tato sekce užitečná."
+
+#: admin/views/admin-settings-advanced.php:32
 msgid "Reset settings"
 msgstr "Obnovit nastavení"
 
-#: admin/views/admin-settings-advanced.php:32
+#: admin/views/admin-settings-advanced.php:34
 msgid "Delete settings and reset"
 msgstr "Odstranit nastavení a obnovení"
 
-#: admin/views/admin-settings-advanced.php:32
+#: admin/views/admin-settings-advanced.php:34
 msgid "Are you sure you want to delete all your settings?"
 msgstr "Opravdu chcete odstranit všechna nastavení?"
 
-#: admin/views/admin-settings-advanced.php:33
+#: admin/views/admin-settings-advanced.php:35
 msgid "Warning: Resets all your current settings to default."
 msgstr "Upozornění: Obnoví všechna aktuální nastavení na výchozí."
+
+#: admin/views/admin-settings-advanced.php:40
+msgid "Hide admin bar menu"
+msgstr "Skrýt v panelu nástrojů administrace"
+
+#: admin/views/admin-settings-advanced.php:45
+msgid "Plugin settings page available from admin toolbar can be hidden."
+msgstr ""
+"Stránku nastavení pluginu, která je k dispozici na panelu nástrojů "
+"administrace, lze skrýt."
 
 #: admin/views/admin-settings-connections.php:22
 #: includes/controllers/class-wetory-support-apikeys-controller.php:61
@@ -669,7 +681,7 @@ msgstr "Soubor <strong>%s/maintenance.php</strong> vytvořen"
 msgid "File <strong>%s/maintenance.php</strong> deleted"
 msgstr "Soubor <strong>%s/maintenance.php</strong> odstraněn"
 
-#: includes/wetory-support-functions.php:260
+#: includes/wetory-support-functions.php:254
 msgid "Load more"
 msgstr "Načíst další"
 
@@ -1044,6 +1056,12 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Tomáš Rybnický"
 msgstr "Tomáš Rybnický"
+
+#~ msgid "Here you can modify plugin debugging behaviour."
+#~ msgstr "Zde můžete upravit chování debuggování pluginu."
+
+#~ msgid "Verbosity"
+#~ msgstr "Úroveň podrobností"
 
 #~ msgid "Dashboard"
 #~ msgstr "Nástěnka"
