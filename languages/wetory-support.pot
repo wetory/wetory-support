@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Wetory Support\n"
-"POT-Creation-Date: 2022-12-24 12:28+0100\n"
+"POT-Creation-Date: 2022-12-24 13:10+0100\n"
 "PO-Revision-Date: 2020-11-29 17:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -162,19 +162,15 @@ msgstr ""
 msgid "Settings overview"
 msgstr ""
 
-#: admin/partials/wetory-support-admin-settings.php:51
-msgid "Go to documentation page"
+#: admin/partials/wetory-support-admin-settings.php:48
+msgid "Help"
 msgstr ""
 
-#: admin/partials/wetory-support-admin-settings.php:51
-msgid "Documentation"
-msgstr ""
-
-#: admin/partials/wetory-support-admin-settings.php:94
+#: admin/partials/wetory-support-admin-settings.php:96
 msgid "Update Settings"
 msgstr ""
 
-#: admin/partials/wetory-support-admin-settings.php:108
+#: admin/partials/wetory-support-admin-settings.php:110
 #, php-format
 msgid ""
 "Wetory Support %s &copy; %s | by <a href=\"%s\" target=\"_blank\">wetory</a>"
@@ -352,6 +348,35 @@ msgstr ""
 msgid ""
 "Custom maintenance page is by default automatically recreated by WP-Cron "
 "scheduled events."
+msgstr ""
+
+#: admin/views/admin-settings-help.php:23
+msgid "Help links"
+msgstr ""
+
+#: admin/views/admin-settings-help.php:24
+msgid "Use below links to get started or get help and support."
+msgstr ""
+
+#: admin/views/admin-settings-help.php:28
+#: admin/views/admin-settings-help.php:31
+msgid "Documentation"
+msgstr ""
+
+#: admin/views/admin-settings-help.php:29
+msgid "Refer to our documentation to set and get started"
+msgstr ""
+
+#: admin/views/admin-settings-help.php:36
+msgid "Help and Support"
+msgstr ""
+
+#: admin/views/admin-settings-help.php:37
+msgid "We would love to help you on any queries or issues."
+msgstr ""
+
+#: admin/views/admin-settings-help.php:39
+msgid "Contact"
 msgstr ""
 
 #: includes/class-wetory-support-ajax.php:47
@@ -1011,8 +1036,7 @@ msgid "Wetory Support"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-#. Author URI of the plugin/theme
-msgid "https://www.wetory.eu/"
+msgid "https://docs.wetory.eu/wetory-support-plugin/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -1024,4 +1048,8 @@ msgstr ""
 
 #. Author of the plugin/theme
 msgid "Tomáš Rybnický"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.wetory.eu/about-me/"
 msgstr ""

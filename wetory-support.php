@@ -76,9 +76,12 @@ if (!defined('WETORY_LABEL')) {
     define('WETORY_LABEL', '#');
 }
 
-// Documentation URL
-if (!defined('WETORY_SUPPORT_DOCUMENTATION_URL')) {
-    define('WETORY_SUPPORT_DOCUMENTATION_URL', 'https://docs.wetory.eu/wetory-support-plugin/');
+// Usefull URLs
+if (!defined('WETORY_SUPPORT_URL_DOCUMENTATION')) {
+    define('WETORY_SUPPORT_URL_DOCUMENTATION', 'https://docs.wetory.eu/wetory-support-plugin/');
+}
+if (!defined('WETORY_SUPPORT_URL_CONTACT')) {
+    define('WETORY_SUPPORT_URL_CONTACT', 'https://www.wetory.eu/contact/');
 }
 
 /**

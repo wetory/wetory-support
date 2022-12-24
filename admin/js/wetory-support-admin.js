@@ -217,6 +217,7 @@ var wetory_support_notify_msg =
     },
     setNotify: function (el) {
         jQuery('.wetory-support-plugin-notifications').append(el);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         el.stop(true, true).animate({ 'opacity': 1 }, 1000);
         if (el.hasClass('auto-dissmiss')) {
             setTimeout(

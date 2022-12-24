@@ -40,24 +40,26 @@ $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/
     <div class="nav-tab-wrapper wetory-support-nav-tab-wrapper">
         <?php
         $tabs_arr = array(
-            'wetory-support-settings-general' => __('General', 'wetory-support'),
-            'wetory-support-settings-content' => __('Content', 'wetory-support'),
-            'wetory-support-settings-connections' => __('Connections', 'wetory-support'),
-            'wetory-support-settings-advanced' => __('Advanced', 'wetory-support'),
-            'wetory-support-settings-overview' => __('Settings overview', 'wetory-support'),
+            'general' => __('General', 'wetory-support'),
+            'content' => __('Content', 'wetory-support'),
+            'connections' => __('Connections', 'wetory-support'),
+            'advanced' => __('Advanced', 'wetory-support'),
+            'overview' => __('Settings overview', 'wetory-support'),
+            'help' => __('Help', 'wetory-support'),
         );
         Wetory_Support_Settings_Renderer::render_settings_tabs($tabs_arr);
         ?>
-        <a class="nav-tab-link" href="<?php echo WETORY_SUPPORT_DOCUMENTATION_URL; ?>" title="<?php _e('Go to documentation page', 'wetory-support');?>" target="_blank"><?php _e('Documentation', 'wetory-support');?></a>
     </div>
 
     <div id="wetory-support-tab-container" class="wetory-support-tab-container">
         <?php
         $setting_views_a = array(
-            'wetory-support-settings-general' => 'admin-settings-general.php',
-            'wetory-support-settings-content' => 'admin-settings-content.php',
-            'wetory-support-settings-connections' => 'admin-settings-connections.php',
-            'wetory-support-settings-advanced' => 'admin-settings-advanced.php',
+            'general' => 'admin-settings-general.php',
+            'content' => 'admin-settings-content.php',
+            'connections' => 'admin-settings-connections.php',
+            'advanced' => 'admin-settings-advanced.php',
+            'overview' => 'admin-settings-overview.php',
+            'help' => 'admin-settings-help.php',
         );
         $setting_views_b = array(
             'wetory-support-settings-overview' => 'admin-settings-overview.php',

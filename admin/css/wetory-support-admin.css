@@ -262,6 +262,16 @@ a.reload-page {
 #wp-admin-bar-wetory-support-settings a.ab-item img:hover {
     opacity: 1;
 }
+.wetory-support-help-links li {
+    float: left;
+    padding: 40px;
+    margin: 20px;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 1px 1px 5px 1px rgb(0 0 0 / 10%);
+    width: 185px;
+    height: 245px;
+}
 
 /* Buttons */
 .button-secondary.danger,
