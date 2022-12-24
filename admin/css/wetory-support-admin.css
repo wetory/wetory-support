@@ -101,10 +101,6 @@ table.groupped-values td.group {
     color: #CCC;
 }
 
-table.groupped-values tr.group td {
-    border-top: 1px solid #ccd0d4;
-}
-
 table.wetory-settings-table {
     margin: 20px 0px;
 }
@@ -150,6 +146,18 @@ table.wetory-settings-table .col-select {
 table.wetory-settings-table td.col-select select {
     min-width: 50%;
     max-width: 50%;
+}
+table.widefat.groupped-values tbody tr:hover > td {
+    background-color: #ffffe6;
+    color: #000;
+}
+table.widefat thead tr th {
+    font-weight: 600;
+    background: #dcdcde;
+    color: #50575e;
+}
+table.no-border {
+    border: none !important;
 }
 
 /* Tab Navigation */
