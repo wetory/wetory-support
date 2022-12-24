@@ -113,7 +113,7 @@ if (!function_exists('wetory_write_log')) {
      * @param mixed $log What you want o write to log
      * @param string $severity You can write to log with severity. It is show at the beginning on log message. By default "info".
      */
-    function wetory_write_log($log, $severity = 'info')
+    function wetory_write_log($log, $severity = Wetory_Support_Debugger::SeverityInfo)
     {
         Wetory_Support_Debugger::write_log($log, $severity);
     }
@@ -154,7 +154,7 @@ if (!function_exists('wetory_maintenance_page')) {
         $maintenance_template = WETORY_SUPPORT_PATH . 'public/partials/wetory-support-maintenance.php';
 
         if ($action == 'create' && !file_exists(WP_CONTENT_DIR . '/maintenance.php')) {
-            wetory_write_log("Creating custom maintenance page " . $maintenance_page . " using template " . $maintenance_template, 'info');
+            wetory_write_log("Creating custom maintenance page " . $maintenance_page . " using template " . $maintenance_template);
 
             // Modify headers via PHP
             $maintenance_page_php = '<?php ' . PHP_EOL
@@ -175,7 +175,7 @@ if (!function_exists('wetory_maintenance_page')) {
             file_put_contents($maintenance_page, '<?php die();', FILE_APPEND);
         }
         if ($action == 'delete' && file_exists($maintenance_page)) {
-            wetory_write_log("Deleting custom maintenance page " . $maintenance_page, 'info');
+            wetory_write_log("Deleting custom maintenance page " . $maintenance_page);
             unlink($maintenance_page);
         }
     }

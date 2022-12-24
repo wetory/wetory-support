@@ -141,7 +141,7 @@ class Wetory_Support_Loader {
             $src = substr_replace($src ,'.js',-strlen('.min.js'));
         } 
         $message .= ' from ' . $src;
-        wetory_write_log($message, 'info');
+        wetory_write_log($message);
         wp_enqueue_script($handle, $src = '', $deps, $ver, $in_footer);
     }
 
@@ -172,7 +172,7 @@ class Wetory_Support_Loader {
             $src = substr_replace($src ,'.css',-strlen('.min.css'));
         }
         $message .= ' from ' . $src;
-        wetory_write_log($message, 'info');
+        wetory_write_log($message);
         wp_enqueue_style($handle, $src, $deps, $ver, $media);
     }
 

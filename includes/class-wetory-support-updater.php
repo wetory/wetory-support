@@ -25,9 +25,9 @@ class Wetory_Support_Updater {
 
     /**
      * Plugin slug
-     * @var type 
+     * @var string 
      */
-    private $slug;
+    private string $slug;
 
     /**
      * Plugin data
@@ -96,7 +96,7 @@ class Wetory_Support_Updater {
         $this->repo = $github_repo;
         $this->access_token = $access_token;
 
-        //wetory_write_log("Register new updater for " . $github_repo, 'info');
+        wetory_write_log("Register new updater for " . $github_repo);
     }
 
     /**
@@ -106,7 +106,7 @@ class Wetory_Support_Updater {
      */
     private function init_plugin_data() {
 
-        //wetory_write_log("Initializing updater plugin data for " . $this->repo, 'info');
+        wetory_write_log("Initializing updater plugin data for " . $this->repo);
 
         $this->slug = plugin_basename($this->plugin_file);
         $this->plugin_data = get_plugin_data($this->plugin_file);
@@ -127,7 +127,8 @@ class Wetory_Support_Updater {
         // Query the GitHub API. 
         $url = "https://api.github.com/repos/{$this->username}/{$this->repo}/releases";
 
-        // wetory_write_log("Going to download plugin " . $this->repo . " releases from " . $url, 'info');
+        wetory_write_log("Going to download plugin " . $this->repo . " releases from " . $url);
+        
         // We need the access token for private repos
         if (!empty($this->access_token)) {
             $response = wp_remote_get($url, array('headers' => array('Authorization' => 'token ' . $this->access_token)));
@@ -139,7 +140,7 @@ class Wetory_Support_Updater {
         $this->github_API_result = wp_remote_retrieve_body($response);
         if (!empty($this->github_API_result)) {
 
-            // wetory_write_log("Plugin releases downloaded for " . $this->repo, 'info');
+            wetory_write_log("Plugin releases downloaded for " . $this->repo);
 
             $this->github_API_result = @json_decode($this->github_API_result);
         }
@@ -150,7 +151,7 @@ class Wetory_Support_Updater {
         }
 
         // Uncomment this to get detailed JSON with all data retrievede from GitHub API
-        //wetory_write_log($this->github_API_result, 'info');
+        // wetory_write_log($this->github_API_result);
     }
 
     /**
@@ -171,8 +172,8 @@ class Wetory_Support_Updater {
         $this->init_plugin_data();
         $this->get_repo_release_info();
 
-        // wetory_write_log("Latest release version - " . $this->repo . ": " . $this->github_API_result->tag_name, 'info');
-        // wetory_write_log("Installed version - " . $this->repo . ": " . $transient->checked[$this->slug], 'info');
+        wetory_write_log("Latest release version - " . $this->repo . ": " . $this->github_API_result->tag_name);
+        wetory_write_log("Installed version - " . $this->repo . ": " . $transient->checked[$this->slug]);
         // Check the versions if we need to do an update
         $do_update = version_compare($this->github_API_result->tag_name, $transient->checked[$this->slug]);
 
@@ -211,7 +212,7 @@ class Wetory_Support_Updater {
         $this->init_plugin_data();
         $this->get_repo_release_info($all = true);
 
-        wetory_write_log($this->github_API_result, 'info');
+        wetory_write_log($this->github_API_result);
 
         // If nothing is found, do nothing
         if (empty($response->slug) || $response->slug != $this->slug) {
@@ -350,12 +351,16 @@ class Wetory_Support_Updater {
      * @since 1.1.0
      */
     public function post_install_tasks(){
+        wetory_var_dump(sprintf(__('Running post-update actions for version %s','wetory-support'), $this->update_version));
         switch ($this->update_version) {
             case '1.1.0':
                 delete_option('wetory-support-admin_notice_message');
                 delete_option('wetory-support-libraries');
                 break;
-
+            case '1.2.1':
+                delete_option('wetory-support-admin_notice_message');
+                delete_option('wetory-support-libraries');
+                break;
             default:
                 break;
         }

@@ -113,7 +113,7 @@ if (!function_exists('wetory_recreate_maintenance_page')) {
         }
 
         // Otherwise rebuild cutom maintenance page
-        wetory_write_log('Recreating custom maintenance page', 'info');
+        wetory_write_log('Recreating custom maintenance page');
         if(function_exists('wetory_maintenance_page') && is_plugin_active('wetory-support/wetory-support.php')){
             wetory_maintenance_page('delete');
             wetory_maintenance_page('create');

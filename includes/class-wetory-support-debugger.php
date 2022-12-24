@@ -16,12 +16,14 @@ use Wetory_Support_Options as Options;
 
 abstract class Wetory_Support_Debugger
 {
-    /**
-     * Constants that has function as kind of enums 
-     */
+    // Verbosity level controls what is written to debug.log
     const VerbosityLevelDisabled = 'disabled';
     const VerbosityLevelBasic = 'basic';
     const VerbosityLevelDetailed = 'detailed';
+    // Severity for log messages
+    const SeverityInfo = 'info';
+    const SeverityWarning = 'warning';
+    const SeverityError = 'error';
 
     /**
      * Helper function to get verbosity levels from class constants
@@ -57,7 +59,7 @@ abstract class Wetory_Support_Debugger
      * 
      * @see https://www.php.net/manual/en/function.error-log.php
      */
-    public static function write_log($log, $severity = 'info'){
+    public static function write_log($log, $severity = self::SeverityInfo){
         // Get debugging verbosity settings
         $verbosity_setting = Options::get_settings_value(array(
             'option_section'   => 'debugging',
@@ -90,11 +92,11 @@ abstract class Wetory_Support_Debugger
      */
     public static function convert_severity_to_verbosity(string $severity){
         switch($severity) {
-            case 'info':
-            case 'warning': 
+            case self::SeverityInfo:
+            case self::SeverityWarning: 
                 $verbosity = self::VerbosityLevelDetailed;
                 break;
-            case 'error': 
+            case self::SeverityError: 
                 $verbosity = self::VerbosityLevelBasic;
                 break;
             default:

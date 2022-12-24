@@ -44,7 +44,7 @@ if (!class_exists('Wetory_Support_Ajax')) {
          */
         public function handle_wetory_support_ajax_update_settings()
         {
-            wetory_write_log(__('Updating plugin settings', 'wetory-support'), 'info');
+            wetory_write_log(__('Updating plugin settings', 'wetory-support'));
             check_admin_referer('wetory-support-update-' . WETORY_SUPPORT_SETTINGS_OPTION);
 
             try {
@@ -65,7 +65,7 @@ if (!class_exists('Wetory_Support_Ajax')) {
         }
 
         public function handle_wetory_support_ajax_reset_settings(){
-            wetory_write_log(__('Resetting plugin settings', 'wetory-support'), 'info');
+            wetory_write_log(__('Resetting plugin settings', 'wetory-support'));
             check_admin_referer('wetory-support-update-' . WETORY_SUPPORT_SETTINGS_OPTION);
             
             try {
