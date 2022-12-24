@@ -244,7 +244,7 @@ if (!class_exists('Wetory_Support_Template_Loader')) {
             }
 
             if ($load && !$located) {
-                wetory_write_log('Unable to find  template file: ' . implode(',', $template_names), 'error');
+                wetory_write_log('Unable to find  template file: ' . implode(',', $template_names), Wetory_Support_Debugger::SeverityError);
             }
 
             return $located;
