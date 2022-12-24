@@ -158,26 +158,13 @@ class Wetory_Support_Admin
      * Add options page to admin area
      * 
      * @since    1.2.1
+     * 
+     * @see https://developer.wordpress.org/reference/functions/add_menu_page/
+     * @see https://developer.wordpress.org/reference/functions/add_submenu_page/
      */
     public function admin_menu()
     {
-        global $submenu;
-
-        // https://developer.wordpress.org/reference/functions/add_menu_page/
         // add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
-        /* 
-        add_menu_page(
-            __('Settings - Wetory', 'wetory-support'),
-            __('Wetory', 'wetory-support'),
-            'administrator',
-            $this->links['settings']['slug'],
-            array($this, 'admin_settings_page'),
-            WETORY_SUPPORT_URL . 'images/dashicon-style-icon.png',
-            999
-        );
-        */
-
-        // https://developer.wordpress.org/reference/functions/add_submenu_page/
         // add_submenu_page( '$parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function );
         add_submenu_page(
             'options-general.php',
@@ -187,6 +174,39 @@ class Wetory_Support_Admin
             $this->links['settings']['slug'],
             array($this, 'admin_settings_page')
         );
+    }
+
+    public function admin_bar_menu(WP_Admin_Bar $wp_admin_bar)
+    {
+        if (!is_admin()) {
+            return;
+        }
+
+        if (!current_user_can('manage_options')) {
+            return;
+        }
+
+        // Get settings value
+        $hide_admin_bar_menu = Wetory_Support_Options::get_settings_value(array(
+            'option_section' => 'plugin',
+            'name' => 'hide-admin-bar-menu',
+        ));
+
+        // Do not add anything if hidden
+        if (isset($hide_admin_bar_menu)) {
+            return;
+        }
+
+        $wp_admin_bar->add_menu(array(
+            'id'    => 'wetory-support-settings',
+            'parent' => null,
+            'group'  => null,
+            'title' => '<img src="' . WETORY_SUPPORT_URL . 'images/dashicon-style-icon.png' . '"/>',
+            'href'  => admin_url('options-general.php?page=' . $this->links['settings']['slug']),
+            'meta' => [
+                'title' => __('Settings - Wetory', 'wetory-support'),
+            ]
+        ));
     }
 
     /**

@@ -171,7 +171,6 @@ class Wetory_Support_Settings_Renderer
 
         // Get value
         $option_value = Options::get_settings_value($args, null);
-        // $option_value = null;
 
         // We can enable debigguing to view what comes into function
         if (isset($args['debug']) && $args['debug']) {

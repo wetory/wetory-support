@@ -243,6 +243,14 @@ a.reload-page {
     cursor: pointer;
     text-decoration: underline;
 }
+#wp-admin-bar-wetory-support-settings a.ab-item img {
+    vertical-align: middle;
+    opacity: 0.5;
+}
+#wp-admin-bar-wetory-support-settings a.ab-item img:hover {
+    opacity: 1;
+}
+
 /* Buttons */
 .button-secondary.danger,
 .button-secondary.danger:hover {

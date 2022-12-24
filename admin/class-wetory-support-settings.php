@@ -135,13 +135,11 @@ class Wetory_Support_Settings
         $section_name = 'debugging';
 
         $section = array(
-            'title' => __('Debugging', 'wetory-support'),
-            'description' => __('Here you can modify plugin debugging behaviour.', 'wetory-support'),
             'settings_fields' => array()
         );
 
         $field = array(
-            'label' => __('Verbosity', 'wetory-support'),
+            'label' => __('Debugging verbosity', 'wetory-support'),
             'type' => 'select',
             'option_section' => $section_name,
             'id' => 'verbosity',
@@ -244,8 +242,7 @@ class Wetory_Support_Settings
         $deafult_settings = array(
             'debugging' => array(
                 'verbosity' => 'basic',
-            )
-
+            ),
         );
 
         $settings = wp_parse_args($settings, $deafult_settings);
