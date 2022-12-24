@@ -19,6 +19,8 @@ if (!defined('WPINC')) {
 // Set up some useful variables
 $wetory_support_images_path = WETORY_SUPPORT_URL . 'images/';
 $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/views/';
+
+Wetory_Support_Updater::migrate_options_121();
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
@@ -26,15 +28,14 @@ $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/
 
     <h1 class="wp-heading-inline"><?php _e('Settings', 'wetory-support') ?></h1>
 
-    <!--NEED THE settings_errors below so that the errors/success messages are shown after submission - wasn't working once we started using add_menu_page and stopped using add_options_page so needed this-->
-    <?php settings_errors(); ?>
-
-
     <div class="wetory-support-plugin-header">
         <p>
             <?php _e('Here you can modify plugin behavior. You can select what parts you want to use. Everything is disabled by default to prevent unnecesary loads.', 'wetory-support'); ?>
         </p>        
     </div>
+
+    <!--NEED THE settings_errors below so that the errors/success messages are shown after submission - wasn't working once we started using add_menu_page and stopped using add_options_page so needed this-->
+    <?php settings_errors(); ?>
 
     <div class="wetory-support-plugin-notifications"></div>
 

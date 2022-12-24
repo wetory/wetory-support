@@ -352,18 +352,73 @@ class Wetory_Support_Updater {
      */
     public function post_install_tasks(){
         wetory_var_dump(sprintf(__('Running post-update actions for version %s','wetory-support'), $this->update_version));
-        switch ($this->update_version) {
-            case '1.1.0':
+        $update_version_int = (int)str_replace('.', '', $this->update_version);
+        $current_version_int = (int)str_replace('.', '', WETORY_SUPPORT_VERSION);
+        switch (true) {
+            case ($update_version_int == 110):
                 delete_option('wetory-support-admin_notice_message');
                 delete_option('wetory-support-libraries');
                 break;
-            case '1.2.1':
-                delete_option('wetory-support-admin_notice_message');
-                delete_option('wetory-support-libraries');
-                break;
+            case ($current_version_int < 121 && $update_version_int >= 121):
+                self::migrate_options_121();
             default:
                 break;
         }
+    }
+
+    /**
+     * Special function for migrating options when doing plugin 
+     * update to version greater than 1.2.0
+     * 
+     * This is important to keep options that were stored for website
+     * before update as way of storing settings has been changed in
+     * plugin version 1.2.1
+     * 
+     * @since 1.2.1
+     *
+     * @return void
+     */
+    public static function migrate_options_121(){
+        // Get "old way" options data
+        $option_apikeys = get_option('wetory-support-apikeys');
+        $option_cpt = get_option('wetory-support-cpt');
+        $option_shortcodes = get_option('wetory-support-shortcodes');
+        $option_widgets = get_option('wetory-support-widgets');
+
+        // Get "new way" options data
+        $plugin_settings = Wetory_Support_Options::get_settings_option();
+
+        // Apply "old way" to "new way"
+        if (isset($option_apikeys) && !empty($option_apikeys)) {
+            $plugin_settings[WETORY_SUPPORT_SETTINGS_APIKEYS_SECTION] = $option_apikeys;
+        }
+        if (isset($option_cpt) && !empty($option_cpt)) {
+            $plugin_settings[WETORY_SUPPORT_SETTINGS_CPT_SECTION] = $option_cpt;
+        }
+        if (isset($option_shortcodes) && !empty($option_shortcodes)) {
+            $plugin_settings[WETORY_SUPPORT_SETTINGS_SHORTCODES_SECTION] = $option_shortcodes;
+        }
+        if (isset($option_widgets) && !empty($option_widgets)) {
+            $plugin_settings[WETORY_SUPPORT_SETTINGS_WIDGETS_SECTION] = $option_widgets;
+        }     
+
+        // Validate "new way" options data
+        $plugin_settings = apply_filters('wetory_settings_validate', $plugin_settings);
+        if (is_wp_error($plugin_settings)) {            
+            wp_die($plugin_settings);
+        }
+
+        // Update "new way" options data in database
+        update_option(WETORY_SUPPORT_SETTINGS_OPTION, $plugin_settings);
+
+        // Delete "old way" options data from database
+        delete_option('wetory-support-apikeys');
+        delete_option('wetory-support-cpt');
+        delete_option('wetory-support-shortcodes');
+        delete_option('wetory-support-widgets');
+        delete_option('wetory-support-general');
+
+        Wetory_Support_Admin_Notices::info(__('Wetory Support - Plugin settings options migrated for version 1.2.1', 'wetory-support'), true);
     }
 
 }

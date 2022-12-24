@@ -56,7 +56,7 @@ if (!class_exists('Wetory_Support_Ajax')) {
                 }
 
                 // Save settings to database
-                $updated = update_option(WETORY_SUPPORT_SETTINGS_OPTION, $options);
+                update_option(WETORY_SUPPORT_SETTINGS_OPTION, $options);
                 wp_send_json_success(esc_html__('Settings updated successfully', 'wetory-support'));
             } catch (Exception $e) {
                 wp_send_json_error($e->getMessage(), $e->getCode());
