@@ -220,7 +220,7 @@ class Wetory_Support_Settings
 
         // Debugging section
         if(isset($settings['debugging']['verbosity']) && !empty($settings['debugging']['verbosity'])){
-            $settings['debugging']['verbosity'] = Sanitizer::sanitize_select($settings['debugging']['verbosity'], array('disabled', 'basic', 'detailed'));
+            $settings['debugging']['verbosity'] = Sanitizer::sanitize_select($settings['debugging']['verbosity'], Wetory_Support_Debugger::get_verbosity_levels());
         }
 
         return $settings;
@@ -243,7 +243,7 @@ class Wetory_Support_Settings
     {
         $deafult_settings = array(
             'debugging' => array(
-                'verbosity' => 'disabled',
+                'verbosity' => 'basic',
             )
 
         );

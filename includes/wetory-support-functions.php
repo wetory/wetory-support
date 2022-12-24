@@ -111,17 +111,11 @@ if (!function_exists('wetory_write_log')) {
      * 
      * @since      1.0.0
      * @param mixed $log What you want o write to log
-     * @param string $severity You can write to log with severity. It is show at the beginning on log message. By default "issue".
+     * @param string $severity You can write to log with severity. It is show at the beginning on log message. By default "info".
      */
-    function wetory_write_log($log, $severity = 'issue')
+    function wetory_write_log($log, $severity = 'info')
     {
-        $prepend = 'Wetory ' . ucwords($severity) . ": ";
-        if (is_array($log) || is_object($log)) {
-            error_log($prepend);
-            error_log(print_r($log, true));
-        } else {
-            error_log($prepend . $log);
-        }
+        Wetory_Support_Debugger::write_log($log, $severity);
     }
 }
 
