@@ -80,7 +80,7 @@ class Wetory_Support_Settings
         if (isset($this->sections[$name])) {
             return $this->sections[$name];
         } else {
-            throw new \Exception(__('Given settings section "' . $name . '" not found!', 'wetory-support'));
+            throw new Exception(sprintf(__('Given settings section "%s" not found!', 'wetory-support'), $name));
         }
     }
 
