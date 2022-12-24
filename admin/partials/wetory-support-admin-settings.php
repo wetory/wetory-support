@@ -19,8 +19,6 @@ if (!defined('WPINC')) {
 // Set up some useful variables
 $wetory_support_images_path = WETORY_SUPPORT_URL . 'images/';
 $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/views/';
-
-Wetory_Support_Updater::migrate_options_121();
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
@@ -46,10 +44,11 @@ Wetory_Support_Updater::migrate_options_121();
             'wetory-support-settings-content' => __('Content', 'wetory-support'),
             'wetory-support-settings-connections' => __('Connections', 'wetory-support'),
             'wetory-support-settings-advanced' => __('Advanced', 'wetory-support'),
-            'wetory-support-settings-overview' => __('Settings overview', 'wetory-support')
+            'wetory-support-settings-overview' => __('Settings overview', 'wetory-support'),
         );
         Wetory_Support_Settings_Renderer::render_settings_tabs($tabs_arr);
         ?>
+        <a class="nav-tab-link" href="<?php echo WETORY_SUPPORT_DOCUMENTATION_URL; ?>" title="<?php _e('Go to documentation page', 'wetory-support');?>" target="_blank"><?php _e('Documentation', 'wetory-support');?></a>
     </div>
 
     <div id="wetory-support-tab-container" class="wetory-support-tab-container">

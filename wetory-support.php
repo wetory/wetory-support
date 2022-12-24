@@ -8,16 +8,16 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://www.wetory.eu/
+ * @link              https://docs.wetory.eu/wetory-support-plugin/
  * @package           wetory_support
  *
  * @wordpress-plugin
  * Plugin Name:       Wetory Support
- * Plugin URI:        https://www.wetory.eu/
+ * Plugin URI:        https://docs.wetory.eu/wetory-support-plugin/
  * Description:       Contains some basics for website projects, that improve usability and development. Brings new reusable elements to WordPress. Prerequisite for other Wetory plugins. More info on plugin's website.
  * Version:           1.1.0.3
  * Author:            Tomáš Rybnický
- * Author URI:        https://www.wetory.eu/
+ * Author URI:        https://www.wetory.eu/about-me/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wetory-support
@@ -28,9 +28,7 @@ if (!defined('WPINC')) {
     die;
 }
 
-/**
- * Define some reusable path constants
- */
+// Define some reusable path constants
 if (!defined('WETORY_SUPPORT_FILE')) {
     define('WETORY_SUPPORT_FILE', __FILE__);
 }
@@ -43,9 +41,8 @@ if (!defined('WETORY_SUPPORT_PATH')) {
 if (!defined('WETORY_SUPPORT_URL')) {
     define('WETORY_SUPPORT_URL', plugin_dir_url(WETORY_SUPPORT_FILE));
 }
-/**
- * Define some reusable settings constants
- */
+
+// Define some reusable settings constants
 if (!defined('WETORY_SUPPORT_SETTINGS_OPTION')) {
     define('WETORY_SUPPORT_SETTINGS_OPTION', 'wetory-support-settings');
 }
@@ -74,11 +71,14 @@ if (!defined('WETORY_SUPPORT_VERSION')) {
     define('WETORY_SUPPORT_VERSION', '1.1.1');
 }
 
-/**
- * Label can be used in several places
- */
+// Label can be used in several places
 if (!defined('WETORY_LABEL')) {
     define('WETORY_LABEL', '#');
+}
+
+// Documentation URL
+if (!defined('WETORY_SUPPORT_DOCUMENTATION_URL')) {
+    define('WETORY_SUPPORT_DOCUMENTATION_URL', 'https://docs.wetory.eu/wetory-support-plugin/');
 }
 
 /**

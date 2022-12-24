@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2022-12-24 04:52+0100\n"
-"PO-Revision-Date: 2022-12-24 04:52+0100\n"
+"POT-Creation-Date: 2022-12-24 12:28+0100\n"
+"PO-Revision-Date: 2022-12-24 12:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: admin/class-wetory-support-admin.php:153
 #: admin/partials/wetory-support-admin-display.php:19
 #: admin/partials/wetory-support-admin-display.php:59
-#: admin/partials/wetory-support-admin-settings.php:29
+#: admin/partials/wetory-support-admin-settings.php:27
 msgid "Settings"
 msgstr "Nastavení"
 
@@ -141,7 +141,7 @@ msgstr "Podklíč"
 msgid "Value"
 msgstr "Hodnota"
 
-#: admin/partials/wetory-support-admin-settings.php:33
+#: admin/partials/wetory-support-admin-settings.php:31
 msgid ""
 "Here you can modify plugin behavior. You can select what parts you want to "
 "use. Everything is disabled by default to prevent unnecesary loads."
@@ -150,33 +150,41 @@ msgstr ""
 "použít. Vše je ve výchozím nastavení zakázáno, aby se zabránilo zbytečnému "
 "zatížení."
 
-#: admin/partials/wetory-support-admin-settings.php:45
+#: admin/partials/wetory-support-admin-settings.php:43
 #: admin/views/admin-settings-general.php:20
 msgid "General"
 msgstr "Obecné"
 
-#: admin/partials/wetory-support-admin-settings.php:46
+#: admin/partials/wetory-support-admin-settings.php:44
 msgid "Content"
 msgstr "Obsah"
 
-#: admin/partials/wetory-support-admin-settings.php:47
+#: admin/partials/wetory-support-admin-settings.php:45
 msgid "Connections"
 msgstr "Propojení"
 
-#: admin/partials/wetory-support-admin-settings.php:48
+#: admin/partials/wetory-support-admin-settings.php:46
 #: admin/views/admin-settings-advanced.php:22
 msgid "Advanced"
 msgstr "Pokročilé"
 
-#: admin/partials/wetory-support-admin-settings.php:49
+#: admin/partials/wetory-support-admin-settings.php:47
 msgid "Settings overview"
 msgstr "Přehled nastavení"
 
-#: admin/partials/wetory-support-admin-settings.php:95
+#: admin/partials/wetory-support-admin-settings.php:51
+msgid "Go to documentation page"
+msgstr "Přejít na stránku dokumentace"
+
+#: admin/partials/wetory-support-admin-settings.php:51
+msgid "Documentation"
+msgstr "Dokumentace"
+
+#: admin/partials/wetory-support-admin-settings.php:94
 msgid "Update Settings"
 msgstr "Aktualizovat nastavení"
 
-#: admin/partials/wetory-support-admin-settings.php:109
+#: admin/partials/wetory-support-admin-settings.php:108
 #, php-format
 msgid ""
 "Wetory Support %s &copy; %s | by <a href=\"%s\" target=\"_blank\">wetory</a>"
@@ -197,7 +205,7 @@ msgstr "Obnovit nastavení"
 
 #: admin/views/admin-settings-advanced.php:34
 msgid "Delete settings and reset"
-msgstr "Odstranit nastavení a obnovení"
+msgstr "Odstranit nastavení a obnovit výchozí"
 
 #: admin/views/admin-settings-advanced.php:34
 msgid "Are you sure you want to delete all your settings?"

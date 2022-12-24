@@ -169,6 +169,15 @@ table.wetory-settings-table td.col-select select {
     background: #fff;
     border-bottom: solid 1px #fff;
 }
+.wetory-support-nav-tab-wrapper .nav-tab-link {
+    float: right;
+    margin-left: 0.5em;
+    padding: 5px 10px;
+    font-size: 14px;
+    line-height: 1.71428571;
+    font-weight: 600;
+    white-space: nowrap;
+}
 
 .wetory-support-tab-content {
     display: none;

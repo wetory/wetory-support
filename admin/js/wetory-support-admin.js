@@ -64,7 +64,7 @@
             });
         });
 
-        
+
 
         // Navigation tabs in settings page
         var ws_nav_tab = $('.wetory-support-nav-tab-wrapper .nav-tab');
@@ -125,33 +125,33 @@
                         url: ajaxurl,
                         type: 'post',
                         data: data + '&action=' + submit_action,
-                        beforeSend: function () {                            
+                        beforeSend: function () {
                             spinner.css({ 'visibility': 'visible' });
                             submit_btn.css({ 'opacity': '.5', 'cursor': 'default' }).prop('disabled', true);
                         },
-                        success: function (response) {      
+                        success: function (response) {
                             wetory_support_notify_msg.success(response.data);
                             if (submit_action == 'wetory_support_ajax_reset_settings') {
                                 setTimeout(
-                                    function(){
-                                        window.location.reload( true );
+                                    function () {
+                                        window.location.reload(true);
                                     },
                                     1000
                                 );
-                            }                                                  
+                            }
                         },
-                        error: function (xhr, status, error) {    
-                            if(xhr.responseJSON && xhr.responseJSON.data) {
-                                if(Array.isArray(xhr.responseJSON.data) && xhr.responseJSON.data.length){
+                        error: function (xhr, status, error) {
+                            if (xhr.responseJSON && xhr.responseJSON.data) {
+                                if (Array.isArray(xhr.responseJSON.data) && xhr.responseJSON.data.length) {
                                     xhr.responseJSON.data.forEach((error, i, arr) => {
                                         wetory_support_notify_msg.error(error.message);
                                     })
                                 } else {
                                     wetory_support_notify_msg.error(xhr.responseJSON.data);
-                                }                                
+                                }
                             } else {
                                 wetory_support_notify_msg.error(xhr.responseText);
-                            }                            
+                            }
                         },
                         complete: function () {
                             spinner.css({ 'visibility': 'hidden' });
@@ -162,24 +162,24 @@
             }
         );
 
-       
+
     });
 
 })(jQuery);
 
- // Set proper action to be handled after clicking submit button
- function wetory_support_settings_btn_click(vl) {
+// Set proper action to be handled after clicking submit button
+function wetory_support_settings_btn_click(vl) {
     document.getElementById('wetory_support_submit_action').value = vl;
 }
 
 // Reload browser page
-function refresh_page(e){
+function refresh_page(e) {
     e.preventDefault();
     window.location.reload();
-} 
+}
 
 // Dismiss admin area notifications
-function wetory_support_dismiss_notice_btn_click(el){
+function wetory_support_dismiss_notice_btn_click(el) {
     el.parent().remove();
 }
 
@@ -216,8 +216,8 @@ var wetory_support_notify_msg =
         this.setNotify(el);
     },
     setNotify: function (el) {
-        jQuery('.wetory-support-plugin-notifications').append(el); 
-        el.stop(true, true).animate({ 'opacity': 1}, 1000);
+        jQuery('.wetory-support-plugin-notifications').append(el);
+        el.stop(true, true).animate({ 'opacity': 1 }, 1000);
         if (el.hasClass('auto-dissmiss')) {
             setTimeout(
                 function () {
@@ -232,6 +232,6 @@ var wetory_support_notify_msg =
                 3000
             );
         }
-        
+
     }
 }
