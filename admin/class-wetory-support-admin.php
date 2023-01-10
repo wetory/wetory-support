@@ -216,7 +216,7 @@ class Wetory_Support_Admin
             wp_die(esc_html__('You do not have sufficient permission to perform this operation', 'wetory-support'));
         }
 
-        // $plugin_settings = Options::get_settings_option();
+        $plugin_settings = Options::get_settings_option();
 
         require_once plugin_dir_path(__FILE__) . 'partials/wetory-support-admin-settings.php';
     }
