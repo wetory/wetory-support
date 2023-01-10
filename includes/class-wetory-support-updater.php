@@ -96,7 +96,7 @@ class Wetory_Support_Updater {
         $this->repo = $github_repo;
         $this->access_token = $access_token;
 
-        wetory_write_log(sprintf(__('Custom updater registered for GitHub repository %s','wetory-support'), $github_repo));
+        wetory_write_log("Register new updater for " . $github_repo);
     }
 
     /**
@@ -106,7 +106,7 @@ class Wetory_Support_Updater {
      */
     private function init_plugin_data() {
 
-        wetory_write_log(sprintf(__('Initializing custom updater data for GitHub repository %s','wetory-support'), $this->repo));
+        wetory_write_log("Initializing updater plugin data for " . $this->repo);
 
         $this->slug = plugin_basename($this->plugin_file);
         $this->plugin_data = get_plugin_data($this->plugin_file);
@@ -127,7 +127,7 @@ class Wetory_Support_Updater {
         // Query the GitHub API. 
         $url = "https://api.github.com/repos/{$this->username}/{$this->repo}/releases";
 
-        wetory_write_log(sprintf(__('Going to download plugin %s releases from %s','wetory-support'), $this->repo, $url));
+        wetory_write_log("Going to download plugin " . $this->repo . " releases from " . $url);
         
         // We need the access token for private repos
         if (!empty($this->access_token)) {
@@ -140,7 +140,7 @@ class Wetory_Support_Updater {
         $this->github_API_result = wp_remote_retrieve_body($response);
         if (!empty($this->github_API_result)) {
 
-            wetory_write_log(sprintf(__('Plugin releases info downloaded for %s','wetory-support'), $this->repo));
+            wetory_write_log("Plugin releases downloaded for " . $this->repo);
 
             $this->github_API_result = @json_decode($this->github_API_result);
         }
@@ -150,7 +150,8 @@ class Wetory_Support_Updater {
             $this->github_API_result = $this->github_API_result[0];
         }
 
-        wetory_write_log($this->github_API_result);
+        // Uncomment this to get detailed JSON with all data retrievede from GitHub API
+        // wetory_write_log($this->github_API_result);
     }
 
     /**
@@ -171,9 +172,8 @@ class Wetory_Support_Updater {
         $this->init_plugin_data();
         $this->get_repo_release_info();
 
-        wetory_write_log(sprintf(__('Latest release version - %s : %s','wetory-support'), $this->repo, $this->github_API_result->tag_name));
-        wetory_write_log(sprintf(__('Installed version - %s : %s','wetory-support'), $this->repo, $transient->checked[$this->slug]));
-
+        wetory_write_log("Latest release version - " . $this->repo . ": " . $this->github_API_result->tag_name);
+        wetory_write_log("Installed version - " . $this->repo . ": " . $transient->checked[$this->slug]);
         // Check the versions if we need to do an update
         $do_update = version_compare($this->github_API_result->tag_name, $transient->checked[$this->slug]);
 
@@ -351,7 +351,7 @@ class Wetory_Support_Updater {
      * @since 1.1.0
      */
     public function post_install_tasks(){
-        wetory_write_log(sprintf(__('Running post-update actions for version %s','wetory-support'), $this->update_version));
+        wetory_var_dump(sprintf(__('Running post-update actions for version %s','wetory-support'), $this->update_version));
         $update_version_int = (int)str_replace('.', '', $this->update_version);
         $current_version_int = (int)str_replace('.', '', WETORY_SUPPORT_VERSION);
         switch (true) {
