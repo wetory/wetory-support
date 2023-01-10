@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Wetory Support\n"
-"POT-Creation-Date: 2023-01-10 21:46+0100\n"
+"POT-Creation-Date: 2023-01-11 00:29+0100\n"
 "PO-Revision-Date: 2020-11-29 17:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -110,10 +110,6 @@ msgstr ""
 msgid "Value for debugging verbosity is not valid!"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:214
-msgid "Sanitizing plugin settings"
-msgstr ""
-
 #: admin/partials/wetory-support-admin-display.php:18
 msgid "Wetory Dashboard"
 msgstr ""
@@ -127,7 +123,7 @@ msgid "Option"
 msgstr ""
 
 #: admin/partials/wetory-support-admin-display.php:28
-#: admin/views/admin-settings-overview.php:29
+#: admin/views/admin-settings-overview.php:33
 msgid "Key"
 msgstr ""
 
@@ -136,7 +132,7 @@ msgid "Subkey"
 msgstr ""
 
 #: admin/partials/wetory-support-admin-display.php:30
-#: admin/views/admin-settings-overview.php:31
+#: admin/views/admin-settings-overview.php:35
 msgid "Value"
 msgstr ""
 
@@ -213,7 +209,7 @@ msgid "Plugin settings page available from admin toolbar can be hidden."
 msgstr ""
 
 #: admin/views/admin-settings-connections.php:22
-#: includes/controllers/class-wetory-support-apikeys-controller.php:61
+#: includes/controllers/class-wetory-support-apikeys-controller.php:67
 msgid "API Keys"
 msgstr ""
 
@@ -239,12 +235,11 @@ msgid ""
 msgstr ""
 
 #: admin/views/admin-settings-content.php:50
-msgid ""
-"After saving settings you will need to refresh page to see effect of changes "
-"done in this section."
+msgid "You need to refresh page to see effect of changed settings."
 msgstr ""
 
 #: admin/views/admin-settings-content.php:51
+#: admin/views/admin-settings-overview.php:27
 msgid "Reload page"
 msgstr ""
 
@@ -393,11 +388,15 @@ msgstr ""
 msgid "Brief overview of this plugin settings on one screen."
 msgstr ""
 
-#: admin/views/admin-settings-overview.php:28
+#: admin/views/admin-settings-overview.php:26
+msgid "You must refresh the page to see the effect of the changed settings."
+msgstr ""
+
+#: admin/views/admin-settings-overview.php:32
 msgid "Section"
 msgstr ""
 
-#: admin/views/admin-settings-overview.php:30
+#: admin/views/admin-settings-overview.php:34
 msgid "Name"
 msgstr ""
 
@@ -452,11 +451,11 @@ msgstr ""
 msgid "Running post-update actions for version %s"
 msgstr ""
 
-#: includes/class-wetory-support-updater.php:421
+#: includes/class-wetory-support-updater.php:423
 msgid "Wetory Support - Plugin settings options migrated for version 1.2.1"
 msgstr ""
 
-#: includes/controllers/class-wetory-support-apikeys-controller.php:62
+#: includes/controllers/class-wetory-support-apikeys-controller.php:68
 msgid "Configure API keys for APIs you want to use in your website"
 msgstr ""
 

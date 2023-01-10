@@ -69,4 +69,7 @@ if (!defined('WPINC')) {
             </div>
         </div>
     </div>
+    <?php
+	require 'admin-settings-button-save.php';
+	?>
 </div>

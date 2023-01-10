@@ -29,7 +29,7 @@ $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/
     <div class="wetory-support-plugin-header">
         <p>
             <?php _e('Here you can modify plugin behavior. You can select what parts you want to use. Everything is disabled by default to prevent unnecesary loads.', 'wetory-support'); ?>
-        </p>        
+        </p>
     </div>
 
     <!--NEED THE settings_errors below so that the errors/success messages are shown after submission - wasn't working once we started using add_menu_page and stopped using add_options_page so needed this-->
@@ -57,12 +57,11 @@ $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/
             'general' => 'admin-settings-general.php',
             'content' => 'admin-settings-content.php',
             'connections' => 'admin-settings-connections.php',
-            'advanced' => 'admin-settings-advanced.php',
-            'overview' => 'admin-settings-overview.php',
-            'help' => 'admin-settings-help.php',
+            'advanced' => 'admin-settings-advanced.php',            
         );
         $setting_views_b = array(
-            'wetory-support-settings-overview' => 'admin-settings-overview.php',
+            'overview' => 'admin-settings-overview.php',
+            'help' => 'admin-settings-help.php',
         );
         ?>
         <?php $form_action = isset($_SERVER['REQUEST_URI']) ? sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI'])) : ''; ?>
@@ -79,26 +78,15 @@ $wetory_support_admin_view_path = plugin_dir_path(WETORY_SUPPORT_FILE) . 'admin/
                 }
             }
             ?>
-            <?php
-            foreach ($setting_views_b as $target_id => $value) {
-                $settings_view = $wetory_support_admin_view_path . $value;
-                if (file_exists($settings_view)) {
-                    include $settings_view;
-                }
-            }
-            ?>
-
-            <div style="clear: both;"></div>
-            <div class="wetory-support-tab-footer">
-                <div class="wetory-support-row">
-                    <div class="wetory-support-col-6"></div>
-                    <div class="wetory-support-col-6">
-                        <input type="submit" name="wetory_support_ajax_update_settings" value="<?php echo esc_html__('Update Settings', 'wetory-support'); ?>" class="button-primary" style="float:right;" onClick="return wetory_support_settings_btn_click(this.name)" />
-                        <span class="spinner"></span>
-                    </div>
-                </div>
-            </div>
         </form>
+        <?php
+        foreach ($setting_views_b as $target_id => $value) {
+            $settings_view = $wetory_support_admin_view_path . $value;
+            if (file_exists($settings_view)) {
+                include $settings_view;
+            }
+        }
+        ?>
     </div>
 
     <div class="wetory-support-plugin-footer">

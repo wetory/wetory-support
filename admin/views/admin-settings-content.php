@@ -47,7 +47,7 @@ $cpt_objects = $this->plugin_obj->get_plugin_cpts()->get_objects();
                 <h3 class="title"><?php _e('Custom post types', 'wetory-support'); ?></h3>
                 <p class="description"><?php _e('Configure custom post types you want to use in your website. These are prepared most common post types ready to use with all meta properties.', 'wetory-support'); ?></p>
                 <div class="alert alert-info" role="alert">
-                    <?php _e('After saving settings you will need to refresh page to see effect of changes done in this section.', 'wetory-support'); ?>
+                    <?php _e('You need to refresh page to see effect of changed settings.', 'wetory-support'); ?>
                     <a onClick="window.location.reload()" class="alert-link reload-page"><?php _e('Reload page', 'wetory-support'); ?></a>
                 </div>
                 <?php
@@ -120,4 +120,7 @@ $cpt_objects = $this->plugin_obj->get_plugin_cpts()->get_objects();
             </div>
         </div>
     </div>
+    <?php
+	require 'admin-settings-button-save.php';
+	?>
 </div>

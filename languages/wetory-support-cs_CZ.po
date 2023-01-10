@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2023-01-10 21:46+0100\n"
-"PO-Revision-Date: 2023-01-10 21:48+0100\n"
+"POT-Creation-Date: 2023-01-11 00:28+0100\n"
+"PO-Revision-Date: 2023-01-11 00:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -117,10 +117,6 @@ msgstr "Ověřování nastavení pluginu"
 msgid "Value for debugging verbosity is not valid!"
 msgstr "Hodnota pro úroveň podrobností debuggování není platná!"
 
-#: admin/class-wetory-support-settings.php:214
-msgid "Sanitizing plugin settings"
-msgstr "Sanitace nastavení pluginu"
-
 #: admin/partials/wetory-support-admin-display.php:18
 msgid "Wetory Dashboard"
 msgstr "Wetory Nástěnka"
@@ -134,7 +130,7 @@ msgid "Option"
 msgstr "Volba"
 
 #: admin/partials/wetory-support-admin-display.php:28
-#: admin/views/admin-settings-overview.php:29
+#: admin/views/admin-settings-overview.php:33
 msgid "Key"
 msgstr "Klíč"
 
@@ -143,7 +139,7 @@ msgid "Subkey"
 msgstr "Podklíč"
 
 #: admin/partials/wetory-support-admin-display.php:30
-#: admin/views/admin-settings-overview.php:31
+#: admin/views/admin-settings-overview.php:35
 msgid "Value"
 msgstr "Hodnota"
 
@@ -228,7 +224,7 @@ msgstr ""
 "administrace, lze skrýt."
 
 #: admin/views/admin-settings-connections.php:22
-#: includes/controllers/class-wetory-support-apikeys-controller.php:61
+#: includes/controllers/class-wetory-support-apikeys-controller.php:67
 msgid "API Keys"
 msgstr "Klíče rozhraní API"
 
@@ -257,14 +253,11 @@ msgstr ""
 "meta vlastnostmi."
 
 #: admin/views/admin-settings-content.php:50
-msgid ""
-"After saving settings you will need to refresh page to see effect of changes "
-"done in this section."
-msgstr ""
-"Po uložení nastavení budete muset obnovit stránku, abyste viděli účinek změn "
-"provedených v této sekci."
+msgid "You need to refresh page to see effect of changed settings."
+msgstr "Musíte aktualizovat stránku, abyste viděli účinek změněného nastavení."
 
 #: admin/views/admin-settings-content.php:51
+#: admin/views/admin-settings-overview.php:27
 msgid "Reload page"
 msgstr "Znovu načíst stránku"
 
@@ -421,11 +414,15 @@ msgstr "Přehled nastavení pluginu"
 msgid "Brief overview of this plugin settings on one screen."
 msgstr "Stručný přehled nastavení tohoto pluginu."
 
-#: admin/views/admin-settings-overview.php:28
+#: admin/views/admin-settings-overview.php:26
+msgid "You must refresh the page to see the effect of the changed settings."
+msgstr "Abyste viděli účinek změněného nastavení musíte aktualizovat stránku."
+
+#: admin/views/admin-settings-overview.php:32
 msgid "Section"
 msgstr "Sekce"
 
-#: admin/views/admin-settings-overview.php:30
+#: admin/views/admin-settings-overview.php:34
 msgid "Name"
 msgstr "Jméno"
 
@@ -480,11 +477,11 @@ msgstr "Nainstalovaná verze - %s : %s"
 msgid "Running post-update actions for version %s"
 msgstr "Spuštění akcí po aktualizaci pro verzi %s"
 
-#: includes/class-wetory-support-updater.php:421
+#: includes/class-wetory-support-updater.php:423
 msgid "Wetory Support - Plugin settings options migrated for version 1.2.1"
 msgstr "Wetory Support - Nastavení pluginu zmigrovány pro verzi 1.2.1"
 
-#: includes/controllers/class-wetory-support-apikeys-controller.php:62
+#: includes/controllers/class-wetory-support-apikeys-controller.php:68
 msgid "Configure API keys for APIs you want to use in your website"
 msgstr ""
 "Konfigurace klíčů rozhraní API pro rozhraní API, která chcete použít na webu"
@@ -1154,6 +1151,9 @@ msgstr "Tomáš Rybnický"
 #. Author URI of the plugin/theme
 msgid "https://www.wetory.eu/about-me/"
 msgstr ""
+
+#~ msgid "Sanitizing plugin settings"
+#~ msgstr "Sanitace nastavení pluginu"
 
 #~ msgid "Go to documentation page"
 #~ msgstr "Přejít na stránku dokumentace"

@@ -22,6 +22,10 @@ if (!defined('WPINC')) {
         <div class="wetory-support-sub-tab-content" data-id="overview" style="display:block;">
             <h3><?php echo esc_html__('Plugin settings overview', 'wetory-support'); ?></h3>
             <p><?php _e('Brief overview of this plugin settings on one screen.', 'wetory-support'); ?></p>
+            <div class="alert alert-info" role="alert">
+                <?php _e('You must refresh the page to see the effect of the changed settings.', 'wetory-support'); ?>
+                <a onClick="window.location.reload()" class="alert-link reload-page"><?php _e('Reload page', 'wetory-support'); ?></a>
+            </div>
             <table class="widefat groupped-values no-border">
                 <thead>
                     <tr>
@@ -57,8 +61,8 @@ if (!defined('WPINC')) {
                                             $name,
                                             $value
                                         );
-                                    $section_out = false;
-                                    $key_out = false;
+                                        $section_out = false;
+                                        $key_out = false;
                                     endforeach;
                                 } else {
                                     $name = $key;
@@ -78,10 +82,10 @@ if (!defined('WPINC')) {
                                         $name,
                                         $value
                                     );
-                                }  
+                                }
                                 $section_out = false;
                                 $key_out = false;
-                            endforeach;  
+                            endforeach;
                         endif;
                     endforeach;
                     ?>

@@ -49,4 +49,7 @@ if (!defined('WPINC')) {
             </table>
         </div>
     </div>
+    <?php
+	require 'admin-settings-button-save.php';
+	?>
 </div>
