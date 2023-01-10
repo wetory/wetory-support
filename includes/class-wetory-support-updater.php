@@ -360,7 +360,8 @@ class Wetory_Support_Updater {
                 delete_option('wetory-support-libraries');
                 break;
             case ($current_version_int < 121 && $update_version_int >= 121):
-                self::migrate_options_121();
+                $this->migrate_options_121();
+                break;
             default:
                 break;
         }
@@ -378,7 +379,7 @@ class Wetory_Support_Updater {
      *
      * @return void
      */
-    public static function migrate_options_121(){
+    public function migrate_options_121(){
         // Get "old way" options data
         $option_apikeys = get_option('wetory-support-apikeys');
         $option_cpt = get_option('wetory-support-cpt');
@@ -402,7 +403,8 @@ class Wetory_Support_Updater {
             $plugin_settings[WETORY_SUPPORT_SETTINGS_WIDGETS_SECTION] = $option_widgets;
         }     
 
-        // Validate "new way" options data
+        // Sanitise & validate "new way" options data
+        $plugin_settings = apply_filters('wetory_settings_sanitize', $plugin_settings);
         $plugin_settings = apply_filters('wetory_settings_validate', $plugin_settings);
         if (is_wp_error($plugin_settings)) {            
             wp_die($plugin_settings);
