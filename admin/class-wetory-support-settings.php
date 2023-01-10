@@ -211,6 +211,8 @@ class Wetory_Support_Settings
      */
     public function sanitize_settings($settings)
     {
+        wetory_write_log(__('Sanitizing plugin settings', 'wetory-support'));
+
         // Maintenance section
         if(isset($settings['maintenance']['maintenance-page']['disable-autorecreate']) && !empty($settings['maintenance']['maintenance-page']['disable-autorecreate'])){
             $settings['maintenance']['maintenance-page']['disable-autorecreate'] = Sanitizer::sanitize_checkbox($settings['maintenance']['maintenance-page']['disable-autorecreate'], 'on');

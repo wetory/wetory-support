@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2022-12-24 15:17+0100\n"
-"PO-Revision-Date: 2022-12-24 15:18+0100\n"
+"POT-Creation-Date: 2023-01-10 21:46+0100\n"
+"PO-Revision-Date: 2023-01-10 21:48+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -116,6 +116,10 @@ msgstr "Ověřování nastavení pluginu"
 #: admin/class-wetory-support-settings.php:188
 msgid "Value for debugging verbosity is not valid!"
 msgstr "Hodnota pro úroveň podrobností debuggování není platná!"
+
+#: admin/class-wetory-support-settings.php:214
+msgid "Sanitizing plugin settings"
+msgstr "Sanitace nastavení pluginu"
 
 #: admin/partials/wetory-support-admin-display.php:18
 msgid "Wetory Dashboard"
@@ -440,6 +444,36 @@ msgstr "Obnovit nastavení pluginu"
 #: includes/class-wetory-support-ajax.php:84
 msgid "Settings set to defaults successfully"
 msgstr "Nastavení byla úspěšně nastavena na výchozí"
+
+#: includes/class-wetory-support-updater.php:99
+#, php-format
+msgid "Custom updater registered for GitHub repository %s"
+msgstr "Vlastní aktualizační modul registrovaný pro GitHub repositář %s"
+
+#: includes/class-wetory-support-updater.php:109
+#, php-format
+msgid "Initializing custom updater data for GitHub repository %s"
+msgstr "Inicializace dat aktualizačního modulu pro GitHub repositář %s"
+
+#: includes/class-wetory-support-updater.php:130
+#, php-format
+msgid "Going to download plugin %s releases from %s"
+msgstr "Chystá se stahování vydaných verzí pluginu %s z %s"
+
+#: includes/class-wetory-support-updater.php:143
+#, php-format
+msgid "Plugin releases info downloaded for %s"
+msgstr "Informace o vydaných verzích pluginu stažené pro %s"
+
+#: includes/class-wetory-support-updater.php:174
+#, php-format
+msgid "Latest release version - %s : %s"
+msgstr "Nejnovější vydaná verze - %s : %s"
+
+#: includes/class-wetory-support-updater.php:175
+#, php-format
+msgid "Installed version - %s : %s"
+msgstr "Nainstalovaná verze - %s : %s"
 
 #: includes/class-wetory-support-updater.php:354
 #, php-format

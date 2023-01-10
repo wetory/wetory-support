@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Wetory Support\n"
-"POT-Creation-Date: 2022-12-24 13:10+0100\n"
+"POT-Creation-Date: 2023-01-10 21:46+0100\n"
 "PO-Revision-Date: 2020-11-29 17:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -29,7 +29,7 @@ msgid "Settings"
 msgstr ""
 
 #: admin/class-wetory-support-admin.php:171
-#: admin/class-wetory-support-admin.php:207
+#: admin/class-wetory-support-admin.php:203
 msgid "Settings - Wetory"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Wetory"
 msgstr ""
 
-#: admin/class-wetory-support-admin.php:220
+#: admin/class-wetory-support-admin.php:216
 msgid "You do not have sufficient permission to perform this operation"
 msgstr ""
 
@@ -110,6 +110,10 @@ msgstr ""
 msgid "Value for debugging verbosity is not valid!"
 msgstr ""
 
+#: admin/class-wetory-support-settings.php:214
+msgid "Sanitizing plugin settings"
+msgstr ""
+
 #: admin/partials/wetory-support-admin-display.php:18
 msgid "Wetory Dashboard"
 msgstr ""
@@ -123,6 +127,7 @@ msgid "Option"
 msgstr ""
 
 #: admin/partials/wetory-support-admin-display.php:28
+#: admin/views/admin-settings-overview.php:29
 msgid "Key"
 msgstr ""
 
@@ -131,6 +136,7 @@ msgid "Subkey"
 msgstr ""
 
 #: admin/partials/wetory-support-admin-display.php:30
+#: admin/views/admin-settings-overview.php:31
 msgid "Value"
 msgstr ""
 
@@ -379,6 +385,22 @@ msgstr ""
 msgid "Contact"
 msgstr ""
 
+#: admin/views/admin-settings-overview.php:23
+msgid "Plugin settings overview"
+msgstr ""
+
+#: admin/views/admin-settings-overview.php:24
+msgid "Brief overview of this plugin settings on one screen."
+msgstr ""
+
+#: admin/views/admin-settings-overview.php:28
+msgid "Section"
+msgstr ""
+
+#: admin/views/admin-settings-overview.php:30
+msgid "Name"
+msgstr ""
+
 #: includes/class-wetory-support-ajax.php:47
 msgid "Updating plugin settings"
 msgstr ""
@@ -393,6 +415,36 @@ msgstr ""
 
 #: includes/class-wetory-support-ajax.php:84
 msgid "Settings set to defaults successfully"
+msgstr ""
+
+#: includes/class-wetory-support-updater.php:99
+#, php-format
+msgid "Custom updater registered for GitHub repository %s"
+msgstr ""
+
+#: includes/class-wetory-support-updater.php:109
+#, php-format
+msgid "Initializing custom updater data for GitHub repository %s"
+msgstr ""
+
+#: includes/class-wetory-support-updater.php:130
+#, php-format
+msgid "Going to download plugin %s releases from %s"
+msgstr ""
+
+#: includes/class-wetory-support-updater.php:143
+#, php-format
+msgid "Plugin releases info downloaded for %s"
+msgstr ""
+
+#: includes/class-wetory-support-updater.php:174
+#, php-format
+msgid "Latest release version - %s : %s"
+msgstr ""
+
+#: includes/class-wetory-support-updater.php:175
+#, php-format
+msgid "Installed version - %s : %s"
 msgstr ""
 
 #: includes/class-wetory-support-updater.php:354
