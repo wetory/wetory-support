@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2023-01-11 02:18+0100\n"
-"PO-Revision-Date: 2023-01-11 02:18+0100\n"
+"POT-Creation-Date: 2023-01-11 02:20+0100\n"
+"PO-Revision-Date: 2023-01-11 02:20+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -464,9 +464,9 @@ msgid "Wetory Support - Plugin settings options migrated for version 1.2.1"
 msgstr "Wetory Support - Nastavení pluginu zmigrovány pro verzi 1.2.1"
 
 #: includes/controllers/class-wetory-support-apikeys-controller.php:68
-msgid "Configure API keys for APIs you want to use in your website"
+msgid "Configure API keys for APIs you want to use in your website."
 msgstr ""
-"Konfigurace klíčů rozhraní API pro rozhraní API, která chcete použít na webu"
+"Konfigurace klíčů rozhraní API pro rozhraní API, která chcete použít na webu."
 
 #: includes/controllers/class-wetory-support-shortcodes-controller.php:68
 msgid ""

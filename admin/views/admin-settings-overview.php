@@ -26,7 +26,7 @@ if (!defined('WPINC')) {
                 <?php _e('You must refresh the page to see the effect of the changed settings.', 'wetory-support'); ?>
                 <a onClick="window.location.reload()" class="alert-link reload-page"><?php _e('Reload page', 'wetory-support'); ?></a>
             </div>
-            <table class="widefat groupped-values no-border">
+            <table class="widefat groupped-values">
                 <thead>
                     <tr>
                         <th><?php _e('Section', 'wetory-support'); ?></th>

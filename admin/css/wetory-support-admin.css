@@ -173,7 +173,9 @@ table.no-border {
 .wetory-tab-content {
     display: none;
 }
-
+.wetory-support-tab-content[data-id="overview"]{
+    padding-bottom: 50px;
+}
 .wetory-support-nav-tab-wrapper .nav-tab:nth-last-child(-n+2)  {
     /* float: right; */
 }
