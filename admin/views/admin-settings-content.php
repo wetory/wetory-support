@@ -36,7 +36,7 @@ $cpt_objects = $this->plugin_obj->get_plugin_cpts()->get_objects();
             do_action('wetory_settings_render_section', 'widgets');
             ?>
         </div>
-        <div class="wetory-support-sub-tab-content" data-id="shortcodes" style="display:block;">
+        <div class="wetory-support-sub-tab-content" data-id="shortcodes">
             <?php
             // @see Wetory_Support_Shortcodes_Controller::settings_section()
             do_action('wetory_settings_render_section', 'shortcodes');

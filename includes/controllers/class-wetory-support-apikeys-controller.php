@@ -65,7 +65,7 @@ class Wetory_Support_Apikeys_Controller extends Wetory_Controller
 
         $section = array(
             'title' => __('API Keys', 'wetory-support'),
-            'description' => __('Configure API keys for APIs you want to use in your website', 'wetory-support'),
+            'description' => __('Configure API keys for APIs you want to use in your website.', 'wetory-support'),
             'settings_fields' => array()
         );
 

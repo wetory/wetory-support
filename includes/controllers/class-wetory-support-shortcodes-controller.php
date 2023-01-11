@@ -65,7 +65,7 @@ class Wetory_Support_Shortcodes_Controller extends Wetory_Controller
 
         $section = array(
             'title' => __('Shortcodes', 'wetory-support'),
-            'description' => __('Select <a href="https://codex.wordpress.org/Shortcode/" target="_blank">shortcodes</a> you want to use in your website', 'wetory-support'),
+            'description' => __('Select <a href="https://codex.wordpress.org/Shortcode/" target="_blank">shortcodes</a> you want to use in your website.', 'wetory-support'),
             'settings_fields' => array()
         );
 

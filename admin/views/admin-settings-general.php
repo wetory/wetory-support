@@ -18,15 +18,16 @@ if (!defined('WPINC')) {
 ?>
 <div class="wetory-support-tab-content" data-id="<?php echo esc_attr($target_id); ?>">
     <ul class="wetory-support-sub-tab">
-        <li data-target="general"><a><?php echo esc_html__('General', 'wetory-support'); ?></a></li>
+        <li data-target="plugin"><a><?php echo esc_html__('Plugin', 'wetory-support'); ?></a></li>
         <li data-target="maintenance"><a><?php echo esc_html__('Maintenance', 'wetory-support'); ?></a></li>
         <li data-target="security"><a><?php echo esc_html__('Security', 'wetory-support'); ?></a></li>
     </ul>
     <div class="wetory-support-sub-tab-container">
-        <div class="wetory-support-sub-tab-content" data-id="general" style="display:block;">
-            <div class="wetory-support-settings-section general">
-                <?php $section_name = 'general'; ?>
-                <h3><?php echo esc_html__('General', 'wetory-support'); ?></h3>
+        <div class="wetory-support-sub-tab-content" data-id="plugin" style="display:block;">
+            <div class="wetory-support-settings-section plugin">
+                <?php $section_name = 'plugin'; ?>
+                <h3><?php echo esc_html__('Plugin', 'wetory-support'); ?></h3>
+                <p><?php _e('Customize general plugin behaviour.', 'wetory-support'); ?></p>
                 <table class="form-table">
                     <?php
                     $hide_admin_bar_field = array(

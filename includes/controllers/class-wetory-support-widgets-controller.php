@@ -67,7 +67,7 @@ class Wetory_Support_Widgets_Controller extends Wetory_Controller
 
         $section = array(
             'title' => __('Widgets', 'wetory-support'),
-            'description' => __('Select <a href="https://wordpress.org/support/article/wordpress-widgets/" target="_blank">widgets</a> you want to use in your website', 'wetory-support'),
+            'description' => __('Select <a href="https://wordpress.org/support/article/wordpress-widgets/" target="_blank">widgets</a> you want to use in your website.', 'wetory-support'),
             'settings_fields' => array()
         );
 
