@@ -184,7 +184,7 @@ class Wetory_Support_Admin
 
         // Get settings value
         $hide_admin_bar_menu = Wetory_Support_Options::get_settings_value(array(
-            'option_section' => 'plugin',
+            'option_section' => 'general',
             'name' => 'hide-admin-bar-menu',
         ));
 

@@ -173,11 +173,10 @@ table.no-border {
 .wetory-tab-content {
     display: none;
 }
-/*
+
 .wetory-support-nav-tab-wrapper .nav-tab:nth-last-child(-n+2)  {
-    float: right;
+    /* float: right; */
 }
-*/
 .wetory-support-nav-tab-wrapper .nav-tab-active {
     background: #fff;
     border-bottom: solid 1px #fff;
@@ -287,10 +286,27 @@ a.reload-page {
 }
 
 /* Buttons */
-.button-secondary.danger,
-.button-secondary.danger:hover {
-    color: #e14d43;
+.button-secondary.danger {
+    color: #FFF;
     border-color: #e14d43;
+    background-color: #e14d43;
+}
+.button-secondary.danger:hover {
+    color: #FFF;
+    border-color: #cf261a;
+    background-color: #cf261a;
+}
+
+/* Setttings sections */
+.wetory-support-settings-section.danger h3 {
+    color: #e14d43;
+}
+.wetory-support-settings-section.danger .form-table {
+    border: 1px solid #e14d43;
+}
+.wetory-support-settings-section.danger .form-table th {
+    padding-left: 10px;
+    padding-right: 0;
 }
 
 /* Content */
@@ -301,6 +317,7 @@ a.reload-page {
     width: 100%;
     margin-top: 5px
 }
+
 
 /* Tooltips */
 .tooltip {
