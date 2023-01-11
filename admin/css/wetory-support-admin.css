@@ -35,7 +35,7 @@
 }
 
 .wetory-support-tab-container {
-    padding: 5px 15px 15px 15px;
+    padding: 5px 15px 0px 15px;
     background: #fff;
     box-shadow: 0px 2px 2px #ccc;
     float: left;
@@ -51,6 +51,7 @@
     margin-left: -15px;
     margin-right: -15px;
     margin-bottom: -15px;
+    margin-top: 30px;
 }
 
 .wetory-support-grid-wrapper *,
@@ -173,6 +174,9 @@ table.no-border {
     display: none;
 }
 
+.wetory-support-nav-tab-wrapper .nav-tab:nth-last-child(-n+2)  {
+    /* float: right; */
+}
 .wetory-support-nav-tab-wrapper .nav-tab-active {
     background: #fff;
     border-bottom: solid 1px #fff;
@@ -192,7 +196,7 @@ table.no-border {
     float: left;
     width: 100%;
     height: auto;
-    padding: 10px 0px 30px 0px;
+    padding: 10px 0px 15px 0px;
 }
 
 .wetory-support-sub-tab {
@@ -282,10 +286,27 @@ a.reload-page {
 }
 
 /* Buttons */
-.button-secondary.danger,
-.button-secondary.danger:hover {
-    color: #e14d43;
+.button-secondary.danger {
+    color: #FFF;
     border-color: #e14d43;
+    background-color: #e14d43;
+}
+.button-secondary.danger:hover {
+    color: #FFF;
+    border-color: #cf261a;
+    background-color: #cf261a;
+}
+
+/* Setttings sections */
+.wetory-support-settings-section.danger h3 {
+    color: #e14d43;
+}
+.wetory-support-settings-section.danger .form-table {
+    border: 1px solid #e14d43;
+}
+.wetory-support-settings-section.danger .form-table th {
+    padding-left: 10px;
+    padding-right: 0;
 }
 
 /* Content */
@@ -296,6 +317,7 @@ a.reload-page {
     width: 100%;
     margin-top: 5px
 }
+
 
 /* Tooltips */
 .tooltip {

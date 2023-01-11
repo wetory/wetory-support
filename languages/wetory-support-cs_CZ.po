@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2022-12-24 15:17+0100\n"
-"PO-Revision-Date: 2022-12-24 15:18+0100\n"
+"POT-Creation-Date: 2023-01-11 01:40+0100\n"
+"PO-Revision-Date: 2023-01-11 01:41+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -75,45 +75,11 @@ msgstr "Kategorie"
 msgid "Given settings section \"%s\" not found!"
 msgstr "Daná sekce nastavení \"%s\" nenalezena!"
 
-#: admin/class-wetory-support-settings.php:142
-msgid "Debugging verbosity"
-msgstr "Úroveň debuggování"
-
-#: admin/class-wetory-support-settings.php:149
-msgid "Disabled"
-msgstr "Zakázáno"
-
-#: admin/class-wetory-support-settings.php:150
-msgid "Basic"
-msgstr "Základní"
-
-#: admin/class-wetory-support-settings.php:151
-msgid "Detailed"
-msgstr "Podrobný"
-
-#: admin/class-wetory-support-settings.php:153
-msgid ""
-"Debugging is working only if <a href=\"https://wordpress.org/support/article/"
-"debugging-in-wordpress/\" target=\"_blank\">WordPress debugging</a> is "
-"enabled."
-msgstr ""
-"Debuggování pluginu funguje pouze v případě, že je povoleno <a href="
-"\"https://wordpress.org/support/article/debugging-in-wordpress/\" target="
-"\"_blank\">debuggování ve WordPress</a> ."
-
-#: admin/class-wetory-support-settings.php:154
-msgid ""
-"Verbosity level can be changed to control what is written to WordPress debug "
-"log."
-msgstr ""
-"Úroveň podrobností debuggování lze změnit, ovlivníte tím to co je zapisováno "
-"do debug logu ve WordPress."
-
-#: admin/class-wetory-support-settings.php:179
+#: admin/class-wetory-support-settings.php:146
 msgid "Validating plugin settings"
 msgstr "Ověřování nastavení pluginu"
 
-#: admin/class-wetory-support-settings.php:188
+#: admin/class-wetory-support-settings.php:155
 msgid "Value for debugging verbosity is not valid!"
 msgstr "Hodnota pro úroveň podrobností debuggování není platná!"
 
@@ -130,7 +96,7 @@ msgid "Option"
 msgstr "Volba"
 
 #: admin/partials/wetory-support-admin-display.php:28
-#: admin/views/admin-settings-overview.php:29
+#: admin/views/admin-settings-overview.php:33
 msgid "Key"
 msgstr "Klíč"
 
@@ -139,7 +105,7 @@ msgid "Subkey"
 msgstr "Podklíč"
 
 #: admin/partials/wetory-support-admin-display.php:30
-#: admin/views/admin-settings-overview.php:31
+#: admin/views/admin-settings-overview.php:35
 msgid "Value"
 msgstr "Hodnota"
 
@@ -153,7 +119,8 @@ msgstr ""
 "zatížení."
 
 #: admin/partials/wetory-support-admin-settings.php:43
-#: admin/views/admin-settings-general.php:20
+#: admin/views/admin-settings-general.php:21
+#: admin/views/admin-settings-general.php:29
 msgid "General"
 msgstr "Obecné"
 
@@ -178,11 +145,7 @@ msgstr "Přehled nastavení"
 msgid "Help"
 msgstr "Nápověda"
 
-#: admin/partials/wetory-support-admin-settings.php:96
-msgid "Update Settings"
-msgstr "Aktualizovat nastavení"
-
-#: admin/partials/wetory-support-admin-settings.php:110
+#: admin/partials/wetory-support-admin-settings.php:98
 #, php-format
 msgid ""
 "Wetory Support %s &copy; %s | by <a href=\"%s\" target=\"_blank\">wetory</a>"
@@ -197,34 +160,66 @@ msgstr ""
 "Obvykle si těchto nastavení nemusíte všímat, ale v případě, že se vyskytnou "
 "nějaké potíže, může být tato sekce užitečná."
 
-#: admin/views/admin-settings-advanced.php:32
+#: admin/views/admin-settings-advanced.php:29
+msgid "Debugging verbosity"
+msgstr "Úroveň debuggování"
+
+#: admin/views/admin-settings-advanced.php:36
+msgid "Disabled"
+msgstr "Zakázáno"
+
+#: admin/views/admin-settings-advanced.php:37
+msgid "Basic"
+msgstr "Základní"
+
+#: admin/views/admin-settings-advanced.php:38
+msgid "Detailed"
+msgstr "Podrobný"
+
+#: admin/views/admin-settings-advanced.php:40
+msgid ""
+"Debugging is working only if <a href=\"https://wordpress.org/support/article/"
+"debugging-in-wordpress/\" target=\"_blank\">WordPress debugging</a> is "
+"enabled."
+msgstr ""
+"Debuggování pluginu funguje pouze v případě, že je povoleno <a href="
+"\"https://wordpress.org/support/article/debugging-in-wordpress/\" target="
+"\"_blank\">debuggování ve WordPress</a> ."
+
+#: admin/views/admin-settings-advanced.php:41
+msgid ""
+"Verbosity level can be changed to control what is written to WordPress debug "
+"log."
+msgstr ""
+"Úroveň podrobností debuggování lze změnit, ovlivníte tím to co je zapisováno "
+"do debug logu ve WordPress."
+
+#: admin/views/admin-settings-advanced.php:48
+msgid "Danger zone"
+msgstr "Nebezpečná zóna"
+
+#: admin/views/admin-settings-advanced.php:52
 msgid "Reset settings"
 msgstr "Obnovit nastavení"
 
-#: admin/views/admin-settings-advanced.php:34
+#: admin/views/admin-settings-advanced.php:55
 msgid "Delete settings and reset"
 msgstr "Odstranit nastavení a obnovit výchozí"
 
-#: admin/views/admin-settings-advanced.php:34
+#: admin/views/admin-settings-advanced.php:55
 msgid "Are you sure you want to delete all your settings?"
 msgstr "Opravdu chcete odstranit všechna nastavení?"
 
-#: admin/views/admin-settings-advanced.php:35
+#: admin/views/admin-settings-advanced.php:56
 msgid "Warning: Resets all your current settings to default."
 msgstr "Upozornění: Obnoví všechna aktuální nastavení na výchozí."
 
-#: admin/views/admin-settings-advanced.php:40
-msgid "Hide admin bar menu"
-msgstr "Skrýt v panelu nástrojů administrace"
-
-#: admin/views/admin-settings-advanced.php:45
-msgid "Plugin settings page available from admin toolbar can be hidden."
-msgstr ""
-"Stránku nastavení pluginu, která je k dispozici na panelu nástrojů "
-"administrace, lze skrýt."
+#: admin/views/admin-settings-button-save.php:25
+msgid "Update Settings"
+msgstr "Aktualizovat nastavení"
 
 #: admin/views/admin-settings-connections.php:22
-#: includes/controllers/class-wetory-support-apikeys-controller.php:61
+#: includes/controllers/class-wetory-support-apikeys-controller.php:67
 msgid "API Keys"
 msgstr "Klíče rozhraní API"
 
@@ -253,14 +248,11 @@ msgstr ""
 "meta vlastnostmi."
 
 #: admin/views/admin-settings-content.php:50
-msgid ""
-"After saving settings you will need to refresh page to see effect of changes "
-"done in this section."
-msgstr ""
-"Po uložení nastavení budete muset obnovit stránku, abyste viděli účinek změn "
-"provedených v této sekci."
+msgid "You need to refresh page to see effect of changed settings."
+msgstr "Musíte aktualizovat stránku, abyste viděli účinek změněného nastavení."
 
 #: admin/views/admin-settings-content.php:51
+#: admin/views/admin-settings-overview.php:27
 msgid "Reload page"
 msgstr "Znovu načíst stránku"
 
@@ -316,40 +308,50 @@ msgstr "Zaškrtněte , pokud chcete povolit revize pro typ příspěvku."
 msgid "Published posts"
 msgstr "Publikované příspěvky"
 
-#: admin/views/admin-settings-general.php:21
-#: admin/views/admin-settings-general.php:33
+#: admin/views/admin-settings-general.php:22
+#: admin/views/admin-settings-general.php:48
 msgid "Maintenance"
 msgstr "Údržba"
 
-#: admin/views/admin-settings-general.php:22
+#: admin/views/admin-settings-general.php:23
 msgid "Security"
 msgstr "Zabezpečení"
 
-#: admin/views/admin-settings-general.php:34
+#: admin/views/admin-settings-general.php:33
+msgid "Hide admin bar menu"
+msgstr "Skrýt v panelu nástrojů"
+
+#: admin/views/admin-settings-general.php:38
+msgid "Plugin settings page available from admin toolbar can be hidden."
+msgstr ""
+"Stránku nastavení pluginu, která je k dispozici na panelu nástrojů "
+"administrace, lze skrýt."
+
+#: admin/views/admin-settings-general.php:49
 msgid "Customize maintenance mode behaviour."
 msgstr "Přizpůsobte chování v režimu údržby."
 
-#: admin/views/admin-settings-general.php:37
+#: admin/views/admin-settings-general.php:52
 msgid "Maintenance mode page"
 msgstr "Stránka režimu údržby"
 
-#: admin/views/admin-settings-general.php:39
+#: admin/views/admin-settings-general.php:54
 msgid "Create maintenance page"
 msgstr "Vytvořit stránku údržby"
 
-#: admin/views/admin-settings-general.php:39
+#: admin/views/admin-settings-general.php:54
 msgid "Creating page..."
 msgstr "Vytváření stránky..."
 
-#: admin/views/admin-settings-general.php:40
+#: admin/views/admin-settings-general.php:55
 msgid "Delete maintenance page"
 msgstr "Odstranit stránku údržby"
 
-#: admin/views/admin-settings-general.php:40
+#: admin/views/admin-settings-general.php:55
 msgid "Deleting page..."
 msgstr "Odstraňování stránky..."
 
-#: admin/views/admin-settings-general.php:41
+#: admin/views/admin-settings-general.php:56
 msgid ""
 "Plugin provides template for maintenance page which is shown instead of "
 "default maintenance notification panel."
@@ -357,7 +359,7 @@ msgstr ""
 "Plugin poskytuje šablonu pro stránku údržby, která je zobrazena namísto "
 "výchozího panelu oznámení údržby."
 
-#: admin/views/admin-settings-general.php:47
+#: admin/views/admin-settings-general.php:62
 msgid ""
 "<a href=\"https://developer.wordpress.org/plugins/cron/\" targte=\"_blank"
 "\">WP-Cron</a> is disabled on this website. Automatic custom maintenance "
@@ -367,11 +369,11 @@ msgstr ""
 "\">WP-Cron</a> je na tomto webu zakázán. Automatická obnova stránky údržby "
 "nebude fungovat, protože používá naplánované události ve WP-Cron."
 
-#: admin/views/admin-settings-general.php:53
+#: admin/views/admin-settings-general.php:68
 msgid "Disable recreate of custom maintenance page"
 msgstr "Zakázat opětovné vytvoření vlastní stránky údržby"
 
-#: admin/views/admin-settings-general.php:59
+#: admin/views/admin-settings-general.php:74
 msgid ""
 "Custom maintenance page is by default automatically recreated by WP-Cron "
 "scheduled events."
@@ -417,11 +419,15 @@ msgstr "Přehled nastavení pluginu"
 msgid "Brief overview of this plugin settings on one screen."
 msgstr "Stručný přehled nastavení tohoto pluginu."
 
-#: admin/views/admin-settings-overview.php:28
+#: admin/views/admin-settings-overview.php:26
+msgid "You must refresh the page to see the effect of the changed settings."
+msgstr "Abyste viděli účinek změněného nastavení musíte aktualizovat stránku."
+
+#: admin/views/admin-settings-overview.php:32
 msgid "Section"
 msgstr "Sekce"
 
-#: admin/views/admin-settings-overview.php:30
+#: admin/views/admin-settings-overview.php:34
 msgid "Name"
 msgstr "Jméno"
 
@@ -441,16 +447,46 @@ msgstr "Obnovit nastavení pluginu"
 msgid "Settings set to defaults successfully"
 msgstr "Nastavení byla úspěšně nastavena na výchozí"
 
+#: includes/class-wetory-support-updater.php:99
+#, php-format
+msgid "Custom updater registered for GitHub repository %s"
+msgstr "Vlastní aktualizační modul registrovaný pro GitHub repositář %s"
+
+#: includes/class-wetory-support-updater.php:109
+#, php-format
+msgid "Initializing custom updater data for GitHub repository %s"
+msgstr "Inicializace dat aktualizačního modulu pro GitHub repositář %s"
+
+#: includes/class-wetory-support-updater.php:130
+#, php-format
+msgid "Going to download plugin %s releases from %s"
+msgstr "Chystá se stahování vydaných verzí pluginu %s z %s"
+
+#: includes/class-wetory-support-updater.php:143
+#, php-format
+msgid "Plugin releases info downloaded for %s"
+msgstr "Informace o vydaných verzích pluginu stažené pro %s"
+
+#: includes/class-wetory-support-updater.php:174
+#, php-format
+msgid "Latest release version - %s : %s"
+msgstr "Nejnovější vydaná verze - %s : %s"
+
+#: includes/class-wetory-support-updater.php:175
+#, php-format
+msgid "Installed version - %s : %s"
+msgstr "Nainstalovaná verze - %s : %s"
+
 #: includes/class-wetory-support-updater.php:354
 #, php-format
 msgid "Running post-update actions for version %s"
 msgstr "Spuštění akcí po aktualizaci pro verzi %s"
 
-#: includes/class-wetory-support-updater.php:421
+#: includes/class-wetory-support-updater.php:423
 msgid "Wetory Support - Plugin settings options migrated for version 1.2.1"
 msgstr "Wetory Support - Nastavení pluginu zmigrovány pro verzi 1.2.1"
 
-#: includes/controllers/class-wetory-support-apikeys-controller.php:62
+#: includes/controllers/class-wetory-support-apikeys-controller.php:68
 msgid "Configure API keys for APIs you want to use in your website"
 msgstr ""
 "Konfigurace klíčů rozhraní API pro rozhraní API, která chcete použít na webu"
@@ -1120,6 +1156,9 @@ msgstr "Tomáš Rybnický"
 #. Author URI of the plugin/theme
 msgid "https://www.wetory.eu/about-me/"
 msgstr ""
+
+#~ msgid "Sanitizing plugin settings"
+#~ msgstr "Sanitace nastavení pluginu"
 
 #~ msgid "Go to documentation page"
 #~ msgstr "Přejít na stránku dokumentace"

@@ -128,39 +128,6 @@ class Wetory_Support_Settings
         $this->sections = apply_filters('wetory_settings_sections', $this->sections);
     }
 
-
-    public function register_section__debugging($sections)
-    {
-
-        $section_name = 'debugging';
-
-        $section = array(
-            'settings_fields' => array()
-        );
-
-        $field = array(
-            'label' => __('Debugging verbosity', 'wetory-support'),
-            'type' => 'select',
-            'option_section' => $section_name,
-            'id' => 'verbosity',
-            'name' => 'verbosity',
-            'required'       => true,
-            'options'        => array(
-                'disabled' => __('Disabled', 'wetory-support'),
-                'basic'  =>  __('Basic', 'wetory-support'),
-                'detailed'  =>  __('Detailed', 'wetory-support')
-            ),
-            'description' => __('Debugging is working only if <a href="https://wordpress.org/support/article/debugging-in-wordpress/" target="_blank">WordPress debugging</a> is enabled.', 'wetory-support'),
-            'help' =>  __('Verbosity level can be changed to control what is written to WordPress debug log.', 'wetory-support'),
-        );
-
-        $section['settings_fields'][] = $field;
-
-        $sections[$section_name] = $section;
-
-        return $sections;
-    }
-
     /**
      * Validate data passed to plugin settings
      * 

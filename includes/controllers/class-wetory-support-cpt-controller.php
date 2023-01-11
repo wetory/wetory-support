@@ -71,8 +71,13 @@ class Wetory_Support_Cpt_Controller extends Wetory_Controller{
                 }
 
                 // rewrite-slug
-                if(isset($settings[$section_name][$cpt_object_id]['rewrite-slug']) && !empty($settings[$section_name][$cpt_object_id]['rewrite-slug'])){
-                    $settings[$section_name][$cpt_object_id]['rewrite-slug'] = Sanitizer::sanitize_slug($settings[$section_name][$cpt_object_id]['rewrite-slug']);
+                if(isset($settings[$section_name][$cpt_object_id]['rewrite-slug'])){
+                    if(!empty($settings[$section_name][$cpt_object_id]['rewrite-slug'])){
+                        $settings[$section_name][$cpt_object_id]['rewrite-slug'] = Sanitizer::sanitize_slug($settings[$section_name][$cpt_object_id]['rewrite-slug']);
+                    } else {
+                        unset($settings[$section_name][$cpt_object_id]['rewrite-slug']);
+                    }
+                    
                 }
 
                 // comments

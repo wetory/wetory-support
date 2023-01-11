@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Wetory Support\n"
-"POT-Creation-Date: 2022-12-24 13:10+0100\n"
+"POT-Creation-Date: 2023-01-11 01:41+0100\n"
 "PO-Revision-Date: 2020-11-29 17:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -29,7 +29,7 @@ msgid "Settings"
 msgstr ""
 
 #: admin/class-wetory-support-admin.php:171
-#: admin/class-wetory-support-admin.php:207
+#: admin/class-wetory-support-admin.php:203
 msgid "Settings - Wetory"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Wetory"
 msgstr ""
 
-#: admin/class-wetory-support-admin.php:220
+#: admin/class-wetory-support-admin.php:216
 msgid "You do not have sufficient permission to perform this operation"
 msgstr ""
 
@@ -73,40 +73,11 @@ msgstr ""
 msgid "Given settings section \"%s\" not found!"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:142
-msgid "Debugging verbosity"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:149
-msgid "Disabled"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:150
-msgid "Basic"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:151
-msgid "Detailed"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:153
-msgid ""
-"Debugging is working only if <a href=\"https://wordpress.org/support/article/"
-"debugging-in-wordpress/\" target=\"_blank\">WordPress debugging</a> is "
-"enabled."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:154
-msgid ""
-"Verbosity level can be changed to control what is written to WordPress debug "
-"log."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:179
+#: admin/class-wetory-support-settings.php:146
 msgid "Validating plugin settings"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:188
+#: admin/class-wetory-support-settings.php:155
 msgid "Value for debugging verbosity is not valid!"
 msgstr ""
 
@@ -123,6 +94,7 @@ msgid "Option"
 msgstr ""
 
 #: admin/partials/wetory-support-admin-display.php:28
+#: admin/views/admin-settings-overview.php:33
 msgid "Key"
 msgstr ""
 
@@ -131,6 +103,7 @@ msgid "Subkey"
 msgstr ""
 
 #: admin/partials/wetory-support-admin-display.php:30
+#: admin/views/admin-settings-overview.php:35
 msgid "Value"
 msgstr ""
 
@@ -141,7 +114,8 @@ msgid ""
 msgstr ""
 
 #: admin/partials/wetory-support-admin-settings.php:43
-#: admin/views/admin-settings-general.php:20
+#: admin/views/admin-settings-general.php:21
+#: admin/views/admin-settings-general.php:29
 msgid "General"
 msgstr ""
 
@@ -166,11 +140,7 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: admin/partials/wetory-support-admin-settings.php:96
-msgid "Update Settings"
-msgstr ""
-
-#: admin/partials/wetory-support-admin-settings.php:110
+#: admin/partials/wetory-support-admin-settings.php:98
 #, php-format
 msgid ""
 "Wetory Support %s &copy; %s | by <a href=\"%s\" target=\"_blank\">wetory</a>"
@@ -182,32 +152,61 @@ msgid ""
 "troubles this section can be helpful."
 msgstr ""
 
-#: admin/views/admin-settings-advanced.php:32
-msgid "Reset settings"
+#: admin/views/admin-settings-advanced.php:29
+msgid "Debugging verbosity"
 msgstr ""
 
-#: admin/views/admin-settings-advanced.php:34
-msgid "Delete settings and reset"
+#: admin/views/admin-settings-advanced.php:36
+msgid "Disabled"
 msgstr ""
 
-#: admin/views/admin-settings-advanced.php:34
-msgid "Are you sure you want to delete all your settings?"
+#: admin/views/admin-settings-advanced.php:37
+msgid "Basic"
 msgstr ""
 
-#: admin/views/admin-settings-advanced.php:35
-msgid "Warning: Resets all your current settings to default."
+#: admin/views/admin-settings-advanced.php:38
+msgid "Detailed"
 msgstr ""
 
 #: admin/views/admin-settings-advanced.php:40
-msgid "Hide admin bar menu"
+msgid ""
+"Debugging is working only if <a href=\"https://wordpress.org/support/article/"
+"debugging-in-wordpress/\" target=\"_blank\">WordPress debugging</a> is "
+"enabled."
 msgstr ""
 
-#: admin/views/admin-settings-advanced.php:45
-msgid "Plugin settings page available from admin toolbar can be hidden."
+#: admin/views/admin-settings-advanced.php:41
+msgid ""
+"Verbosity level can be changed to control what is written to WordPress debug "
+"log."
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:48
+msgid "Danger zone"
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:52
+msgid "Reset settings"
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:55
+msgid "Delete settings and reset"
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:55
+msgid "Are you sure you want to delete all your settings?"
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:56
+msgid "Warning: Resets all your current settings to default."
+msgstr ""
+
+#: admin/views/admin-settings-button-save.php:25
+msgid "Update Settings"
 msgstr ""
 
 #: admin/views/admin-settings-connections.php:22
-#: includes/controllers/class-wetory-support-apikeys-controller.php:61
+#: includes/controllers/class-wetory-support-apikeys-controller.php:67
 msgid "API Keys"
 msgstr ""
 
@@ -233,12 +232,11 @@ msgid ""
 msgstr ""
 
 #: admin/views/admin-settings-content.php:50
-msgid ""
-"After saving settings you will need to refresh page to see effect of changes "
-"done in this section."
+msgid "You need to refresh page to see effect of changed settings."
 msgstr ""
 
 #: admin/views/admin-settings-content.php:51
+#: admin/views/admin-settings-overview.php:27
 msgid "Reload page"
 msgstr ""
 
@@ -294,57 +292,65 @@ msgstr ""
 msgid "Published posts"
 msgstr ""
 
-#: admin/views/admin-settings-general.php:21
-#: admin/views/admin-settings-general.php:33
+#: admin/views/admin-settings-general.php:22
+#: admin/views/admin-settings-general.php:48
 msgid "Maintenance"
 msgstr ""
 
-#: admin/views/admin-settings-general.php:22
+#: admin/views/admin-settings-general.php:23
 msgid "Security"
 msgstr ""
 
-#: admin/views/admin-settings-general.php:34
+#: admin/views/admin-settings-general.php:33
+msgid "Hide admin bar menu"
+msgstr ""
+
+#: admin/views/admin-settings-general.php:38
+msgid "Plugin settings page available from admin toolbar can be hidden."
+msgstr ""
+
+#: admin/views/admin-settings-general.php:49
 msgid "Customize maintenance mode behaviour."
 msgstr ""
 
-#: admin/views/admin-settings-general.php:37
+#: admin/views/admin-settings-general.php:52
 msgid "Maintenance mode page"
 msgstr ""
 
-#: admin/views/admin-settings-general.php:39
+#: admin/views/admin-settings-general.php:54
 msgid "Create maintenance page"
 msgstr ""
 
-#: admin/views/admin-settings-general.php:39
+#: admin/views/admin-settings-general.php:54
 msgid "Creating page..."
 msgstr ""
 
-#: admin/views/admin-settings-general.php:40
+#: admin/views/admin-settings-general.php:55
 msgid "Delete maintenance page"
 msgstr ""
 
-#: admin/views/admin-settings-general.php:40
+#: admin/views/admin-settings-general.php:55
 msgid "Deleting page..."
 msgstr ""
 
-#: admin/views/admin-settings-general.php:41
+#: admin/views/admin-settings-general.php:56
 msgid ""
 "Plugin provides template for maintenance page which is shown instead of "
 "default maintenance notification panel."
 msgstr ""
 
-#: admin/views/admin-settings-general.php:47
+#: admin/views/admin-settings-general.php:62
 msgid ""
 "<a href=\"https://developer.wordpress.org/plugins/cron/\" targte=\"_blank"
 "\">WP-Cron</a> is disabled on this website. Automatic custom maintenance "
 "page recreation will not work as it is using WP-Cron for event scheduling."
 msgstr ""
 
-#: admin/views/admin-settings-general.php:53
+#: admin/views/admin-settings-general.php:68
 msgid "Disable recreate of custom maintenance page"
 msgstr ""
 
-#: admin/views/admin-settings-general.php:59
+#: admin/views/admin-settings-general.php:74
 msgid ""
 "Custom maintenance page is by default automatically recreated by WP-Cron "
 "scheduled events."
@@ -379,6 +385,26 @@ msgstr ""
 msgid "Contact"
 msgstr ""
 
+#: admin/views/admin-settings-overview.php:23
+msgid "Plugin settings overview"
+msgstr ""
+
+#: admin/views/admin-settings-overview.php:24
+msgid "Brief overview of this plugin settings on one screen."
+msgstr ""
+
+#: admin/views/admin-settings-overview.php:26
+msgid "You must refresh the page to see the effect of the changed settings."
+msgstr ""
+
+#: admin/views/admin-settings-overview.php:32
+msgid "Section"
+msgstr ""
+
+#: admin/views/admin-settings-overview.php:34
+msgid "Name"
+msgstr ""
+
 #: includes/class-wetory-support-ajax.php:47
 msgid "Updating plugin settings"
 msgstr ""
@@ -395,16 +421,46 @@ msgstr ""
 msgid "Settings set to defaults successfully"
 msgstr ""
 
+#: includes/class-wetory-support-updater.php:99
+#, php-format
+msgid "Custom updater registered for GitHub repository %s"
+msgstr ""
+
+#: includes/class-wetory-support-updater.php:109
+#, php-format
+msgid "Initializing custom updater data for GitHub repository %s"
+msgstr ""
+
+#: includes/class-wetory-support-updater.php:130
+#, php-format
+msgid "Going to download plugin %s releases from %s"
+msgstr ""
+
+#: includes/class-wetory-support-updater.php:143
+#, php-format
+msgid "Plugin releases info downloaded for %s"
+msgstr ""
+
+#: includes/class-wetory-support-updater.php:174
+#, php-format
+msgid "Latest release version - %s : %s"
+msgstr ""
+
+#: includes/class-wetory-support-updater.php:175
+#, php-format
+msgid "Installed version - %s : %s"
+msgstr ""
+
 #: includes/class-wetory-support-updater.php:354
 #, php-format
 msgid "Running post-update actions for version %s"
 msgstr ""
 
-#: includes/class-wetory-support-updater.php:421
+#: includes/class-wetory-support-updater.php:423
 msgid "Wetory Support - Plugin settings options migrated for version 1.2.1"
 msgstr ""
 
-#: includes/controllers/class-wetory-support-apikeys-controller.php:62
+#: includes/controllers/class-wetory-support-apikeys-controller.php:68
 msgid "Configure API keys for APIs you want to use in your website"
 msgstr ""
 

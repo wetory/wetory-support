@@ -27,4 +27,7 @@ if (!defined('WPINC')) {
             <?php do_action('wetory_settings_render_section','apikeys'); ?>
         </div>
     </div>
+    <?php
+	require 'admin-settings-button-save.php';
+	?>
 </div>
