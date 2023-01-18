@@ -8,7 +8,7 @@ on:
 jobs:
   deploy-stage:
     name: Deploy (STAGE)
-    if: github.event.pull_request.merged == true
+    if: contains(github.ref, 'release/') || github.ref == 'refs/heads/develop' 
     runs-on: ubuntu-latest
     environment: STAGE
     steps:
@@ -31,7 +31,6 @@ jobs:
           **/nbproject/**          
   deploy-qa:
     name: Deploy (QA)
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     environment: QA
     steps:
