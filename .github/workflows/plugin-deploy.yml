@@ -1,4 +1,4 @@
-name: 🚚 Plugin Deploy (QA & STAGE)
+name: 🚚 Plugin Deploy
 on:
   push:
     branches:
@@ -21,6 +21,11 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: ${{ vars.PLUGIN_DIR }}
         log-level: standard
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          nbproject
   deploy-qa:
     name: Deploy (QA)
     runs-on: ubuntu-latest
@@ -37,3 +42,8 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: ${{ vars.PLUGIN_DIR }}
         log-level: standard
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          nbproject
