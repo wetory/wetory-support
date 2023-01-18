@@ -1,0 +1,39 @@
+name: 🚀 Plugin Deploy (QA & STAGE)
+on:
+  push:
+    branches:
+      - develop
+      - 'release/**'
+jobs:
+  deploy-stage:
+    name: 🎉 Deploy (STAGE)
+    runs-on: ubuntu-latest
+    environment: STAGE
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: ${{ vars.PLUGIN_DIR }}
+        log-level: standard
+  deploy-qa:
+    name: 🎉 Deploy (QA)
+    runs-on: ubuntu-latest
+    environment: QA
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: ${{ vars.PLUGIN_DIR }}
+        log-level: standard
