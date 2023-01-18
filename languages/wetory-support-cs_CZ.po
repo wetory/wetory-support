@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2023-01-11 02:20+0100\n"
-"PO-Revision-Date: 2023-01-11 02:20+0100\n"
+"POT-Creation-Date: 2023-01-19 00:00+0100\n"
+"PO-Revision-Date: 2023-01-19 00:04+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -45,7 +45,7 @@ msgstr "Nemáte dostatečná oprávnění k provedení této operace"
 msgid "No fields in this metabox."
 msgstr "V tomto metaboxu nejsou žádná pole."
 
-#: admin/class-wetory-support-metabox.php:203
+#: admin/class-wetory-support-metabox.php:224
 #, php-format
 msgid "There is already a field with name %s"
 msgstr "Pole s názvem %s existuje"
@@ -246,8 +246,9 @@ msgstr ""
 "meta vlastnostmi."
 
 #: admin/views/admin-settings-content.php:50
-msgid "You need to refresh page to see effect of changed settings."
-msgstr "Musíte aktualizovat stránku, abyste viděli účinek změněného nastavení."
+#: admin/views/admin-settings-overview.php:26
+msgid "You must refresh the page to see the effect of the changed settings."
+msgstr "Abyste viděli účinek změněného nastavení musíte aktualizovat stránku."
 
 #: admin/views/admin-settings-content.php:51
 #: admin/views/admin-settings-overview.php:27
@@ -426,10 +427,6 @@ msgstr "Přehled nastavení pluginu"
 msgid "Brief overview of this plugin settings on one screen."
 msgstr "Stručný přehled nastavení tohoto pluginu."
 
-#: admin/views/admin-settings-overview.php:26
-msgid "You must refresh the page to see the effect of the changed settings."
-msgstr "Abyste viděli účinek změněného nastavení musíte aktualizovat stránku."
-
 #: admin/views/admin-settings-overview.php:32
 msgid "Section"
 msgstr "Sekce"
@@ -485,128 +482,128 @@ msgstr ""
 "target=\"_blank\">widgety</a>, které chcete na svých webových stránkách "
 "používat."
 
-#: includes/cpt/abstract-wetory-support-cpt.php:194
+#: includes/cpt/abstract-wetory-support-cpt.php:193
 msgid "You are not allowed to modify this post!"
 msgstr "Nejste oprávněni upravit tento příspěvek!"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:194
+#: includes/cpt/abstract-wetory-support-cpt.php:193
 msgid "Unauthorized action"
 msgstr "Neoprávněná akce"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:275
+#: includes/cpt/abstract-wetory-support-cpt.php:274
 msgctxt "Post Type General Name"
 msgid "Post Types"
 msgstr "Typy příspěvků"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:276
+#: includes/cpt/abstract-wetory-support-cpt.php:275
 msgctxt "Post Type Singular Name"
 msgid "Post Type"
 msgstr "Typ příspěvku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:277
+#: includes/cpt/abstract-wetory-support-cpt.php:276
 msgid "Post Types"
 msgstr "Typy příspěvků"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:278
+#: includes/cpt/abstract-wetory-support-cpt.php:277
 msgid "Post Type"
 msgstr "Typ příspěvku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:279
+#: includes/cpt/abstract-wetory-support-cpt.php:278
 msgid "Item Archives"
 msgstr "Archivy položek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:280
+#: includes/cpt/abstract-wetory-support-cpt.php:279
 msgid "Item Attributes"
 msgstr "Atributy položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:281
+#: includes/cpt/abstract-wetory-support-cpt.php:280
 msgid "Parent Item:"
 msgstr "Nadřazená položka:"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:282
+#: includes/cpt/abstract-wetory-support-cpt.php:281
 msgid "All Items"
 msgstr "Všechny položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:283
+#: includes/cpt/abstract-wetory-support-cpt.php:282
 msgid "Add New Item"
 msgstr "Přidat novou položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:284
+#: includes/cpt/abstract-wetory-support-cpt.php:283
 msgid "Add New"
 msgstr "Přidat položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:285
+#: includes/cpt/abstract-wetory-support-cpt.php:284
 msgid "New Item"
 msgstr "Nová položka"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:286
+#: includes/cpt/abstract-wetory-support-cpt.php:285
 msgid "Edit Item"
 msgstr "Upravit položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:287
+#: includes/cpt/abstract-wetory-support-cpt.php:286
 msgid "Update Item"
 msgstr "Aktualizovat položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:288
+#: includes/cpt/abstract-wetory-support-cpt.php:287
 msgid "View Item"
 msgstr "Zobrazit položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:289
+#: includes/cpt/abstract-wetory-support-cpt.php:288
 msgid "View Items"
 msgstr "Zobrazit položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:290
+#: includes/cpt/abstract-wetory-support-cpt.php:289
 msgid "Search Item"
 msgstr "Hledat položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:291
+#: includes/cpt/abstract-wetory-support-cpt.php:290
 msgid "Not found"
 msgstr "Nenalezeno"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:292
+#: includes/cpt/abstract-wetory-support-cpt.php:291
 msgid "Not found in Trash"
 msgstr "V koši nebylo nic nalezeno"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:293
+#: includes/cpt/abstract-wetory-support-cpt.php:292
 msgid "Featured Image"
 msgstr "Náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:294
+#: includes/cpt/abstract-wetory-support-cpt.php:293
 msgid "Set featured image"
 msgstr "Zvolit náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:295
+#: includes/cpt/abstract-wetory-support-cpt.php:294
 msgid "Remove featured image"
 msgstr "Odstranit náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:296
+#: includes/cpt/abstract-wetory-support-cpt.php:295
 msgid "Use as featured image"
 msgstr "Použít jako náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:297
+#: includes/cpt/abstract-wetory-support-cpt.php:296
 msgid "Insert into item"
 msgstr "Vložit do položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:298
+#: includes/cpt/abstract-wetory-support-cpt.php:297
 msgid "Uploaded to this item"
 msgstr "Nahrány do této položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:299
+#: includes/cpt/abstract-wetory-support-cpt.php:298
 msgid "Items list"
 msgstr "Seznam položek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:300
+#: includes/cpt/abstract-wetory-support-cpt.php:299
 msgid "Items list navigation"
 msgstr "Navigace pro seznam položek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:301
+#: includes/cpt/abstract-wetory-support-cpt.php:300
 msgid "Filter items list"
 msgstr "Seznam položek filtru"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:27
 #: includes/cpt/cpt-wetory-support-notice-board.php:56
 #: includes/cpt/cpt-wetory-support-notice-board.php:57
-msgid "Notice board"
+msgid "Notice Board"
 msgstr "Úřední deska"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:28
@@ -619,20 +616,20 @@ msgstr ""
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:54
 msgctxt "Post Type General Name"
-msgid "Notice board"
+msgid "Notice Board"
 msgstr "Úřední deska"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:55
 msgctxt "Post Type Singular Name"
-msgid "Notice board post"
+msgid "Notice Board Post"
 msgstr "Příspěvek na úřední desce"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:58
-msgid "Create new notice board post"
+msgid "Create New Notice Board Post"
 msgstr "Vytvořit nový příspěvek na úřední desce"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:59
-msgid "Create post"
+msgid "Create Post"
 msgstr "Vytvořit příspěvek"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:91
@@ -685,12 +682,14 @@ msgstr "Může pomoci identifikovat příspěvek ve více systémech"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:138
 #: includes/cpt/cpt-wetory-support-photogallery.php:84
+#: includes/cpt/cpt-wetory-support-team-members.php:204
 #, php-format
 msgid "\"%s\" is mandatory field!"
 msgstr "\"%s\" je povinné pole!"
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:138
 #: includes/cpt/cpt-wetory-support-photogallery.php:84
+#: includes/cpt/cpt-wetory-support-team-members.php:204
 msgid "Post title"
 msgstr "Nadpis příspěvku"
 
@@ -711,12 +710,12 @@ msgid "\"%s\" value must be higher or equal to \"%s\"!"
 msgstr "Hodnota \"%s\" musí být vyšší nebo rovna hodnotě \"%s\"!"
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:26
-msgid "Photo gallery"
+msgid "Photo Gallery"
 msgstr "Fotogalerie"
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:27
 msgid ""
-"Custom post type photogallery is used for creating photo galleries on "
+"Custom post type photo gallery is used for creating photo galleries on "
 "website."
 msgstr ""
 "Vlastní příspěvky typu fotogalerie se používají pro vytváření fotogalerií na "
@@ -724,26 +723,138 @@ msgstr ""
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:53
 msgctxt "Post Type General Name"
-msgid "Photo gallery"
+msgid "Photo Gallery"
 msgstr "Fotogalerie"
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:54
 msgctxt "Post Type Singular Name"
-msgid "Photo gallery post"
+msgid "Photo Gallery Post"
 msgstr "Příspěvek do fotogalerie"
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:55
 #: includes/cpt/cpt-wetory-support-photogallery.php:56
-msgid "Photo galleries"
+msgid "Photo Galleries"
 msgstr "Fotogalerie"
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:57
-msgid "Create new photogallery"
+msgid "Create New Gallery"
 msgstr "Vytvořit novou fotogalerii"
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:58
-msgid "Create photogallery"
+msgid "Create Gallery"
 msgstr "Vytvořit fotogalerii"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:26
+#: includes/cpt/cpt-wetory-support-team-members.php:55
+#: includes/cpt/cpt-wetory-support-team-members.php:56
+msgid "Team Members"
+msgstr "Členové týmu"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:27
+msgid ""
+"Custom post type team members is used for evidence of people working in team."
+msgstr ""
+"Vlastní příspěvky typu členové týmu se používají pro evidenci lidí "
+"pracujících v týmu."
+
+#: includes/cpt/cpt-wetory-support-team-members.php:53
+msgctxt "Post Type General Name"
+msgid "Team Members"
+msgstr "Členové týmu"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:54
+msgctxt "Post Type Singular Name"
+msgid "Team member"
+msgstr "Člen týmu"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:57
+msgid "Create New Team Member"
+msgstr "Vytvořit nového člena týmu"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:58
+msgid "Create Team Member"
+msgstr "Vytvořit člena týmu"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:59
+msgid "Photo"
+msgstr "Fotka"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:92
+msgid "Contact information"
+msgstr "Kontaktní informace"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:93
+msgid ""
+"These information will be displayed on website depending on used template."
+msgstr ""
+"Tyto informace budou zobrazeny na webových stránkách v závislosti na použité "
+"šabloně."
+
+#: includes/cpt/cpt-wetory-support-team-members.php:101
+msgid "Position"
+msgstr "Pozice"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:103
+msgid "Position in team where this member is working on."
+msgstr "Pozice v týmu, na které tento člen pracuje."
+
+#: includes/cpt/cpt-wetory-support-team-members.php:109
+msgid "Email contact"
+msgstr "E-mailový kontakt"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:118
+msgid "Phone contact"
+msgstr "Telefonní kontakt"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:128
+msgid "Member availability"
+msgstr "Dostupnost"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:129
+msgid ""
+"Member availability is exposed to front-end with indicators when he/she can "
+"be contacted."
+msgstr ""
+"Dostupnost člena je zobrazena na front-endu pomocí indikátorů, kdy může být "
+"kontaktován."
+
+#: includes/cpt/cpt-wetory-support-team-members.php:137
+msgid "Status"
+msgstr "Status"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:140
+msgid "Online"
+msgstr "Online"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:141
+msgid "Offline"
+msgstr "Offline"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:146
+msgid "Display status for member (this overrides scheduled availability)"
+msgstr "Zobrazení stavu člena (přepíše dostupnost podle rozvrhu)"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:171
+msgid "Social media links"
+msgstr "Odkazy na sociální sítě"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:172
+msgid "These links will be displayed on website depending on used template."
+msgstr ""
+"Tyto odkazy budou zobrazeny na webových stránkách v závislosti na použité "
+"šabloně."
+
+#: includes/cpt/cpt-wetory-support-team-members.php:180
+msgid "Facebook"
+msgstr "Facebook"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:187
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: includes/cpt/cpt-wetory-support-team-members.php:194
+msgid "Twitter"
+msgstr "Twitter"
 
 #: includes/wetory-support-functions-ajax.php:69
 #, php-format
@@ -1133,6 +1244,18 @@ msgstr "Tomáš Rybnický"
 #. Author URI of the plugin/theme
 msgid "https://www.wetory.eu/about-me/"
 msgstr "https://www.wetory.eu/about-me/"
+
+#~ msgid "You need to refresh page to see effect of changed settings."
+#~ msgstr ""
+#~ "Musíte aktualizovat stránku, abyste viděli účinek změněného nastavení."
+
+#~ msgctxt "Post Type General Name"
+#~ msgid "Notice board"
+#~ msgstr "Úřední deska"
+
+#~ msgctxt "Post Type General Name"
+#~ msgid "Photo gallery"
+#~ msgstr "Fotogalerie"
 
 #, php-format
 #~ msgid "Custom updater registered for GitHub repository %s"
