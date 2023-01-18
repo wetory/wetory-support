@@ -1,6 +1,6 @@
 # GitHub Action: Packaging WordPress plugin that can be downloaded and installed
 # Inspired by https://leoloso.com/posts/github-action-to-release-wp-plugin/
-name: Plugin Release
+name: 🚚 Plugin Release
 on:
   release:
     types: 
