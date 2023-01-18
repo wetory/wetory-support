@@ -20,6 +20,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: ${{ vars.PLUGIN_DIR }}
+        dangerous-clean-slate: true
         log-level: standard
         exclude: |
           **/.git*
@@ -41,6 +42,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: ${{ vars.PLUGIN_DIR }}
+        dangerous-clean-slate: true
         log-level: standard
         exclude: |
           **/.git*
