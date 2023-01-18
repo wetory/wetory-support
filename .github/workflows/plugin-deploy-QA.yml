@@ -18,5 +18,5 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /z-wetory.eu/subs/qa/fain.team/test
+        server-dir: /z-wetory.eu/subs/qa/fain.team/test/
         log-level: verbose
