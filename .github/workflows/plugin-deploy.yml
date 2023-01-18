@@ -1,8 +1,8 @@
-# GitHub Action: Deploy WordPress plugin to testing environments after every push to develop or release/** branch
+# GitHub Action: Deploy WordPress plugin to testing environments after PR to develop or release/** branch
 # Inspired by https://github.com/SamKirkland/FTP-Deploy-Action
 name: Plugin Deploy
 on:
-  push:
+  pull_request:
     branches:
       - develop
       - 'release/**'
