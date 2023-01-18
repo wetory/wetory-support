@@ -1,4 +1,4 @@
-[![Plugin Release](https://github.com/wetory/wetory-support/actions/workflows/plugin-release.yml/badge.svg)](https://github.com/wetory/wetory-support/actions/workflows/plugin-release.yml)
+[![Plugin Release](https://github.com/wetory/wetory-support/actions/workflows/plugin-release.yml/badge.svg)](https://github.com/wetory/wetory-support/actions/workflows/plugin-release.yml) [![Plugin Deploy](https://github.com/wetory/wetory-support/actions/workflows/plugin-deploy.yml/badge.svg)](https://github.com/wetory/wetory-support/actions/workflows/plugin-deploy.yml)
 
 # Wetory Support
 WordPress plugin for [wetory projects](https://www.wetory.eu/projects/). Adds reusable content to improve development workflow. Following best practices from official [Plugin Developer Handbook](https://developer.wordpress.org/plugins/).
