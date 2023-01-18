@@ -23,8 +23,8 @@ class Cpt_Wetory_Support_Photogallery extends Wetory_Support_Cpt {
 
     protected function get_post_type_args() {
         $args = array(
-            'label'                 => __('Photo gallery', 'wetory-support'),
-            'description'           => __('Custom post type photogallery is used for creating photo galleries on website.', 'wetory-support' ),
+            'label'                 => __('Photo Gallery', 'wetory-support'),
+            'description'           => __('Custom post type photo gallery is used for creating photo galleries on website.', 'wetory-support' ),
             'labels'                => $this->labels(),
             'supports'              => $this->supports(array('title', 'editor', 'thumbnail', 'author')),
             'taxonomies'            => array('category', 'post_tag'),
@@ -50,12 +50,12 @@ class Cpt_Wetory_Support_Photogallery extends Wetory_Support_Cpt {
     
     protected function override_labels() {
         $overriden_labels = array(
-            'name'                  => _x( 'Photo gallery', 'Post Type General Name', 'wetory-support' ),
-            'singular_name'         => _x( 'Photo gallery post', 'Post Type Singular Name', 'wetory-support' ),
-            'menu_name'             => __( 'Photo galleries', 'wetory-support' ),
-            'name_admin_bar'        => __( 'Photo galleries', 'wetory-support' ),
-            'add_new_item'          => __('Create new photogallery', 'wetory-support'),
-            'add_new'               => __('Create photogallery', 'wetory-support'),
+            'name'                  => _x( 'Photo Gallery', 'Post Type General Name', 'wetory-support' ),
+            'singular_name'         => _x( 'Photo Gallery Post', 'Post Type Singular Name', 'wetory-support' ),
+            'menu_name'             => __( 'Photo Galleries', 'wetory-support' ),
+            'name_admin_bar'        => __( 'Photo Galleries', 'wetory-support' ),
+            'add_new_item'          => __('Create New Gallery', 'wetory-support'),
+            'add_new'               => __('Create Gallery', 'wetory-support'),
         );
         return $overriden_labels;
     }

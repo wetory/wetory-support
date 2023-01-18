@@ -69,6 +69,66 @@ class Wetory_Support_Metabox_Renderer {
     }
 
     /**
+     * Render email field.
+     * 
+     * Supports: required
+     * 
+     * @since 1.2.0
+     * @param  string $field options
+     * @return void     
+     */
+    public static function render_email($field) {
+        extract($field);
+        ?>
+        <div class="<?php echo self::FIELD_CLASS; ?>">
+            <div class="<?php echo self::LABEL_CLASS; ?>">
+                <label for="<?php echo $name; ?>">
+                    <?php echo $required ? $title . ' <span class="wetory-required">*</span>' : $title; ?>
+                </label>
+                <?php
+                if ($desc != '') {
+                    echo '<p class="description">' . $desc . '</p>';
+                }
+                ?>
+            </div>                
+            <div class="<?php echo self::INPUT_CLASS; ?>">
+                <input type="<?php echo $type; ?>" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo $default; ?>" placeholder="<?php echo $placeholder; ?>" <?php echo $required ? 'required' : ''; ?>/>	
+            </div>
+        </div>
+        <?php
+    }
+
+    /**
+     * Render telephone field.
+     * 
+     * Supports: required
+     * 
+     * @since 1.2.0
+     * @param  string $field options
+     * @return void     
+     */
+    public static function render_tel($field) {
+        extract($field);
+        ?>
+        <div class="<?php echo self::FIELD_CLASS; ?>">
+            <div class="<?php echo self::LABEL_CLASS; ?>">
+                <label for="<?php echo $name; ?>">
+                    <?php echo $required ? $title . ' <span class="wetory-required">*</span>' : $title; ?>
+                </label>
+                <?php
+                if ($desc != '') {
+                    echo '<p class="description">' . $desc . '</p>';
+                }
+                ?>
+            </div>                
+            <div class="<?php echo self::INPUT_CLASS; ?>">
+                <input type="<?php echo $type; ?>" name="<?php echo $name; ?>" id="<?php echo $name; ?>" value="<?php echo $default; ?>" placeholder="<?php echo $placeholder; ?>" <?php echo $required ? 'required' : ''; ?>/>	
+            </div>
+        </div>
+        <?php
+    }
+
+    /**
      * Render textarea field
      * @since 1.1.0
      * @param  string $field options
@@ -159,7 +219,7 @@ class Wetory_Support_Metabox_Renderer {
         extract($field);
         ?>
         <div class="<?php echo self::FIELD_CLASS; ?>">
-            <<div class="<?php echo self::LABEL_CLASS; ?>">
+            <div class="<?php echo self::LABEL_CLASS; ?>">
                 <label for="<?php echo $name; ?>">
                     <?php echo $required ? $title . ' <span class="wetory-required">*</span>' : $title; ?>
                 </label>
@@ -177,6 +237,47 @@ class Wetory_Support_Metabox_Renderer {
                     }
                     ?>
                 </select>
+            </div>
+        </div>
+        <?php
+    }
+
+    /**
+     * Render weekday schedule table
+     * @since 1.2.0
+     * @param  array $field options
+     * @return void      
+     */
+    public static function render_weekday_schedule($field) {
+        extract($field);
+        ?>
+        <div class="<?php echo self::FIELD_CLASS; ?>">
+            <div class="<?php echo self::LABEL_CLASS; ?>">
+                <label for="<?php echo $name; ?>">
+                    <?php echo $required ? $title . ' <span class="wetory-required">*</span>' : $title; ?>
+                </label>
+                <?php
+                if ($desc != '') {
+                    echo '<p class="description">' . $desc . '</p>';
+                }
+                ?>
+            </div>                
+            <div class="<?php echo self::INPUT_CLASS; ?> weekday-schedule">
+                <table class="form-table" role="presentation">
+
+                    <?php foreach ($options as $value => $text): ?>
+                        <tr>
+                            <th><?php echo $text ?></th>                            
+                            <td>
+                                <label>
+                                    <input <?php checked($default, '1', true); ?> type="checkbox" name="<?php echo $name . '-' . $value; ?>" id="<?php echo $name . '-' . $value; ?>" value="1"/> 
+                                    <input type="time"> - <input type="time">
+                                </label>
+                                
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
             </div>
         </div>
         <?php

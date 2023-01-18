@@ -30,10 +30,15 @@
      * 
      */
     $(function () {
+        
+        // Initialize admin datepickers
+        if (0 < $('.wetory-datepicker').length) {
+            $('.wetory-datepicker').datepicker({
+                dateFormat: "dd.mm.yy"
+            });
+        }
 
-        /**
-         * Hide or show widget link options conditionaly on value of widget link style
-         */
+        // Hide or show widget link options conditionaly on value of widget link style
         $('select.widget-link-style').change(function () {
             if ($(this).val() === 'none') {
                 $(this).parent().next('div.widget-link-options').css("display", "none");
@@ -42,6 +47,7 @@
             }
         });
 
+        // Maintenance page operations handler
         $('input.mp-operation').click(function () {
             button = $(this);
             original_value = button.val();

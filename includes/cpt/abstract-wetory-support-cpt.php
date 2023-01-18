@@ -185,7 +185,6 @@ abstract class Wetory_Support_Cpt {
      * @return int Post ID
      */
     public function save_post($post_id, $post) {
-
         if (!$this->save_post_allowed($post)) {
             return $post_id;
         }
@@ -204,7 +203,7 @@ abstract class Wetory_Support_Cpt {
     /**
      * Check if this post is allowed to run save workflow.
      * 
-     * This contains post status, type etc. This is neede to prevent unnecesary
+     * This contains post status, type etc. This is needed to prevent unnecessary
      * work.
      * 
      * @since    1.1.0
@@ -315,6 +314,20 @@ abstract class Wetory_Support_Cpt {
      */
     protected function override_labels() {
         return array();
+    }
+    
+    /**
+     * Change default post title placeholder
+     * 
+     * Just optional function which can be overridden in subclass to change default
+     * post title placeholder.
+     * 
+     * @see https://developer.wordpress.org/reference/hooks/enter_title_here/
+     * @since 1.2.0
+     * @return string Replacement text. 
+     */
+    protected function override_post_title_placeholder($placeholder) {
+        return $placeholder;
     }
 
     /**

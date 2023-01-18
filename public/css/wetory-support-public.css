@@ -108,6 +108,27 @@ table.wetory-table .no-results {
     min-height: 150px;
 }
 
+/* Templates - Posts grid - Item - Team Members */
+.wetory-grid.wcpt-team-members .wetory-grid-item .card {
+    text-align: center;
+}
+.wetory-grid.wcpt-team-members .wetory-grid-item .card .card-title {
+}
+.wetory-grid.wcpt-team-members .wetory-grid-item .card .team-member-position {
+    color: #A3A3A3;
+    font-size: 15px;
+    line-height: 30px;
+}
+.wetory-grid.wcpt-team-members .wetory-grid-item .card .team-member-contact {
+}
+.wetory-grid.wcpt-team-members .wetory-grid-item .card .team-member-availability {
+}
+.wetory-grid.wcpt-team-members .wetory-grid-item .card .team-member-availability.online {
+    background-color: #549d1e;
+    color: #FFF;
+    font-weight: bold;
+}
+
 /* Loadmore */
 .wetory-posts-pagination-loadmore {
     width: 100%;

@@ -24,7 +24,7 @@ class Cpt_Wetory_Support_Notice_Board extends Wetory_Support_Cpt {
 
     protected function get_post_type_args() {
         $args = array(
-            'label' => __('Notice board', 'wetory-support'),
+            'label' => __('Notice Board', 'wetory-support'),
             'description' => __('Custom post type notice board is used for official records which is mandatory for city/village websites.', 'wetory-support'),
             'labels' => $this->labels(),
             'supports' => $this->supports(array('title', 'editor', 'author', 'custom-fields')),
@@ -51,12 +51,12 @@ class Cpt_Wetory_Support_Notice_Board extends Wetory_Support_Cpt {
 
     protected function override_labels() {
         $overriden_labels = array(
-            'name' => _x('Notice board', 'Post Type General Name', 'wetory-support'),
-            'singular_name' => _x('Notice board post', 'Post Type Singular Name', 'wetory-support'),
-            'menu_name' => __('Notice board', 'wetory-support'),
-            'name_admin_bar' => __('Notice board', 'wetory-support'),
-            'add_new_item' => __('Create new notice board post', 'wetory-support'),
-            'add_new' => __('Create post', 'wetory-support'),
+            'name' => _x('Notice Board', 'Post Type General Name', 'wetory-support'),
+            'singular_name' => _x('Notice Board Post', 'Post Type Singular Name', 'wetory-support'),
+            'menu_name' => __('Notice Board', 'wetory-support'),
+            'name_admin_bar' => __('Notice Board', 'wetory-support'),
+            'add_new_item' => __('Create New Notice Board Post', 'wetory-support'),
+            'add_new' => __('Create Post', 'wetory-support'),
         );
         return $overriden_labels;
     }
