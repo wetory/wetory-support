@@ -26,7 +26,7 @@ jobs:
           **/.git*
           **/.git*/**
           **/node_modules/**
-          nbproject
+          **/nbproject/**          
   deploy-qa:
     name: Deploy (QA)
     runs-on: ubuntu-latest
@@ -48,4 +48,4 @@ jobs:
           **/.git*
           **/.git*/**
           **/node_modules/**
-          nbproject
+          **/nbproject/**          
