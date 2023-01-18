@@ -59,7 +59,7 @@
                     button.val(button.attr('data-working-text'));
                 },
                 success: function (response) {
-                    $(".mp-operation-outcome").html(response);
+                    wetory_support_notify_msg.success(response);
                 },
                 error: function () {
                     // TODO
@@ -69,10 +69,125 @@
                 },
             });
         });
-        
+
+
+
+        // Navigation tabs in settings page
+        var ws_nav_tab = $('.wetory-support-nav-tab-wrapper .nav-tab');
+        if (ws_nav_tab.length > 0) {
+            ws_nav_tab.click(
+                function () {
+                    var href_hash = $(this).attr('href');
+                    ws_nav_tab.removeClass('nav-tab-active');
+                    $(this).addClass('nav-tab-active');
+                    href_hash = href_hash.charAt(0) === '#' ? href_hash.substring(1) : href_hash;
+                    var ws_tab_elm = $('div[data-id="' + href_hash + '"]');
+                    $('.wetory-support-tab-content').hide();
+                    if (ws_tab_elm.length > 0) {
+                        ws_tab_elm.fadeIn();
+                    }
+                }
+            );
+            var location_hash = window.location.hash;
+            if (location_hash !== "") {
+                var ws_tab_hash = location_hash.charAt(0) === '#' ? location_hash.substring(1) : location_hash;
+                if (ws_tab_hash !== "") {
+                    $('div[data-id="' + ws_tab_hash + '"]').show();
+                    $('a[href="#' + ws_tab_hash + '"]').addClass('nav-tab-active');
+                }
+            } else {
+                ws_nav_tab.eq(0).click();
+            }
+        }
+        // Navigation sub-tabs under top tabs in settings page
+        $('.wetory-support-sub-tab li').click(
+            function () {
+                var trgt = $(this).attr('data-target');
+                var prnt = $(this).parent('.wetory-support-sub-tab');
+                var ctnr = prnt.siblings('.wetory-support-sub-tab-container');
+                prnt.find('li a').css({ 'color': '#0073aa', 'cursor': 'pointer' });
+                $(this).find('a').css({ 'color': '#000', 'cursor': 'default', 'font-weight': '600' });
+                ctnr.find('.wetory-support-sub-tab-content').hide();
+                ctnr.find('.wetory-support-sub-tab-content[data-id="' + trgt + '"]').fadeIn();
+            }
+        );
+        $('.wetory-support-sub-tab').each(
+            function () {
+                var elm = $(this).children('li').eq(0);
+                elm.click();
+            }
+        );
+
+        // Settings form submit
+        $('#wetory_support_settings_form').submit(
+            function (e) {
+                var submit_action = $('#wetory_support_submit_action').val();
+                e.preventDefault();
+                var data = $(this).serialize();
+                var spinner = $(this).find('.spinner');
+                var submit_btn = $(this).find('input[type="submit"]');
+                $.ajax(
+                    {
+                        url: ajaxurl,
+                        type: 'post',
+                        data: data + '&action=' + submit_action,
+                        beforeSend: function () {
+                            spinner.css({ 'visibility': 'visible' });
+                            submit_btn.css({ 'opacity': '.5', 'cursor': 'default' }).prop('disabled', true);
+                        },
+                        success: function (response) {
+                            wetory_support_notify_msg.success(response.data);
+                            if (submit_action == 'wetory_support_ajax_reset_settings') {
+                                setTimeout(
+                                    function () {
+                                        window.location.reload(true);
+                                    },
+                                    1000
+                                );
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            if (xhr.responseJSON && xhr.responseJSON.data) {
+                                if (Array.isArray(xhr.responseJSON.data) && xhr.responseJSON.data.length) {
+                                    xhr.responseJSON.data.forEach((error, i, arr) => {
+                                        wetory_support_notify_msg.error(error.message);
+                                    })
+                                } else {
+                                    wetory_support_notify_msg.error(xhr.responseJSON.data);
+                                }
+                            } else {
+                                wetory_support_notify_msg.error(xhr.responseText);
+                            }
+                        },
+                        complete: function () {
+                            spinner.css({ 'visibility': 'hidden' });
+                            submit_btn.css({ 'opacity': '1', 'cursor': 'pointer' }).prop('disabled', false);
+                        },
+                    }
+                );
+            }
+        );
+
+
     });
 
 })(jQuery);
+
+// Set proper action to be handled after clicking submit button
+function wetory_support_settings_btn_click(vl) {
+    document.getElementById('wetory_support_submit_action').value = vl;
+}
+
+// Reload browser page
+function refresh_page(e) {
+    e.preventDefault();
+    window.location.reload();
+}
+
+// Dismiss admin area notifications
+function wetory_support_dismiss_notice_btn_click(el) {
+    el.parent().remove();
+}
 
 function openSettingsTab(evt, tabName) {
     // Declare all variables
@@ -93,4 +208,37 @@ function openSettingsTab(evt, tabName) {
     // Show the current tab, and add an "active" class to the button that opened the tab
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " nav-tab-active";
+}
+
+// Admin area notifications display
+var wetory_support_notify_msg =
+{
+    error: function (message) {
+        var el = jQuery('<div class="notice notice-error settings-error is-dismissible"><p>' + message + '</p><button type="button" class="notice-dismiss" onclick="return this.parentNode.remove();"><span class="screen-reader-text">Dismiss this notice.</span></button></div>');
+        this.setNotify(el);
+    },
+    success: function (message) {
+        var el = jQuery('<div class="notice notice-success settings-error is-dismissible auto-dissmiss"><p>' + message + '</p><button type="button" class="notice-dismiss" onclick="return this.parentNode.remove();"><span class="screen-reader-text">Dismiss this notice.</span></button></div>');
+        this.setNotify(el);
+    },
+    setNotify: function (el) {
+        jQuery('.wetory-support-plugin-notifications').append(el);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        el.stop(true, true).animate({ 'opacity': 1 }, 1000);
+        if (el.hasClass('auto-dissmiss')) {
+            setTimeout(
+                function () {
+                    el.animate(
+                        { 'opacity': 0 },
+                        1000,
+                        function () {
+                            el.remove();
+                        }
+                    );
+                },
+                3000
+            );
+        }
+
+    }
 }

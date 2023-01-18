@@ -15,13 +15,16 @@ if (!class_exists('Wetory_Support_Ajax')) {
      * @subpackage wetory_support/includes
      * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
      */
-    class Wetory_Support_Ajax {
+    class Wetory_Support_Ajax
+    {
 
-        public function __construct() {
+        public function __construct()
+        {
             add_filter('wetory_ajax_filter_query', array($this, 'default_ajax_filter_query'), 10, 2);
         }
 
-        public function register_handlers() {
+        public function register_handlers()
+        {
             $class_methods = get_class_methods(self::class);
 
             foreach ($class_methods as $method_name) {
@@ -34,6 +37,59 @@ if (!class_exists('Wetory_Support_Ajax')) {
         }
 
         /**
+         * Handler function for Ajax url call 'wetory_support_ajax_update_settings'
+         *
+         * @since 1.2.1
+         *
+         */
+        public function handle_wetory_support_ajax_update_settings()
+        {
+            wetory_write_log(__('Updating plugin settings', 'wetory-support'));
+            check_admin_referer('wetory-support-update-' . WETORY_SUPPORT_SETTINGS_OPTION);
+
+            try {
+                // Validate before saving to database
+                $options = apply_filters('wetory_settings_validate', $_POST[WETORY_SUPPORT_SETTINGS_OPTION]);
+                if (is_wp_error($options)) {
+                    wp_send_json_error($options, $options->get_error_code());
+                    die();
+                }
+
+                // Save settings to database
+                update_option(WETORY_SUPPORT_SETTINGS_OPTION, $options);
+                wp_send_json_success(esc_html__('Settings updated successfully', 'wetory-support'));
+            } catch (Exception $e) {
+                wp_send_json_error($e->getMessage(), $e->getCode());
+            }
+            die();
+        }
+
+        public function handle_wetory_support_ajax_reset_settings(){
+            wetory_write_log(__('Resetting plugin settings', 'wetory-support'));
+            check_admin_referer('wetory-support-update-' . WETORY_SUPPORT_SETTINGS_OPTION);
+            
+            try {
+                
+                $options = array();
+                $options = apply_filters('wetory_settings_default', $options);
+                $options = apply_filters('wetory_settings_validate', $options);
+
+                if (is_wp_error($options)) {
+                    wp_send_json_error($options, $options->get_error_code());
+                    die();
+                }
+
+                // Save settings to database
+                $updated = update_option(WETORY_SUPPORT_SETTINGS_OPTION, $options);
+                wp_send_json_success(esc_html__('Settings set to defaults successfully', 'wetory-support'));
+            } catch (Exception $e) {
+                wp_send_json_error($e->getMessage(), $e->getCode());
+            }
+
+            die();
+        }
+
+        /**
          * Handler function for Ajax url call 'wetory_ajax_loadmore'
          * 
          * Assuming that call contains query for constructing WP_Query object, if so
@@ -42,14 +98,15 @@ if (!class_exists('Wetory_Support_Ajax')) {
          * 
          * @global WP_Query $wp_query
          */
-        public function handle_wetory_ajax_loadmore() {
+        public function handle_wetory_ajax_loadmore()
+        {
             global $wp_query;
 
             // Required data not sent then die
             if (!isset($_POST['query'])) {
                 die();
             }
-            
+
             // Pass some data to template
             $data = array(
                 'columns' => isset($_POST['columns']) ? $_POST['columns'] : 2
@@ -64,10 +121,10 @@ if (!class_exists('Wetory_Support_Ajax')) {
             if (have_posts()) :
                 $template_loader = new Wetory_Support_Template_Loader();
                 $template = isset($_POST['template']) ? $_POST['template'] : 'content-' . get_post_type();
-                while (have_posts()): the_post();
+                while (have_posts()) : the_post();
                     $template_loader
-                            ->set_template_data($data)
-                            ->get_template_part($template);
+                        ->set_template_data($data)
+                        ->get_template_part($template);
                 endwhile;
             endif;
             die;
@@ -82,14 +139,15 @@ if (!class_exists('Wetory_Support_Ajax')) {
          * 
          * @global WP_Query $wp_query
          */
-        public function handle_wetory_ajax_filter() {
+        public function handle_wetory_ajax_filter()
+        {
             global $wp_query;
 
             // Required data not sent then die
             if (!isset($_POST['query'])) {
                 die();
             }
-            
+
             // Pass some data to template
             $data = array(
                 'columns' => isset($_POST['columns']) ? $_POST['columns'] : 2
@@ -108,10 +166,10 @@ if (!class_exists('Wetory_Support_Ajax')) {
             ob_start();
             if (have_posts()) {
                 $template = isset($_POST['template']) ? $_POST['template'] : 'content-' . get_post_type();
-                while (have_posts()): the_post();
+                while (have_posts()) : the_post();
                     $template_loader
-                            ->set_template_data($data)
-                            ->get_template_part($template);
+                        ->set_template_data($data)
+                        ->get_template_part($template);
                 endwhile;
             } else {
                 $template_loader->get_template_part('content', 'none');
@@ -139,7 +197,8 @@ if (!class_exists('Wetory_Support_Ajax')) {
          * 
          * @return array Modified query
          */
-        public function default_ajax_filter_query(array $query, array $form_data): array {
+        public function default_ajax_filter_query(array $query, array $form_data): array
+        {
             if (isset($form_data['search']) && $form_data['search'] !== "") {
                 $query['s'] = wetory_get_quoted_string($form_data['search']);
             } else {
@@ -162,16 +221,14 @@ if (!class_exists('Wetory_Support_Ajax')) {
             } else {
                 unset($query['date_query']['before']);
             }
-            
+
             /**
              * For after/before, whether exact value should be matched or not
              * @see https://developer.wordpress.org/reference/classes/wp_query/#date-parameters
-             */ 
+             */
             $query['date_query']['inclusive'] = true;
 
             return $query;
         }
-
     }
-
 }

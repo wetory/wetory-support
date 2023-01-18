@@ -11,7 +11,6 @@
 ?>
 <div class="wetory-template wetory-posts-pagination-loadmore">
     <?php
-// wetory_var_dump($wp_query);
     $current_page = $wp_query->query_vars['paged'] ? $wp_query->query_vars['paged'] : 1;
     $posts_per_page = $wp_query->query_vars['posts_per_page'];
     $total_posts_count = $wp_query->found_posts;

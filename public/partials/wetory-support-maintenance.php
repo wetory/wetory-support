@@ -10,7 +10,6 @@
  * @package    wetory_support
  * @subpackage wetory_support/public/partials
  */
-
 ?>
 
 <!DOCTYPE html>
@@ -32,11 +31,8 @@
         <div class="container maintenance-page">                                 
             <img class="maintenance-logo" src="https://src.x-wetory.eu/img/workers.png">
             <h1 class="maintenance-title">
-                <?php _e('Sorry for inconvenience', 'wetory-support'); ?>
-            </h1>  
-            <h4 class="maintenance-text">
                 <?php _e('We are working to give you a better website right now.', 'wetory-support'); ?>
-            </h4> 
+            </h1>  
             <p class="maintenance-info">
                 <?php _e('If you are facing problems for long time, let me know via <a href="mailto:admin@wetory.eu">admin@wetory.eu</a>', 'wetory-support'); ?>
             </p>
@@ -44,7 +40,7 @@
             <p class="maintenance-counter">
                 <?php _e('Page will refresh in', 'wetory-support') ?> <span id="autorefresh-counter"></span> <?php _e('seconds', 'wetory-support'); ?>
             </p>
-            <p><?php _e('Wetory Support', 'wetory-support'); ?> &copy; <?php echo date("Y"); ?> | <?php echo wetory_get_created_by_link(); ?></p>
+            <p><?php wetory_copyright_info(); ?> | <?php wetory_created_by_link(); ?></p>
         </div>
     </body>
     <!-- JavaScript -->

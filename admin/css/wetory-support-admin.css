@@ -7,77 +7,319 @@
     width: 300px;
 }
 
+.wrap.wetory-support-settings .form-table th,
+.wrap.wetory-support-settings .form-table td {
+    padding: 10px 10px 10px 0
+}
+
+.wetory-support-plugin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wetory-support-plugin-footer {
+    margin-top: 25px;
+    display: inline-block;
+    width: 100%;
+}
+
+.wetory-support-plugin-footer .wetory-support-plugin-branding {
+    width: 100%;
+    text-align: center;
+}
+
+.wetory-support-plugin-branding-logo img {
+    width: 130px;
+    margin-top: 1rem;
+}
+
+.wetory-support-tab-container {
+    padding: 5px 15px 0px 15px;
+    background: #fff;
+    box-shadow: 0px 2px 2px #ccc;
+    float: left;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+}
+
+/* Repeatable parts */
+.wetory-support-tab-footer {
+    padding: 15px;
+    background: #f5f5f5;
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: -15px;
+    margin-top: 30px;
+}
+
+.wetory-support-grid-wrapper *,
+.wetory-support-row * {
+    box-sizing: border-box;
+}
+
+.wetory-support-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    margin-left: -12.5px;
+    margin-right: -12.5px;
+}
+
+.wetory-support-col,
+.wetory-support-col-1,
+.wetory-support-col-2,
+.wetory-support-col-3,
+.wetory-support-col-4,
+.wetory-support-col-5,
+.wetory-support-col-6,
+.wetory-support-col-7,
+.wetory-support-col-8,
+.wetory-support-col-9,
+.wetory-support-col-10,
+.wetory-support-col-11,
+.wetory-support-col-12 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 12.5px;
+    padding-left: 12.5px;
+}
+
+.wetory-support-col-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
 /* Tables */
 table.groupped-values td.group {
     background: #f1f1f1;
     color: #CCC;
 }
-table.groupped-values tr.group td {
-    border-top: 1px solid #ccd0d4;
-}
+
 table.wetory-settings-table {
     margin: 20px 0px;
 }
+
 table.wetory-settings-table tbody {
-    background: #f1f1f1;
+    background: #fff;
 }
+
 table.wetory-settings-table tbody tr {
     border-top: 1px solid #ccd0d4;
 }
-table.wetory-settings-table tbody tr:hover {
-    background: #fff;
+
+table.wetory-settings-table tbody tr.data-category-name {
+    border: 1px solid #ccd0d4;
 }
+table.wetory-settings-table tbody tr.data-category-name td {
+    background: #f1f1f1;
+    padding: 5px !important;
+    font-weight: normal;
+}
+
 table.wetory-settings-table td,
 table.wetory-settings-table th {
     padding: 5px 5px;
-} 
+}
+
 table.wetory-settings-table td.compact,
 table.wetory-settings-table th.compact {
     width: 1%;
 }
-table.wetory-settings-table td:first-child {
+
+table.wetory-settings-table td:first-child,
+table.wetory-settings-table th:first-child {
+    padding-left: 5px !important;
     font-weight: bold;
 }
+
 table.wetory-settings-table .col-checkbox,
 table.wetory-settings-table .col-select {
     text-align: center;
 }
+
 table.wetory-settings-table td.col-select select {
     min-width: 50%;
     max-width: 50%;
 }
+table.widefat.groupped-values tbody tr:hover > td {
+    background-color: #ffffe6;
+    color: #000;
+}
+table.widefat thead tr th {
+    font-weight: 600;
+    background: #dcdcde;
+    color: #50575e;
+}
+table.no-border {
+    border: none !important;
+}
 
 /* Tab Navigation */
-.wetory-tabs {
-
+.wetory-support-nav-tab-wrapper {
+    margin-top: 10px;
 }
+
 .wetory-tab-link {
     cursor: pointer;
 }
+
 .wetory-tab-content {
     display: none;
+}
+.wetory-support-tab-content[data-id="overview"]{
+    padding-bottom: 50px;
+}
+.wetory-support-nav-tab-wrapper .nav-tab:nth-last-child(-n+2)  {
+    /* float: right; */
+}
+.wetory-support-nav-tab-wrapper .nav-tab-active {
+    background: #fff;
+    border-bottom: solid 1px #fff;
+}
+.wetory-support-nav-tab-wrapper .nav-tab-link {
+    float: right;
+    margin-left: 0.5em;
+    padding: 5px 10px;
+    font-size: 14px;
+    line-height: 1.71428571;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.wetory-support-tab-content {
+    display: none;
+    float: left;
+    width: 100%;
+    height: auto;
+    padding: 10px 0px 15px 0px;
+}
+
+.wetory-support-sub-tab {
+    display: inline-block;
+    margin: 0px;
+    width: 100%;
+    height: auto;
+}
+
+.wetory-support-sub-tab li {
+    display: inline-block;
+    border-left: solid 1px #ccc;
+    padding: 3px 10px;
+    cursor: pointer;
+}
+
+.wetory-support-sub-tab li:first-child {
+    border-left: none;
+    padding-left: 0px;
+}
+
+/* Alerts - Inheritted from Bootstrap 3 */
+.alert {
+    padding: 10px;
+    margin: 10px 0 10px 0;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
 }
 
 /* Links */
 .link-button {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
     margin-left: 10px;
 }
+
 .link-button .button {
     padding: 3px 6px;
     min-height: 20px;
     line-height: inherit;
 }
+
+a.reload-page {
+    cursor: pointer;
+    text-decoration: underline;
+}
+#wp-admin-bar-wetory-support-settings a.ab-item img {
+    vertical-align: middle;
+    opacity: 0.5;
+}
+#wp-admin-bar-wetory-support-settings a.ab-item img:hover {
+    opacity: 1;
+}
+.wetory-support-help-links li {
+    float: left;
+    padding: 40px;
+    margin: 20px;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 1px 1px 5px 1px rgb(0 0 0 / 10%);
+    width: 185px;
+    height: 245px;
+}
+
+/* Buttons */
+.button-secondary.danger {
+    color: #FFF;
+    border-color: #e14d43;
+    background-color: #e14d43;
+}
+.button-secondary.danger:hover {
+    color: #FFF;
+    border-color: #cf261a;
+    background-color: #cf261a;
+}
+
+/* Setttings sections */
+.wetory-support-settings-section.danger h3 {
+    color: #e14d43;
+}
+.wetory-support-settings-section.danger .form-table {
+    border: 1px solid #e14d43;
+}
+.wetory-support-settings-section.danger .form-table th {
+    padding-left: 10px;
+    padding-right: 0;
+}
+
 /* Content */
-.mp-operations-wrapper {
-    margin: 15px 0 30px;
+.settings-field-description {
+    font-style: italic;
+    font-size: 12px;
+    display: inline-block;
+    width: 100%;
+    margin-top: 5px
 }
-.mp-operation-outcome {
-    display: block;
-    margin-top: 10px;
-    color: green;
-}
+
 
 /* Tooltips */
 .tooltip {
@@ -87,6 +329,7 @@ table.wetory-settings-table td.col-select select {
     cursor: pointer;
     margin-left: 5px;
 }
+
 .tooltip .tooltip-icon {
     background: #000;
     border-radius: 50%;
@@ -128,6 +371,7 @@ table.wetory-settings-table td.col-select select {
     border-style: solid;
     border-color: #555 transparent transparent transparent;
 }
+
 .tooltip:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
@@ -148,28 +392,28 @@ table.wetory-settings-table td.col-select select {
 /* Metaboxes */
 .wetory-metabox-field {
     margin-bottom: 10px;
-    margin-top: 15px;
 }
+
 .wetory-metabox-field .wetory-metabox-label label {
     font-weight: bold;
     margin: 0 0 3px;
 }
+
 .wetory-metabox-field span.wetory-required {
     color: #F00;
 }
+
 .wetory-metabox-field .description {
     font-size: 13px;
     font-style: italic;
 }
-.wetory-metabox-field .wetory-metabox-input input[type=text],
-.wetory-metabox-field .wetory-metabox-input select {
-    width: 100% !important;
+
+.wetory-metabox-field .wetory-metabox-input input {
+    width: 100%;
 }
-.wetory-metabox-field .wetory-metabox-input.weekday-schedule .form-table th {
-    width: 100px;
-}
-.wetory-metabox-field .wetory-metabox-input.weekday-schedule .form-table th,
-.wetory-metabox-field .wetory-metabox-input.weekday-schedule .form-table td {
-    padding: 10px 5px 10px 0;
-    line-height: 1.7;
+
+/* Notofication */
+.wetory-support-plugin-notifications {
+    display: inline-block;
+    width: 100%;
 }

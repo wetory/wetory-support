@@ -90,4 +90,36 @@ if (!function_exists('wetory_wpseo_breadcrumb_links')) {
         add_filter('wpseo_breadcrumb_links', 'wetory_wpseo_breadcrumb_links');
     }
 }
+
+
+if (!function_exists('wetory_recreate_maintenance_page')) {
+
+    /**
+     * Recreating custom maintenance page before installing updates
+     * 
+     * @since 1.2.1
+     */
+    function wetory_recreate_maintenance_page() {
+        // Get settings value
+        $is_disabled = Wetory_Support_Options::get_settings_value(array(
+            'option_section' => 'maintenance',
+            'option_key' => 'maintenance-page',
+            'name' => 'disable-autorecreate',
+        ));
+
+        // Do nothing if disabled in settings
+        if(isset($is_disabled)) {
+            return;
+        }
+
+        // Otherwise rebuild cutom maintenance page
+        wetory_write_log('Recreating custom maintenance page');
+        if(function_exists('wetory_maintenance_page') && is_plugin_active('wetory-support/wetory-support.php')){
+            wetory_maintenance_page('delete');
+            wetory_maintenance_page('create');
+        }
+    }
+
+    add_action("wetory_run_routines_daily", 'wetory_recreate_maintenance_page');
+}
     

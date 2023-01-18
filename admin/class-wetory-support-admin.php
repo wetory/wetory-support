@@ -11,7 +11,12 @@
  * @subpackage wetory_support/admin
  * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
  */
-class Wetory_Support_Admin {
+
+use Wetory_Support_Admin_Notices as Notices;
+use Wetory_Support_Options as Options;
+
+class Wetory_Support_Admin
+{
 
     /**
      * The ID of this plugin.
@@ -32,16 +37,37 @@ class Wetory_Support_Admin {
     private $version;
 
     /**
+     * Object holding abstraction of plugin
+     *
+     * @since    1.2.1
+     * @access   private
+     * @var      Wetory_Support $plugin_obj  Instance of main plugin class
+     * @see Wetory_Support
+     */
+    private $plugin_obj;
+
+    /**
+     * Associative array holding plugin pages links
+     *
+     * @since    1.2.1
+     * @access   private
+     * @var      array    $links Associative array.
+     */
+    private $links;
+
+    /**
      * Initialize the class and set its properties.
      *
      * @since    1.0.0
-     * @param      string    $plugin_name       The name of this plugin.
-     * @param      string    $version    The version of this plugin.
+     * @param      Wetory_Support    $plugin_obj    Instance of main plugin class
      */
-    public function __construct($plugin_name, $version) {
+    public function __construct($plugin_obj)
+    {
+        $this->plugin_obj = $plugin_obj;
+        $this->plugin_name = $plugin_obj->get_plugin_name();
+        $this->version = $plugin_obj->get_version();
 
-        $this->plugin_name = $plugin_name;
-        $this->version = $version;
+        $this->build_links();
     }
 
     /**
@@ -49,7 +75,8 @@ class Wetory_Support_Admin {
      *
      * @since    1.0.0
      */
-    public function enqueue_styles() {
+    public function enqueue_styles()
+    {
 
         /**
          * This function is provided for demonstration purposes only.
@@ -62,7 +89,7 @@ class Wetory_Support_Admin {
          * between the defined hooks and the functions defined in this
          * class.
          */
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/wetory-support-admin.min.css', array(), $this->version, 'all');
+        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/wetory-support-admin.css', array(), $this->version, 'all');
     }
 
     /**
@@ -70,7 +97,8 @@ class Wetory_Support_Admin {
      *
      * @since    1.0.0
      */
-    public function enqueue_scripts() {
+    public function enqueue_scripts()
+    {
 
         /**
          * This function is provided for demonstration purposes only.
@@ -83,45 +111,113 @@ class Wetory_Support_Admin {
          * between the defined hooks and the functions defined in this
          * class.
          */
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wetory-support-admin.min.js', array('jquery'), $this->version, false);
+        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wetory-support-admin.js', array('jquery'), $this->version, false);
 
         // Pass some parameters to JavaScript
-        wp_localize_script($this->plugin_name, 'wp_configuration',
-                array(
-                    'ajax_url'    => admin_url( 'admin-ajax.php'),
-                    'date_format' => get_option('date_format'),
-                    'time_format' => get_option('time_format'),
-                )
+        //        wp_localize_script($this->plugin_name, 'wp_configuration',
+        //                array(
+        //                    'date_format' => get_option('date_format'),
+        //                    'time_format' => get_option('time_format'),
+        //                )
+        //        );
+    }
+
+    /**
+     * Helper function for build links used among pages in this plugin.
+     * 
+     * Links array private member can be easily used in page templates.
+     * 
+     * @since    1.0.0
+     */
+    private function build_links()
+    {
+        $this->links = array();
+        $this->links['settings'] = array(
+            'slug' => $this->plugin_name . '-settings',
+            'url' => esc_url(add_query_arg(
+                'page',
+                $this->plugin_name . '-settings',
+                get_admin_url() . 'admin.php'
+            ))
         );
     }
 
     /**
      * Add settings action link to the plugins page.
-     * https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
+     * @see https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
      *
      * @since    1.0.0
      */
-    public function add_action_links($links) {
-        $dashboard_url = esc_url(
-                add_query_arg(
-                        'page',
-                        $this->plugin_name,
-                        get_admin_url() . 'admin.php'
-                )
-        );
-        $settings_url = esc_url(
-                add_query_arg(
-                        'page',
-                        $this->plugin_name . '-settings',
-                        get_admin_url() . 'admin.php'
-                )
-        );
-        $links = array_merge(
-                array('<a href="' . $dashboard_url . '">' . __('Dashboard', 'wetory-support') . '</a>'),
-                array('<a href="' . $settings_url . '">' . __('Settings', 'wetory-support') . '</a>'),
-                $links
-        );
+    public function plugin_action_links($links)
+    {
+        $links = array_merge(array('<a href="' . $this->links['settings']['url'] . '">' . __('Settings', 'wetory-support') . '</a>'), $links);
         return $links;
     }
 
+    /**
+     * Add options page to admin area
+     * 
+     * @since    1.2.1
+     * 
+     * @see https://developer.wordpress.org/reference/functions/add_menu_page/
+     * @see https://developer.wordpress.org/reference/functions/add_submenu_page/
+     */
+    public function admin_menu()
+    {
+        // add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
+        // add_submenu_page( '$parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function );
+        add_submenu_page(
+            'options-general.php',
+            __('Settings - Wetory', 'wetory-support'),
+            __('Wetory', 'wetory-support'),
+            'administrator',
+            $this->links['settings']['slug'],
+            array($this, 'admin_settings_page')
+        );
+    }
+
+    public function admin_bar_menu(WP_Admin_Bar $wp_admin_bar)
+    {
+        if (!current_user_can('manage_options')) {
+            return;
+        }
+
+        // Get settings value
+        $hide_admin_bar_menu = Wetory_Support_Options::get_settings_value(array(
+            'option_section' => 'plugin',
+            'name' => 'hide-admin-bar-menu',
+        ));
+
+        // Do not add anything if hidden
+        if (isset($hide_admin_bar_menu)) {
+            return;
+        }
+
+        $wp_admin_bar->add_menu(array(
+            'id'    => 'wetory-support-settings',
+            'parent' => null,
+            'group'  => null,
+            'title' => '<img src="' . WETORY_SUPPORT_URL . 'images/dashicon-style-icon.png' . '"/>',
+            'href'  => admin_url('options-general.php?page=' . $this->links['settings']['slug']),
+            'meta' => [
+                'title' => __('Settings - Wetory', 'wetory-support'),
+            ]
+        ));
+    }
+
+    /**
+     * Process request to admin settings page
+     * 
+     * @since    1.2.1
+     */
+    public function admin_settings_page()
+    {
+        if (!current_user_can('manage_options')) {
+            wp_die(esc_html__('You do not have sufficient permission to perform this operation', 'wetory-support'));
+        }
+
+        $plugin_settings = Options::get_settings_option();
+
+        require_once plugin_dir_path(__FILE__) . 'partials/wetory-support-admin-settings.php';
+    }
 }

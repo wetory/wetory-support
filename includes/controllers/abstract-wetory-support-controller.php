@@ -21,7 +21,7 @@ abstract class Wetory_Controller {
      * @access   protected
      * @var      array  $objects  Hold associative array with objects handled by controller
      */
-    protected $objects;
+    protected array $objects;
 
     /**
      * Create new instance
@@ -150,10 +150,10 @@ abstract class Wetory_Controller {
      * 
      * @since    1.0.0
      * 
-     * @param type $file
+     * @param string $file
      * @return string
      */
-    protected function get_class($file): string {
+    protected function get_class(string $file): string {
         return str_replace('-', '_', ucwords(pathinfo($file)['filename'], '-'));
     }
 

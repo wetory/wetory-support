@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2022-08-29 19:59+0200\n"
-"PO-Revision-Date: 2022-08-29 20:02+0200\n"
+"POT-Creation-Date: 2023-01-11 02:20+0100\n"
+"PO-Revision-Date: 2023-01-11 02:20+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -21,27 +21,36 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: admin/class-wetory-support-admin.php:120
-msgid "Dashboard"
-msgstr "Nástěnka"
-
-#: admin/class-wetory-support-admin.php:121
-#: admin/class-wetory-support-settings.php:170
+#: admin/class-wetory-support-admin.php:153
 #: admin/partials/wetory-support-admin-display.php:19
 #: admin/partials/wetory-support-admin-display.php:59
+#: admin/partials/wetory-support-admin-settings.php:27
 msgid "Settings"
 msgstr "Nastavení"
+
+#: admin/class-wetory-support-admin.php:171
+#: admin/class-wetory-support-admin.php:203
+msgid "Settings - Wetory"
+msgstr "Nastavení - Wetory"
+
+#: admin/class-wetory-support-admin.php:172
+msgid "Wetory"
+msgstr "Wetory"
+
+#: admin/class-wetory-support-admin.php:216
+msgid "You do not have sufficient permission to perform this operation"
+msgstr "Nemáte dostatečná oprávnění k provedení této operace"
 
 #: admin/class-wetory-support-metabox-renderer.php:32
 msgid "No fields in this metabox."
 msgstr "V tomto metaboxu nejsou žádná pole."
 
-#: admin/class-wetory-support-metabox.php:224
+#: admin/class-wetory-support-metabox.php:203
 #, php-format
 msgid "There is already a field with name %s"
 msgstr "Pole s názvem %s existuje"
 
-#: admin/class-wetory-support-settings-renderer.php:107
+#: admin/class-wetory-support-settings-renderer.php:231
 msgid ""
 "No options list found in arguments! This parameter is required when using "
 "select type in render_settings_field callback."
@@ -49,209 +58,30 @@ msgstr ""
 "V argumentech nebyl nalezen žádný seznam možností! Tento parametr je "
 "vyžadován při použití typu select v render_settings_field callback funkci."
 
-#: admin/class-wetory-support-settings-renderer.php:135
-#: admin/class-wetory-support-settings-renderer.php:214
+#: admin/class-wetory-support-settings-renderer.php:263
+#: admin/class-wetory-support-settings-renderer.php:400
 msgid "More info"
 msgstr "Více informací"
 
-#: admin/class-wetory-support-settings.php:157
-msgid "Dashboard - Wetory"
-msgstr "Nástěnka - Wetory"
+#: admin/class-wetory-support-settings-renderer.php:381
+#: templates/posts-filter/filter-wcpt-notice-board.php:48
+#: templates/posts-filter/filter.php:44
+#: templates/posts-grid/item-wcpt-photogallery.php:31
+msgid "Category"
+msgstr "Kategorie"
 
-#: admin/class-wetory-support-settings.php:158
-msgid "Wetory"
-msgstr "Wetory"
-
-#: admin/class-wetory-support-settings.php:169
-msgid "Settings - Wetory"
-msgstr "Nastavení - Wetory"
-
-#: admin/class-wetory-support-settings.php:188
-msgid ""
-"There was an error adding this setting. Please try again or contact plugin "
-"author."
-msgstr ""
-"Při ukládání  tohoto nastavení došlo k chybě. Zkuste to prosím znovu nebo "
-"kontaktujte autora pluginu."
-
-#: admin/class-wetory-support-settings.php:193
-msgid ""
-"Nonce verification failed for this form. Please try again or contact plugin "
-"author."
-msgstr ""
-"Ověření nonce se u tohoto formuláře nezdařilo. Zkuste to prosím znovu nebo "
-"kontaktujte autora pluginu."
-
-#: admin/class-wetory-support-settings.php:241
-msgid "Maintenance"
-msgstr "Údržba"
-
-#: admin/class-wetory-support-settings.php:266
-msgid "Widgets"
-msgstr "Widgety"
-
-#: admin/class-wetory-support-settings.php:322
-msgid "Shortcodes"
-msgstr "Shortcodes"
-
-#: admin/class-wetory-support-settings.php:448
-msgid "Post type"
-msgstr "Typ příspěvků"
-
-#: admin/class-wetory-support-settings.php:452
-msgid "Post type key"
-msgstr "Klíč typu příspěvků"
-
-#: admin/class-wetory-support-settings.php:456
-msgid "Use"
-msgstr "Použít"
-
-#: admin/class-wetory-support-settings.php:458
-msgid "Check if you want to start using post type."
-msgstr "Zaškrtněte, pokud chcete začít používat typ příspěvku."
-
-#: admin/class-wetory-support-settings.php:461
-msgid "Rewrite slug"
-msgstr "Přepsat slug"
-
-#: admin/class-wetory-support-settings.php:463
-msgid "Customize the permastruct slug. Defaults to post type key."
-msgstr "Přizpůsobte slug pro trvalé odkazy. Výchozí nastavením je klíč typu."
-
-#: admin/class-wetory-support-settings.php:466
-msgid "Custom fields"
-msgstr "Vlastní pole"
-
-#: admin/class-wetory-support-settings.php:468
-msgid "Check if you want to allow specifying of custom fields for post type."
-msgstr ""
-"Zaškrtněte, pokud chcete povolit vytváření vlastních polí pro typ příspěvku."
-
-#: admin/class-wetory-support-settings.php:471
-msgid "Comments"
-msgstr "Komentáře"
-
-#: admin/class-wetory-support-settings.php:473
-msgid "Check if you want to allow comments for post type."
-msgstr "Zaškrtněte, pokud chcete povolit komentáře pro typ příspěvku."
-
-#: admin/class-wetory-support-settings.php:476
-msgid "Excerpt"
-msgstr "Stručný výpis"
-
-#: admin/class-wetory-support-settings.php:478
-msgid "Check if you want to allow excerpt for post type."
-msgstr "Zaškrtněte, pokud chcete povolit stručný výpis pro typ příspěvku."
-
-#: admin/class-wetory-support-settings.php:481
-msgid "Revisions"
-msgstr "Revize"
-
-#: admin/class-wetory-support-settings.php:483
-msgid "Check if you want to allow revisions for post type."
-msgstr "Zaškrtněte , pokud chcete povolit revize pro typ příspěvku."
-
-#: admin/class-wetory-support-settings.php:486
-msgid "Posts"
-msgstr "Příspěvky"
-
-#: admin/class-wetory-support-settings.php:512
-msgid "Customize maintenance mode behaviour."
-msgstr "Přizpůsobte chování v režimu údržby."
-
-#: admin/class-wetory-support-settings.php:514
-msgid "Maintenance mode page"
-msgstr "Stránka režimu údržby"
-
-#: admin/class-wetory-support-settings.php:516
-msgid ""
-"Plugin provides template for maintenance page which is shown instead of "
-"default maintenance notification panel."
-msgstr ""
-"Plugin poskytuje šablonu pro stránku údržby, která je zobrazena namísto "
-"výchozího panelu oznámení údržby."
-
-#: admin/class-wetory-support-settings.php:517
-msgid "Create maintenance page"
-msgstr "Vytvořit stránku údržby"
-
-#: admin/class-wetory-support-settings.php:517
-msgid "Creating page..."
-msgstr "Vytváření stránky..."
-
-#: admin/class-wetory-support-settings.php:518
-msgid "Delete maintenance page"
-msgstr "Odstranit stránku údržby"
-
-#: admin/class-wetory-support-settings.php:518
-msgid "Deleting page..."
-msgstr "Odstraňování stránky..."
-
-#: admin/class-wetory-support-settings.php:530
-msgid ""
-"Select <a href=\"https://wordpress.org/support/article/wordpress-widgets/\" "
-"target=\"_blank\">widgets</a> you want to use in your website"
-msgstr ""
-"Vyberte <a href=\"https://wordpress.org/support/article/wordpress-widgets/\" "
-"target=\"_blank\">widgety</a>, které chcete na svých webových stránkách "
-"používat"
-
-#: admin/class-wetory-support-settings.php:539
-msgid ""
-"Select <a href=\"https://codex.wordpress.org/Shortcode/\" target=\"_blank"
-"\">shortcodes</a> you want to use in your website"
-msgstr ""
-"Vyberte <a href=\"https://codex.wordpress.org/Shortcode/\" target=\"_blank"
-"\">shortcodes,</a>, které chcete na svých webových stránkách používat"
-
-#: admin/class-wetory-support-settings.php:548
-msgid "Configure API keys for APIs you want to use in your website"
-msgstr ""
-"Konfigurace klíčů rozhraní API pro rozhraní API, která chcete použít na webu"
-
-#: admin/class-wetory-support-settings.php:585
-msgid "Settings saved."
-msgstr "Nastavení byla uložena."
-
-#: admin/class-wetory-support-settings.php:586
-msgid "The pemalink structure has been updated."
-msgstr "Struktura trvalých odkazů byla aktualizována."
-
-#: admin/class-wetory-support-settings.php:605
-msgid "General"
-msgstr "Obecné"
-
-#: admin/class-wetory-support-settings.php:606
-msgid "Custom post types"
-msgstr "Vlastní typy obsahu"
-
-#: admin/class-wetory-support-settings.php:607
-msgid "API keys"
-msgstr "Klíče rozhraní API"
-
-#: admin/partials/wetory-support-admin-display-settings.php:17
-msgid "Wetory Settings"
-msgstr "Nastavení Wetory"
-
-#: admin/partials/wetory-support-admin-display-settings.php:21
-msgid ""
-"Here you can modify plugin behavior. You can select what parts you want to "
-"use. Everything is disabled by default to prevent unnecesary loads."
-msgstr ""
-"Zde můžete upravit chování pluginu. Můžete vybrat, které součásti chcete "
-"použít. Vše je ve výchozím nastavení zakázáno, aby se zabránilo zbytečnému "
-"zatížení."
-
-#: admin/partials/wetory-support-admin-display-settings.php:22
+#: admin/class-wetory-support-settings.php:83
 #, php-format
-msgid ""
-"Overview of all plugin settings can be found on <a href=\"%s\">dashboard</a>."
-msgstr ""
-"Přehled všech nastavení pluginu naleznete na <a href=\"%s\">nástěnce</a>."
+msgid "Given settings section \"%s\" not found!"
+msgstr "Daná sekce nastavení \"%s\" nenalezena!"
 
-#: admin/partials/wetory-support-admin-display-settings.php:45
-msgid "Configure custom post types you want to use in your website."
-msgstr "Nakonfigurujte vlastní typy příspěvků, které chcete na webu použít."
+#: admin/class-wetory-support-settings.php:146
+msgid "Validating plugin settings"
+msgstr "Ověřování nastavení pluginu"
+
+#: admin/class-wetory-support-settings.php:155
+msgid "Value for debugging verbosity is not valid!"
+msgstr "Hodnota pro úroveň podrobností debuggování není platná!"
 
 #: admin/partials/wetory-support-admin-display.php:18
 msgid "Wetory Dashboard"
@@ -266,6 +96,7 @@ msgid "Option"
 msgstr "Volba"
 
 #: admin/partials/wetory-support-admin-display.php:28
+#: admin/views/admin-settings-overview.php:33
 msgid "Key"
 msgstr "Klíč"
 
@@ -274,134 +105,511 @@ msgid "Subkey"
 msgstr "Podklíč"
 
 #: admin/partials/wetory-support-admin-display.php:30
+#: admin/views/admin-settings-overview.php:35
 msgid "Value"
 msgstr "Hodnota"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:193
+#: admin/partials/wetory-support-admin-settings.php:31
+msgid ""
+"Here you can modify plugin behavior. You can select what parts you want to "
+"use. Everything is disabled by default to prevent unnecesary loads."
+msgstr ""
+"Zde můžete upravit chování pluginu. Můžete vybrat, které součásti chcete "
+"použít. Vše je ve výchozím nastavení zakázáno, aby se zabránilo zbytečnému "
+"zatížení."
+
+#: admin/partials/wetory-support-admin-settings.php:43
+msgid "General"
+msgstr "Obecné"
+
+#: admin/partials/wetory-support-admin-settings.php:44
+msgid "Content"
+msgstr "Obsah"
+
+#: admin/partials/wetory-support-admin-settings.php:45
+msgid "Connections"
+msgstr "Propojení"
+
+#: admin/partials/wetory-support-admin-settings.php:46
+#: admin/views/admin-settings-advanced.php:22
+msgid "Advanced"
+msgstr "Pokročilé"
+
+#: admin/partials/wetory-support-admin-settings.php:47
+msgid "Settings overview"
+msgstr "Přehled nastavení"
+
+#: admin/partials/wetory-support-admin-settings.php:48
+msgid "Help"
+msgstr "Nápověda"
+
+#: admin/partials/wetory-support-admin-settings.php:98
+#, php-format
+msgid ""
+"Wetory Support %s &copy; %s | by <a href=\"%s\" target=\"_blank\">wetory</a>"
+msgstr ""
+"Wetory Support %s &copy; %s | by <a href=\"%s\" target=\"_blank\">wetory</a>"
+
+#: admin/views/admin-settings-advanced.php:23
+msgid ""
+"Usually you do not need to touch these settings, but in case there are some "
+"troubles this section can be helpful."
+msgstr ""
+"Obvykle si těchto nastavení nemusíte všímat, ale v případě, že se vyskytnou "
+"nějaké potíže, může být tato sekce užitečná."
+
+#: admin/views/admin-settings-advanced.php:30
+msgid "Debugging verbosity"
+msgstr "Úroveň debuggování"
+
+#: admin/views/admin-settings-advanced.php:37
+msgid "Disabled"
+msgstr "Zakázáno"
+
+#: admin/views/admin-settings-advanced.php:38
+msgid "Basic"
+msgstr "Základní"
+
+#: admin/views/admin-settings-advanced.php:39
+msgid "Detailed"
+msgstr "Podrobný"
+
+#: admin/views/admin-settings-advanced.php:41
+msgid ""
+"Debugging is working only if <a href=\"https://wordpress.org/support/article/"
+"debugging-in-wordpress/\" target=\"_blank\">WordPress debugging</a> is "
+"enabled."
+msgstr ""
+"Debuggování pluginu funguje pouze v případě, že je povoleno <a href="
+"\"https://wordpress.org/support/article/debugging-in-wordpress/\" target="
+"\"_blank\">debuggování ve WordPress</a> ."
+
+#: admin/views/admin-settings-advanced.php:42
+msgid ""
+"Verbosity level can be changed to control what is written to WordPress debug "
+"log."
+msgstr ""
+"Úroveň podrobností debuggování lze změnit, ovlivníte tím to co je zapisováno "
+"do debug logu ve WordPress."
+
+#: admin/views/admin-settings-advanced.php:49
+msgid "Danger zone"
+msgstr "Nebezpečná zóna"
+
+#: admin/views/admin-settings-advanced.php:53
+msgid "Reset settings"
+msgstr "Obnovit nastavení"
+
+#: admin/views/admin-settings-advanced.php:56
+msgid "Delete settings and reset"
+msgstr "Odstranit nastavení a obnovit výchozí"
+
+#: admin/views/admin-settings-advanced.php:56
+msgid "Are you sure you want to delete all your settings?"
+msgstr "Opravdu chcete odstranit všechna nastavení?"
+
+#: admin/views/admin-settings-advanced.php:57
+msgid "Warning: Resets all your current settings to default."
+msgstr "Upozornění: Obnoví všechna aktuální nastavení na výchozí."
+
+#: admin/views/admin-settings-button-save.php:25
+msgid "Update Settings"
+msgstr "Aktualizovat nastavení"
+
+#: admin/views/admin-settings-connections.php:22
+#: includes/controllers/class-wetory-support-apikeys-controller.php:67
+msgid "API Keys"
+msgstr "Klíče rozhraní API"
+
+#: admin/views/admin-settings-content.php:27
+#: includes/controllers/class-wetory-support-widgets-controller.php:69
+msgid "Widgets"
+msgstr "Widgety"
+
+#: admin/views/admin-settings-content.php:28
+#: includes/controllers/class-wetory-support-shortcodes-controller.php:67
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+#: admin/views/admin-settings-content.php:29
+#: admin/views/admin-settings-content.php:47
+msgid "Custom post types"
+msgstr "Vlastní typy obsahu"
+
+#: admin/views/admin-settings-content.php:48
+msgid ""
+"Configure custom post types you want to use in your website. These are "
+"prepared most common post types ready to use with all meta properties."
+msgstr ""
+"Nakonfigurujte vlastní typy příspěvků, které chcete na webu používat. Jedná "
+"se o připravené nejběžnější typy příspěvků připravené k použití se všemi "
+"meta vlastnostmi."
+
+#: admin/views/admin-settings-content.php:50
+msgid "You need to refresh page to see effect of changed settings."
+msgstr "Musíte aktualizovat stránku, abyste viděli účinek změněného nastavení."
+
+#: admin/views/admin-settings-content.php:51
+#: admin/views/admin-settings-overview.php:27
+msgid "Reload page"
+msgstr "Znovu načíst stránku"
+
+#: admin/views/admin-settings-content.php:67
+msgid "Post type"
+msgstr "Typ příspěvků"
+
+#: admin/views/admin-settings-content.php:71
+msgid "Post type key"
+msgstr "Klíč typu příspěvků"
+
+#: admin/views/admin-settings-content.php:75
+msgid "Use"
+msgstr "Použít"
+
+#: admin/views/admin-settings-content.php:77
+msgid "Check if you want to start using post type."
+msgstr "Zaškrtněte, pokud chcete začít používat typ příspěvku."
+
+#: admin/views/admin-settings-content.php:80
+msgid "Rewrite slug"
+msgstr "Přepsat slug"
+
+#: admin/views/admin-settings-content.php:82
+msgid "Customize the permastruct slug. Defaults to post type key."
+msgstr "Přizpůsobte slug pro trvalé odkazy. Výchozí nastavením je klíč typu."
+
+#: admin/views/admin-settings-content.php:85
+msgid "Comments"
+msgstr "Komentáře"
+
+#: admin/views/admin-settings-content.php:87
+msgid "Check if you want to allow comments for post type."
+msgstr "Zaškrtněte, pokud chcete povolit komentáře pro typ příspěvku."
+
+#: admin/views/admin-settings-content.php:90
+msgid "Excerpt"
+msgstr "Stručný výpis"
+
+#: admin/views/admin-settings-content.php:92
+msgid "Check if you want to allow excerpt for post type."
+msgstr "Zaškrtněte, pokud chcete povolit stručný výpis pro typ příspěvku."
+
+#: admin/views/admin-settings-content.php:95
+msgid "Revisions"
+msgstr "Revize"
+
+#: admin/views/admin-settings-content.php:97
+msgid "Check if you want to allow revisions for post type."
+msgstr "Zaškrtněte , pokud chcete povolit revize pro typ příspěvku."
+
+#: admin/views/admin-settings-content.php:100
+msgid "Published posts"
+msgstr "Publikované příspěvky"
+
+#: admin/views/admin-settings-general.php:21
+#: admin/views/admin-settings-general.php:29
+msgid "Plugin"
+msgstr "Plugin"
+
+#: admin/views/admin-settings-general.php:22
+#: admin/views/admin-settings-general.php:49
+msgid "Maintenance"
+msgstr "Údržba"
+
+#: admin/views/admin-settings-general.php:23
+msgid "Security"
+msgstr "Zabezpečení"
+
+#: admin/views/admin-settings-general.php:30
+msgid "Customize general plugin behaviour."
+msgstr "Přizpůsobte obecné chování pluginu."
+
+#: admin/views/admin-settings-general.php:34
+msgid "Hide admin bar menu"
+msgstr "Skrýt v panelu nástrojů"
+
+#: admin/views/admin-settings-general.php:39
+msgid "Plugin settings page available from admin toolbar can be hidden."
+msgstr ""
+"Stránku nastavení pluginu, která je k dispozici na panelu nástrojů "
+"administrace, lze skrýt."
+
+#: admin/views/admin-settings-general.php:50
+msgid "Customize maintenance mode behaviour."
+msgstr "Přizpůsobte chování v režimu údržby."
+
+#: admin/views/admin-settings-general.php:53
+msgid "Maintenance mode page"
+msgstr "Stránka režimu údržby"
+
+#: admin/views/admin-settings-general.php:55
+msgid "Create maintenance page"
+msgstr "Vytvořit stránku údržby"
+
+#: admin/views/admin-settings-general.php:55
+msgid "Creating page..."
+msgstr "Vytváření stránky..."
+
+#: admin/views/admin-settings-general.php:56
+msgid "Delete maintenance page"
+msgstr "Odstranit stránku údržby"
+
+#: admin/views/admin-settings-general.php:56
+msgid "Deleting page..."
+msgstr "Odstraňování stránky..."
+
+#: admin/views/admin-settings-general.php:57
+msgid ""
+"Plugin provides template for maintenance page which is shown instead of "
+"default maintenance notification panel."
+msgstr ""
+"Plugin poskytuje šablonu pro stránku údržby, která je zobrazena namísto "
+"výchozího panelu oznámení údržby."
+
+#: admin/views/admin-settings-general.php:63
+msgid ""
+"<a href=\"https://developer.wordpress.org/plugins/cron/\" targte=\"_blank"
+"\">WP-Cron</a> is disabled on this website. Automatic custom maintenance "
+"page recreation will not work as it is using WP-Cron for event scheduling."
+msgstr ""
+"<a href=\"https://developer.wordpress.org/plugins/cron/\" targte=\"_blank"
+"\">WP-Cron</a> je na tomto webu zakázán. Automatická obnova stránky údržby "
+"nebude fungovat, protože používá naplánované události ve WP-Cron."
+
+#: admin/views/admin-settings-general.php:69
+msgid "Disable recreate of custom maintenance page"
+msgstr "Zakázat opětovné vytvoření vlastní stránky údržby"
+
+#: admin/views/admin-settings-general.php:75
+msgid ""
+"Custom maintenance page is by default automatically recreated by WP-Cron "
+"scheduled events."
+msgstr ""
+"Vlastní stránka údržby je ve výchozím nastavení automaticky obnovována "
+"naplánovanými událostmi ve WP-Cron."
+
+#: admin/views/admin-settings-help.php:23
+msgid "Help links"
+msgstr "Odkazy nápovědy"
+
+#: admin/views/admin-settings-help.php:24
+msgid "Use below links to get started or get help and support."
+msgstr ""
+"Použijte níže uvedené odkazy, abyste mohli začít nebo získat pomoc a podporu."
+
+#: admin/views/admin-settings-help.php:28
+#: admin/views/admin-settings-help.php:31
+msgid "Documentation"
+msgstr "Dokumentace"
+
+#: admin/views/admin-settings-help.php:29
+msgid "Refer to our documentation to set and get started"
+msgstr "Nahlédněte do naší dokumentace, kde můžete začít"
+
+#: admin/views/admin-settings-help.php:36
+msgid "Help and Support"
+msgstr "Nápověda a podpora"
+
+#: admin/views/admin-settings-help.php:37
+msgid "We would love to help you on any queries or issues."
+msgstr "Rádi vám pomůžeme s jakýmikoli dotazy nebo problémy."
+
+#: admin/views/admin-settings-help.php:39
+msgid "Contact"
+msgstr "Kontakt"
+
+#: admin/views/admin-settings-overview.php:23
+msgid "Plugin settings overview"
+msgstr "Přehled nastavení pluginu"
+
+#: admin/views/admin-settings-overview.php:24
+msgid "Brief overview of this plugin settings on one screen."
+msgstr "Stručný přehled nastavení tohoto pluginu."
+
+#: admin/views/admin-settings-overview.php:26
+msgid "You must refresh the page to see the effect of the changed settings."
+msgstr "Abyste viděli účinek změněného nastavení musíte aktualizovat stránku."
+
+#: admin/views/admin-settings-overview.php:32
+msgid "Section"
+msgstr "Sekce"
+
+#: admin/views/admin-settings-overview.php:34
+msgid "Name"
+msgstr "Jméno"
+
+#: includes/class-wetory-support-ajax.php:47
+msgid "Updating plugin settings"
+msgstr "Aktualizace nastavení pluginu"
+
+#: includes/class-wetory-support-ajax.php:60
+msgid "Settings updated successfully"
+msgstr "Nastavení byly úspěšně aktualizovány"
+
+#: includes/class-wetory-support-ajax.php:68
+msgid "Resetting plugin settings"
+msgstr "Obnovit nastavení pluginu"
+
+#: includes/class-wetory-support-ajax.php:84
+msgid "Settings set to defaults successfully"
+msgstr "Nastavení byla úspěšně nastavena na výchozí"
+
+#: includes/class-wetory-support-updater.php:354
+#, php-format
+msgid "Running post-update actions for version %s"
+msgstr "Spuštění akcí po aktualizaci pro verzi %s"
+
+#: includes/class-wetory-support-updater.php:423
+msgid "Wetory Support - Plugin settings options migrated for version 1.2.1"
+msgstr "Wetory Support - Nastavení pluginu zmigrovány pro verzi 1.2.1"
+
+#: includes/controllers/class-wetory-support-apikeys-controller.php:68
+msgid "Configure API keys for APIs you want to use in your website."
+msgstr ""
+"Konfigurace klíčů rozhraní API pro rozhraní API, která chcete použít na webu."
+
+#: includes/controllers/class-wetory-support-shortcodes-controller.php:68
+msgid ""
+"Select <a href=\"https://codex.wordpress.org/Shortcode/\" target=\"_blank"
+"\">shortcodes</a> you want to use in your website."
+msgstr ""
+"Vyberte <a href=\"https://codex.wordpress.org/Shortcode/\" target=\"_blank"
+"\">shortcodes,</a>, které chcete na svých webových stránkách používat."
+
+#: includes/controllers/class-wetory-support-widgets-controller.php:70
+msgid ""
+"Select <a href=\"https://wordpress.org/support/article/wordpress-widgets/\" "
+"target=\"_blank\">widgets</a> you want to use in your website."
+msgstr ""
+"Vyberte <a href=\"https://wordpress.org/support/article/wordpress-widgets/\" "
+"target=\"_blank\">widgety</a>, které chcete na svých webových stránkách "
+"používat."
+
+#: includes/cpt/abstract-wetory-support-cpt.php:194
 msgid "You are not allowed to modify this post!"
 msgstr "Nejste oprávněni upravit tento příspěvek!"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:193
+#: includes/cpt/abstract-wetory-support-cpt.php:194
 msgid "Unauthorized action"
 msgstr "Neoprávněná akce"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:274
+#: includes/cpt/abstract-wetory-support-cpt.php:275
 msgctxt "Post Type General Name"
 msgid "Post Types"
 msgstr "Typy příspěvků"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:275
+#: includes/cpt/abstract-wetory-support-cpt.php:276
 msgctxt "Post Type Singular Name"
 msgid "Post Type"
 msgstr "Typ příspěvku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:276
+#: includes/cpt/abstract-wetory-support-cpt.php:277
 msgid "Post Types"
 msgstr "Typy příspěvků"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:277
+#: includes/cpt/abstract-wetory-support-cpt.php:278
 msgid "Post Type"
 msgstr "Typ příspěvku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:278
+#: includes/cpt/abstract-wetory-support-cpt.php:279
 msgid "Item Archives"
 msgstr "Archivy položek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:279
+#: includes/cpt/abstract-wetory-support-cpt.php:280
 msgid "Item Attributes"
 msgstr "Atributy položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:280
+#: includes/cpt/abstract-wetory-support-cpt.php:281
 msgid "Parent Item:"
 msgstr "Nadřazená položka:"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:281
+#: includes/cpt/abstract-wetory-support-cpt.php:282
 msgid "All Items"
 msgstr "Všechny položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:282
+#: includes/cpt/abstract-wetory-support-cpt.php:283
 msgid "Add New Item"
 msgstr "Přidat novou položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:283
+#: includes/cpt/abstract-wetory-support-cpt.php:284
 msgid "Add New"
 msgstr "Přidat položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:284
+#: includes/cpt/abstract-wetory-support-cpt.php:285
 msgid "New Item"
 msgstr "Nová položka"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:285
+#: includes/cpt/abstract-wetory-support-cpt.php:286
 msgid "Edit Item"
 msgstr "Upravit položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:286
+#: includes/cpt/abstract-wetory-support-cpt.php:287
 msgid "Update Item"
 msgstr "Aktualizovat položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:287
+#: includes/cpt/abstract-wetory-support-cpt.php:288
 msgid "View Item"
 msgstr "Zobrazit položku"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:288
+#: includes/cpt/abstract-wetory-support-cpt.php:289
 msgid "View Items"
 msgstr "Zobrazit položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:289
+#: includes/cpt/abstract-wetory-support-cpt.php:290
 msgid "Search Item"
 msgstr "Hledat položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:290
+#: includes/cpt/abstract-wetory-support-cpt.php:291
 msgid "Not found"
 msgstr "Nenalezeno"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:291
+#: includes/cpt/abstract-wetory-support-cpt.php:292
 msgid "Not found in Trash"
 msgstr "V koši nebylo nic nalezeno"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:292
+#: includes/cpt/abstract-wetory-support-cpt.php:293
 msgid "Featured Image"
 msgstr "Náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:293
+#: includes/cpt/abstract-wetory-support-cpt.php:294
 msgid "Set featured image"
 msgstr "Zvolit náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:294
+#: includes/cpt/abstract-wetory-support-cpt.php:295
 msgid "Remove featured image"
 msgstr "Odstranit náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:295
+#: includes/cpt/abstract-wetory-support-cpt.php:296
 msgid "Use as featured image"
 msgstr "Použít jako náhledový obrázek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:296
+#: includes/cpt/abstract-wetory-support-cpt.php:297
 msgid "Insert into item"
 msgstr "Vložit do položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:297
+#: includes/cpt/abstract-wetory-support-cpt.php:298
 msgid "Uploaded to this item"
 msgstr "Nahrány do této položky"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:298
+#: includes/cpt/abstract-wetory-support-cpt.php:299
 msgid "Items list"
 msgstr "Seznam položek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:299
+#: includes/cpt/abstract-wetory-support-cpt.php:300
 msgid "Items list navigation"
 msgstr "Navigace pro seznam položek"
 
-#: includes/cpt/abstract-wetory-support-cpt.php:300
+#: includes/cpt/abstract-wetory-support-cpt.php:301
 msgid "Filter items list"
 msgstr "Seznam položek filtru"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:26
-#: includes/cpt/cpt-wetory-support-notice-board.php:55
+#: includes/cpt/cpt-wetory-support-notice-board.php:27
 #: includes/cpt/cpt-wetory-support-notice-board.php:56
-msgid "Notice Board"
+#: includes/cpt/cpt-wetory-support-notice-board.php:57
+msgid "Notice board"
 msgstr "Úřední deska"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:27
+#: includes/cpt/cpt-wetory-support-notice-board.php:28
 msgid ""
 "Custom post type notice board is used for official records which is "
 "mandatory for city/village websites."
@@ -409,261 +617,145 @@ msgstr ""
 "Vlastní příspěvky typu úřední deska se používají pro oficiální záznamy, "
 "které jsou povinné pro město / vesnice webové stránky."
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:53
+#: includes/cpt/cpt-wetory-support-notice-board.php:54
 msgctxt "Post Type General Name"
-msgid "Notice Board"
+msgid "Notice board"
 msgstr "Úřední deska"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:54
+#: includes/cpt/cpt-wetory-support-notice-board.php:55
 msgctxt "Post Type Singular Name"
-msgid "Notice Board Post"
+msgid "Notice board post"
 msgstr "Příspěvek na úřední desce"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:57
-msgid "Create New Notice Board Post"
+#: includes/cpt/cpt-wetory-support-notice-board.php:58
+msgid "Create new notice board post"
 msgstr "Vytvořit nový příspěvek na úřední desce"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:58
-msgid "Create Post"
+#: includes/cpt/cpt-wetory-support-notice-board.php:59
+msgid "Create post"
 msgstr "Vytvořit příspěvek"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:90
+#: includes/cpt/cpt-wetory-support-notice-board.php:91
 msgid "Post validity"
 msgstr "Platnost příspěvku"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:91
+#: includes/cpt/cpt-wetory-support-notice-board.php:92
 msgid "This post supports limited validity in time. Select limiting dates."
 msgstr ""
 "Tento příspěvek podporuje omezenou platnost v čase. Vyberte omezující datumy."
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:99
-#: includes/cpt/cpt-wetory-support-notice-board.php:142
-#: includes/cpt/cpt-wetory-support-notice-board.php:145
-#: includes/cpt/cpt-wetory-support-notice-board.php:156
+#: includes/cpt/cpt-wetory-support-notice-board.php:100
+#: includes/cpt/cpt-wetory-support-notice-board.php:143
+#: includes/cpt/cpt-wetory-support-notice-board.php:146
+#: includes/cpt/cpt-wetory-support-notice-board.php:157
 #: templates/posts-table/header-wcpt-notice-board.php:21
 msgid "Valid from"
 msgstr "Platné od"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:102
+#: includes/cpt/cpt-wetory-support-notice-board.php:103
 msgid "Specify start date of post validity"
 msgstr "Zadejte počáteční datum platnosti příspěvku"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:108
-#: includes/cpt/cpt-wetory-support-notice-board.php:150
-#: includes/cpt/cpt-wetory-support-notice-board.php:156
+#: includes/cpt/cpt-wetory-support-notice-board.php:109
+#: includes/cpt/cpt-wetory-support-notice-board.php:151
+#: includes/cpt/cpt-wetory-support-notice-board.php:157
 #: templates/posts-table/header-wcpt-notice-board.php:22
 msgid "Valid to"
 msgstr "Platné do"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:110
+#: includes/cpt/cpt-wetory-support-notice-board.php:111
 msgid "Specify end date of post validity"
 msgstr "Zadejte koncové datum platnosti příspěvku"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:117
+#: includes/cpt/cpt-wetory-support-notice-board.php:118
 msgid "Post identity"
 msgstr "Identifikace příspěvku"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:118
+#: includes/cpt/cpt-wetory-support-notice-board.php:119
 msgid "Additional post identification data."
 msgstr "Další údaje o identifikaci příspěvku."
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:126
+#: includes/cpt/cpt-wetory-support-notice-board.php:127
 msgid "Reg. number"
 msgstr "Reg. číslo"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:128
+#: includes/cpt/cpt-wetory-support-notice-board.php:129
 msgid "Can help identify post accross multiple systems"
 msgstr "Může pomoci identifikovat příspěvek ve více systémech"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:137
-#: includes/cpt/cpt-wetory-support-photogallery.php:83
-#: includes/cpt/cpt-wetory-support-team-members.php:204
+#: includes/cpt/cpt-wetory-support-notice-board.php:138
+#: includes/cpt/cpt-wetory-support-photogallery.php:84
 #, php-format
 msgid "\"%s\" is mandatory field!"
 msgstr "\"%s\" je povinné pole!"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:137
-#: includes/cpt/cpt-wetory-support-photogallery.php:83
-#: includes/cpt/cpt-wetory-support-team-members.php:204
+#: includes/cpt/cpt-wetory-support-notice-board.php:138
+#: includes/cpt/cpt-wetory-support-photogallery.php:84
 msgid "Post title"
 msgstr "Nadpis příspěvku"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:142
-#: includes/cpt/cpt-wetory-support-notice-board.php:150
+#: includes/cpt/cpt-wetory-support-notice-board.php:143
+#: includes/cpt/cpt-wetory-support-notice-board.php:151
 #, php-format
 msgid "\"%s\" value is not valid date!"
 msgstr "Hodnota \"%s\" není platné datum!"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:145
+#: includes/cpt/cpt-wetory-support-notice-board.php:146
 #, php-format
 msgid "\"%s\" value is required!"
 msgstr "Je vyžadována hodnota \"%s\"!"
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:156
+#: includes/cpt/cpt-wetory-support-notice-board.php:157
 #, php-format
 msgid "\"%s\" value must be higher or equal to \"%s\"!"
 msgstr "Hodnota \"%s\" musí být vyšší nebo rovna hodnotě \"%s\"!"
 
-#: includes/cpt/cpt-wetory-support-photogallery.php:25
-msgid "Photo Gallery"
+#: includes/cpt/cpt-wetory-support-photogallery.php:26
+msgid "Photo gallery"
 msgstr "Fotogalerie"
 
-#: includes/cpt/cpt-wetory-support-photogallery.php:26
+#: includes/cpt/cpt-wetory-support-photogallery.php:27
 msgid ""
-"Custom post type photo gallery is used for creating photo galleries on "
+"Custom post type photogallery is used for creating photo galleries on "
 "website."
 msgstr ""
 "Vlastní příspěvky typu fotogalerie se používají pro vytváření fotogalerií na "
 "webových stránkách."
 
-#: includes/cpt/cpt-wetory-support-photogallery.php:52
-msgctxt "Post Type General Name"
-msgid "Photo Gallery"
-msgstr "Fotogalerie"
-
 #: includes/cpt/cpt-wetory-support-photogallery.php:53
-msgctxt "Post Type Singular Name"
-msgid "Photo Gallery Post"
-msgstr "Příspěvek do fotogalerie"
+msgctxt "Post Type General Name"
+msgid "Photo gallery"
+msgstr "Fotogalerie"
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:54
+msgctxt "Post Type Singular Name"
+msgid "Photo gallery post"
+msgstr "Příspěvek do fotogalerie"
+
 #: includes/cpt/cpt-wetory-support-photogallery.php:55
-msgid "Photo Galleries"
+#: includes/cpt/cpt-wetory-support-photogallery.php:56
+msgid "Photo galleries"
 msgstr "Fotogalerie"
 
-#: includes/cpt/cpt-wetory-support-photogallery.php:56
-msgid "Create New Gallery"
+#: includes/cpt/cpt-wetory-support-photogallery.php:57
+msgid "Create new photogallery"
 msgstr "Vytvořit novou fotogalerii"
 
-#: includes/cpt/cpt-wetory-support-photogallery.php:57
-msgid "Create Gallery"
+#: includes/cpt/cpt-wetory-support-photogallery.php:58
+msgid "Create photogallery"
 msgstr "Vytvořit fotogalerii"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:26
-#: includes/cpt/cpt-wetory-support-team-members.php:55
-#: includes/cpt/cpt-wetory-support-team-members.php:56
-msgid "Team Members"
-msgstr "Členové týmu"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:27
-msgid ""
-"Custom post type team members is used for evidence of people working in team."
-msgstr ""
-"Vlastní členové týmu typu post se používají pro evidenci lidí pracujících v "
-"týmu."
-
-#: includes/cpt/cpt-wetory-support-team-members.php:53
-msgctxt "Post Type General Name"
-msgid "Team Members"
-msgstr "Členové týmu"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:54
-msgctxt "Post Type Singular Name"
-msgid "Team member"
-msgstr "Člen týmu"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:57
-msgid "Create New Team Member"
-msgstr "Vytvořit nového člena týmu"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:58
-msgid "Create Team Member"
-msgstr "Vytvořit člena týmu"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:59
-msgid "Photo"
-msgstr "Fotka"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:92
-msgid "Contact information"
-msgstr "Kontaktní informace"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:93
-msgid ""
-"These information will be displayed on website depending on used template."
-msgstr ""
-"Tyto informace budou zobrazeny na webových stránkách v závislosti na použité "
-"šabloně."
-
-#: includes/cpt/cpt-wetory-support-team-members.php:101
-msgid "Position"
-msgstr "Pozice"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:103
-msgid "Position in team where this member is working on."
-msgstr "Pozice v týmu, na které tento člen pracuje."
-
-#: includes/cpt/cpt-wetory-support-team-members.php:109
-msgid "Email contact"
-msgstr "E-mail"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:118
-msgid "Phone contact"
-msgstr "Telefon"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:128
-msgid "Member availability"
-msgstr "Dostupnost"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:129
-msgid ""
-"Member availability is exposed to front-end with indicators when he/she can "
-"be contacted."
-msgstr ""
-"Dostupnost člena je zobrazena na front-endu pomocí indikátorů, kdy může být "
-"kontaktován."
-
-#: includes/cpt/cpt-wetory-support-team-members.php:137
-msgid "Status"
-msgstr "Status"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:140
-msgid "Online"
-msgstr "Online"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:141
-msgid "Offline"
-msgstr "Offline"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:146
-msgid "Display status for member (this overrides scheduled availability)"
-msgstr "Zobrazení stavu člena (přepíše dostupnost podle rozvrhu)"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:171
-msgid "Social media links"
-msgstr "Odkazy na sociální média"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:172
-msgid "These links will be displayed on website depending on used template."
-msgstr ""
-"Tyto odkazy budou zobrazeny na webových stránkách v závislosti na použité "
-"šabloně."
-
-#: includes/cpt/cpt-wetory-support-team-members.php:180
-msgid "Facebook"
-msgstr "Facebook"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:187
-msgid "LinkedIn"
-msgstr "LinkedIn"
-
-#: includes/cpt/cpt-wetory-support-team-members.php:194
-msgid "Twitter"
-msgstr "Twitter"
 
 #: includes/wetory-support-functions-ajax.php:69
 #, php-format
-msgid "File <strong>maintenance.php</strong> created in <strong>%s</strong>"
-msgstr ""
-"Soubor <strong>maintenance.php</strong> vytvořený v <strong>%s</strong>"
+msgid "File <strong>%s/maintenance.php</strong> created"
+msgstr "Soubor <strong>%s/maintenance.php</strong> vytvořen"
 
 #: includes/wetory-support-functions-ajax.php:88
 #, php-format
-msgid "File <strong>maintenance.php</strong> deleted from <strong>%s</strong>"
-msgstr ""
-"Soubor <strong>maintenance.php</strong> byl odstraněn z <strong>%s.</strong>"
+msgid "File <strong>%s/maintenance.php</strong> deleted"
+msgstr "Soubor <strong>%s/maintenance.php</strong> odstraněn"
 
-#: includes/wetory-support-functions.php:258
+#: includes/wetory-support-functions.php:254
 msgid "Load more"
 msgstr "Načíst další"
 
@@ -884,23 +976,19 @@ msgstr "H6"
 msgid "Paragraph"
 msgstr "Odstavec"
 
-#: public/partials/wetory-support-maintenance.php:19
+#: public/partials/wetory-support-maintenance.php:18
 msgid "Maintenance Mode"
 msgstr "Režim údržby"
 
-#: public/partials/wetory-support-maintenance.php:22
+#: public/partials/wetory-support-maintenance.php:21
 msgid "Maintenance ongoing on this website."
 msgstr "Na tomto webu probíhá údržba."
 
-#: public/partials/wetory-support-maintenance.php:35
-msgid "Sorry for inconvenience"
-msgstr "Omlouváme se za nepříjemnosti"
-
-#: public/partials/wetory-support-maintenance.php:38
+#: public/partials/wetory-support-maintenance.php:34
 msgid "We are working to give you a better website right now."
 msgstr "Právě pracujeme na tom abychom vám poskytli lepší web."
 
-#: public/partials/wetory-support-maintenance.php:41
+#: public/partials/wetory-support-maintenance.php:37
 msgid ""
 "If you are facing problems for long time, let me know via <a href=\"mailto:"
 "admin@wetory.eu\">admin@wetory.eu</a>"
@@ -908,18 +996,13 @@ msgstr ""
 "Pokud se potýkáte s problémy delší dobu, dejte mi vědět prostřednictvím <a "
 "href=\"mailto:admin@wetory.eu\">admin@wetory.eu</a>"
 
-#: public/partials/wetory-support-maintenance.php:45
+#: public/partials/wetory-support-maintenance.php:41
 msgid "Page will refresh in"
 msgstr "Stránka se obnoví za"
 
-#: public/partials/wetory-support-maintenance.php:45
+#: public/partials/wetory-support-maintenance.php:41
 msgid "seconds"
 msgstr "sekund"
-
-#. Plugin Name of the plugin/theme
-#: public/partials/wetory-support-maintenance.php:47
-msgid "Wetory Support"
-msgstr "Wetory Support"
 
 #: templates/content-none.php:14
 msgid "Nothing to display"
@@ -929,7 +1012,7 @@ msgstr "Nic k zobrazení"
 msgid "It seems that no data exists for requested content."
 msgstr "Zdá se, že pro požadovaný obsah neexistují žádná data."
 
-#: templates/pagination-loadmore.php:21
+#: templates/pagination-loadmore.php:20
 #, php-format
 msgid ""
 "Showing <span class=\"displayed-posts-count bold-text\">%s</span> of <span "
@@ -965,12 +1048,6 @@ msgstr "Aktuální"
 #: templates/posts-filter/filter-wcpt-notice-board.php:43
 msgid "Archive"
 msgstr "Archiv"
-
-#: templates/posts-filter/filter-wcpt-notice-board.php:48
-#: templates/posts-filter/filter.php:44
-#: templates/posts-grid/item-wcpt-photogallery.php:31
-msgid "Category"
-msgstr "Kategorie"
 
 #: templates/posts-filter/filter-wcpt-notice-board.php:59
 #: templates/posts-filter/filter.php:55
@@ -1030,10 +1107,13 @@ msgstr "Zveřejněno"
 msgid "Go to detail"
 msgstr "Přejít k podrobnostem"
 
+#. Plugin Name of the plugin/theme
+msgid "Wetory Support"
+msgstr "Wetory Support"
+
 #. Plugin URI of the plugin/theme
-#. Author URI of the plugin/theme
-msgid "https://www.wetory.eu/"
-msgstr "https://www.wetory.eu/"
+msgid "https://docs.wetory.eu/wetory-support-plugin/"
+msgstr "https://docs.wetory.eu/wetory-support-plugin/"
 
 #. Description of the plugin/theme
 msgid ""
@@ -1050,16 +1130,81 @@ msgstr ""
 msgid "Tomáš Rybnický"
 msgstr "Tomáš Rybnický"
 
-#~ msgid "Published posts"
-#~ msgstr "Publikované příspěvky"
+#. Author URI of the plugin/theme
+msgid "https://www.wetory.eu/about-me/"
+msgstr "https://www.wetory.eu/about-me/"
 
-#~ msgctxt "Post Type General Name"
-#~ msgid "Notice board"
-#~ msgstr "Úřední deska"
+#, php-format
+#~ msgid "Custom updater registered for GitHub repository %s"
+#~ msgstr "Vlastní aktualizační modul registrovaný pro GitHub repositář %s"
 
-#~ msgctxt "Post Type General Name"
-#~ msgid "Photo gallery"
-#~ msgstr "Fotogalerie"
+#, php-format
+#~ msgid "Initializing custom updater data for GitHub repository %s"
+#~ msgstr "Inicializace dat aktualizačního modulu pro GitHub repositář %s"
+
+#, php-format
+#~ msgid "Going to download plugin %s releases from %s"
+#~ msgstr "Chystá se stahování vydaných verzí pluginu %s z %s"
+
+#, php-format
+#~ msgid "Plugin releases info downloaded for %s"
+#~ msgstr "Informace o vydaných verzích pluginu stažené pro %s"
+
+#, php-format
+#~ msgid "Latest release version - %s : %s"
+#~ msgstr "Nejnovější vydaná verze - %s : %s"
+
+#, php-format
+#~ msgid "Installed version - %s : %s"
+#~ msgstr "Nainstalovaná verze - %s : %s"
+
+#~ msgid "Sanitizing plugin settings"
+#~ msgstr "Sanitace nastavení pluginu"
+
+#~ msgid "Go to documentation page"
+#~ msgstr "Přejít na stránku dokumentace"
+
+#~ msgid "Here you can modify plugin debugging behaviour."
+#~ msgstr "Zde můžete upravit chování debuggování pluginu."
+
+#~ msgid "Verbosity"
+#~ msgstr "Úroveň podrobností"
+
+#~ msgid "Dashboard"
+#~ msgstr "Nástěnka"
+
+#~ msgid "Dashboard - Wetory"
+#~ msgstr "Nástěnka - Wetory"
+
+#~ msgid ""
+#~ "There was an error adding this setting. Please try again or contact "
+#~ "plugin author."
+#~ msgstr ""
+#~ "Při ukládání  tohoto nastavení došlo k chybě. Zkuste to prosím znovu nebo "
+#~ "kontaktujte autora pluginu."
+
+#~ msgid ""
+#~ "Nonce verification failed for this form. Please try again or contact "
+#~ "plugin author."
+#~ msgstr ""
+#~ "Ověření nonce se u tohoto formuláře nezdařilo. Zkuste to prosím znovu "
+#~ "nebo kontaktujte autora pluginu."
+
+#~ msgid "The pemalink structure has been updated."
+#~ msgstr "Struktura trvalých odkazů byla aktualizována."
+
+#, php-format
+#~ msgid ""
+#~ "Overview of all plugin settings can be found on <a href=\"%s\">dashboard</"
+#~ "a>."
+#~ msgstr ""
+#~ "Přehled všech nastavení pluginu naleznete na <a href=\"%s\">nástěnce</a>."
+
+#~ msgid "Configure custom post types you want to use in your website."
+#~ msgstr "Nakonfigurujte vlastní typy příspěvků, které chcete na webu použít."
+
+#~ msgid "Sorry for inconvenience"
+#~ msgstr "Omlouváme se za nepříjemnosti"
 
 #~ msgid "category"
 #~ msgstr "rubrika"
@@ -1069,11 +1214,6 @@ msgstr "Tomáš Rybnický"
 
 #~ msgid "Select shortcodes you want to use in your website"
 #~ msgstr "Vyberte shortcodes, které chcete použít na svém webu"
-
-#~ msgid ""
-#~ "Brief overview of plugin usage. Maybe will be extended to the future."
-#~ msgstr ""
-#~ "Stručný přehled o používání pluginů. Možná bude rozšířena do budoucnosti."
 
 #~ msgid "Library"
 #~ msgstr "Knihovna"

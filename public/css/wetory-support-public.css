@@ -17,6 +17,15 @@ button.loading {
     color: transparent !important;
 }
 
+/* Links */
+#wp-admin-bar-wetory-support-settings a.ab-item img {
+    vertical-align: middle;
+    opacity: 0.5;
+}
+#wp-admin-bar-wetory-support-settings a.ab-item img:hover {
+    opacity: 1;
+}
+
 /* Widget - Posts */
 .wetory-widget.posts-widget ul .post-title {
     font-size: 1rem !important;

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Wetory Support\n"
-"POT-Creation-Date: 2022-08-29 19:59+0200\n"
+"POT-Creation-Date: 2023-01-11 02:20+0100\n"
 "PO-Revision-Date: 2020-11-29 17:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -21,217 +21,64 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: admin/class-wetory-support-admin.php:120
-msgid "Dashboard"
-msgstr ""
-
-#: admin/class-wetory-support-admin.php:121
-#: admin/class-wetory-support-settings.php:170
+#: admin/class-wetory-support-admin.php:153
 #: admin/partials/wetory-support-admin-display.php:19
 #: admin/partials/wetory-support-admin-display.php:59
+#: admin/partials/wetory-support-admin-settings.php:27
 msgid "Settings"
+msgstr ""
+
+#: admin/class-wetory-support-admin.php:171
+#: admin/class-wetory-support-admin.php:203
+msgid "Settings - Wetory"
+msgstr ""
+
+#: admin/class-wetory-support-admin.php:172
+msgid "Wetory"
+msgstr ""
+
+#: admin/class-wetory-support-admin.php:216
+msgid "You do not have sufficient permission to perform this operation"
 msgstr ""
 
 #: admin/class-wetory-support-metabox-renderer.php:32
 msgid "No fields in this metabox."
 msgstr ""
 
-#: admin/class-wetory-support-metabox.php:224
+#: admin/class-wetory-support-metabox.php:203
 #, php-format
 msgid "There is already a field with name %s"
 msgstr ""
 
-#: admin/class-wetory-support-settings-renderer.php:107
+#: admin/class-wetory-support-settings-renderer.php:231
 msgid ""
 "No options list found in arguments! This parameter is required when using "
 "select type in render_settings_field callback."
 msgstr ""
 
-#: admin/class-wetory-support-settings-renderer.php:135
-#: admin/class-wetory-support-settings-renderer.php:214
+#: admin/class-wetory-support-settings-renderer.php:263
+#: admin/class-wetory-support-settings-renderer.php:400
 msgid "More info"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:157
-msgid "Dashboard - Wetory"
+#: admin/class-wetory-support-settings-renderer.php:381
+#: templates/posts-filter/filter-wcpt-notice-board.php:48
+#: templates/posts-filter/filter.php:44
+#: templates/posts-grid/item-wcpt-photogallery.php:31
+msgid "Category"
 msgstr ""
 
-#: admin/class-wetory-support-settings.php:158
-msgid "Wetory"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:169
-msgid "Settings - Wetory"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:188
-msgid ""
-"There was an error adding this setting. Please try again or contact plugin "
-"author."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:193
-msgid ""
-"Nonce verification failed for this form. Please try again or contact plugin "
-"author."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:241
-msgid "Maintenance"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:266
-msgid "Widgets"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:322
-msgid "Shortcodes"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:448
-msgid "Post type"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:452
-msgid "Post type key"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:456
-msgid "Use"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:458
-msgid "Check if you want to start using post type."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:461
-msgid "Rewrite slug"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:463
-msgid "Customize the permastruct slug. Defaults to post type key."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:466
-msgid "Custom fields"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:468
-msgid "Check if you want to allow specifying of custom fields for post type."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:471
-msgid "Comments"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:473
-msgid "Check if you want to allow comments for post type."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:476
-msgid "Excerpt"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:478
-msgid "Check if you want to allow excerpt for post type."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:481
-msgid "Revisions"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:483
-msgid "Check if you want to allow revisions for post type."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:486
-msgid "Posts"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:512
-msgid "Customize maintenance mode behaviour."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:514
-msgid "Maintenance mode page"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:516
-msgid ""
-"Plugin provides template for maintenance page which is shown instead of "
-"default maintenance notification panel."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:517
-msgid "Create maintenance page"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:517
-msgid "Creating page..."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:518
-msgid "Delete maintenance page"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:518
-msgid "Deleting page..."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:530
-msgid ""
-"Select <a href=\"https://wordpress.org/support/article/wordpress-widgets/\" "
-"target=\"_blank\">widgets</a> you want to use in your website"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:539
-msgid ""
-"Select <a href=\"https://codex.wordpress.org/Shortcode/\" target=\"_blank"
-"\">shortcodes</a> you want to use in your website"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:548
-msgid "Configure API keys for APIs you want to use in your website"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:585
-msgid "Settings saved."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:586
-msgid "The pemalink structure has been updated."
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:605
-msgid "General"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:606
-msgid "Custom post types"
-msgstr ""
-
-#: admin/class-wetory-support-settings.php:607
-msgid "API keys"
-msgstr ""
-
-#: admin/partials/wetory-support-admin-display-settings.php:17
-msgid "Wetory Settings"
-msgstr ""
-
-#: admin/partials/wetory-support-admin-display-settings.php:21
-msgid ""
-"Here you can modify plugin behavior. You can select what parts you want to "
-"use. Everything is disabled by default to prevent unnecesary loads."
-msgstr ""
-
-#: admin/partials/wetory-support-admin-display-settings.php:22
+#: admin/class-wetory-support-settings.php:83
 #, php-format
-msgid ""
-"Overview of all plugin settings can be found on <a href=\"%s\">dashboard</a>."
+msgid "Given settings section \"%s\" not found!"
 msgstr ""
 
-#: admin/partials/wetory-support-admin-display-settings.php:45
-msgid "Configure custom post types you want to use in your website."
+#: admin/class-wetory-support-settings.php:146
+msgid "Validating plugin settings"
+msgstr ""
+
+#: admin/class-wetory-support-settings.php:155
+msgid "Value for debugging verbosity is not valid!"
 msgstr ""
 
 #: admin/partials/wetory-support-admin-display.php:18
@@ -247,6 +94,7 @@ msgid "Option"
 msgstr ""
 
 #: admin/partials/wetory-support-admin-display.php:28
+#: admin/views/admin-settings-overview.php:33
 msgid "Key"
 msgstr ""
 
@@ -255,381 +103,622 @@ msgid "Subkey"
 msgstr ""
 
 #: admin/partials/wetory-support-admin-display.php:30
+#: admin/views/admin-settings-overview.php:35
 msgid "Value"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:193
+#: admin/partials/wetory-support-admin-settings.php:31
+msgid ""
+"Here you can modify plugin behavior. You can select what parts you want to "
+"use. Everything is disabled by default to prevent unnecesary loads."
+msgstr ""
+
+#: admin/partials/wetory-support-admin-settings.php:43
+msgid "General"
+msgstr ""
+
+#: admin/partials/wetory-support-admin-settings.php:44
+msgid "Content"
+msgstr ""
+
+#: admin/partials/wetory-support-admin-settings.php:45
+msgid "Connections"
+msgstr ""
+
+#: admin/partials/wetory-support-admin-settings.php:46
+#: admin/views/admin-settings-advanced.php:22
+msgid "Advanced"
+msgstr ""
+
+#: admin/partials/wetory-support-admin-settings.php:47
+msgid "Settings overview"
+msgstr ""
+
+#: admin/partials/wetory-support-admin-settings.php:48
+msgid "Help"
+msgstr ""
+
+#: admin/partials/wetory-support-admin-settings.php:98
+#, php-format
+msgid ""
+"Wetory Support %s &copy; %s | by <a href=\"%s\" target=\"_blank\">wetory</a>"
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:23
+msgid ""
+"Usually you do not need to touch these settings, but in case there are some "
+"troubles this section can be helpful."
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:30
+msgid "Debugging verbosity"
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:37
+msgid "Disabled"
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:38
+msgid "Basic"
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:39
+msgid "Detailed"
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:41
+msgid ""
+"Debugging is working only if <a href=\"https://wordpress.org/support/article/"
+"debugging-in-wordpress/\" target=\"_blank\">WordPress debugging</a> is "
+"enabled."
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:42
+msgid ""
+"Verbosity level can be changed to control what is written to WordPress debug "
+"log."
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:49
+msgid "Danger zone"
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:53
+msgid "Reset settings"
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:56
+msgid "Delete settings and reset"
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:56
+msgid "Are you sure you want to delete all your settings?"
+msgstr ""
+
+#: admin/views/admin-settings-advanced.php:57
+msgid "Warning: Resets all your current settings to default."
+msgstr ""
+
+#: admin/views/admin-settings-button-save.php:25
+msgid "Update Settings"
+msgstr ""
+
+#: admin/views/admin-settings-connections.php:22
+#: includes/controllers/class-wetory-support-apikeys-controller.php:67
+msgid "API Keys"
+msgstr ""
+
+#: admin/views/admin-settings-content.php:27
+#: includes/controllers/class-wetory-support-widgets-controller.php:69
+msgid "Widgets"
+msgstr ""
+
+#: admin/views/admin-settings-content.php:28
+#: includes/controllers/class-wetory-support-shortcodes-controller.php:67
+msgid "Shortcodes"
+msgstr ""
+
+#: admin/views/admin-settings-content.php:29
+#: admin/views/admin-settings-content.php:47
+msgid "Custom post types"
+msgstr ""
+
+#: admin/views/admin-settings-content.php:48
+msgid ""
+"Configure custom post types you want to use in your website. These are "
+"prepared most common post types ready to use with all meta properties."
+msgstr ""
+
+#: admin/views/admin-settings-content.php:50
+msgid "You need to refresh page to see effect of changed settings."
+msgstr ""
+
+#: admin/views/admin-settings-content.php:51
+#: admin/views/admin-settings-overview.php:27
+msgid "Reload page"
+msgstr ""
+
+#: admin/views/admin-settings-content.php:67
+msgid "Post type"
+msgstr ""
+
+#: admin/views/admin-settings-content.php:71
+msgid "Post type key"
+msgstr ""
+
+#: admin/views/admin-settings-content.php:75
+msgid "Use"
+msgstr ""
+
+#: admin/views/admin-settings-content.php:77
+msgid "Check if you want to start using post type."
+msgstr ""
+
+#: admin/views/admin-settings-content.php:80
+msgid "Rewrite slug"
+msgstr ""
+
+#: admin/views/admin-settings-content.php:82
+msgid "Customize the permastruct slug. Defaults to post type key."
+msgstr ""
+
+#: admin/views/admin-settings-content.php:85
+msgid "Comments"
+msgstr ""
+
+#: admin/views/admin-settings-content.php:87
+msgid "Check if you want to allow comments for post type."
+msgstr ""
+
+#: admin/views/admin-settings-content.php:90
+msgid "Excerpt"
+msgstr ""
+
+#: admin/views/admin-settings-content.php:92
+msgid "Check if you want to allow excerpt for post type."
+msgstr ""
+
+#: admin/views/admin-settings-content.php:95
+msgid "Revisions"
+msgstr ""
+
+#: admin/views/admin-settings-content.php:97
+msgid "Check if you want to allow revisions for post type."
+msgstr ""
+
+#: admin/views/admin-settings-content.php:100
+msgid "Published posts"
+msgstr ""
+
+#: admin/views/admin-settings-general.php:21
+#: admin/views/admin-settings-general.php:29
+msgid "Plugin"
+msgstr ""
+
+#: admin/views/admin-settings-general.php:22
+#: admin/views/admin-settings-general.php:49
+msgid "Maintenance"
+msgstr ""
+
+#: admin/views/admin-settings-general.php:23
+msgid "Security"
+msgstr ""
+
+#: admin/views/admin-settings-general.php:30
+msgid "Customize general plugin behaviour."
+msgstr ""
+
+#: admin/views/admin-settings-general.php:34
+msgid "Hide admin bar menu"
+msgstr ""
+
+#: admin/views/admin-settings-general.php:39
+msgid "Plugin settings page available from admin toolbar can be hidden."
+msgstr ""
+
+#: admin/views/admin-settings-general.php:50
+msgid "Customize maintenance mode behaviour."
+msgstr ""
+
+#: admin/views/admin-settings-general.php:53
+msgid "Maintenance mode page"
+msgstr ""
+
+#: admin/views/admin-settings-general.php:55
+msgid "Create maintenance page"
+msgstr ""
+
+#: admin/views/admin-settings-general.php:55
+msgid "Creating page..."
+msgstr ""
+
+#: admin/views/admin-settings-general.php:56
+msgid "Delete maintenance page"
+msgstr ""
+
+#: admin/views/admin-settings-general.php:56
+msgid "Deleting page..."
+msgstr ""
+
+#: admin/views/admin-settings-general.php:57
+msgid ""
+"Plugin provides template for maintenance page which is shown instead of "
+"default maintenance notification panel."
+msgstr ""
+
+#: admin/views/admin-settings-general.php:63
+msgid ""
+"<a href=\"https://developer.wordpress.org/plugins/cron/\" targte=\"_blank"
+"\">WP-Cron</a> is disabled on this website. Automatic custom maintenance "
+"page recreation will not work as it is using WP-Cron for event scheduling."
+msgstr ""
+
+#: admin/views/admin-settings-general.php:69
+msgid "Disable recreate of custom maintenance page"
+msgstr ""
+
+#: admin/views/admin-settings-general.php:75
+msgid ""
+"Custom maintenance page is by default automatically recreated by WP-Cron "
+"scheduled events."
+msgstr ""
+
+#: admin/views/admin-settings-help.php:23
+msgid "Help links"
+msgstr ""
+
+#: admin/views/admin-settings-help.php:24
+msgid "Use below links to get started or get help and support."
+msgstr ""
+
+#: admin/views/admin-settings-help.php:28
+#: admin/views/admin-settings-help.php:31
+msgid "Documentation"
+msgstr ""
+
+#: admin/views/admin-settings-help.php:29
+msgid "Refer to our documentation to set and get started"
+msgstr ""
+
+#: admin/views/admin-settings-help.php:36
+msgid "Help and Support"
+msgstr ""
+
+#: admin/views/admin-settings-help.php:37
+msgid "We would love to help you on any queries or issues."
+msgstr ""
+
+#: admin/views/admin-settings-help.php:39
+msgid "Contact"
+msgstr ""
+
+#: admin/views/admin-settings-overview.php:23
+msgid "Plugin settings overview"
+msgstr ""
+
+#: admin/views/admin-settings-overview.php:24
+msgid "Brief overview of this plugin settings on one screen."
+msgstr ""
+
+#: admin/views/admin-settings-overview.php:26
+msgid "You must refresh the page to see the effect of the changed settings."
+msgstr ""
+
+#: admin/views/admin-settings-overview.php:32
+msgid "Section"
+msgstr ""
+
+#: admin/views/admin-settings-overview.php:34
+msgid "Name"
+msgstr ""
+
+#: includes/class-wetory-support-ajax.php:47
+msgid "Updating plugin settings"
+msgstr ""
+
+#: includes/class-wetory-support-ajax.php:60
+msgid "Settings updated successfully"
+msgstr ""
+
+#: includes/class-wetory-support-ajax.php:68
+msgid "Resetting plugin settings"
+msgstr ""
+
+#: includes/class-wetory-support-ajax.php:84
+msgid "Settings set to defaults successfully"
+msgstr ""
+
+#: includes/class-wetory-support-updater.php:354
+#, php-format
+msgid "Running post-update actions for version %s"
+msgstr ""
+
+#: includes/class-wetory-support-updater.php:423
+msgid "Wetory Support - Plugin settings options migrated for version 1.2.1"
+msgstr ""
+
+#: includes/controllers/class-wetory-support-apikeys-controller.php:68
+msgid "Configure API keys for APIs you want to use in your website."
+msgstr ""
+
+#: includes/controllers/class-wetory-support-shortcodes-controller.php:68
+msgid ""
+"Select <a href=\"https://codex.wordpress.org/Shortcode/\" target=\"_blank"
+"\">shortcodes</a> you want to use in your website."
+msgstr ""
+
+#: includes/controllers/class-wetory-support-widgets-controller.php:70
+msgid ""
+"Select <a href=\"https://wordpress.org/support/article/wordpress-widgets/\" "
+"target=\"_blank\">widgets</a> you want to use in your website."
+msgstr ""
+
+#: includes/cpt/abstract-wetory-support-cpt.php:194
 msgid "You are not allowed to modify this post!"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:193
+#: includes/cpt/abstract-wetory-support-cpt.php:194
 msgid "Unauthorized action"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:274
+#: includes/cpt/abstract-wetory-support-cpt.php:275
 msgctxt "Post Type General Name"
 msgid "Post Types"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:275
+#: includes/cpt/abstract-wetory-support-cpt.php:276
 msgctxt "Post Type Singular Name"
 msgid "Post Type"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:276
+#: includes/cpt/abstract-wetory-support-cpt.php:277
 msgid "Post Types"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:277
+#: includes/cpt/abstract-wetory-support-cpt.php:278
 msgid "Post Type"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:278
+#: includes/cpt/abstract-wetory-support-cpt.php:279
 msgid "Item Archives"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:279
+#: includes/cpt/abstract-wetory-support-cpt.php:280
 msgid "Item Attributes"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:280
+#: includes/cpt/abstract-wetory-support-cpt.php:281
 msgid "Parent Item:"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:281
+#: includes/cpt/abstract-wetory-support-cpt.php:282
 msgid "All Items"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:282
+#: includes/cpt/abstract-wetory-support-cpt.php:283
 msgid "Add New Item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:283
+#: includes/cpt/abstract-wetory-support-cpt.php:284
 msgid "Add New"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:284
+#: includes/cpt/abstract-wetory-support-cpt.php:285
 msgid "New Item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:285
+#: includes/cpt/abstract-wetory-support-cpt.php:286
 msgid "Edit Item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:286
+#: includes/cpt/abstract-wetory-support-cpt.php:287
 msgid "Update Item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:287
+#: includes/cpt/abstract-wetory-support-cpt.php:288
 msgid "View Item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:288
+#: includes/cpt/abstract-wetory-support-cpt.php:289
 msgid "View Items"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:289
+#: includes/cpt/abstract-wetory-support-cpt.php:290
 msgid "Search Item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:290
+#: includes/cpt/abstract-wetory-support-cpt.php:291
 msgid "Not found"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:291
+#: includes/cpt/abstract-wetory-support-cpt.php:292
 msgid "Not found in Trash"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:292
+#: includes/cpt/abstract-wetory-support-cpt.php:293
 msgid "Featured Image"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:293
+#: includes/cpt/abstract-wetory-support-cpt.php:294
 msgid "Set featured image"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:294
+#: includes/cpt/abstract-wetory-support-cpt.php:295
 msgid "Remove featured image"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:295
+#: includes/cpt/abstract-wetory-support-cpt.php:296
 msgid "Use as featured image"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:296
+#: includes/cpt/abstract-wetory-support-cpt.php:297
 msgid "Insert into item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:297
+#: includes/cpt/abstract-wetory-support-cpt.php:298
 msgid "Uploaded to this item"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:298
+#: includes/cpt/abstract-wetory-support-cpt.php:299
 msgid "Items list"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:299
+#: includes/cpt/abstract-wetory-support-cpt.php:300
 msgid "Items list navigation"
 msgstr ""
 
-#: includes/cpt/abstract-wetory-support-cpt.php:300
+#: includes/cpt/abstract-wetory-support-cpt.php:301
 msgid "Filter items list"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:26
-#: includes/cpt/cpt-wetory-support-notice-board.php:55
+#: includes/cpt/cpt-wetory-support-notice-board.php:27
 #: includes/cpt/cpt-wetory-support-notice-board.php:56
-msgid "Notice Board"
+#: includes/cpt/cpt-wetory-support-notice-board.php:57
+msgid "Notice board"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:27
+#: includes/cpt/cpt-wetory-support-notice-board.php:28
 msgid ""
 "Custom post type notice board is used for official records which is "
 "mandatory for city/village websites."
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:53
-msgctxt "Post Type General Name"
-msgid "Notice Board"
-msgstr ""
-
 #: includes/cpt/cpt-wetory-support-notice-board.php:54
-msgctxt "Post Type Singular Name"
-msgid "Notice Board Post"
+msgctxt "Post Type General Name"
+msgid "Notice board"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:57
-msgid "Create New Notice Board Post"
+#: includes/cpt/cpt-wetory-support-notice-board.php:55
+msgctxt "Post Type Singular Name"
+msgid "Notice board post"
 msgstr ""
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:58
-msgid "Create Post"
+msgid "Create new notice board post"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:90
-msgid "Post validity"
+#: includes/cpt/cpt-wetory-support-notice-board.php:59
+msgid "Create post"
 msgstr ""
 
 #: includes/cpt/cpt-wetory-support-notice-board.php:91
+msgid "Post validity"
+msgstr ""
+
+#: includes/cpt/cpt-wetory-support-notice-board.php:92
 msgid "This post supports limited validity in time. Select limiting dates."
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:99
-#: includes/cpt/cpt-wetory-support-notice-board.php:142
-#: includes/cpt/cpt-wetory-support-notice-board.php:145
-#: includes/cpt/cpt-wetory-support-notice-board.php:156
+#: includes/cpt/cpt-wetory-support-notice-board.php:100
+#: includes/cpt/cpt-wetory-support-notice-board.php:143
+#: includes/cpt/cpt-wetory-support-notice-board.php:146
+#: includes/cpt/cpt-wetory-support-notice-board.php:157
 #: templates/posts-table/header-wcpt-notice-board.php:21
 msgid "Valid from"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:102
+#: includes/cpt/cpt-wetory-support-notice-board.php:103
 msgid "Specify start date of post validity"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:108
-#: includes/cpt/cpt-wetory-support-notice-board.php:150
-#: includes/cpt/cpt-wetory-support-notice-board.php:156
+#: includes/cpt/cpt-wetory-support-notice-board.php:109
+#: includes/cpt/cpt-wetory-support-notice-board.php:151
+#: includes/cpt/cpt-wetory-support-notice-board.php:157
 #: templates/posts-table/header-wcpt-notice-board.php:22
 msgid "Valid to"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:110
+#: includes/cpt/cpt-wetory-support-notice-board.php:111
 msgid "Specify end date of post validity"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:117
+#: includes/cpt/cpt-wetory-support-notice-board.php:118
 msgid "Post identity"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:118
+#: includes/cpt/cpt-wetory-support-notice-board.php:119
 msgid "Additional post identification data."
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:126
+#: includes/cpt/cpt-wetory-support-notice-board.php:127
 msgid "Reg. number"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:128
+#: includes/cpt/cpt-wetory-support-notice-board.php:129
 msgid "Can help identify post accross multiple systems"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:137
-#: includes/cpt/cpt-wetory-support-photogallery.php:83
-#: includes/cpt/cpt-wetory-support-team-members.php:204
+#: includes/cpt/cpt-wetory-support-notice-board.php:138
+#: includes/cpt/cpt-wetory-support-photogallery.php:84
 #, php-format
 msgid "\"%s\" is mandatory field!"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:137
-#: includes/cpt/cpt-wetory-support-photogallery.php:83
-#: includes/cpt/cpt-wetory-support-team-members.php:204
+#: includes/cpt/cpt-wetory-support-notice-board.php:138
+#: includes/cpt/cpt-wetory-support-photogallery.php:84
 msgid "Post title"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:142
-#: includes/cpt/cpt-wetory-support-notice-board.php:150
+#: includes/cpt/cpt-wetory-support-notice-board.php:143
+#: includes/cpt/cpt-wetory-support-notice-board.php:151
 #, php-format
 msgid "\"%s\" value is not valid date!"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:145
+#: includes/cpt/cpt-wetory-support-notice-board.php:146
 #, php-format
 msgid "\"%s\" value is required!"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-notice-board.php:156
+#: includes/cpt/cpt-wetory-support-notice-board.php:157
 #, php-format
 msgid "\"%s\" value must be higher or equal to \"%s\"!"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-photogallery.php:25
-msgid "Photo Gallery"
+#: includes/cpt/cpt-wetory-support-photogallery.php:26
+msgid "Photo gallery"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-photogallery.php:26
+#: includes/cpt/cpt-wetory-support-photogallery.php:27
 msgid ""
-"Custom post type photo gallery is used for creating photo galleries on "
+"Custom post type photogallery is used for creating photo galleries on "
 "website."
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-photogallery.php:52
-msgctxt "Post Type General Name"
-msgid "Photo Gallery"
-msgstr ""
-
 #: includes/cpt/cpt-wetory-support-photogallery.php:53
-msgctxt "Post Type Singular Name"
-msgid "Photo Gallery Post"
+msgctxt "Post Type General Name"
+msgid "Photo gallery"
 msgstr ""
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:54
-#: includes/cpt/cpt-wetory-support-photogallery.php:55
-msgid "Photo Galleries"
+msgctxt "Post Type Singular Name"
+msgid "Photo gallery post"
 msgstr ""
 
+#: includes/cpt/cpt-wetory-support-photogallery.php:55
 #: includes/cpt/cpt-wetory-support-photogallery.php:56
-msgid "Create New Gallery"
+msgid "Photo galleries"
 msgstr ""
 
 #: includes/cpt/cpt-wetory-support-photogallery.php:57
-msgid "Create Gallery"
+msgid "Create new photogallery"
 msgstr ""
 
-#: includes/cpt/cpt-wetory-support-team-members.php:26
-#: includes/cpt/cpt-wetory-support-team-members.php:55
-#: includes/cpt/cpt-wetory-support-team-members.php:56
-msgid "Team Members"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:27
-msgid ""
-"Custom post type team members is used for evidence of people working in team."
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:53
-msgctxt "Post Type General Name"
-msgid "Team Members"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:54
-msgctxt "Post Type Singular Name"
-msgid "Team member"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:57
-msgid "Create New Team Member"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:58
-msgid "Create Team Member"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:59
-msgid "Photo"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:92
-msgid "Contact information"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:93
-msgid ""
-"These information will be displayed on website depending on used template."
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:101
-msgid "Position"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:103
-msgid "Position in team where this member is working on."
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:109
-msgid "Email contact"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:118
-msgid "Phone contact"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:128
-msgid "Member availability"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:129
-msgid ""
-"Member availability is exposed to front-end with indicators when he/she can "
-"be contacted."
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:137
-msgid "Status"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:140
-msgid "Online"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:141
-msgid "Offline"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:146
-msgid "Display status for member (this overrides scheduled availability)"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:171
-msgid "Social media links"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:172
-msgid "These links will be displayed on website depending on used template."
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:180
-msgid "Facebook"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:187
-msgid "LinkedIn"
-msgstr ""
-
-#: includes/cpt/cpt-wetory-support-team-members.php:194
-msgid "Twitter"
+#: includes/cpt/cpt-wetory-support-photogallery.php:58
+msgid "Create photogallery"
 msgstr ""
 
 #: includes/wetory-support-functions-ajax.php:69
 #, php-format
-msgid "File <strong>maintenance.php</strong> created in <strong>%s</strong>"
+msgid "File <strong>%s/maintenance.php</strong> created"
 msgstr ""
 
 #: includes/wetory-support-functions-ajax.php:88
 #, php-format
-msgid "File <strong>maintenance.php</strong> deleted from <strong>%s</strong>"
+msgid "File <strong>%s/maintenance.php</strong> deleted"
 msgstr ""
 
-#: includes/wetory-support-functions.php:258
+#: includes/wetory-support-functions.php:254
 msgid "Load more"
 msgstr ""
 
@@ -850,39 +939,30 @@ msgstr ""
 msgid "Paragraph"
 msgstr ""
 
-#: public/partials/wetory-support-maintenance.php:19
+#: public/partials/wetory-support-maintenance.php:18
 msgid "Maintenance Mode"
 msgstr ""
 
-#: public/partials/wetory-support-maintenance.php:22
+#: public/partials/wetory-support-maintenance.php:21
 msgid "Maintenance ongoing on this website."
 msgstr ""
 
-#: public/partials/wetory-support-maintenance.php:35
-msgid "Sorry for inconvenience"
-msgstr ""
-
-#: public/partials/wetory-support-maintenance.php:38
+#: public/partials/wetory-support-maintenance.php:34
 msgid "We are working to give you a better website right now."
 msgstr ""
 
-#: public/partials/wetory-support-maintenance.php:41
+#: public/partials/wetory-support-maintenance.php:37
 msgid ""
 "If you are facing problems for long time, let me know via <a href=\"mailto:"
 "admin@wetory.eu\">admin@wetory.eu</a>"
 msgstr ""
 
-#: public/partials/wetory-support-maintenance.php:45
+#: public/partials/wetory-support-maintenance.php:41
 msgid "Page will refresh in"
 msgstr ""
 
-#: public/partials/wetory-support-maintenance.php:45
+#: public/partials/wetory-support-maintenance.php:41
 msgid "seconds"
-msgstr ""
-
-#. Plugin Name of the plugin/theme
-#: public/partials/wetory-support-maintenance.php:47
-msgid "Wetory Support"
 msgstr ""
 
 #: templates/content-none.php:14
@@ -893,7 +973,7 @@ msgstr ""
 msgid "It seems that no data exists for requested content."
 msgstr ""
 
-#: templates/pagination-loadmore.php:21
+#: templates/pagination-loadmore.php:20
 #, php-format
 msgid ""
 "Showing <span class=\"displayed-posts-count bold-text\">%s</span> of <span "
@@ -926,12 +1006,6 @@ msgstr ""
 
 #: templates/posts-filter/filter-wcpt-notice-board.php:43
 msgid "Archive"
-msgstr ""
-
-#: templates/posts-filter/filter-wcpt-notice-board.php:48
-#: templates/posts-filter/filter.php:44
-#: templates/posts-grid/item-wcpt-photogallery.php:31
-msgid "Category"
 msgstr ""
 
 #: templates/posts-filter/filter-wcpt-notice-board.php:59
@@ -990,9 +1064,12 @@ msgstr ""
 msgid "Go to detail"
 msgstr ""
 
+#. Plugin Name of the plugin/theme
+msgid "Wetory Support"
+msgstr ""
+
 #. Plugin URI of the plugin/theme
-#. Author URI of the plugin/theme
-msgid "https://www.wetory.eu/"
+msgid "https://docs.wetory.eu/wetory-support-plugin/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -1004,4 +1081,8 @@ msgstr ""
 
 #. Author of the plugin/theme
 msgid "Tomáš Rybnický"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.wetory.eu/about-me/"
 msgstr ""

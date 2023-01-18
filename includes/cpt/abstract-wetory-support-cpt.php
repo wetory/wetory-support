@@ -258,7 +258,7 @@ abstract class Wetory_Support_Cpt {
             wp_delete_post($post, true);
         }
 
-        wetory_write_log('Database cleanup performed for custo post type "' . $this->id . '", removed ' . sizeof($posts) . ' posts.', 'info');
+        wetory_write_log('Database cleanup performed for custom post type "' . $this->id . '", removed ' . sizeof($posts) . ' posts.');
     }
 
     /**

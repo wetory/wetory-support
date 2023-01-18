@@ -155,7 +155,7 @@ abstract class Wetory_Support_Shortcode {
      * @since 1.1.0
      */
     public function get_shortcode() {
-        return '[' . $this->id . ']';
+        return '<code>[' . $this->id . ']</code>';
     }
 
     /**

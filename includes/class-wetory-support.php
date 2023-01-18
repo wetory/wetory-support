@@ -15,7 +15,8 @@
  * @subpackage wetory_support/includes
  * @author     Tomáš Rybnický <tomas.rybnicky@wetory.eu>
  */
-class Wetory_Support {
+class Wetory_Support
+{
 
     /**
      * The loader that's responsible for maintaining and registering all hooks that power
@@ -53,7 +54,7 @@ class Wetory_Support {
      * @var      Wetory_Support_Apikeys_Controller  $plugin_apikeys  Maintains and uses API keys from the plugin.
      */
     protected $plugin_apikeys;
-    
+
     /**
      * Custom post types controller that is responsible for all custom post type objects from this plugin.
      *
@@ -90,7 +91,8 @@ class Wetory_Support {
      *
      * @since    1.0.0
      */
-    public function __construct() {
+    public function __construct()
+    {
         if (defined('WETORY_SUPPORT_VERSION')) {
             $this->version = WETORY_SUPPORT_VERSION;
         } else {
@@ -127,7 +129,8 @@ class Wetory_Support {
      * @since    1.0.0
      * @access   private
      */
-    private function load_dependencies() {
+    private function load_dependencies()
+    {
 
         /**
          * Load plugin updater
@@ -138,7 +141,7 @@ class Wetory_Support {
          * Load trait with useful functions for objects
          */
         require_once WETORY_SUPPORT_PATH . 'includes/traits/trait-wetory-support-object-file.php';
-        
+
         /**
          * Load template loader class
          */
@@ -190,7 +193,7 @@ class Wetory_Support {
          * The class containing rendering callback functions useful in settings pages.
          */
         require_once WETORY_SUPPORT_PATH . 'admin/class-wetory-support-settings-renderer.php';
-        
+
         /**
          * The class manages metaboxes in this plugin.
          */
@@ -205,16 +208,26 @@ class Wetory_Support {
          * The class manages AJAX requests in this plugin.
          */
         require_once WETORY_SUPPORT_PATH . 'includes/class-wetory-support-ajax.php';
-        
+
         /**
          * The class responsible plugin options management.
          */
         require_once WETORY_SUPPORT_PATH . 'includes/class-wetory-support-options.php';
-        
+
         /**
          * Validator service
          */
         require_once WETORY_SUPPORT_PATH . 'includes/class-wetory-support-validator.php';
+
+        /**
+         * Sanitizing service
+         */
+        require_once WETORY_SUPPORT_PATH . 'includes/class-wetory-support-sanitizer.php';
+
+        /**
+         * Debugger service
+         */
+        require_once WETORY_SUPPORT_PATH . 'includes/class-wetory-support-debugger.php';
 
         /**
          * The class responsible for defining all actions that occur in the public-facing
@@ -235,7 +248,8 @@ class Wetory_Support {
      * @since    1.0.0
      * @access   private
      */
-    private function load_controllers() {
+    private function load_controllers()
+    {
         // Require base clas first
         require_once WETORY_SUPPORT_PATH . 'includes/controllers/abstract-wetory-support-controller.php';
 
@@ -251,7 +265,8 @@ class Wetory_Support {
      * @since    1.0.0
      * @access   private
      */
-    private function initialize_objects() {
+    private function initialize_objects()
+    {
 
         $this->plugin_widgets = new Wetory_Support_Widgets_Controller();
         $this->plugin_shortcodes = new Wetory_Support_Shortcodes_Controller();
@@ -268,7 +283,8 @@ class Wetory_Support {
      * @since    1.0.0
      * @access   private
      */
-    private function set_locale() {
+    private function set_locale()
+    {
 
         $plugin_i18n = new Wetory_Support_i18n();
 
@@ -281,7 +297,8 @@ class Wetory_Support {
      * @since    1.0.0
      * @access   private
      */
-    private function register_plugin_content() {
+    private function register_plugin_content()
+    {
         $this->loader->add_action('widgets_init', $this->plugin_widgets, 'register');
         $this->loader->add_action('init', $this->plugin_shortcodes, 'register');
         $this->loader->add_action('init', $this->plugin_apikeys, 'register');
@@ -296,12 +313,13 @@ class Wetory_Support {
      * @since    1.0.1
      * @access   private
      */
-    private function register_updater() {
+    private function register_updater()
+    {
         if (is_admin()) {
-            new Wetory_Support_Updater(WETORY_SUPPORT_FILE, 'wetory', 'wetory-support'); 
+            new Wetory_Support_Updater(WETORY_SUPPORT_FILE, 'wetory', 'wetory-support');
         }
     }
-    
+
     /**
      * Register plugin's handlers for AJAX requests
      * 
@@ -310,7 +328,8 @@ class Wetory_Support {
      * @since    1.1.0
      * @access   private
      */
-    private function register_ajax_handlers(){
+    private function register_ajax_handlers()
+    {
         $plugin_ajax_handlers = new Wetory_Support_Ajax();
         $plugin_ajax_handlers->register_handlers();
     }
@@ -322,27 +341,27 @@ class Wetory_Support {
      * @since    1.0.0
      * @access   private
      */
-    private function define_admin_hooks() {
+    private function define_admin_hooks()
+    {
 
-        $plugin_admin = new Wetory_Support_Admin($this->get_plugin_name(), $this->get_version());
+        $plugin_admin = new Wetory_Support_Admin($this);
+        $plugin_settings = new Wetory_Support_Settings($this);
 
+        // Initialize settings
+        $this->loader->add_action('admin_init', $plugin_settings, 'init_settings');
+
+        // Add admin menu items
+        $this->loader->add_action('admin_menu', $plugin_admin, 'admin_menu');
+        $this->loader->add_action('admin_bar_menu', $plugin_admin, 'admin_bar_menu', 100);
+
+        // Add action links
+        $this->loader->add_filter('plugin_action_links_' . WETORY_SUPPORT_BASENAME, $plugin_admin, 'plugin_action_links');
+
+        // Load scripts and styles
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 
-        // This is required for building settings page according to loaded content
-        $plugin_settings = new Wetory_Support_Settings(
-                $this->get_plugin_widgets(),
-                $this->get_plugin_shortcodes(),
-                $this->get_plugin_apikeys(),
-                $this->get_plugin_cpts(),
-                $this->get_plugin_name()
-        );
-
-        $this->loader->add_filter('plugin_action_links_' . WETORY_SUPPORT_BASENAME, $plugin_admin, 'add_action_links');
-
-        $this->loader->add_action('admin_menu', $plugin_settings, 'add_settings_pages');
-        $this->loader->add_action('admin_init', $plugin_settings, 'register_and_build_fields');
-        
+        // Admin notices
         $this->loader->add_action('admin_notices', Wetory_Support_Admin_Notices::class, 'display_notices');
     }
 
@@ -353,7 +372,8 @@ class Wetory_Support {
      * @since    1.0.0
      * @access   private
      */
-    private function define_public_hooks() {
+    private function define_public_hooks()
+    {
 
         $plugin_public = new Wetory_Support_Public($this->get_plugin_name(), $this->get_version());
 
@@ -366,17 +386,19 @@ class Wetory_Support {
      *
      * @since    1.0.0
      */
-    public function run() {
+    public function run()
+    {
         $this->loader->run();
     }
-    
+
     /**
      * The reference to the class that manages the widgets in the plugin.
      *
      * @since     1.0.0
      * @return    Wetory_Support_Widgets_Controller    Manages the widgets in the plugin.
      */
-    public function get_plugin_widgets() {
+    public function get_plugin_widgets()
+    {
         return $this->plugin_widgets;
     }
 
@@ -386,7 +408,8 @@ class Wetory_Support {
      * @since     1.0.0
      * @return    Wetory_Support_Shortcodes_Controller    Manages the shortcodes in the plugin.
      */
-    public function get_plugin_shortcodes() {
+    public function get_plugin_shortcodes()
+    {
         return $this->plugin_shortcodes;
     }
 
@@ -396,17 +419,19 @@ class Wetory_Support {
      * @since     1.0.0
      * @return    Wetory_Support_Apikeys_Controller    Manages the API keys in the plugin.
      */
-    public function get_plugin_apikeys() {
+    public function get_plugin_apikeys()
+    {
         return $this->plugin_apikeys;
     }
-    
+
     /**
      * The reference to the class that manages the custom post types in the plugin.
      *
      * @since     1.1.0
      * @return    Wetory_Support_Cpt_Controller    Manages the custom post types in the plugin.
      */
-    public function get_plugin_cpts() {
+    public function get_plugin_cpts()
+    {
         return $this->plugin_cpts;
     }
 
@@ -418,7 +443,8 @@ class Wetory_Support {
      * @since     1.0.0
      * @return    string    The name of the plugin.
      */
-    public function get_plugin_name() {
+    public function get_plugin_name()
+    {
         return $this->plugin_name;
     }
 
@@ -428,7 +454,8 @@ class Wetory_Support {
      * @since     1.0.0
      * @return    Wetory_Support_Loader    Orchestrates the hooks of the plugin.
      */
-    public function get_loader() {
+    public function get_loader()
+    {
         return $this->loader;
     }
 
@@ -438,8 +465,8 @@ class Wetory_Support {
      * @since     1.0.0
      * @return    string    The version number of the plugin.
      */
-    public function get_version() {
+    public function get_version()
+    {
         return $this->version;
     }
-
 }

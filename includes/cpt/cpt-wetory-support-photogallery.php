@@ -3,6 +3,7 @@
 /**
  * Name: Photo Gallery
  * Description: Custom post type photo gallery is used for creating photo galleries on website.
+ * Category: Common
  *
  * Link: https://www.wetory.eu/ideas/
  * 

@@ -3,6 +3,7 @@
 /**
  * Name: Notice Board
  * Description: Custom post type notice board is used for official records which is mandatory for city/village websites.
+ * Category: Administrative
  *
  * Link: https://www.wetory.eu/ideas/
  * 

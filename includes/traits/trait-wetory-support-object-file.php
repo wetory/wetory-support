@@ -68,6 +68,7 @@ trait Wetory_Support_Object_File_Trait
             'name' => 'Name',
             'description' => 'Description',
             'link' => 'Link',
+            'category' => 'Category',
         ));
         return $meta;
     }
