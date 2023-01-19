@@ -24,7 +24,7 @@ $cpt_objects = $this->plugin_obj->get_plugin_cpts()->get_objects();
 
 <div class="wetory-support-tab-content" data-id="<?php echo esc_attr($target_id); ?>">
     <ul class="wetory-support-sub-tab">
-        <li data-target="widgets"><a><?php echo esc_html__('Widgets', 'wetory-support'); ?></a></li>
+        <li data-target="widgets"><a><?php echo esc_html__('Widgets', 'wetory-support'); ?> (<?php echo esc_html__('deprecated', 'wetory-support'); ?>)</a></li>
         <li data-target="shortcodes"><a><?php echo esc_html__('Shortcodes', 'wetory-support'); ?></a></li>
         <li data-target="cpt"><a><?php echo esc_html__('Custom post types', 'wetory-support'); ?></a></li>
 
