@@ -66,7 +66,7 @@ class Wetory_Support_Widgets_Controller extends Wetory_Controller
         $section_name = WETORY_SUPPORT_SETTINGS_WIDGETS_SECTION;
 
         $section = array(
-            'title' => __('Widgets', 'wetory-support') . '(' . __('deprecated', 'wetory-support') . ')',
+            'title' => __('Widgets', 'wetory-support') . ' (' . __('deprecated', 'wetory-support') . ')',
             'description' => __('Select <a href="https://wordpress.org/support/article/wordpress-widgets/" target="_blank">widgets</a> you want to use in your website.', 'wetory-support'),
             'settings_fields' => array()
         );

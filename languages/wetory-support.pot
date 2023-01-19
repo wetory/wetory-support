@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Wetory Support\n"
-"POT-Creation-Date: 2023-01-19 00:00+0100\n"
+"POT-Creation-Date: 2023-01-19 01:13+0100\n"
 "PO-Revision-Date: 2020-11-29 17:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -211,6 +211,11 @@ msgstr ""
 #: admin/views/admin-settings-content.php:27
 #: includes/controllers/class-wetory-support-widgets-controller.php:69
 msgid "Widgets"
+msgstr ""
+
+#: admin/views/admin-settings-content.php:27
+#: includes/controllers/class-wetory-support-widgets-controller.php:69
+msgid "deprecated"
 msgstr ""
 
 #: admin/views/admin-settings-content.php:28
