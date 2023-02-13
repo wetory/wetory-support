@@ -23,11 +23,11 @@ $cpt_objects = $this->plugin_obj->get_plugin_cpts()->get_objects();
 ?>
 
 <div class="wetory-support-tab-content" data-id="<?php echo esc_attr($target_id); ?>">
-    <ul class="wetory-support-sub-tab">
-        <li data-target="widgets"><a><?php echo esc_html__('Widgets', 'wetory-support'); ?> (<?php echo esc_html__('deprecated', 'wetory-support'); ?>)</a></li>
-        <li data-target="shortcodes"><a><?php echo esc_html__('Shortcodes', 'wetory-support'); ?></a></li>
+    <ul class="wetory-support-sub-tab">         
         <li data-target="cpt"><a><?php echo esc_html__('Custom post types', 'wetory-support'); ?></a></li>
-
+        <li data-target="shortcodes"><a><?php echo esc_html__('Shortcodes', 'wetory-support'); ?></a></li>
+        <li data-target="widgets"><a><?php echo esc_html__('Widgets', 'wetory-support'); ?> (<?php echo esc_html__('deprecated', 'wetory-support'); ?>)</a></li>
+        <li data-target="third-party-libraries"><a><?php echo esc_html__('3rd party libraries', 'wetory-support'); ?></a></li>    
     </ul>
     <div class="wetory-support-sub-tab-container">
         <div class="wetory-support-sub-tab-content" data-id="widgets" style="display:block;">
@@ -116,6 +116,62 @@ $cpt_objects = $this->plugin_obj->get_plugin_cpts()->get_objects();
                     // Render table using helper function
                     Wetory_Support_Settings_Renderer::render_horizontal_form_table($args, $cpt_array_objects);
                 }
+                ?>
+            </div>
+        </div>
+        <div class="wetory-support-sub-tab-content" data-id="third-party-libraries">
+            <div class="wetory-support-settings-section third-party-libraries">
+                <h3 class="title"><?php _e('3rd party libraries', 'wetory-support'); ?></h3>
+                <p class="description"><?php _e('Plugin is using some 3rd party libraries by default, you can prevent their load in this section.', 'wetory-support'); ?></p>
+                <div class="alert alert-warning" role="alert">
+                    <?php _e('In some cases libraries from this plugin can be in conflict with libraries from themes or other plugins. Use this settings only when necesary as some funtionality can be affected!', 'wetory-support'); ?>
+                </div>
+                <?php    
+                    $third_party_libs = array(
+                        0 => array(
+                            'id' => 'bootstrap-4.4.1',
+                            'name' => 'Bootstrap',
+                            'version' => '4.4.1',
+                            'link' => 'https://getbootstrap.com/docs/4.4/getting-started/introduction/'
+                        ),
+                        1 => array(
+                            'id' => 'select2-4.0.13',
+                            'name' => 'Select2',
+                            'version' => '4.0.13',
+                            'link' => 'https://select2.org/'
+                        )
+                    );
+                
+                    $args = array(
+                        'option_section' => 'third_party_libs',
+                        'columns' => array(
+                            'name' => array(
+                                'label' => __('Name', 'wetory-support'),
+                                'type' => 'raw',
+                            ),
+                            'version' => array(
+                                'label' => __('Version', 'wetory-support'),
+                                'type' => 'raw',
+                            ),
+                            'prevent-in-public' => array(
+                                'label' => __('Do not load in frontend', 'wetory-support'),
+                                'type' => 'checkbox',
+                                'help' => __('Check if you want to prevent load of this library in frontend of website.', 'wetory-support'),
+                            ),
+                            'prevent-in-admin' => array(
+                                'label' => __('Do not load in administration', 'wetory-support'),
+                                'type' => 'checkbox',
+                                'help' => __('Check if you want to prevent load of this library in administration of website.', 'wetory-support'),
+                            ),
+                            'link' => array(
+                                'label' => '',
+                                'type' => 'link',
+                                'class' => 'compact',
+                            )
+                        ),
+                    );
+                    // Render table using helper function
+                    Wetory_Support_Settings_Renderer::render_horizontal_form_table($args, $third_party_libs);
                 ?>
             </div>
         </div>
