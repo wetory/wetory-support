@@ -53,7 +53,7 @@ if (!defined('WPINC')) {
                                                 <td class="%4$s">%5$s</td>
                                                 <td>%6$s</td>
                                                 <td>%7$s</td>
-                                                <td style="width: 10px"><a href="#TB_inline?&width=500&height=250&inlineId=settings-in-code" class="thickbox" title="%8$s" data-section="%3$s" data-key="%5$s" data-name="%6$s"><span class="dashicons dashicons-editor-code"></span></a></td>
+                                                <td style="width: 20px"><a href="#TB_inline?&width=500&height=250&inlineId=settings-in-code" class="thickbox" title="%8$s" data-section="%3$s" data-key="%5$s" data-name="%6$s"><span class="dashicons dashicons-editor-code"></span></a></td>
                                             </tr>',
                                             ($section_out || $key_out) ? 'group' : '',
                                             $section_out ? '' : 'group',
@@ -77,7 +77,7 @@ if (!defined('WPINC')) {
                                             <td class="%4$s">%5$s</td>
                                             <td>%6$s</td>
                                             <td>%7$s</td>
-                                            <td style="width: 10px"><a href="#TB_inline?&width=500&height=250&inlineId=settings-in-code" class="thickbox" title="%8$s" data-section="%3$s" data-key="%5$s" data-name="%6$s"><span class="dashicons dashicons-editor-code"></span></a></td>
+                                            <td style="width: 20px"><a href="#TB_inline?&width=500&height=250&inlineId=settings-in-code" class="thickbox" title="%8$s" data-section="%3$s" data-key="%5$s" data-name="%6$s"><span class="dashicons dashicons-editor-code"></span></a></td>
                                         </tr>',
                                         ($section_out || $key_out) ? 'group' : '',
                                         $section_out ? '' : 'group',
