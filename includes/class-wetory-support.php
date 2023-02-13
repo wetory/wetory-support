@@ -354,6 +354,9 @@ class Wetory_Support
         $this->loader->add_action('admin_menu', $plugin_admin, 'admin_menu');
         $this->loader->add_action('admin_bar_menu', $plugin_admin, 'admin_bar_menu', 100);
 
+        // Add ThickBox support (modal dialogs)
+        $this->loader->add_action('admin_init', $plugin_admin, 'add_thickbox');
+
         // Add action links
         $this->loader->add_filter('plugin_action_links_' . WETORY_SUPPORT_BASENAME, $plugin_admin, 'plugin_action_links');
 
