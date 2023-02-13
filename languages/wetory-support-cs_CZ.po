@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wetory support\n"
-"POT-Creation-Date: 2023-01-19 01:12+0100\n"
-"PO-Revision-Date: 2023-01-19 01:12+0100\n"
+"POT-Creation-Date: 2023-02-13 19:46+0100\n"
+"PO-Revision-Date: 2023-02-13 19:47+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -34,6 +34,7 @@ msgid "Settings - Wetory"
 msgstr "Nastavení - Wetory"
 
 #: admin/class-wetory-support-admin.php:172
+#: admin/views/admin-settings-connections.php:46
 msgid "Wetory"
 msgstr "Wetory"
 
@@ -216,10 +217,47 @@ msgstr "Upozornění: Obnoví všechna aktuální nastavení na výchozí."
 msgid "Update Settings"
 msgstr "Aktualizovat nastavení"
 
-#: admin/views/admin-settings-connections.php:22
+#: admin/views/admin-settings-connections.php:23
 #: includes/controllers/class-wetory-support-apikeys-controller.php:67
 msgid "API Keys"
 msgstr "Klíče rozhraní API"
+
+#: admin/views/admin-settings-connections.php:24
+#: admin/views/admin-settings-connections.php:32
+msgid "Links"
+msgstr "Odkazy"
+
+#: admin/views/admin-settings-connections.php:33
+msgid "Usefull links to hidden plugins and external tools."
+msgstr "Užitečné odkazy na skryté pluginy a externí nástroje."
+
+#: admin/views/admin-settings-connections.php:37
+msgid "BackWPup"
+msgstr "BackWPup"
+
+#: admin/views/admin-settings-connections.php:39
+msgid "Jobs"
+msgstr "Jobs"
+
+#: admin/views/admin-settings-connections.php:40
+msgid "Logs"
+msgstr "Logy"
+
+#: admin/views/admin-settings-connections.php:41
+msgid "Go to plugin page"
+msgstr "Přejít na stránku pluginu"
+
+#: admin/views/admin-settings-connections.php:41
+msgid "Plugin page"
+msgstr "Stránka pluginu"
+
+#: admin/views/admin-settings-connections.php:48
+msgid "Go to page"
+msgstr "Přejít na stránku"
+
+#: admin/views/admin-settings-connections.php:48
+msgid "Wordpress Manager"
+msgstr "Wordpress Manager"
 
 #: admin/views/admin-settings-content.php:27
 #: includes/controllers/class-wetory-support-widgets-controller.php:69
@@ -1288,9 +1326,6 @@ msgstr "https://www.wetory.eu/about-me/"
 
 #~ msgid "Sanitizing plugin settings"
 #~ msgstr "Sanitace nastavení pluginu"
-
-#~ msgid "Go to documentation page"
-#~ msgstr "Přejít na stránku dokumentace"
 
 #~ msgid "Here you can modify plugin debugging behaviour."
 #~ msgstr "Zde můžete upravit chování debuggování pluginu."
