@@ -155,6 +155,19 @@ class Wetory_Support_Admin
     }
 
     /**
+     * Add ThickBox support to this plugin
+     * 
+     * ThickBox powers the modal lightboxes used in the WordPress admin
+     * 
+     * @since    1.2.1
+     * 
+     * @see https://codex.wordpress.org/ThickBox
+     */
+    public function add_thickbox(){
+        add_thickbox();
+    }
+
+    /**
      * Add options page to admin area
      * 
      * @since    1.2.1

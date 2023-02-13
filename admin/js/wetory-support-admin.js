@@ -70,7 +70,16 @@
             });
         });
 
+        // Update code sample in modal dialog in settings overview page
+        $('#settings-overview-table a.thickbox').click(function () {
+            section = "'" + this.dataset.section + "'"; 
+            key = this.dataset.key == "-" ? "null" : "'" + this.dataset.key + "'"; 
+            name = "'" + this.dataset.name + "'"; 
 
+            $('#settings-in-code-section').text(section);
+            $('#settings-in-code-key').text(key);
+            $('#settings-in-code-name').text(name);
+        });
 
         // Navigation tabs in settings page
         var ws_nav_tab = $('.wetory-support-nav-tab-wrapper .nav-tab');
