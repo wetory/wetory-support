@@ -49,7 +49,18 @@ class Widget_Wetory_Support_Favourite_Posts extends Wetory_Support_Widget {
             return;
         }
         
-        wp_enqueue_script('select2', WETORY_SUPPORT_URL . 'assets/select2/4.0.13/js/select2.min.js', array('jquery'), '4.0.13', true);
+        // Select2 load can be prevented from settings
+        $prevent = Wetory_Support_Options::get_settings_value(
+            array(  
+                'option_section' => 'third_party_libs',
+                'option_key' => 'select2-4.0.13',
+                'name' => 'prevent-in-admin',
+            )
+        );
+        if(!isset($prevent)){
+            wp_enqueue_script('select2', WETORY_SUPPORT_URL . 'assets/select2/4.0.13/js/select2.min.js', array('jquery'), '4.0.13', true);
+        }
+
         wp_enqueue_script('wetory-favourite-posts-script', WETORY_SUPPORT_URL . 'admin/js/widgets/wetory-favourite-posts.min.js', array('jquery', 'select2'), WETORY_SUPPORT_VERSION, true);
     }
     

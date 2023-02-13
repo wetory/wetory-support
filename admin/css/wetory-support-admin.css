@@ -160,6 +160,12 @@ table.widefat thead tr th {
 table.no-border {
     border: none !important;
 }
+#settings-overview-table a.thickbox {
+    display: none;
+}
+#settings-overview-table tbody tr:hover a.thickbox {
+    display: block;
+}
 
 /* Tab Navigation */
 .wetory-support-nav-tab-wrapper {
