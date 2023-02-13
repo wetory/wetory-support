@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Wetory Support\n"
-"POT-Creation-Date: 2023-02-13 19:46+0100\n"
+"POT-Creation-Date: 2023-02-13 19:51+0100\n"
 "PO-Revision-Date: 2020-11-29 17:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -215,7 +215,7 @@ msgid "Links"
 msgstr ""
 
 #: admin/views/admin-settings-connections.php:33
-msgid "Usefull links to hidden plugins and external tools."
+msgid "Useful links to hidden plugins and external tools."
 msgstr ""
 
 #: admin/views/admin-settings-connections.php:37

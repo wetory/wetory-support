@@ -30,7 +30,7 @@ if (!defined('WPINC')) {
         <div class="wetory-support-sub-tab-content" data-id="links" style="display:block;">
             <div class="wetory-support-settings-section links">
                 <h3><?php echo esc_html__('Links', 'wetory-support'); ?></h3>
-                <p><?php _e('Usefull links to hidden plugins and external tools.', 'wetory-support'); ?></p>
+                <p><?php _e('Useful links to hidden plugins and external tools.', 'wetory-support'); ?></p>
                 <table class="form-table">
                     <?php if (is_plugin_active('backwpup/backwpup.php') || true) : ?>
                         <tr valign="top">
