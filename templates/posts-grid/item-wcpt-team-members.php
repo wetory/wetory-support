@@ -52,7 +52,7 @@ $team_member = array(
                 <div class="team-member-contact">
                     <a href="mailto:<?php echo $team_member['email']; ?>"><?php echo $team_member['email']; ?></a>
                     <br>
-                    <a href="callto:<?php echo $team_member['email']; ?>"><?php echo $team_member['phone']; ?></a>
+                    <a href="tel:<?php echo $team_member['phone']; ?>"><?php echo $team_member['phone']; ?></a>
                 </div>
             </div>
         </div>        
