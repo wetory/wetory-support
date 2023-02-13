@@ -36,8 +36,8 @@ if (!defined('WPINC')) {
                         <tr valign="top">
                             <th scope="row"><?php _e('BackWPup', 'wetory-support'); ?></th>
                             <td>
-                                <a href="wp-admin/admin.php?page=backwpupjobs"><?php _e('Jobs', 'wetory-support'); ?></a> | 
-                                <a href="wp-admin/admin.php?page=backwpuplogs"><?php _e('Logs', 'wetory-support'); ?></a> | 
+                                <a href="<?php echo get_admin_url(); ?>/admin.php?page=backwpupjobs"><?php _e('Jobs', 'wetory-support'); ?></a> | 
+                                <a href="<?php echo get_admin_url(); ?>/admin.php?page=backwpuplogs"><?php _e('Logs', 'wetory-support'); ?></a> | 
                                 <a href="https://wordpress.org/plugins/backwpup/" target="_blank" title="<?php _e('Go to plugin page', 'wetory-support'); ?>"><?php _e('Plugin page', 'wetory-support'); ?></a>
                             </td>
                         </tr>
