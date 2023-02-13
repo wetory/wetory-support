@@ -32,7 +32,7 @@ if (!defined('WPINC')) {
                 <h3><?php echo esc_html__('Links', 'wetory-support'); ?></h3>
                 <p><?php _e('Useful links to hidden plugins and external tools.', 'wetory-support'); ?></p>
                 <table class="form-table">
-                    <?php if (is_plugin_active('backwpup/backwpup.php') || true) : ?>
+                    <?php if (is_plugin_active('backwpup/backwpup.php')) : ?>
                         <tr valign="top">
                             <th scope="row"><?php _e('BackWPup', 'wetory-support'); ?></th>
                             <td>
