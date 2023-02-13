@@ -330,7 +330,7 @@ class Wetory_Support_Settings_Renderer
         }
         $categories = array_unique($categories);
 
-        if (sizeof($categories) > 1) {
+        if (sizeof($categories) >= 1) {
             $render_categories = true;
             $data_with_categories = array();
             foreach ($categories as $category) {
