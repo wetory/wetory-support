@@ -101,7 +101,7 @@ if (!defined('WPINC')) {
                 <p><?php _e('Query configuration settings value in PHP:', 'wetory-support'); ?></p>
                 <pre><code>$value = Wetory_Support_Options::get_settings_value(
     array(
-        'option_name' => '<?php echo WETORY_SUPPORT_SETTINGS_OPTION; ?>', // <?php _e('This is optional', 'wetory-support'); ?>
+        'option_name' => '<?php echo WETORY_SUPPORT_SETTINGS_OPTION; ?>',
         'option_section' => <span id="settings-in-code-section">maintenance</span>,
         'option_key' => <span id="settings-in-code-key">maintenance-page</span>,
         'name' => <span id="settings-in-code-name">disable-autorecreate</span>,
