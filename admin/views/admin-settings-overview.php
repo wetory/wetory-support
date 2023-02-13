@@ -26,7 +26,7 @@ if (!defined('WPINC')) {
                 <?php _e('You must refresh the page to see the effect of the changed settings.', 'wetory-support'); ?>
                 <a onClick="window.location.reload()" class="alert-link reload-page"><?php _e('Reload page', 'wetory-support'); ?></a>
             </div>
-            <table class="widefat groupped-values">
+            <table id="settings-overview-table" class="widefat groupped-values">
                 <thead>
                     <tr>
                         <th><?php _e('Section', 'wetory-support'); ?></th>
@@ -53,7 +53,7 @@ if (!defined('WPINC')) {
                                                 <td class="%4$s">%5$s</td>
                                                 <td>%6$s</td>
                                                 <td>%7$s</td>
-                                                <td style="width: 10px"><a href="#TB_inline?&width=500&height=250&inlineId=settings-in-code" class="thickbox" title="%8$s"><span class="dashicons dashicons-editor-code"></span></a></td>
+                                                <td style="width: 10px"><a href="#TB_inline?&width=500&height=250&inlineId=settings-in-code" class="thickbox" title="%8$s" data-section="%3$s" data-key="%5$s" data-name="%6$s"><span class="dashicons dashicons-editor-code"></span></a></td>
                                             </tr>',
                                             ($section_out || $key_out) ? 'group' : '',
                                             $section_out ? '' : 'group',
@@ -77,7 +77,7 @@ if (!defined('WPINC')) {
                                             <td class="%4$s">%5$s</td>
                                             <td>%6$s</td>
                                             <td>%7$s</td>
-                                            <td style="width: 10px"><a href="#TB_inline?&width=500&height=250&inlineId=settings-in-code" class="thickbox" title="%8$s"><span class="dashicons dashicons-editor-code"></span></a></td>
+                                            <td style="width: 10px"><a href="#TB_inline?&width=500&height=250&inlineId=settings-in-code" class="thickbox" title="%8$s" data-section="%3$s" data-key="%5$s" data-name="%6$s"><span class="dashicons dashicons-editor-code"></span></a></td>
                                         </tr>',
                                         ($section_out || $key_out) ? 'group' : '',
                                         $section_out ? '' : 'group',
@@ -102,9 +102,9 @@ if (!defined('WPINC')) {
                 <pre><code>$value = Wetory_Support_Options::get_settings_value(
     array(
         'option_name' => '<?php echo WETORY_SUPPORT_SETTINGS_OPTION; ?>' // This is optional
-        'option_section' => '<span id="settings-in-code-section">maintenance</span>',
-        'option_key' => '<span id="settings-in-code-key">maintenance-page</span>',
-        'name' => '<span id="settings-in-code-name">disable-autorecreate</span>',
+        'option_section' => <span id="settings-in-code-section">maintenance</span>,
+        'option_key' => <span id="settings-in-code-key">maintenance-page</span>,
+        'name' => <span id="settings-in-code-name">disable-autorecreate</span>,
     )
 );</code></pre>
             </div>
