@@ -26,7 +26,7 @@ class Cpt_Wetory_Support_Team_Members extends Wetory_Support_Cpt {
             'label' => __('Team Members', 'wetory-support'),
             'description' => __('Custom post type team members is used for evidence of people working in team.', 'wetory-support'),
             'labels' => $this->labels(),
-            'supports' => $this->supports(array('title', 'editor', 'thumbnail')),
+            'supports' => $this->supports(array('title', 'editor', 'thumbnail', 'page-attributes')), // 'page-attributes' here adding support for ordering of posts
             'taxonomies' => array(),
             'hierarchical' => false,
             'public' => true,
