@@ -103,6 +103,7 @@ table.wetory-table .no-results {
 .wetory-grid .wetory-grid-item .card .card-img-top {
     height: 250px;
     object-fit: cover;
+    padding: 0;
 }
 .wetory-grid .wetory-grid-item .card .card-body {
     min-height: 150px;
@@ -179,28 +180,28 @@ form.wetory-ajax-filter .filter-status.loading {
 }
 
 /* Responsive mobile devices support */
- 
+
 /* extra small devices */
 @media (max-width: 576px) {
 
 }
- 
+
 /* small devices */
-@media (max-width: 768px) {    
+@media (max-width: 768px) {
 
 }
- 
+
 /* medium devices */
 @media (max-width:992px) {
 
 }
- 
+
 /* large devices */
 @media (max-width:1200px) {
- 
+
 }
- 
+
 /* xlarge devices */
 @media (min-width:1200px) {
- 
+
 }
