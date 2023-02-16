@@ -19,7 +19,7 @@ $img_src = wetory_get_post_thumbnail_url();
 ?> 
 <div class="wetory-grid-item <?php echo $col_class; ?>">
     <div class="card">
-        <img class="card-img-top" src="<?php echo $img_src; ?>" alt="Card image">
+        <a href="<?php the_permalink(); ?>"><img class="card-img-top" src="<?php echo $img_src; ?>" alt="Card image"></a>
         <div class="card-body">
             <h4 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
             <p class="card-text">
